@@ -71,7 +71,9 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
             "adresse": [
               "Stokmovn 39"
             ]
-          }
+          },
+          "rollegruppetype": "rollegruppe.oppr",
+          "rollegruppetypeBeskrivelse": "Oppretter"
         },
         {
           "rolleinnehaverType": "VIRKSOMHET",
@@ -89,7 +91,9 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
             "adresse": [
               "Stokmovn 39"
             ]
-          }
+          },
+          "rollegruppetype": "rollegruppe.anro",
+          "rollegruppetypeBeskrivelse": "Annen rolle"
         },
         {
           "rolleinnehaverType": "BRPERSON",
@@ -103,7 +107,9 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
             "poststed": "SANNIDAL",
             "postnummer": "3766",
             "kommunenummer": "0815"
-          }
+          },
+          "rollegruppetype": "rollegruppe.anro",
+          "rollegruppetypeBeskrivelse": "Annen rolle"
         },
         {
           "rolleinnehaverType": "BRPERSON",
@@ -120,7 +126,9 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
             "undernummer": 0,
             "poststed": "OSLO",
             "postnummer": "0962"
-          }
+          },
+          "rollegruppetype": "rollegruppe.rett",
+          "rollegruppetypeBeskrivelse": "Rettighetshaver"
         },
         {
           "rolleinnehaverType": "VIRKSOMHET",
@@ -138,12 +146,14 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
             "adresse": [
               "Stokmovn 39"
             ]
-          }
+          },
+          "rollegruppetype": "rollegruppe.rett",
+          "rollegruppetypeBeskrivelse": "Rettighetshaver"
         },
         {
           "rolleinnehaverType": "BRPERSON",
-          "rolletype": "rolletype.saksokt",
-          "rolletypeBeskrivelse": "Saksøkt",
+          "rolletype": "rollegruppe.forp",
+          "rolletypeBeskrivelse": "Forpliktet",
           "navn": "HENSIKTSMESSIG CAMPINGVOGN",
           "matrikkeladresse": {
             "matrikkelnummer": {
@@ -155,7 +165,9 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
             "undernummer": 0,
             "poststed": "OSLO",
             "postnummer": "0561"
-          }
+          },
+          "rollegruppetype": "rollegruppe.rett",
+          "rollegruppetypeBeskrivelse": "Rettighetshaver"
         }
       ],
       "formuesgoder": [
@@ -302,7 +314,9 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
           "rolleinnehaverType": "VIRKSOMHET",
           "rolletype": "rolletype.vergemalsmyndighet",
           "rolletypeBeskrivelse": "Vergemålsmyndighet",
-          "identifikator": "313184293"
+          "identifikator": "313184293",
+          "rollegruppetype": "rollegruppe.oppr",
+          "rollegruppetypeBeskrivelse": "Oppretter"
         },
         {
           "rolleinnehaverType": "BRPERSON",
@@ -317,7 +331,9 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
             "poststed": "LODDEFJORD",
             "postnummer": "5178",
             "kommunenummer": "4601"
-          }
+          },
+          "rollegruppetype": "rollegruppe.anro",
+          "rollegruppetypeBeskrivelse": "Annen rolle"
         },
         {
           "rolleinnehaverType": "BRPERSON",
@@ -331,7 +347,9 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
             "poststed": "SAND",
             "postnummer": "4230",
             "kommunenummer": "1134"
-          }
+          },
+          "rollegruppetype": "rollegruppe.anro",
+          "rollegruppetypeBeskrivelse": "Annen rolle"
         }
       ],
       "vergemaal": {
@@ -353,14 +371,18 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
           "rolleinnehaverType": "VIRKSOMHET",
           "rolletype": "rolletype.namsmann",
           "rolletypeBeskrivelse": "Namsmann",
-          "identifikator": "310774375"
+          "identifikator": "310774375",
+          "rollegruppetype": "rollegruppe.oppr",
+          "rollegruppetypeBeskrivelse": "Oppretter"
         },
         {
           "rolleinnehaverType": "BRPERSON",
           "rolletype": "rolletype.skyldner",
           "rolletypeBeskrivelse": "Skyldner",
           "navn": "HEMMELIGHETSFULL FIL",
-          "identifikator": "08899899548"
+          "identifikator": "08899899548",
+          "rollegruppetype": "rollegruppe.anro",
+          "rollegruppetypeBeskrivelse": "Annen rolle"
         }
       ],
       "formuesgoder": [
@@ -399,14 +421,18 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
           "rolleinnehaverType": "VIRKSOMHET",
           "rolletype": "rolletype.panthaver",
           "rolletypeBeskrivelse": "Panthaver",
-          "identifikator": "313665704"
+          "identifikator": "313665704",
+          "rollegruppetype": "rollegruppe.rett",
+          "rollegruppetypeBeskrivelse": "Rettighetshaver"
         },
         {
           "rolleinnehaverType": "BRPERSON",
           "rolletype": "rolletype.pantsetter",
           "rolletypeBeskrivelse": "Pantsetter",
           "navn": "USYMMETRISK SOLSIKKE ABAKUS",
-          "identifikator": "14865095369"
+          "identifikator": "14865095369",
+          "rollegruppetype": "rollegruppe.forp",
+          "rollegruppetypeBeskrivelse": "Forpliktet"
         }
       ],
       "formuesgoder": [
