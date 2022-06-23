@@ -94,14 +94,18 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
           "rolleinnehaverType": "VIRKSOMHET",
           "rolletype": "rolletype.panthaver",
           "rolletypeBeskrivelse": "Panthaver",
-          "identifikator": "310648876"
+          "identifikator": "310648876",
+          "rollegruppetype": "rollegruppe.rett",
+          "rollegruppetypeBeskrivelse": "Rettighetshaver"
         },
         {
           "rolleinnehaverType": "BRPERSON",
           "rolletype": "rolletype.pantsetter",
           "rolletypeBeskrivelse": "Pantsetter",
           "navn": "PLUTSELIG MORMOR",
-          "identifikator": "13888998238"
+          "identifikator": "13888998238",
+          "rollegruppetype": "rollegruppe.forp",
+          "rollegruppetypeBeskrivelse": "Forpliktet"
         }
       ],
       "formuesgoder": [
@@ -139,21 +143,27 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
           "rolleinnehaverType": "VIRKSOMHET",
           "rolletype": "rolletype.vergemalsmyndighet",
           "rolletypeBeskrivelse": "Vergemålsmyndighet",
-          "identifikator": "315524148"
+          "identifikator": "315524148",
+          "rollegruppetype": "rollegruppe.oppr",
+          "rollegruppetypeBeskrivelse": "Oppretter"
         },
         {
           "rolleinnehaverType": "BRPERSON",
           "rolletype": "rolletype.undervergemal",
           "rolletypeBeskrivelse": "Under vergemål",
           "navn": "AUTORISERT INNHEGNING",
-          "identifikator": "06821349425"
+          "identifikator": "06821349425",
+          "rollegruppetype": "rollegruppe.anro",
+          "rollegruppetypeBeskrivelse": "Annen rolle"
         },
         {
           "rolleinnehaverType": "BRPERSON",
           "rolletype": "rolletype.verge",
           "rolletypeBeskrivelse": "Verge",
           "navn": "OBSERVANT HERBARIUM",
-          "identifikator": "06841848363"
+          "identifikator": "06841848363",
+          "rollegruppetype": "rollegruppe.anro",
+          "rollegruppetypeBeskrivelse": "Annen rolle"
         }
       ],
       "vergemaal": {
@@ -176,7 +186,9 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
           "rolletype": "rolletype.saksoker",
           "rolletypeBeskrivelse": "rolletype.saksoker",
           "navn": "USTABIL FORNUFTIG FJERNKONTROLL",
-          "identifikator": "17071150380"
+          "identifikator": "17071150380",
+          "rollegruppetype": "rollegruppe.rett",
+          "rollegruppetypeBeskrivelse": "Rettighetshaver"
         }
       ],
       "formuesgoder": [
@@ -243,7 +255,9 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
           "rolletype": "rolletype.saksoker",
           "rolletypeBeskrivelse": "Saksøker",
           "navn": "USTABIL FORNUFTIG FJERNKONTROLL",
-          "identifikator": "17071150380"
+          "identifikator": "17071150380",
+          "rollegruppetype": "rollegruppe.rett",
+          "rollegruppetypeBeskrivelse": "Rettighetshaver"
         }
       ],
       "formuesgoder": [
