@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.98.0" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="Beskrivelser av API innen domene Rettsstiftelse">
 
 
@@ -1291,7 +1291,7 @@
 <li>Det sjekkes at avtalepartens organisasjonsnummer er registrert og ikke slettet i Enhetsregisteret. Dersom det ikke er registrert, eller er slettet, returneres det en feilmelding.</li>
 </ul>
 <h2 id="paginering">Paginering</h2>
-<p>Grunnet store datamengder er det nødvendig å paginere requests og respons til tjenesten. Dette gjøres ved hjelp av feltet <em>&ldquo;lastSortValues&rdquo;</em>.
+<p>Grunnet store datamengder er det nødvendig å paginere requests og respons til tjenesten. Dette gjøres ved hjelp av feltet <em>&ldquo;lastSortValues&rdquo;</em>. 
 For å få første page skal dette feltet være <em>null</em>, deretter skal man sette dette feltet til verdien av feltet <em>&ldquo;sortValues&rdquo;</em> fra forrige response.
 Dette gjør at tjenesten er istand til å vite hvilken side av datasettet den skal returnere.</p>
 <p><em>Merk:</em> Siste side vil ha 0 rettsstiftelser, og vil ikke inneholde <em>&ldquo;sortValues&rdquo;</em>.
