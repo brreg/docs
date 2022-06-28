@@ -9,7 +9,7 @@ Takk til Altinn, og også [Informasjonsforvaltning/Felles datakatalog](https://i
 
 Vi i BR benytter [Hugo](https://gohugo.io/) for å generere opp hele dokumentasjonen
 med søk som en [statisk web site](https://en.wikipedia.org/wiki/Static_web_page).  
-Det hele tar typisk noen sekunder. Hugo er åpen kildekode i tillegg til å være lynrask. Anbefales!
+Det hele tar typisk noen sekunder. Hugo er åpen kildekode i tillegg til å være lynrask. Anbefales.
 
 For søk benyttes [lunr.js](https://github.com/olivernn/lunr.js/).
 
