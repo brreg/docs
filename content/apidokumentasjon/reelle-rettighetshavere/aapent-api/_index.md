@@ -25,7 +25,7 @@ Siden dette er et åpent API er det ingen sikkerhetsmekanismer.
 
 Om en reell rettighetshaver er mindreårig eller unntatt fra innsyn, vil enkelte personopplysninger være skjermet.
 
-#### Ved oppslag på en skjermet rettighetshaver, vil disse feltene avgis:
+#### For en skjermet rettighetshaver vil responen kun inneholde:
 * fødselsaar
 * statsborgerskap
 * bostedsland
