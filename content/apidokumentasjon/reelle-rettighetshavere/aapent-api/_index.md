@@ -10,7 +10,7 @@ Det åpne API'et tilbyr oppslag på organisasjonsnummer som gir informasjon om r
 
 ## API-referanse
 
-Denne tjenesten tilbyr opplysninger om fysiske personer som er reelle rettighetshavere i virksomheten, samt hvilke reelle rettigheter disse har, inklusive fødselsnummer og d-nummer.
+Denne tjenesten tilbyr opplysninger om fysiske personer som er reelle rettighetshavere i virksomheten, samt hvilke reelle rettigheter disse har.
 
 [Lenke til Swagger](https://reelle-opendata-api.apps.ocp-prd.regsys.brreg.no/swagger-ui/index.html#/reelle%20rettigheter/hentReellRettighet) (Har de tilgang til Swagger?)
 
@@ -23,12 +23,13 @@ Siden dette er et åpent API er det ingen sikkerhetsmekanismer.
 
 ## Skjerming
 
-Om en reell rettighetshaver er mindreårig eller unntatt fra innsyn, enkelte personopplysninger være skjermet.
+Om en reell rettighetshaver er mindreårig eller unntatt fra innsyn, vil enkelte personopplysninger være skjermet.
 
-#### Felter som skjermes:
-* Fødselsdato
-* Navn
-* Grunnlag
+#### Ved oppslag på en skjermet rettighetshaver, vil disse feltene avgis:
+* fødselsaar
+* statsborgerskap
+* bostedsland
+* posisjon
 
 ## Grensesnittbeskrivelse
 
