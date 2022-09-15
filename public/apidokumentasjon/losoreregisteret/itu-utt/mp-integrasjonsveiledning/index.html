@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.101.0" />
+    <meta name="generator" content="Hugo 0.102.3" />
     <meta name="description" content="Veiledning for integrasjon mot Maskinporten">
 
 
@@ -1251,7 +1251,7 @@
 <h2 id="innledning">Innledning</h2>
 <p>Tilgang til APIet krever autentisering via <a href="https://docs.digdir.no/maskinporten_guide_apikonsument.html">Maskinporten</a>.</p>
 <p>Kort fortalt så må API-konsument initielt opprette en Maskinport-integrasjon (oauth2-klient) og registrere scopet til APIet til denne. Når APIet skal brukes, må denne oauth2-klienten forespørre et token fra Maskinporten og inkludere dette tokenet i kall til APIet.</p>
-<p>Det er også blitt opprettet en referanseapplikasjon for å gjøre det enklere se hvordan man skal integrere. 
+<p>Det er også blitt opprettet en referanseapplikasjon for å gjøre det enklere se hvordan man skal integrere.
 Koden for denne er lagt ut i brreg sitt repository på github: <a href="https://github.com/brreg/refapp-integrasjon">https://github.com/brreg/refapp-integrasjon</a></p>
 <p><strong><em>MERK:</em></strong> API-konsument må en ha et gyldig virksomhetssertifikat, enten for et syntetisk organisasjonsnummer (testmiljø), eller for et gyldig organisasjonsnummer (produksjonsmiljø).</p>
 <h2 id="opprette-maskinport-integrasjon-oauth2-klient">Opprette Maskinport-integrasjon (oauth2-klient)</h2>

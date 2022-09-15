@@ -64,7 +64,7 @@ Ved 200 OK:
 
 ### DOWNLOAD
 
-Endepunktet `/download` returnerer fil med angitt mottakId. Responsen er en zipfil med melding og eventuelle vedlegg. MottakId er en UUID.
+Endepunktet `/download` returnerer fil med angitt mottakId. Responsen er en zipfil med melding. MottakId er en UUID.
 
 #### Response
 
