@@ -1,6 +1,6 @@
 ---
 title: Åpent API
-description: Beskrivelse av Åpent API innen domene Reelle rettighetshavere
+description: Beskrivelse av åpent API for Register over reelle rettighetshavere
 weight: 100
 ---
 
@@ -179,12 +179,13 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
 
 ## HTTP-statuskoder
 
-| HTTP-kode                 | Beskrivelse                                                                                                                                                 |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 200 OK                    | Henting av data gikk bra                                                                                                                                    |
-| 400 Bad Request           | Feil i spørring. Applikasjonen vil gi en detaljert feilmelding for hva som er feil med spørring                                                             |
-| 404 Not Found             | Applikasjonen vil gi informasjon om at virksomheten ikke er registreringspliktig i register over reelle rettighetshavere                                    |
-| 500 Internal Server Error | Intern feil i tjenesten, for eksempel at en underliggende datakilde ikke svarer                                                                             |
+| HTTP-kode                 | Beskrivelse                                                                                     |
+|:------------------------- |:------------------------------------------------------------------------------------------------|
+| 200 OK                    | Henting av data gikk bra                                                                        |
+| 400 Bad Request           | Feil i spørring. Applikasjonen vil gi en detaljert feilmelding for hva som er feil med spørring |
+| 404 Not Found             | Virksomheten har ikke registrert reelle rettighetshavere                                        |
+| 404 Not Found             | Virksomheten ikke er registreringspliktig i register over reelle rettighetshavere               |
+| 500 Internal Server Error | Intern feil i tjenesten, for eksempel at en underliggende datakilde ikke svarer                 |
 
 ## Ordliste
 
