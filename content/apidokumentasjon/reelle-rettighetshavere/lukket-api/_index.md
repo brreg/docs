@@ -18,14 +18,14 @@ Denne tjenesten tilbyr opplysninger om fysiske personer som er reelle rettighets
 
 
 ## Sikkerhetsmekanismer
-Siden dette er et begrenset API skal kallende parter autentiseres gjennom Maskinporten [Maskinporten](https://docs.digdir.no/maskinporten_guide_apikonsument.html).
+Siden dette er et begrenset API skal kallende parter autentiseres gjennom [Maskinporten](https://docs.digdir.no/maskinporten_guide_apikonsument.html).
 
 For å kunne få tilgang til våre begrensede API er det tre forutsetninger.
 
 1. Virksomhetssertifikat
 2. Registrert klient hos Maskinporten.
 3. I dialogen med Brønnøysundregistrene om å få tilgang til API'et vil din virksomhet ha fått informasjon om hvilket av de to scopene virksomheten har fått tilgang til.
-JWT-token fra Maskinporten mot mot ett av disse scopene:
+JWT-token fra Maskinporten mot ett av disse scopene:
    1. `brreg:reelle/partner.offentlig`
    2. `brreg:reelle/partner.rapporteringspliktig`
 
@@ -184,13 +184,14 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
 
 ## HTTP-statuskoder
 
-| HTTP-kode                 | Beskrivelse                                                                                                                                                 |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 200 OK                    | Henting av data gikk bra                                                                                                                                    |
-| 400 Bad Request           | Feil i spørring. Applikasjonen vil gi en detaljert feilmelding for hva som er feil med spørring                                                             |
-| 403 Forbidden             | Feil ved autentisering eller autorisering. Bearer-tokenet som ble sendt inn er ikke gyldig eller virksomheten har ikke fått tilgang til scope for tjenesten |
-| 404 Not Found             | Applikasjonen vil gi informasjon om at virksomheten ikke er registreringspliktig i register over reelle rettighetshavere                                    |
-| 500 Internal Server Error | Intern feil i tjenesten, for eksempel at en underliggende datakilde ikke svarer                                                                             |
+| HTTP-kode                 | Beskrivelse                                                                                                                                                                          |
+|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 200 OK                    | Henting av data gikk bra                                                                                                                                                             |
+| 400 Bad Request           | Feil i spørring. Applikasjonen vil gi en detaljert feilmelding for hva som er feil med spørring                                                                                      |
+| 403 Forbidden             | Feil ved autentisering eller autorisering. Bearer-tokenet som ble sendt inn er ikke gyldig eller virksomheten har ikke fått tilgang til scope for tjenesten                          |
+| 403 Not Found             | Virksomheten har ikke registrert reelle rettighetshavere                                                                                                                             |
+| 404 Not Found             | Virksomheten ikke er registreringspliktig i register over reelle rettighetshavere                                                                                                    |
+| 500 Internal Server Error | Intern feil i tjenesten, for eksempel at en underliggende datakilde ikke svarer                                                                                                      |
 
 ## Ordliste
 
