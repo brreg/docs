@@ -10,7 +10,7 @@ Det åpne API'et tilbyr oppslag på organisasjonsnummer som gir informasjon om r
 
 ## API-referanse
 
-Denne tjenesten tilbyr opplysninger om fysiske personer som er reelle rettighetshavere i virksomheten, samt hvilke reelle rettigheter disse har.
+Denne tjenesten tilbyr opplysninger om reelle rettighetshavere i virksomheter.
 
 [Lenke til Swagger](https://reelle-opendata-api.apps.ocp-prd.regsys.brreg.no/swagger-ui/index.html#/reelle%20rettigheter/hentReellRettighet) (Har de tilgang til Swagger?)
 

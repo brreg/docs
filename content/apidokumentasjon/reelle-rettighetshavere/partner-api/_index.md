@@ -5,11 +5,11 @@ weight: 100
 ---
 
 ## Innledning
-Det begrensede API'et tilbyr oppslag på organisasjonsnummer som gir informasjon om reelle rettighetshavere inklusive fødselsnummer.
+Det API'et tilbyr oppslag på organisasjonsnummer som gir informasjon om reelle rettighetshavere inklusive fødselsnummer.
 
 ## API-referanse
 
-Denne tjenesten tilbyr opplysninger om fysiske personer som er reelle rettighetshavere i virksomheten, samt hvilke reelle rettigheter disse har, inklusive fødselsnummer og d-nummer.
+Denne tjenesten tilbyr opplysninger om reelle rettighetshavere, inklusive fødselsnummer og d-nummer, i virksomheter.
  
 [Lenke til Swagger](https://reelle-partner-api.apps.ocp-prd.regsys.brreg.no/swagger-ui/index.html#/reelle%20rettigheter/hentReellRettighet) (Har de tilgang til Swagger?)
 
@@ -18,9 +18,9 @@ Denne tjenesten tilbyr opplysninger om fysiske personer som er reelle rettighets
 
 
 ## Sikkerhetsmekanismer
-Siden dette er et Partner API skal kallende parter autentiseres gjennom [Maskinporten](https://docs.digdir.no/maskinporten_guide_apikonsument.html).
+Siden dette er et Partner API må konsumenter autentiseres gjennom [Maskinporten](https://docs.digdir.no/maskinporten_guide_apikonsument.html).
 
-For å kunne få tilgang til våre begrensede API er det tre forutsetninger.
+For å kunne få tilgang til våre Partner API er det tre forutsetninger.
 
 1. Virksomhetssertifikat
 2. Registrert klient hos Maskinporten.
