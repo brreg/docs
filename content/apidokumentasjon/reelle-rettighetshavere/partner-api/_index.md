@@ -1,6 +1,6 @@
 ---
-title: Begrenset API
-description: Beskrivelse av begrenset API for Register over reelle rettighetshavere
+title: Partner API
+description: Beskrivelse av partner API for Register over reelle rettighetshavere
 weight: 100
 ---
 
@@ -18,7 +18,7 @@ Denne tjenesten tilbyr opplysninger om fysiske personer som er reelle rettighets
 
 
 ## Sikkerhetsmekanismer
-Siden dette er et begrenset API skal kallende parter autentiseres gjennom [Maskinporten](https://docs.digdir.no/maskinporten_guide_apikonsument.html).
+Siden dette er et Partner API skal kallende parter autentiseres gjennom [Maskinporten](https://docs.digdir.no/maskinporten_guide_apikonsument.html).
 
 For å kunne få tilgang til våre begrensede API er det tre forutsetninger.
 
@@ -200,7 +200,7 @@ Definisjoner på begrep som er brukt i denne dokumentasjonen.
 | Begrep              | Definisjon                                                                           |
 |:--------------------|:-------------------------------------------------------------------------------------|
 | API                 | Programmeringsgrensesnitt                                                            |
-| Begrenset API       | Et API som krever autentisering/autorisering (for eksempel ved bruk av Maskinporten) |
+| Partner API         | Et API som krever autentisering/autorisering (for eksempel ved bruk av Maskinporten) |
 | HTTP                | Datakommunikasjonsstandard                                                           |
 | HTTP-statuskoder    | Statuskoder for datakommunikasjonsstandard                                           |
 | REST                | Datakommunikasjonmønster                                                             |
