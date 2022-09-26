@@ -46,8 +46,8 @@ Se [veiledning for integrasjon mot Maskinporten]({{<ref "mp-integrasjonsveiledni
 
 **Domener**:
 
-* For testmiljø (ppe): `https://test-rrh.brreg.no`
-* For prod: `https://rrh.brreg.no`
+* For testmiljø : `https://test-rrh.brreg.no`
+* For produksjon: `https://rrh.brreg.no`
 
 ### Oppslag på organisasjonsnummer
 

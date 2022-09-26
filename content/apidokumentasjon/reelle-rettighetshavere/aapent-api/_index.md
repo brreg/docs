@@ -41,8 +41,8 @@ Om en reell rettighetshaver er mindreårig eller unntatt fra innsyn, vil enkelte
 
 **Domener**:
 
-* For testmiljø (ppe): `https://test-rrh.brreg.no`
-* For prod: `https://rrh.brreg.no`
+* For testmiljø : `https://test-rrh.brreg.no`
+* For produksjon: `https://rrh.brreg.no`
 
 ### Oppslag på organisasjonsnummer
 
