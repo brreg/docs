@@ -39,6 +39,10 @@ Om en reell rettighetshaver er mindreårig eller unntatt fra innsyn, vil enkelte
 |:------------- |:------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------|
 | GET           | https://\{domene\}/api/reelle-rettigheteter/{organisasjonsnummer} | Hent opplysninger om en reell rettighet på angitt organisasjonsnummer og dens reelle rettighetshavere |
 
+| Header-navn     | Verdier                                | Beskrivelse                                                                                                                                                                                                     |
+|:----------------|:---------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Accept-Language | ISO 639-3 språkkode. For eksempel: nob | Valgfri header for å angi ønsket språk på kodebeskrivelser og landnavn i responsen. Dersom vi ikke har kodebeskrivelser eller landnavn på språket i Accept-Language, vil nob, norsk bokmål, brukes i responsen. |
+
 **Domener**:
 
 * For testmiljø : `https://test-rrh.brreg.no`
