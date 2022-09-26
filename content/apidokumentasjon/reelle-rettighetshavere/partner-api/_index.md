@@ -5,13 +5,15 @@ weight: 100
 ---
 
 ## Innledning
-Det API'et tilbyr oppslag på organisasjonsnummer som gir informasjon om reelle rettighetshavere inklusive fødselsnummer.
+Partner API tilbyr oppslag på organisasjonsnummer som gir informasjon om reelle rettighetshavere inklusive fødselsnummer.
+
+Denne siden er fortsatt under utvikling.
 
 ## API-referanse
 
 Denne tjenesten tilbyr opplysninger om reelle rettighetshavere, inklusive fødselsnummer og d-nummer, i virksomheter.
  
-[Lenke til Swagger](https://reelle-partner-api.apps.ocp-prd.regsys.brreg.no/swagger-ui/index.html#/reelle%20rettigheter/hentReellRettighet) (Har de tilgang til Swagger?)
+[Lenke til Swagger](https://reelle-partner-api.apps.ocp-prd.regsys.brreg.no/swagger-ui/index.html#/reelle%20rettigheter/hentReellRettighet)
 
 [Swagger-dokumentasjon](https://raw.githubusercontent.com/brreg/openAPI/master/specs/reelle-partner-api.yaml)
 (last ned [Swagger-UI](https://github.com/swagger-api/swagger-ui) og utforsk linken)
@@ -38,14 +40,14 @@ Se [veiledning for integrasjon mot Maskinporten]({{<ref "mp-integrasjonsveiledni
 
 ## Grensesnittbeskrivelse
 
-| HTTP-metode   | URL                                                                                                    | Beskrivelse                                                                            |
-|:------------- |:-------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------|
-| GET           | https://\{domene\}/rrh/api/reelle-rettighetshavere/{organisasjonsnummer}                               | Hent opplysninger om reell rettighetshaver på gitt organisasjonsnummer. |
+| HTTP-metode   | URL                                                                       | Beskrivelse                                                                                           |
+|:------------- |:--------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------|
+| GET           | https://\{domene\}/api/partner/reelle-rettigheteter/{organisasjonsnummer} | Hent opplysninger om en reell rettighet på angitt organisasjonsnummer og dens reelle rettighetshavere |
 
 **Domener**:
 
-* For testmiljø (ppe): `https://reelle-partner-api.apps.ocp-ppe.regsys.brreg.no`
-* For prod: `https://reelle-partner-api.brreg.no` ?
+* For testmiljø (ppe): `https://test-rrh.brreg.no`
+* For prod: `https://rrh.brreg.no`
 
 ### Oppslag på organisasjonsnummer
 
@@ -73,108 +75,128 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
 
 ```json
 {
-  "registreringId": "6f2baebd-44bc-47dc-9a1e-d9131a4219be",
-  "registreringStatus": {
-    "kode": "registreringstatus.regi",
-    "beskrivelse": null
-  },
-  "gjelderFraDato": "2022-08-25T11:18:03.423645Z",
-  "reelleRettighetshavereStatus": {
-    "kode": "reellerettighetshaverestatus.arid",
-    "beskrivelse": null
-  },
-  "reelleRettighetshavere": [
-    {
-      "foedselsdato": "1982-03-23",
-      "foedselsaar": "1982",
-      "navn": {
-        "fornavn": null,
-        "mellomnavn": null,
-        "etternavn": null,
-        "fulltNavn": "Dansk Danskesen"
-      },
-      "foerstRegistrertDato": "2022-08-19T12:28:06.674996Z",
-      "endretDato": "2022-08-25T11:18:01.231688Z",
-      "statsborgerskap": [
-        {
-          "landkode": "DK",
-          "land": null
-        }
-      ],
-      "bostedsland": {
-        "landkode": "DK",
-        "land": null
-      },
-      "erDoed": null,
-      "erUnntattFraInnsyn": null,
-      "posisjoner": [
-        {
-          "posisjonType": {
-            "kode": "posisjontype.eier",
-            "beskrivelse": null
-          },
-          "stoerrelseIntervall": {
-            "kode": "stoerrelseintervall.int3",
-            "beskrivelse": null
-          },
-          "grunnlag": [
+   "registreringId": "1f92ac29-7b4f-4f6b-b402-6e9bc7a3ff59",
+   "registreringStatus": {
+      "kode": "registreringstatus.regi",
+      "beskrivelse": "Reelle rettighetshavere er registrert"
+   },
+   "gjelderFraDato": "2022-09-06T09:17:39.87542Z",
+   "reelleRettighetshavereStatus": {
+      "kode": "reellerettighetshaverestatus.arid",
+      "beskrivelse": "Alle reelle rettighetshavere kan identifiseres"
+   },
+   "reelleRettighetshavere": [
+      {
+         "foedselsEllerDNummer": 12345678901,
+         "foedselsdato": "2002-11-05",
+         "foedselsaar": "2002",
+         "navn": {
+            "fornavn": "STOLT EFFEKTIV",
+            "mellomnavn": "KUL",
+            "etternavn": "PARASOLL",
+            "fulltNavn": "STOLT EFFEKTIV KUL PARASOLL"
+         },
+         "foerstRegistrertDato": "2022-09-06T09:17:39.275205Z",
+         "endretDato": "2022-09-06T09:17:39.275205Z",
+         "statsborgerskap": [
             {
-              "grunnlagType": {
-                "kode": "grunnlagtype.dire",
-                "beskrivelse": null
-              }
-            }
-          ],
-          "beskrivelseAnnenMaate": null
-        }
-      ]
-    },
-    {
-      "foedselsdato": "1973-03-22",
-      "foedselsaar": "1973",
-      "navn": {
-        "fornavn": null,
-        "mellomnavn": null,
-        "etternavn": null,
-        "fulltNavn": "Svensk Svenskesen"
-      },
-      "foerstRegistrertDato": "2022-08-25T11:18:01.231688Z",
-      "endretDato": "2022-08-25T11:18:01.231688Z",
-      "statsborgerskap": [
-        {
-          "landkode": "NO",
-          "land": null
-        }
-      ],
-      "bostedsland": {
-        "landkode": "NO",
-        "land": null
-      },
-      "erDoed": null,
-      "erUnntattFraInnsyn": null,
-      "posisjoner": [
-        {
-          "posisjonType": {
-            "kode": "posisjontype.eier",
-            "beskrivelse": null
-          },
-          "stoerrelseIntervall": {
-            "kode": "stoerrelseintervall.int2",
-            "beskrivelse": null
-          },
-          "grunnlag": [
+               "landkode": "NOR",
+               "land": "Norge"
+            },
             {
-              "grunnlagType": {
-                "kode": "grunnlagtype.dire",
-                "beskrivelse": null
-              }
+               "landkode": "MEX",
+               "land": "Mexico"
             }
-          ],
-          "beskrivelseAnnenMaate": null
-        }
-      ]
-    }
-  ]
+         ],
+         "bostedsland": {
+            "landkode": "NOR",
+            "land": "Norge"
+         },
+         "erDoed": false,
+         "erUnntattFraInnsyn": false,
+         "posisjoner": [
+            {
+               "posisjonType": {
+                  "kode": "posisjontype.eier",
+                  "beskrivelse": "Eierskap"
+               },
+               "stoerrelseIntervall": {
+                  "kode": "stoerrelseintervall.int2",
+                  "beskrivelse": "50% - 74,99%"
+               },
+               "grunnlag": [
+                  {
+                     "grunnlagType": {
+                        "kode": "grunnlagtype.dire",
+                        "beskrivelse": "Direkte"
+                     }
+                  },
+                  {
+                     "grunnlagType": {
+                        "kode": "grunnlagtype.indi",
+                        "beskrivelse": "Indirekte"
+                     }
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "foedselsdato": "1983-12-01",
+         "foedselsaar": "1983",
+         "navn": {
+            "fulltNavn": "TOM SVENSKE NELSON"
+         },
+         "foerstRegistrertDato": "2022-09-06T09:17:39.275205Z",
+         "endretDato": "2022-09-06T09:17:39.275205Z",
+         "statsborgerskap": [
+            {
+               "landkode": "SWE",
+               "land": "Sverige"
+            }
+         ],
+         "bostedsland": {
+            "landkode": "SWE",
+            "land": "Sverige"
+         },
+         "erDoed": false,
+         "erUnntattFraInnsyn": false,
+         "posisjoner": [
+            {
+               "posisjonType": {
+                  "kode": "posisjontype.eier",
+                  "beskrivelse": "Eierskap"
+               },
+               "stoerrelseIntervall": {
+                  "kode": "stoerrelseintervall.int1",
+                  "beskrivelse": "25,01% - 49,99%"
+               },
+               "grunnlag": [
+                  {
+                     "grunnlagType": {
+                        "kode": "grunnlagtype.indi",
+                        "beskrivelse": "Indirekte"
+                     }
+                  }
+               ]
+            },
+            {
+               "posisjonType": {
+                  "kode": "posisjontype.ruas",
+                  "beskrivelse": "Rett til å utpeke eller avsette minst halvparten av styremedlemmene"
+               },
+               "grunnlag": [
+                  {
+                     "grunnlagType": {
+                        "kode": "grunnlagtype.enav",
+                        "beskrivelse": "Enighet eller avtale"
+                     }
+                  }
+               ]
+            }
+         ]
+      }
+   ]
 }
 ```
 
