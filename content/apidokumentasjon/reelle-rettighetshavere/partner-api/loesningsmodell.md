@@ -1,5 +1,5 @@
 ---
-title: Løsningsmodell for lukket API
+title: Løsningsmodell for partner API
 description: Løsningsmodell for partner API.
 weight: 100
 alwaysopen: true
