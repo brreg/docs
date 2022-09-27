@@ -8,16 +8,13 @@ weight: 100
 ## Innledning
 Åpent API tilbyr oppslag på organisasjonsnummer som gir informasjon om reelle rettighetshavere.
 
-Denne siden er fortsatt under utvikling.
+***Denne siden er fortsatt under utvikling.***
 
 ## API-referanse
 
 Denne tjenesten tilbyr opplysninger om reelle rettighetshavere i virksomheter.
 
-[Lenke til Swagger](https://reelle-opendata-api.apps.ocp-prd.regsys.brreg.no/swagger-ui/index.html#/reelle%20rettigheter/hentReellRettighet)
-
-[Swagger-dokumentasjon](https://raw.githubusercontent.com/brreg/openAPI/master/specs/reelle-opendata-api.yaml)
-(last ned [Swagger-UI](https://github.com/swagger-api/swagger-ui) og utforsk linken)
+*Lenker til Swagger-dokumentasjon og OpenAPI-spec kommer her.*
 
 
 ## Sikkerhetsmekanismer
@@ -35,18 +32,18 @@ Om en reell rettighetshaver er mindreårig eller unntatt fra innsyn, vil enkelte
 
 ## Grensesnittbeskrivelse
 
-| HTTP-metode   | URL                                                               | Beskrivelse                                                                                           |
-|:------------- |:------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------|
-| GET           | https://\{domene\}/api/reelle-rettigheteter/{organisasjonsnummer} | Hent opplysninger om en reell rettighet på angitt organisasjonsnummer og dens reelle rettighetshavere |
+| HTTP-metode   | URL                                                               | Beskrivelse                                                           |
+|:------------- |:------------------------------------------------------------------|:----------------------------------------------------------------------|
+| GET           | https://\{domene\}/api/reelle-rettigheteter/{organisasjonsnummer} | Hent opplysninger om en reell rettighet på angitt organisasjonsnummer |
 
-| Header-navn     | Verdier                                | Beskrivelse                                                                                                                                                                                                     |
-|:----------------|:---------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Accept-Language | ISO 639-3 språkkode. For eksempel: nob | Valgfri header for å angi ønsket språk på kodebeskrivelser og landnavn i responsen. Dersom vi ikke har kodebeskrivelser eller landnavn på språket i Accept-Language, vil nob, norsk bokmål, brukes i responsen. |
+| Header-navn     | Verdier                                | Beskrivelse                                                                                                                                                                                                   |
+|:----------------|:---------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Accept-Language | ISO 639-3 språkkode. For eksempel: nob | Valgfri header for å angi ønsket språk på kodebeskrivelser og landnavn i respons. Dersom vi ikke har kodebeskrivelser eller landnavn på språket i Accept-Language, vil nob, norsk bokmål, brukes i responsen. |
 
 **Domener**:
 
-* For testmiljø : `https://test-rrh.brreg.no`
-* For produksjon: `https://rrh.brreg.no`
+* For testmiljø : `Kommer snart`
+* For produksjon: `Kommer snart`
 
 ### Oppslag på organisasjonsnummer
 
@@ -68,9 +65,9 @@ Tar i mot et organisasjonsnummer som en del av URL, med obligatorisk path-parame
 
 Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format) i retur. JSON-dokumentet inneholder opplysninger om reelle rettighetshavere.
 
-<details><summary>**Eksempelrespons**</summary><p>
 
-##### Eksempelrespons for oppslag på organisasjonsnummer
+#### Eksempelrespons for oppslag på organisasjonsnummer
+***Eksempelresponsen er kun et utkast, og strukturen kan endre seg***
 
 ```json
 {
@@ -200,7 +197,6 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
 
 ---
 
-</p></details>
 
 ## HTTP-statuskoder
 
