@@ -12,6 +12,12 @@
   </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_rollerer/</loc>
   </url><url>
+    <loc>https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/forretningsobjektmodeller/reellerettighetshavere_forretningsobjektmodell_1/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/forretningsobjektmodeller/reellerettighetshavere_forretningsobjektmodell_2/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/strukturmodell/reellerettighetshavere_strukturmodell/</loc>
+  </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_virksomhetensstatus/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_kontrollansvar/</loc>
@@ -28,6 +34,8 @@
   </url><url>
     <loc>https://brreg.github.io/docs/generelt/kontakt-oss/</loc>
   </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/aapent-api/</loc>
+  </url><url>
     <loc>https://brreg.github.io/docs/apidokumentasjon/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/generelt/eksternt-testmiljo/</loc>
@@ -37,6 +45,8 @@
     <loc>https://brreg.github.io/docs/apidokumentasjon/enhetsregisteret/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/forretningsobjektmodeller/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/</loc>
   </url><url>
@@ -54,9 +64,21 @@
   </url><url>
     <loc>https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/kodeliste/</loc>
   </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/aapent-api/loesningsmodell/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/partner-api/loesningsmodell/</loc>
+  </url><url>
     <loc>https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/</loc>
   </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/partner-api/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/</loc>
+  </url><url>
     <loc>https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/strukturmodell/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/apidokumentasjon/elektronisk-mottak/maskinport-integrasjon/uthenting/</loc>
   </url><url>

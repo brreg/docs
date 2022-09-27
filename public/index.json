@@ -35,6 +35,27 @@
 	"content": " Denne visningen gir oversikt over hvilke roller en virksomhet kan ha. Med roller i denne sammenhengen menes relasjoner en virksomhet kan ha til fysiske personer eller andre virksomheter i Enhetsregisteret.\n"
 },
 {
+	"uri": "https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/forretningsobjektmodeller/reellerettighetshavere_forretningsobjektmodell_1/",
+	"title": "Register over reelle rettighetshavere (bildefil for forretningsobjektmodell 1)",
+	"tags": [],
+	"description": "Forretningsobjektmodell 1 for Register over reelle rettighetshavere",
+	"content": " "
+},
+{
+	"uri": "https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/forretningsobjektmodeller/reellerettighetshavere_forretningsobjektmodell_2/",
+	"title": "Register over reelle rettighetshavere (bildefil for forretningsobjektmodell 2)",
+	"tags": [],
+	"description": "Forretningsobjektmodell 2 for Register over reelle rettighetshavere",
+	"content": " "
+},
+{
+	"uri": "https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/strukturmodell/reellerettighetshavere_strukturmodell/",
+	"title": "Register over reelle rettighetshavere (bildefil for strukturmodell)",
+	"tags": [],
+	"description": "Strukturmodell for Register over reelle rettighetshavere",
+	"content": " "
+},
+{
 	"uri": "https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_virksomhetensstatus/",
 	"title": "Virksomhetens status",
 	"tags": [],
@@ -91,6 +112,13 @@
 	"content": "Kontakt oss Virksomheter som bruker eksisterende API-er for Løsøreregisteret vil bli invitert til å teste de nye API-ene. Andre virksomheter, som vurderer å inngå avtale om tilgang til Løsøreregisteret via API-er, kan sende henvendelse om dette til oa-fagstillinger@brreg.no.\n"
 },
 {
+	"uri": "https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/aapent-api/",
+	"title": "Åpent API",
+	"tags": [],
+	"description": "Beskrivelse av åpent API for Register over reelle rettighetshavere",
+	"content": "Innledning Åpent API tilbyr oppslag på organisasjonsnummer som gir informasjon om reelle rettighetshavere.\nDenne siden er fortsatt under utvikling.\nAPI-referanse Denne tjenesten tilbyr opplysninger om reelle rettighetshavere i virksomheter.\nLenke til Swagger\nSwagger-dokumentasjon (last ned Swagger-UI og utforsk linken)\nSikkerhetsmekanismer Siden dette er et åpent API er det ingen sikkerhetsmekanismer.\nSkjerming Om en reell rettighetshaver er mindreårig eller unntatt fra innsyn, vil enkelte personopplysninger være skjermet.\nFor en skjermet rettighetshaver vil responen kun inneholde: fødselsaar statsborgerskap bostedsland posisjon Grensesnittbeskrivelse HTTP-metode URL Beskrivelse GET https://{domene}/api/reelle-rettigheteter/{organisasjonsnummer} Hent opplysninger om en reell rettighet på angitt organisasjonsnummer og dens reelle rettighetshavere Header-navn Verdier Beskrivelse Accept-Language ISO 639-3 språkkode. For eksempel: nob Valgfri header for å angi ønsket språk på kodebeskrivelser og landnavn i responsen. Dersom vi ikke har kodebeskrivelser eller landnavn på språket i Accept-Language, vil nob, norsk bokmål, brukes i responsen. Domener:\nFor testmiljø : https://test-rrh.brreg.no For produksjon: https://rrh.brreg.no Oppslag på organisasjonsnummer Beskrivelse Tjenesten tar imot en forespørsel om oppslag på et organisasjonsnummer. Forespørselen valideres og returnerer opplysninger om reelle rettighetshavere.\nRequest Tar i mot et organisasjonsnummer som en del av URL, med obligatorisk path-parameter organisasjonsnummer som det søkes på.\nValidering Forespørselen skal alltid inneholde organisasjonsnummeret det gjøres oppslag på. Dersom forespørselen inneholder et organisasjonsnummer som ikke er lovlig oppbygd, returneres det en feilmelding. Det sjekkes at organisasjonsnummeret er registrert i Enhetsregisteret. Dersom det ikke er registrert returneres det en feilmelding. Response Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format) i retur. JSON-dokumentet inneholder opplysninger om reelle rettighetshavere.\nEksempelrespons for oppslag på organisasjonsnummer { \u0026#34;registreringId\u0026#34;: \u0026#34;1f92ac29-7b4f-4f6b-b402-6e9bc7a3ff59\u0026#34;, \u0026#34;registreringStatus\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;registreringstatus.regi\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Reelle rettighetshavere er registrert\u0026#34; }, \u0026#34;gjelderFraDato\u0026#34;: \u0026#34;2022-09-06T09:17:39.87542Z\u0026#34;, \u0026#34;reelleRettighetshavereStatus\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;reellerettighetshaverestatus.arid\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Alle reelle rettighetshavere kan identifiseres\u0026#34; }, \u0026#34;reelleRettighetshavere\u0026#34;: [ { \u0026#34;foedselsdato\u0026#34;: \u0026#34;2002-11-05\u0026#34;, \u0026#34;foedselsaar\u0026#34;: \u0026#34;2002\u0026#34;, \u0026#34;navn\u0026#34;: { \u0026#34;fornavn\u0026#34;: \u0026#34;STOLT EFFEKTIV\u0026#34;, \u0026#34;mellomnavn\u0026#34;: \u0026#34;KUL\u0026#34;, \u0026#34;etternavn\u0026#34;: \u0026#34;PARASOLL\u0026#34;, \u0026#34;fulltNavn\u0026#34;: \u0026#34;STOLT EFFEKTIV KUL PARASOLL\u0026#34; }, \u0026#34;foerstRegistrertDato\u0026#34;: \u0026#34;2022-09-06T09:17:39.275205Z\u0026#34;, \u0026#34;endretDato\u0026#34;: \u0026#34;2022-09-06T09:17:39.275205Z\u0026#34;, \u0026#34;statsborgerskap\u0026#34;: [ { \u0026#34;landkode\u0026#34;: \u0026#34;NOR\u0026#34;, \u0026#34;land\u0026#34;: \u0026#34;Norge\u0026#34; }, { \u0026#34;landkode\u0026#34;: \u0026#34;MEX\u0026#34;, \u0026#34;land\u0026#34;: \u0026#34;Mexico\u0026#34; } ], \u0026#34;bostedsland\u0026#34;: { \u0026#34;landkode\u0026#34;: \u0026#34;NOR\u0026#34;, \u0026#34;land\u0026#34;: \u0026#34;Norge\u0026#34; }, \u0026#34;erDoed\u0026#34;: false, \u0026#34;erUnntattFraInnsyn\u0026#34;: false, \u0026#34;posisjoner\u0026#34;: [ { \u0026#34;posisjonType\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;posisjontype.eier\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Eierskap\u0026#34; }, \u0026#34;stoerrelseIntervall\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;stoerrelseintervall.int2\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;50% - 74,99%\u0026#34; }, \u0026#34;grunnlag\u0026#34;: [ { \u0026#34;grunnlagType\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;grunnlagtype.dire\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Direkte\u0026#34; } }, { \u0026#34;grunnlagType\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;grunnlagtype.indi\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Indirekte\u0026#34; } } ] } ] }, { \u0026#34;foedselsdato\u0026#34;: \u0026#34;1983-12-01\u0026#34;, \u0026#34;foedselsaar\u0026#34;: \u0026#34;1983\u0026#34;, \u0026#34;navn\u0026#34;: { \u0026#34;fulltNavn\u0026#34;: \u0026#34;TOM SVENSKE NELSON\u0026#34; }, \u0026#34;foerstRegistrertDato\u0026#34;: \u0026#34;2022-09-06T09:17:39.275205Z\u0026#34;, \u0026#34;endretDato\u0026#34;: \u0026#34;2022-09-06T09:17:39.275205Z\u0026#34;, \u0026#34;statsborgerskap\u0026#34;: [ { \u0026#34;landkode\u0026#34;: \u0026#34;SWE\u0026#34;, \u0026#34;land\u0026#34;: \u0026#34;Sverige\u0026#34; } ], \u0026#34;bostedsland\u0026#34;: { \u0026#34;landkode\u0026#34;: \u0026#34;SWE\u0026#34;, \u0026#34;land\u0026#34;: \u0026#34;Sverige\u0026#34; }, \u0026#34;erDoed\u0026#34;: false, \u0026#34;erUnntattFraInnsyn\u0026#34;: false, \u0026#34;posisjoner\u0026#34;: [ { \u0026#34;posisjonType\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;posisjontype.eier\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Eierskap\u0026#34; }, \u0026#34;stoerrelseIntervall\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;stoerrelseintervall.int1\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;25,01% - 49,99%\u0026#34; }, \u0026#34;grunnlag\u0026#34;: [ { \u0026#34;grunnlagType\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;grunnlagtype.indi\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Indirekte\u0026#34; } } ] }, { \u0026#34;posisjonType\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;posisjontype.ruas\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Rett til å utpeke eller avsette minst halvparten av styremedlemmene\u0026#34; }, \u0026#34;grunnlag\u0026#34;: [ { \u0026#34;grunnlagType\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;grunnlagtype.enav\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Enighet eller avtale\u0026#34; } } ] } ] } ] } HTTP-statuskoder HTTP-kode Beskrivelse 200 OK Henting av data gikk bra 400 Bad Request Feil i spørring. Applikasjonen vil gi en detaljert feilmelding for hva som er feil med spørring 404 Not Found Virksomheten har ikke registrert reelle rettighetshavere 404 Not Found Virksomheten ikke er registreringspliktig i register over reelle rettighetshavere 500 Internal Server Error Intern feil i tjenesten, for eksempel at en underliggende datakilde ikke svarer Ordliste Definisjoner på begrep som er brukt i denne dokumentasjonen.\nBegrep Definisjon API Programmeringsgrensesnitt HTTP Datakommunikasjonsstandard HTTP-statuskoder Statuskoder for datakommunikasjonsstandard REST Datakommunikasjonmønster JSON Åpen standard for dataformat Organisasjonsnummer Identifikasjonsnummer for virksomhet "
+},
+{
 	"uri": "https://brreg.github.io/docs/apidokumentasjon/",
 	"title": "API-dokumentasjon",
 	"tags": [],
@@ -116,7 +144,7 @@
 	"title": "Enhetsregisteret",
 	"tags": [],
 	"description": "Beskrivelser av API innen domene Enhetsregisteret",
-	"content": "Denne siden er foreløpig opprettet kun for å illustrere oppbygningen av dokumentasjonen. Det vil etterhvert komme mer informasjon, og API-er for flere registre.\nI mellomtiden kan du kose deg med Enhetsregisteret i Felles API-katalog.\n"
+	"content": "Denne siden er foreløpig opprettet kun for å illustrere oppbygningen av dokumentasjonen. Etterhvert vil det på dette området komme mer informasjon og spesifikasjon om API-er for Enhetsregisteret.\nI mellomtiden kan eksisterende API fra Enhetsregisteret være av interesse Enhetsregisteret i Felles API-katalog.\n"
 },
 {
 	"uri": "https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/",
@@ -126,11 +154,18 @@
 	"content": "Enhetsregisteret er en nasjonal felleskomponent som samordner grunndata om virksomheter i næringslivet, frivillig sektor og offentlig forvaltning som finnes i ulike offentlige registre.\nGjennom tildeling av organisasjonsnummer bidrar Enhetsregisteret til sikker identifisering av juridiske personer mv. Enhetsregisteret inneholder nøkkelinformasjon om de registrerte virksomhetene. Disse dataene skal gjenbrukes av forvaltningen ellers, slik at næringslivet og andre ikke trenger å oppgi disse dataene til flere etater eller registre.\n"
 },
 {
+	"uri": "https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/forretningsobjektmodeller/",
+	"title": "Forretningsobjektmodell",
+	"tags": [],
+	"description": "Forretningsobjektmodeller for Register over Reelle rettighetshavere",
+	"content": " "
+},
+{
 	"uri": "https://brreg.github.io/docs/informasjonsmodeller/",
 	"title": "Informasjonsmodeller",
 	"tags": [],
 	"description": "Beskrivelser av informasjonsmodeller",
-	"content": "Link til informasjonsmodeller i GitHub\nNedenfor finner du informasjonsmodeller delt inn etter register.\n"
+	"content": "En informasjonsmodell er en formell beskrivelse av en begrenset mengde av informasjon innenfor et gitt domene eller interesseområde. For å beskrive et domene, benyttes to modelltyper - forretningsobjektmodell og strukturmodell.\nI undersidene finner du forretningsobjektmodeller og strukturmodeller delt inn etter register eller fagområde. Løsningsmodellene finner du under de enkelte API-beskrivelsene. Link til informasjonsmodeller i GitHub\nForretningsobjektmodell En forretningsobjektmodell beskriver de viktigste forretningsobjektene innenfor et forretningsdomene.\nEt forretningsobjekt kan anses som en representasjon av et begrep som brukes i et bestemt forretningsdomene og som omfatter en avgrenset informasjonsmengde eller informasjonsenhet. Forretningsobjekter kan ha ulik størrelse og oppløsning. Eksempler er person, virksomhet, støtteordning, søknad eller ektepakt. Forretningsobjekter kan ha relasjoner til hverandre, som beskriver hvordan de forholder seg til eller roller de har overfor hverandre innenfor et forretningsdomene.\nForretningsobjektmodeller er nyttige hjelpemiddel når man skal etablere en felles, faglig forståelse av et forretningsdomene og enes om et omforent begrepsapparat. De benyttes også som utgangspunkt for å lage strukturmodeller.\nStrukturmodeller En strukturmodell beskriver detaljert hvilken informasjon som inngår i et forretningsdomene og hvordan de er logisk relatert, uavhengig av teknologi og implementasjon. I modellen struktureres informasjonen i henhold til tenkte enheter – typer eller sett av objekter eller entiteter som omtales som klasser. Klassene kan være konkrete eller abstrakte, som f.eks. Person og Adresse. Typen av kunnskap eller informasjon om disse typene av objekter, beskrives som egenskaper ved klassene. En egenskap ved klassen Person, kan f.eks. være fødselsnummer eller navn. I strukturmodellen beskriver man også relasjonene mellom klassene og hvilke roller de har overfor hverandre, som f.eks. at en person kan ha en adresse.\nNår man lager strukturmodeller, tar man utgangspunkt i forretningsobjektmodellen som er laget for tilsvarende domene. Forretningsobjektene og relasjonene som er definert mellom dem kan bidra til å avdekke hva som er hensiktmessige klasser og relasjoner. Strukturmodellene skal være mest mulig uavhengige av kontekst og egne seg for gjenbruk. De skal også bidra til lik organisering av data innenfor og på tvers av interesseområder uavhengig av teknologivalg.\nLøsningsmodell En løsningsmodell er en logisk modell som beskriver hvordan informasjonen struktureres og brukes i en konkret løsning, som f.eks. i et API eller en database. Løsningsmodellene er laget med utgangspunkt i innholdet i en eller flere strukturmodeller. Mens strukturmodellene er generelle og skal kunne gjenbrukes i flere løsninger, er løsningsmodellen laget for en gitt løsning. Normalt vil elementene i en løsningsmodell være en delmengde av elementene i en eller flere strukturmodeller.\n"
 },
 {
 	"uri": "https://brreg.github.io/docs/apidokumentasjon/elektronisk-mottak/maskinport-integrasjon/innsending/",
@@ -182,6 +217,20 @@
 	"content": "Kodeliste for løsøreregisteret finnes her i denne Excel-filen\n"
 },
 {
+	"uri": "https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/aapent-api/loesningsmodell/",
+	"title": "Løsningsmodell for åpent API",
+	"tags": [],
+	"description": "Løsningsmodell for åpent API.",
+	"content": "\n"
+},
+{
+	"uri": "https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/partner-api/loesningsmodell/",
+	"title": "Løsningsmodell for lukket API",
+	"tags": [],
+	"description": "Løsningsmodell for partner API.",
+	"content": "\n"
+},
+{
 	"uri": "https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/",
 	"title": "Løsøreregisteret",
 	"tags": [],
@@ -189,11 +238,39 @@
 	"content": "På sidene under finner du informasjon om hvordan kan bruke våre API for å hente informasjon som tilgjengeliggjøres fra Løsøreregisteret.\n"
 },
 {
+	"uri": "https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/partner-api/",
+	"title": "Partner API",
+	"tags": [],
+	"description": "Beskrivelse av partner API for Register over reelle rettighetshavere",
+	"content": "Innledning Partner API tilbyr oppslag på organisasjonsnummer som gir informasjon om reelle rettighetshavere inklusive fødselsnummer.\nDenne siden er fortsatt under utvikling.\nAPI-referanse Denne tjenesten tilbyr opplysninger om reelle rettighetshavere, inklusive fødselsnummer og d-nummer, i virksomheter.\nLenke til Swagger\nSwagger-dokumentasjon (last ned Swagger-UI og utforsk linken)\nSikkerhetsmekanismer Siden dette er et Partner API må konsumenter autentiseres gjennom Maskinporten.\nFor å kunne få tilgang til våre Partner API er det tre forutsetninger.\nVirksomhetssertifikat Registrert klient hos Maskinporten. I dialogen med Brønnøysundregistrene om å få tilgang til API\u0026rsquo;et vil din virksomhet ha fått informasjon om hvilket av de to scopene virksomheten har fått tilgang til. JWT-token fra Maskinporten mot ett av disse scopene: brreg:reelle/partner.offentlig brreg:reelle/partner.rapporteringspliktig Tokenet som hentes fra Maskinporten må bli sendt som autorisasjonstoken (Bearer token) når et kall mot tjenesten blir utført.\nSe veiledning for integrasjon mot Maskinporten.\nRegelverk: Hjemler for tilgjengeliggjøring av data fra Brønnøysundregistrene.\nGrensesnittbeskrivelse HTTP-metode URL Beskrivelse GET https://{domene}/api/partner/reelle-rettigheteter/{organisasjonsnummer} Hent opplysninger om en reell rettighet på angitt organisasjonsnummer og dens reelle rettighetshavere Header-navn Verdier Beskrivelse Accept-Language ISO 639-3 språkkode. For eksempel: nob Valgfri header for å angi ønsket språk på kodebeskrivelser og landnavn i responsen. Dersom vi ikke har kodebeskrivelser eller landnavn på språket i Accept-Language, vil nob, norsk bokmål, brukes i responsen. Domener:\nFor testmiljø : https://test-rrh.brreg.no For produksjon: https://rrh.brreg.no Oppslag på organisasjonsnummer Beskrivelse Tjenesten tar imot en forespørsel om oppslag på et organisasjonsnummer. Forespørselen valideres og returnerer opplysninger om reelle rettighetshavere inklusive fødselsnummer/d-nummer på oppgitt organisasjonsnummer.\nRequest Tar i mot et organisasjonsnummer som en del av URL, med obligatorisk path-parameter organisasjonsnummer som det søkes på.\nValidering Forespørselen skal alltid inneholde organisasjonsnummeret det gjøres oppslag på. Dersom forespørselen inneholder et organisasjonsnummer som ikke er lovlig oppbygd, returneres det en feilmelding. Det sjekkes at organisasjonsnummeret er registrert i Enhetsregisteret. Dersom det ikke er registrert returneres det en feilmelding. Response Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format) i retur. JSON-dokumentet inneholder opplysninger om reelle rettighetshavere.\nEksempelrespons for oppslag på organisasjonsnummer { \u0026#34;registreringId\u0026#34;: \u0026#34;1f92ac29-7b4f-4f6b-b402-6e9bc7a3ff59\u0026#34;, \u0026#34;registreringStatus\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;registreringstatus.regi\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Reelle rettighetshavere er registrert\u0026#34; }, \u0026#34;gjelderFraDato\u0026#34;: \u0026#34;2022-09-06T09:17:39.87542Z\u0026#34;, \u0026#34;reelleRettighetshavereStatus\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;reellerettighetshaverestatus.arid\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Alle reelle rettighetshavere kan identifiseres\u0026#34; }, \u0026#34;reelleRettighetshavere\u0026#34;: [ { \u0026#34;foedselsEllerDNummer\u0026#34;: 12345678901, \u0026#34;foedselsdato\u0026#34;: \u0026#34;2002-11-05\u0026#34;, \u0026#34;foedselsaar\u0026#34;: \u0026#34;2002\u0026#34;, \u0026#34;navn\u0026#34;: { \u0026#34;fornavn\u0026#34;: \u0026#34;STOLT EFFEKTIV\u0026#34;, \u0026#34;mellomnavn\u0026#34;: \u0026#34;KUL\u0026#34;, \u0026#34;etternavn\u0026#34;: \u0026#34;PARASOLL\u0026#34;, \u0026#34;fulltNavn\u0026#34;: \u0026#34;STOLT EFFEKTIV KUL PARASOLL\u0026#34; }, \u0026#34;foerstRegistrertDato\u0026#34;: \u0026#34;2022-09-06T09:17:39.275205Z\u0026#34;, \u0026#34;endretDato\u0026#34;: \u0026#34;2022-09-06T09:17:39.275205Z\u0026#34;, \u0026#34;statsborgerskap\u0026#34;: [ { \u0026#34;landkode\u0026#34;: \u0026#34;NOR\u0026#34;, \u0026#34;land\u0026#34;: \u0026#34;Norge\u0026#34; }, { \u0026#34;landkode\u0026#34;: \u0026#34;MEX\u0026#34;, \u0026#34;land\u0026#34;: \u0026#34;Mexico\u0026#34; } ], \u0026#34;bostedsland\u0026#34;: { \u0026#34;landkode\u0026#34;: \u0026#34;NOR\u0026#34;, \u0026#34;land\u0026#34;: \u0026#34;Norge\u0026#34; }, \u0026#34;erDoed\u0026#34;: false, \u0026#34;erUnntattFraInnsyn\u0026#34;: false, \u0026#34;posisjoner\u0026#34;: [ { \u0026#34;posisjonType\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;posisjontype.eier\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Eierskap\u0026#34; }, \u0026#34;stoerrelseIntervall\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;stoerrelseintervall.int2\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;50% - 74,99%\u0026#34; }, \u0026#34;grunnlag\u0026#34;: [ { \u0026#34;grunnlagType\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;grunnlagtype.dire\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Direkte\u0026#34; } }, { \u0026#34;grunnlagType\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;grunnlagtype.indi\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Indirekte\u0026#34; } } ] } ] }, { \u0026#34;foedselsdato\u0026#34;: \u0026#34;1983-12-01\u0026#34;, \u0026#34;foedselsaar\u0026#34;: \u0026#34;1983\u0026#34;, \u0026#34;navn\u0026#34;: { \u0026#34;fulltNavn\u0026#34;: \u0026#34;TOM SVENSKE NELSON\u0026#34; }, \u0026#34;foerstRegistrertDato\u0026#34;: \u0026#34;2022-09-06T09:17:39.275205Z\u0026#34;, \u0026#34;endretDato\u0026#34;: \u0026#34;2022-09-06T09:17:39.275205Z\u0026#34;, \u0026#34;statsborgerskap\u0026#34;: [ { \u0026#34;landkode\u0026#34;: \u0026#34;SWE\u0026#34;, \u0026#34;land\u0026#34;: \u0026#34;Sverige\u0026#34; } ], \u0026#34;bostedsland\u0026#34;: { \u0026#34;landkode\u0026#34;: \u0026#34;SWE\u0026#34;, \u0026#34;land\u0026#34;: \u0026#34;Sverige\u0026#34; }, \u0026#34;erDoed\u0026#34;: false, \u0026#34;erUnntattFraInnsyn\u0026#34;: false, \u0026#34;posisjoner\u0026#34;: [ { \u0026#34;posisjonType\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;posisjontype.eier\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Eierskap\u0026#34; }, \u0026#34;stoerrelseIntervall\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;stoerrelseintervall.int1\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;25,01% - 49,99%\u0026#34; }, \u0026#34;grunnlag\u0026#34;: [ { \u0026#34;grunnlagType\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;grunnlagtype.indi\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Indirekte\u0026#34; } } ] }, { \u0026#34;posisjonType\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;posisjontype.ruas\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Rett til å utpeke eller avsette minst halvparten av styremedlemmene\u0026#34; }, \u0026#34;grunnlag\u0026#34;: [ { \u0026#34;grunnlagType\u0026#34;: { \u0026#34;kode\u0026#34;: \u0026#34;grunnlagtype.enav\u0026#34;, \u0026#34;beskrivelse\u0026#34;: \u0026#34;Enighet eller avtale\u0026#34; } } ] } ] } ] } HTTP-statuskoder HTTP-kode Beskrivelse 200 OK Henting av data gikk bra 400 Bad Request Feil i spørring. Applikasjonen vil gi en detaljert feilmelding for hva som er feil med spørring 403 Forbidden Feil ved autentisering eller autorisering. Bearer-tokenet som ble sendt inn er ikke gyldig eller virksomheten har ikke fått tilgang til scope for tjenesten 403 Not Found Virksomheten har ikke registrert reelle rettighetshavere 404 Not Found Virksomheten ikke er registreringspliktig i register over reelle rettighetshavere 500 Internal Server Error Intern feil i tjenesten, for eksempel at en underliggende datakilde ikke svarer Ordliste Definisjoner på begrep som er brukt i denne dokumentasjonen.\nBegrep Definisjon API Programmeringsgrensesnitt Partner API Et API som krever autentisering/autorisering (for eksempel ved bruk av Maskinporten) HTTP Datakommunikasjonsstandard HTTP-statuskoder Statuskoder for datakommunikasjonsstandard REST Datakommunikasjonmønster JSON Åpen standard for dataformat Organisasjonsnummer Identifikasjonsnummer for virksomhet "
+},
+{
+	"uri": "https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/",
+	"title": "Reelle rettighetshavere",
+	"tags": [],
+	"description": "Beskrivelser av API innen domene Reelle rettighetshavere",
+	"content": "På sidene under finner du informasjon om hvordan kan bruke våre API for å hente informasjon som tilgjengeliggjøres fra Reelle rettighetshavere.\n"
+},
+{
+	"uri": "https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/",
+	"title": "Reelle rettighetshavere",
+	"tags": [],
+	"description": "Informasjonsmodell for Reelle rettighetshavere",
+	"content": "Her kommer det info.\n"
+},
+{
 	"uri": "https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/",
 	"title": "Rettsstiftelse",
 	"tags": [],
 	"description": "Beskrivelser av API innen domene Rettsstiftelse",
 	"content": "Se sidene under for ønsket API.\n"
+},
+{
+	"uri": "https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/strukturmodell/",
+	"title": "Strukturmodell",
+	"tags": [],
+	"description": "Strukturmodell for Register over Reelle rettighetshavere",
+	"content": " "
 },
 {
 	"uri": "https://brreg.github.io/docs/apidokumentasjon/elektronisk-mottak/maskinport-integrasjon/uthenting/",
