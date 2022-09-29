@@ -13,7 +13,8 @@ Vi er i gang med å forbedre [Brønnøysundregistrenes dokumentasjon](https://br
 1. Pull eksisterende endringer.
 2. Gjør endringene du ønsker på din lokale kopi, helst direkte på `master` branch.
 3. Inspiser at resultatet er slik du ønsker, f.eks vha `hugo server`. Dette starter en lokal webserver som kan nås via default adresse [localhost:1313/docs](localhost:1313/docs). Merk at `hugo` kan være sperret av gruppepolicy, og da må kan man måtte bruke kommandolinje startet med administratortilgang for å kjøre programmet.
-4. Deploy endringene ved å committe endringer og pushe til `master`
+4. Dersom du har gjort større endringer, f.eks. fjernet eller lagt til sider med tekst, kan det lønne seg å bygge en ny indeks for søkefeltet som tilbys på websiden ved å kjøre følgende (krever NodeJS installert): `node build-lunr-index.js`
+5. Deploy endringene ved å committe endringer og pushe til `master`
 
 
 
