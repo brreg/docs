@@ -5,13 +5,14 @@ Vi er i gang med å forbedre [Brønnøysundregistrenes dokumentasjon](https://br
 # Getting started
 
 - Skaff tilgang til en github bruker tilkoblet din brsys-mail og clone deretter dette docs-repoet
-- Last ned hugo, se her: [Nedlasting av Hugo](https://gohugo.io/getting-started/installing/)
+- Last ned hugo, se her for instruksjoner: [Nedlasting av Hugo](https://gohugo.io/getting-started/installing/). Filer for nedlasting er tilgjengelige på [Hugos releases GitHub](https://github.com/gohugoio/hugo/releases). Om du bruker vanlig Windows så kan du velge releasen med navn som slutter på `windows-amd64.zip`.
+- Pakk ut filen og legg den i rotmappen på docs-repoet. Ved innsjekk av endringer vil git overse Hugo-filen (.gitignore) slik at den ikke lastes opp.
 
 ## Ønsker du å bidra?
 
 1. Pull eksisterende endringer.
 2. Gjør endringene du ønsker på din lokale kopi, helst direkte på `master` branch.
-3. Inspiser at resultatet er slik du ønsker, f.eks vha `hugo server`. Dette starter en lokal webserver som kan nås via default adresse [localhost:1313/docs](localhost:1313/docs). Merk at `hugo` kan være sperret av gruppepolicy, og da må kan man måtte bruke kommandolinje started med administratortilgang for å kjøre programmet.
+3. Inspiser at resultatet er slik du ønsker, f.eks vha `hugo server`. Dette starter en lokal webserver som kan nås via default adresse [localhost:1313/docs](localhost:1313/docs). Merk at `hugo` kan være sperret av gruppepolicy, og da må kan man måtte bruke kommandolinje startet med administratortilgang for å kjøre programmet.
 4. Deploy endringene ved å committe endringer og pushe til `master`
 
 
