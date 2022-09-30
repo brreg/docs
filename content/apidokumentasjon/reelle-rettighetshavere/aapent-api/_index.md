@@ -6,13 +6,16 @@ weight: 100
 
 
 ## Innledning
-Åpent API tilbyr oppslag på organisasjonsnummer som gir informasjon om reelle rettighetshavere.
+Brønnøysundregistrene tilbyr en åpen, standardisert maskin-til-maskin-tjeneste (API) som kan benyttes av eksterne konsumenter for innsyn i Register over Reelle Rettighetshavere.
+
+Denne dokumentasjonen viser hvordan eksterne systemer kan integrere seg mot APIet, og hvordan man benytter seg av tjenesten for å hente data.
+
 
 ***Denne siden er fortsatt under utvikling.***
 
 ## API-referanse
 
-Denne tjenesten tilbyr opplysninger om reelle rettighetshavere i virksomheter.
+Denne tjenesten tilbyr informasjon om reelle rettighetshavere ved oppslag på organisasjonsnummer.
 
 *Lenker til Swagger-dokumentasjon og OpenAPI-spec kommer her.*
 
@@ -22,23 +25,23 @@ Siden dette er et åpent API er det ingen sikkerhetsmekanismer.
 
 ## Skjerming
 
-Om en reell rettighetshaver er mindreårig eller unntatt fra innsyn, vil enkelte personopplysninger være skjermet.
+Hvis en reell rettighetshaver er mindreårig eller er unntatt fra innsyn vil enkelte personopplysninger være skjermet.
 
 #### For en skjermet rettighetshaver vil responen kun inneholde:
-* fødselsaar
+* foedselsaar
 * statsborgerskap
 * bostedsland
 * posisjon
 
 ## Grensesnittbeskrivelse
 
-| HTTP-metode   | URL                                                               | Beskrivelse                                                           |
-|:------------- |:------------------------------------------------------------------|:----------------------------------------------------------------------|
-| GET           | https://\{domene\}/api/reelle-rettigheteter/{organisasjonsnummer} | Hent opplysninger om en reell rettighet på angitt organisasjonsnummer |
+| HTTP-metode   | URL                                                               | Beskrivelse                                                                                                                                                                                     |
+|:------------- |:------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GET           | https://\{domene\}/api/reelle-rettigheteter/{organisasjonsnummer} | Hent opplysninger om en reell rettighet på angitt organisasjonsnummer.<br/>En reell rettighet for en gitt virksomhet inneholder en liste med reelle rettighetshavere, hvis dette er registrert. |
 
-| Header-navn     | Verdier                                | Beskrivelse                                                                                                                                                                                                   |
-|:----------------|:---------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Accept-Language | ISO 639-3 språkkode. For eksempel: nob | Valgfri header for å angi ønsket språk på kodebeskrivelser og landnavn i respons. Dersom vi ikke har kodebeskrivelser eller landnavn på språket i Accept-Language, vil nob, norsk bokmål, brukes i responsen. |
+| Header-navn     | Verdier                                | Beskrivelse                                                                                                                                                                                                    |
+|:----------------|:---------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Accept-Language | ISO 639-3 språkkode. For eksempel: nob | Valgfri header for å angi ønsket språk på kodebeskrivelser og landnavn i respons. Dersom vi ikke har kodebeskrivelser eller landnavn på språket i Accept-Language, vil nob (norsk bokmål), brukes i responsen. |
 
 **Domener**:
 
@@ -200,25 +203,27 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
 
 ## HTTP-statuskoder
 
-| HTTP-kode                 | Beskrivelse                                                                                     |
-|:------------------------- |:------------------------------------------------------------------------------------------------|
-| 200 OK                    | Henting av data gikk bra                                                                        |
-| 400 Bad Request           | Feil i spørring. Applikasjonen vil gi en detaljert feilmelding for hva som er feil med spørring |
-| 404 Not Found             | Virksomheten har ikke registrert reelle rettighetshavere                                        |
-| 404 Not Found             | Virksomheten ikke er registreringspliktig i register over reelle rettighetshavere               |
-| 500 Internal Server Error | Intern feil i tjenesten, for eksempel at en underliggende datakilde ikke svarer                 |
+| HTTP-kode                 | Beskrivelse                                                                                                                                                                   |
+|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 200 OK                    | Henting av data gikk bra                                                                                                                                                      |
+| 400 Bad Request           | Feil i spørring. Applikasjonen vil gi en detaljert feilmelding for hva som er feil med spørring                                                                               |
+| 404 Not Found             | Virksomheten har ikke registrert reelle rettighetshavere                                                                                                                      |
+| 404 Not Found             | Virksomheten er ikke registreringspliktig i Register over reelle rettighetshavere                                                                                             |
+| 500 Internal Server Error | Intern feil i tjenesten, for eksempel at en underliggende datakilde ikke svarer                                                                                               |
 
 ## Ordliste
 
 Definisjoner på begrep som er brukt i denne dokumentasjonen.
 
-| Begrep              | Definisjon                                                                           |
-|:--------------------|:-------------------------------------------------------------------------------------|
-| API                 | Programmeringsgrensesnitt                                                            |
-| HTTP                | Datakommunikasjonsstandard                                                           |
-| HTTP-statuskoder    | Statuskoder for datakommunikasjonsstandard                                           |
-| REST                | Datakommunikasjonmønster                                                             |
-| JSON                | Åpen standard for dataformat                                                         |
-| Organisasjonsnummer | Identifikasjonsnummer for virksomhet                                                 |
+| Begrep              | Definisjon                                                                                                          |
+|:--------------------|:--------------------------------------------------------------------------------------------------------------------|
+| API                 | Programmeringsgrensesnitt                                                                                           |
+| Åpent API           | Et API som ikke krever autorisering/autentisering                                                                   |
+| Reell rettighet     | En reell rettighet for en gitt virksomhet inneholder en liste med reelle rettighetshavere, hvis dette er registrert |
+| HTTP                | Datakommunikasjonsstandard                                                                                          |
+| HTTP-statuskoder    | Statuskoder for datakommunikasjonsstandard                                                                          |
+| REST                | Datakommunikasjonmønster                                                                                            |
+| JSON                | Åpen standard for dataformat                                                                                        |
+| Organisasjonsnummer | Identifikasjonsnummer for virksomhet                                                                                |
 
 ---

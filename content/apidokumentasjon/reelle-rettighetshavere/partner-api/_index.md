@@ -5,13 +5,16 @@ weight: 100
 ---
 
 ## Innledning
-Partner API tilbyr oppslag på organisasjonsnummer som gir informasjon om reelle rettighetshavere inklusive fødselsnummer.
+Brønnøysundregistrene tilbyr en lukket, standardisert maskin-til-maskin-tjeneste (API) som kan benyttes av eksterne konsumenter for innsyn i Register over Reelle Rettighetshavere.
+
+Denne dokumentasjonen viser hvordan eksterne systemer kan integrere seg mot APIet, og hvordan man benytter seg av tjenesten for å hente data.
+
 
 ***Denne siden er fortsatt under utvikling.***
 
 ## API-referanse
+Denne tjenesten tilbyr informasjon om reelle rettighetshavere ved oppslag på organisasjonsnummer, inklusive fødselsnummer eller D-nummer.
 
-Denne tjenesten tilbyr opplysninger om reelle rettighetshavere, inklusive fødselsnummer og d-nummer, i virksomheter.
 
 *Lenker til Swagger-dokumentasjon og OpenAPI-spec kommer her.*
 
@@ -22,8 +25,8 @@ Siden dette er et Partner API må konsumenter autentiseres gjennom [Maskinporten
 For å kunne få tilgang til våre Partner API er det tre forutsetninger.
 
 1. Virksomhetssertifikat
-2. Registrert klient hos Maskinporten.
-3. I dialogen med Brønnøysundregistrene om å få tilgang til API'et vil din virksomhet ha fått informasjon om hvilket av de to scopene virksomheten har fått tilgang til.
+2. Registrert klient hos Maskinporten
+3. I dialogen med Brønnøysundregistrene om å få tilgang til API'et vil din virksomhet ha fått informasjon om hvilket av de to scopene virksomheten har fått tilgang til:
 JWT-token fra Maskinporten mot ett av disse scopene:
    1. `brreg:reelle/partner.offentlig`
    2. `brreg:reelle/partner.rapporteringspliktig`
@@ -37,13 +40,13 @@ Se [veiledning for integrasjon mot Maskinporten]({{<ref "mp-integrasjonsveiledni
 
 ## Grensesnittbeskrivelse
 
-| HTTP-metode   | URL                                                                       | Beskrivelse                                                           |
-|:------------- |:--------------------------------------------------------------------------|:----------------------------------------------------------------------|
-| GET           | https://\{domene\}/api/partner/reelle-rettigheteter/{organisasjonsnummer} | Hent opplysninger om en reell rettighet på angitt organisasjonsnummer |
+| HTTP-metode   | URL                                                                       | Beskrivelse                                                                                                                                                                                     |
+|:------------- |:--------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GET           | https://\{domene\}/api/partner/reelle-rettigheteter/{organisasjonsnummer} | Hent opplysninger om en reell rettighet på angitt organisasjonsnummer.<br/>En reell rettighet for en gitt virksomhet inneholder en liste med reelle rettighetshavere, hvis dette er registrert. |
 
-| Header-navn     | Verdier                                | Beskrivelse                                                                                                                                                                                                   |
-|:----------------|:---------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Accept-Language | ISO 639-3 språkkode. For eksempel: nob | Valgfri header for å angi ønsket språk på kodebeskrivelser og landnavn i respons. Dersom vi ikke har kodebeskrivelser eller landnavn på språket i Accept-Language, vil nob, norsk bokmål, brukes i responsen. |
+| Header-navn     | Verdier                                | Beskrivelse                                                                                                                                                                                                    |
+|:----------------|:---------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Accept-Language | ISO 639-3 språkkode. For eksempel: nob | Valgfri header for å angi ønsket språk på kodebeskrivelser og landnavn i respons. Dersom vi ikke har kodebeskrivelser eller landnavn på språket i Accept-Language, vil nob (norsk bokmål), brukes i responsen. |
 
 **Domener**:
 
@@ -54,7 +57,7 @@ Se [veiledning for integrasjon mot Maskinporten]({{<ref "mp-integrasjonsveiledni
 
 #### Beskrivelse
 
-Tjenesten tar imot en forespørsel om oppslag på et organisasjonsnummer. Forespørselen valideres og returnerer opplysninger om reelle rettighetshavere inklusive fødselsnummer/d-nummer på oppgitt organisasjonsnummer.
+Tjenesten tar imot en forespørsel om oppslag på et organisasjonsnummer. Forespørselen valideres og returnerer opplysninger om reelle rettighetshavere, inklusive fødselsnummer og d-nummer, på oppgitt organisasjonsnummer.
 
 #### Request
 
@@ -205,27 +208,28 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
 
 ## HTTP-statuskoder
 
-| HTTP-kode                 | Beskrivelse                                                                                                                                                                          |
-|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 200 OK                    | Henting av data gikk bra                                                                                                                                                             |
-| 400 Bad Request           | Feil i spørring. Applikasjonen vil gi en detaljert feilmelding for hva som er feil med spørring                                                                                      |
-| 403 Forbidden             | Feil ved autentisering eller autorisering. Bearer-tokenet som ble sendt inn er ikke gyldig eller virksomheten har ikke fått tilgang til scope for tjenesten                          |
-| 403 Not Found             | Virksomheten har ikke registrert reelle rettighetshavere                                                                                                                             |
-| 404 Not Found             | Virksomheten ikke er registreringspliktig i register over reelle rettighetshavere                                                                                                    |
-| 500 Internal Server Error | Intern feil i tjenesten, for eksempel at en underliggende datakilde ikke svarer                                                                                                      |
+| HTTP-kode                 | Beskrivelse                                                                                                                                                                         |
+|:--------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 200 OK                    | Henting av data gikk bra                                                                                                                                                            |
+| 400 Bad Request           | Feil i spørring. Applikasjonen vil gi en detaljert feilmelding for hva som er feil med spørring                                                                                     |
+| 403 Forbidden             | Feil ved autentisering eller autorisering. Bearer-tokenet som ble sendt inn er ikke gyldig eller virksomheten har ikke fått tilgang til scope for tjenesten                         |
+| 404 Not Found             | Virksomheten har ikke registrert reelle rettighetshavere                                                                                                                            |
+| 404 Not Found             | Virksomheten er ikke registreringspliktig i Register over reelle rettighetshavere                                                                                                   |
+| 500 Internal Server Error | Intern feil i tjenesten, for eksempel at en underliggende datakilde ikke svarer                                                                                                     |
 
 ## Ordliste
 
 Definisjoner på begrep som er brukt i denne dokumentasjonen.
 
-| Begrep              | Definisjon                                                                           |
-|:--------------------|:-------------------------------------------------------------------------------------|
-| API                 | Programmeringsgrensesnitt                                                            |
-| Partner API         | Et API som krever autentisering/autorisering (for eksempel ved bruk av Maskinporten) |
-| HTTP                | Datakommunikasjonsstandard                                                           |
-| HTTP-statuskoder    | Statuskoder for datakommunikasjonsstandard                                           |
-| REST                | Datakommunikasjonmønster                                                             |
-| JSON                | Åpen standard for dataformat                                                         |
-| Organisasjonsnummer | Identifikasjonsnummer for virksomhet                                                 |
+| Begrep              | Definisjon                                                                                                          |
+|:--------------------|:--------------------------------------------------------------------------------------------------------------------|
+| API                 | Programmeringsgrensesnitt                                                                                           |
+| Partner API         | Et API som krever autentisering/autorisering (for eksempel ved bruk av Maskinporten)                                |
+| Reell rettighet     | En reell rettighet for en gitt virksomhet inneholder en liste med reelle rettighetshavere, hvis dette er registrert |
+| HTTP                | Datakommunikasjonsstandard                                                                                          |
+| HTTP-statuskoder    | Statuskoder for datakommunikasjonsstandard                                                                          |
+| REST                | Datakommunikasjonmønster                                                                                            |
+| JSON                | Åpen standard for dataformat                                                                                        |
+| Organisasjonsnummer | Identifikasjonsnummer for virksomhet                                                                                |
 
 ---
