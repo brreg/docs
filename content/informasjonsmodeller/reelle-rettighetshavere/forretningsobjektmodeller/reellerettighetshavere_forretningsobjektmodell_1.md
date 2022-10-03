@@ -1,5 +1,5 @@
 ---
-title: Register over reelle rettighetshavere (bildefil for forretningsobjektmodell 1)
+title: Register over reelle rettighetshavere, forretningsobjektmodell 1
 description: Forretningsobjektmodell 1 for Register over reelle rettighetshavere 
 weight: 40
 ---

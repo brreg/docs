@@ -14,7 +14,7 @@ Denne dokumentasjonen viser hvordan eksterne systemer kan integrere seg mot APIe
 
 ## API-referanse
 Denne tjenesten tilbyr informasjon om reelle rettighetshavere ved oppslag på organisasjonsnummer, inklusive fødselsnummer eller D-nummer.
-
+Tjenesten skjermer ikke informasjon om mindreårige og andre som er unntatt fra innsyn.
 
 *Lenker til Swagger-dokumentasjon og OpenAPI-spec kommer her.*
 
