@@ -16,7 +16,8 @@ Vi er i gang med å forbedre [Brønnøysundregistrenes dokumentasjon](https://br
 4. Dersom du har gjort større endringer, f.eks. fjernet eller lagt til sider med tekst, kan det lønne seg å bygge en ny indeks for søkefeltet som tilbys på websiden ved å kjøre følgende (krever NodeJS installert): `node build-lunr-index.js`
 5. Deploy endringene ved å committe endringer og pushe til `master`
 
-
+### Tips og triks
+* Sortering av undersider i venstremenyen styres ved bruk av metadatafeltet `weight` på de enkelte undersidene. Høyere tallverdi gjør at sidene synker i sorteringen. 
 
 Du kan også foreslå forbedringer eller påpeke bugs ved å [opprette en issue](https://github.com/brreg/docs/issues).
 
