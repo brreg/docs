@@ -1,7 +1,7 @@
 ---
 title: Revisjonsplikt
 description: Revisjonsplikt for foretak
-weight: 10
+weight: 50
 ---
 
 {{% children description="true" %}}
@@ -9,5 +9,4 @@ weight: 10
 Denne visningen gir en oversikt over hva som påvirker plikten til å revidere årsregnskapet for et foretak.
 
 ![RevisjonspliktFR](https://github.com/brreg/informasjonsmodeller/blob/main/foretaksregisteret/forretningsobjektmodeller/Revisjonsplikt.jpg?raw=true)
-
 

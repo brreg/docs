@@ -1,7 +1,7 @@
 ---
 title: Foretakets status
 description: Foretakets status i Foretaksregisteret
-weight: 40
+weight: 20
 ---
 
 {{% children description="true" %}}

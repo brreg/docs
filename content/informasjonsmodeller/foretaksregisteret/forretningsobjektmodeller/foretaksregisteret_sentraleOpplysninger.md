@@ -10,4 +10,3 @@ Denne visningen er utgangspunkt for alle andre visninger i modellen og gir overs
 
 ![RollerFR](https://github.com/brreg/informasjonsmodeller/blob/main/foretaksregisteret/forretningsobjektmodeller/Sentrale%20opplysninger.jpg?raw=true)
 
-

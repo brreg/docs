@@ -1,7 +1,7 @@
 ---
 title: Roller i Foretaksregisteret
 description: Roller i Foretaksregisteret
-weight: 10
+weight: 40
 ---
 
 {{% children description="true" %}}

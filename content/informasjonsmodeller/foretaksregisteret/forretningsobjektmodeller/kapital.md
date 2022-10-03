@@ -1,7 +1,7 @@
 ---
 title: Kapital
 description: Ansvarskapital i et foretak
-weight: 10
+weight: 70
 ---
 
 {{% children description="true" %}}
@@ -9,5 +9,4 @@ weight: 10
 Denne visningen for kapital viser hva ansvarskapitalen består av og hvordan ansvarskapitalen kan endres ved forhøyelse og nedsettelse.
 
 ![KapitalFR](https://github.com/brreg/informasjonsmodeller/blob/main/foretaksregisteret/forretningsobjektmodeller/Kapital.jpg?raw=true)
-
 

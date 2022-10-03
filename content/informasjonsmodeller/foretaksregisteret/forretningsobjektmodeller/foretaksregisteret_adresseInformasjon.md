@@ -1,7 +1,7 @@
 ---
 title: Adresseinformasjon
 description: Adresseinformasjon i Foretaksregisteret
-weight: 10
+weight: 30
 ---
 
 {{% children description="true" %}}
