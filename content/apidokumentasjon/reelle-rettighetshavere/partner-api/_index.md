@@ -38,6 +38,39 @@ Se [veiledning for integrasjon mot Maskinporten]({{<ref "mp-integrasjonsveiledni
 [Regelverk](https://lovdata.no/dokument/SF/forskrift/2021-06-21-2056?q=forskrift%20reelle%20rettighetshavere): Hjemler for tilgjengeliggjøring av data fra Brønnøysundregistrene.
 
 
+## Disse kan få tilgang til APIet
+
+### Offentlige myndigheter nevnt i forskriften § 3-11:  
+
+a) Politi- og påtalemyndighet.  
+b) Enheten for finansiell etterretning ansvarlig for å motta opplysninger om mistenkelige forhold etter hvitvaskingsloven § 26.  
+c) Skattemyndigheter.  
+d) Tilsynsmyndigheter for rapporteringspliktige etter hvitvaskingsregelverket.  
+e) Andre myndigheter med ansvar for å etterforske og påtale hvitvasking, primærforbrytelser og terrorfinansiering.  
+f) Andre myndigheter med ansvar for sporing, båndlegging og inndragning av utbytte.  
+g) Sikkerhetsmyndigheten.  
+h) Tilsynsmyndighet for stiftelser.  
+
+
+
+### Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav a, b, c, e, g, h til k, n og o:  
+
+a) bank  
+b) kredittforetak  
+c) finansieringsforetak  
+e) e-pengeforetak  
+g) betalingsforetak og andre som har rett til å yte betalingstjenester  
+h) verdipapirforetak  
+i) forvaltningsselskap for verdipapirfond  
+j) forsikringsforetak  
+k) foretak som driver forsikringsformidling som ikke er gjenforsikringsmegling  
+n) forvalter av alternative investeringsfond  
+o) låneformidlingsforetak  
+
+
+
+For å få tilgang til partner API må du sende e-post til opendata.rrh@brreg.no. I e-posten må du opplyse om hvilket organisasjonsnummer det gjelder, og hvilken hjemmel til utvidet tilgang virksomheten faller inn under.  
+
 ## Grensesnittbeskrivelse
 
 | HTTP-metode   | URL                                                                       | Beskrivelse                                                                                                                                                                                      |
