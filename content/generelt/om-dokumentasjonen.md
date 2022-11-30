@@ -13,12 +13,12 @@ For ytterligere informasjon om eldre tjenester, se https://www.brreg.no/produkte
 
 ### Hva er API-dokumentasjon
 
-Disse sidene vil være et område hvor vi publiserer generell informasjon, tjenestebeskrivelser, informasjonsmodeller, testdata, osv.  
-- som et supplement til den tekniske dokumentasjonen som vil publiseres som maskinlesbare [OpenAPI-spesifikasjoner](https://github.com/brreg/openAPI).  
+Disse sidene vil være et område hvor vi publiserer generell informasjon, tjenestebeskrivelser, informasjonsmodeller, testdata,  
+osv. - som et supplement til den tekniske dokumentasjonen som vil publiseres som maskinlesbare [OpenAPI-spesifikasjoner](https://github.com/brreg/openAPI).  
 I OpenAPI-spesifikasjonen vil det bl.a. ligge eksempler på request og respons, feltbeskrivelser,  
-- og annet som gjør at f. eks. godt utbredte [Swagger](http://editor.swagger.io/) blir et godt verktøy for å utforske og forstå API-ene.  
+og annet som gjør at f. eks. godt utbredte [Swagger](http://editor.swagger.io/) blir et godt verktøy for å utforske og forstå API-ene.  
 OpenAPI-spesifikasjonene vil også tilgjengeliggjøres gjennom [Felles API-katalog](https://informasjonsforvaltning.github.io/felles-datakatalog/),  
-- som vil sørge for at API-ene enklere kan oppdages av de som måtte være interesserte, og inneholde en link tilbake til dokumentasjonen som ligger på disse sidene.  
+som vil sørge for at API-ene enklere kan oppdages av de som måtte være interesserte, og inneholde en link tilbake til dokumentasjonen som ligger på disse sidene.  
 
 
 {{% children description="false" %}}
