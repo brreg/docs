@@ -16,7 +16,9 @@ Denne dokumentasjonen viser hvordan eksterne systemer kan integrere seg mot APIe
 Denne tjenesten tilbyr informasjon om reelle rettighetshavere ved oppslag på organisasjonsnummer, inklusive fødselsnummer eller D-nummer.
 Tjenesten skjermer ikke informasjon om mindreårige og andre som er unntatt fra innsyn.
 
-*Lenker til Swagger-dokumentasjon og OpenAPI-spec kommer her.*
+Se gjerne på [OpenAPI-spesifikasjon](https://github.com/brreg/openAPI/blob/master/specs/reelle-partner-api.yaml) for teknisk beskrivelse av tjenesten.
+
+*Lenker til Swagger-dokumentasjon kommer her.*
 
 
 ## Hvordan få tilgang
