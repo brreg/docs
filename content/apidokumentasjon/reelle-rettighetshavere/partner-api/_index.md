@@ -19,6 +19,42 @@ Tjenesten skjermer ikke informasjon om mindreårige og andre som er unntatt fra 
 *Lenker til Swagger-dokumentasjon og OpenAPI-spec kommer her.*
 
 
+## Hvordan få tilgang
+
+For å få tilgang til partner API må du sende e-post til `opendata.rrh@brreg.no`. I e-posten må du opplyse om hvilket organisasjonsnummer det gjelder, og hvilken hjemmel til utvidet tilgang virksomheten faller inn under.  
+Hvis tilgangen gjelder testmiljø må du i tillegg oppgi hvilken ip-adresse dere kommer fra da API'ene i test har ip-filtrering.
+
+## Disse kan få tilgang til APIet
+
+### Offentlige myndigheter nevnt i forskriften § 3-11:
+
+[Lovdata - Forskrift til lov om register over reelle rettighetshavere](https://lovdata.no/dokument/SF/forskrift/2021-06-21-2056?q=reelle%20rettighetshavere)
+
+a) politi- og påtalemyndighet  
+b) enheten for finansiell etterretning ansvarlig for å motta opplysninger om mistenkelige forhold etter hvitvaskingsloven § 26  
+c) skattemyndigheter  
+d) tilsynsmyndigheter for rapporteringspliktige etter hvitvaskingsregelverket  
+e) andre myndigheter med ansvar for å etterforske og påtale hvitvasking, primærforbrytelser og terrorfinansiering  
+f) andre myndigheter med ansvar for sporing, båndlegging og inndragning av utbytte  
+g) sikkerhetsmyndigheten  
+h) tilsynsmyndighet for stiftelser
+
+
+
+### Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav a, b, c, e, g, h til k, n og o:
+
+a) bank  
+b) kredittforetak  
+c) finansieringsforetak  
+e) e-pengeforetak  
+g) betalingsforetak og andre som har rett til å yte betalingstjenester  
+h) verdipapirforetak  
+i) forvaltningsselskap for verdipapirfond  
+j) forsikringsforetak  
+k) foretak som driver forsikringsformidling som ikke er gjenforsikringsmegling  
+n) forvalter av alternative investeringsfond  
+o) låneformidlingsforetak
+
 ## Sikkerhetsmekanismer
 Siden dette er et Partner API må konsumenter autentiseres gjennom [Maskinporten](https://docs.digdir.no/maskinporten_guide_apikonsument.html).
 
@@ -36,43 +72,6 @@ Tokenet som hentes fra Maskinporten må bli sendt som autorisasjonstoken (Bearer
 Se [veiledning for integrasjon mot Maskinporten]({{<ref "mp-integrasjonsveiledning.md">}}).
 
 [Regelverk](https://lovdata.no/dokument/SF/forskrift/2021-06-21-2056?q=forskrift%20reelle%20rettighetshavere): Hjemler for tilgjengeliggjøring av data fra Brønnøysundregistrene.
-
-## Hvordan få tilgang
-
-For å få tilgang til partner API må du sende e-post til `opendata.rrh@brreg.no`. I e-posten må du opplyse om hvilket organisasjonsnummer det gjelder, og hvilken hjemmel til utvidet tilgang virksomheten faller inn under.  
-Hvis tilgangen gjelder testmiljø må du i tillegg oppgi hvilken ip-adresse dere kommer fra da API'ene i test har ip-filtrering.
-
-## Disse kan få tilgang til APIet
-
-### Offentlige myndigheter nevnt i forskriften § 3-11:  
-
-[Lovdata - Forskrift til lov om register over reelle rettighetshavere](https://lovdata.no/dokument/SF/forskrift/2021-06-21-2056?q=reelle%20rettighetshavere)
-
-a) politi- og påtalemyndighet  
-b) enheten for finansiell etterretning ansvarlig for å motta opplysninger om mistenkelige forhold etter hvitvaskingsloven § 26  
-c) skattemyndigheter  
-d) tilsynsmyndigheter for rapporteringspliktige etter hvitvaskingsregelverket  
-e) andre myndigheter med ansvar for å etterforske og påtale hvitvasking, primærforbrytelser og terrorfinansiering  
-f) andre myndigheter med ansvar for sporing, båndlegging og inndragning av utbytte  
-g) sikkerhetsmyndigheten  
-h) tilsynsmyndighet for stiftelser  
-
-
-
-### Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav a, b, c, e, g, h til k, n og o:  
-
-a) bank  
-b) kredittforetak  
-c) finansieringsforetak  
-e) e-pengeforetak  
-g) betalingsforetak og andre som har rett til å yte betalingstjenester  
-h) verdipapirforetak  
-i) forvaltningsselskap for verdipapirfond  
-j) forsikringsforetak  
-k) foretak som driver forsikringsformidling som ikke er gjenforsikringsmegling  
-n) forvalter av alternative investeringsfond  
-o) låneformidlingsforetak
-
 ## Grensesnittbeskrivelse
 
 | HTTP-metode   | URL                                                                       | Beskrivelse                                                                                                                                                                                      |
