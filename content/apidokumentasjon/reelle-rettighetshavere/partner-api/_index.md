@@ -109,7 +109,7 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
 
 
 ##### Eksempelrespons for oppslag på organisasjonsnummer
-***Eksempelresponsen er kun et utkast, og strukturen kan endre seg***
+***Eksempelresponsen kan endre seg***
 ```json
 {
    "registreringId": "83201f83-b92a-484c-a92c-3d5736fd1adc",
@@ -274,6 +274,28 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
    ]
 }
 ```
+
+### Totalbestand
+
+#### Beskrivelse
+
+Henter ut alle gjeldende opplysninger i registeret i form av CSV eller JSON i en ZIP-fil. Filene blir oppdatert en gang i døgnet.
+
+
+#### Request
+
+Tar i mot et organisasjonsnummer som en del av URL, med obligatorisk path-parameter `organisasjonsnummer` som det søkes på.
+
+#### Response
+
+Dersom kallet lykkes får man HTTP-status 200 samt en Zippet fil (på JSON- eller CSV-format) i retur. Filen inneholder alle gjeldende opplysninger i Register over reelle rettighetshavere.
+
+##### Eksempelrespons for totalbestand
+Om man henter ut totalbestand som JSON, vil filen være en liste der elementene i listen er på samme format som endepunktet `Oppslag på organisasjonsnummer`.
+** Eksempelfil på JSON-format kan lastes ned her snart **
+
+Om man henter ut totalbestand som CSV, vil man få en kommaseparert fil som kan åpnes i for eksempel Excel.
+** Eksempelfil på CSV-format kan lastes ned her snart **
 
 ---
 
