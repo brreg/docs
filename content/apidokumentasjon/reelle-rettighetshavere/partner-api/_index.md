@@ -76,11 +76,11 @@ Se [veiledning for integrasjon mot Maskinporten]({{<ref "mp-integrasjonsveiledni
 [Regelverk](https://lovdata.no/dokument/SF/forskrift/2021-06-21-2056?q=forskrift%20reelle%20rettighetshavere): Hjemler for tilgjengeliggjøring av data fra Brønnøysundregistrene.
 ## Grensesnittbeskrivelse
 
-| HTTP-metode | URL                                                                     | Beskrivelse                                                                                                                                                                                      |
-|:------------|:------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| GET         | https://\{domene\}/api/partner/reelle-rettigheter/{organisasjonsnummer} | Hent opplysninger om en reell rettighet på angitt organisasjonsnummer. <br/>En reell rettighet for en gitt virksomhet inneholder en liste med reelle rettighetshavere, hvis dette er registrert. |
-| GET         | https://\{domene\}/api/partner/reelle-rettigheter/totalbestand/json     | Hent alle registrerte opplysninger i registeret i form av JSON. Returnerer JSON i en ZIP-fil.                                                                                                    |
-| GET         | https://\{domene\}/api/partner/reelle-rettigheter/totalbestand/csv      | Hent alle registrerte opplysninger i registeret i form av CSV. Returnerer CSV i en ZIP-fil.                                                                                                      |
+| HTTP-metode | URL                                                                         | Beskrivelse                                                                                                                                                                                      |
+|:------------|:----------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GET         | https://\{domene\}/api/partner/reelle-rettigheter/{organisasjonsnummer}     | Hent opplysninger om en reell rettighet på angitt organisasjonsnummer. <br/>En reell rettighet for en gitt virksomhet inneholder en liste med reelle rettighetshavere, hvis dette er registrert. |
+| GET         | https://\{domene\}/api/partner/reelle-rettigheter/totalbestand/json         | Hent alle registrerte opplysninger i registeret i form av JSON. Returnerer JSON i en ZIP-fil.                                                                                                    |
+| GET         | https://\{domene\}/api/partner/reelle-rettigheter/totalbestand/csv          | Hent alle registrerte opplysninger i registeret i form av CSV. Returnerer CSV i en ZIP-fil.                                                                                                      |
 
 
 **Domener**:
@@ -93,6 +93,9 @@ Se [veiledning for integrasjon mot Maskinporten]({{<ref "mp-integrasjonsveiledni
 #### Beskrivelse
 
 Tjenesten tar imot en forespørsel om oppslag på et organisasjonsnummer. Forespørselen valideres og returnerer opplysninger om reelle rettighetshavere, inklusive fødselsnummer og d-nummer, på oppgitt organisasjonsnummer.
+
+### Testdata
+Se [underside for testdata]({{<ref "testdata_for_partner_api.md">}}). Her finner du organisasjonsnummer du kan bruke bruke i vårt testmiljø og hvilke data du får i retur.
 
 #### Request
 
@@ -274,7 +277,6 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
    ]
 }
 ```
-
 ### Totalbestand
 
 #### Beskrivelse
