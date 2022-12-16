@@ -17,7 +17,7 @@ parent"><a href=/docs/apidokumentasjon/reelle-rettighetshavere/><span>Register o
 <i class="fa fa-angle-down fa-lg category-icon"></i></a><ul><li data-nav-id=https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/aapent-api/ class="dd-item
 active"><a href=/docs/apidokumentasjon/reelle-rettighetshavere/aapent-api/><span>Åpent API</span>
 <i class="fa fa-angle-right fa-lg category-icon"></i></a><ul><li data-nav-id=https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/aapent-api/loesningsmodell/ class=dd-item><a href=/docs/apidokumentasjon/reelle-rettighetshavere/aapent-api/loesningsmodell/><span>Løsningsmodell for åpent API</span></a></li></ul></li><li data-nav-id=https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/partner-api/ class=dd-item><a href=/docs/apidokumentasjon/reelle-rettighetshavere/partner-api/><span>Partner API</span>
-<i class="fa fa-angle-right fa-lg category-icon"></i></a><ul><li data-nav-id=https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/partner-api/loesningsmodell/ class=dd-item><a href=/docs/apidokumentasjon/reelle-rettighetshavere/partner-api/loesningsmodell/><span>Løsningsmodell for partner API</span></a></li></ul></li></ul></li></ul></li><li data-nav-id=https://brreg.github.io/docs/informasjonsmodeller/ class="dd-item
+<i class="fa fa-angle-right fa-lg category-icon"></i></a><ul><li data-nav-id=https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/partner-api/loesningsmodell/ class=dd-item><a href=/docs/apidokumentasjon/reelle-rettighetshavere/partner-api/loesningsmodell/><span>Løsningsmodell for partner API</span></a></li><li data-nav-id=https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/partner-api/testdata_for_partner_api/ class=dd-item><a href=/docs/apidokumentasjon/reelle-rettighetshavere/partner-api/testdata_for_partner_api/><span>Testdata for Partner API</span></a></li></ul></li></ul></li></ul></li><li data-nav-id=https://brreg.github.io/docs/informasjonsmodeller/ class="dd-item
 parent"><a href=/docs/informasjonsmodeller/><span>Informasjonsmodeller</span>
 <i class="fa fa-angle-down fa-lg category-icon"></i></a><ul><li data-nav-id=https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/ class=dd-item><a href=/docs/informasjonsmodeller/enhetsregisteret/><span>Enhetsregisteret</span>
 <i class="fa fa-angle-right fa-lg category-icon"></i></a><ul><li data-nav-id=https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/enhetsregisteret_omarbeidet/ class=dd-item><a href=/docs/informasjonsmodeller/enhetsregisteret/enhetsregisteret_omarbeidet/><span>Om arbeidet med forretningsobjektmodeller</span></a></li><li data-nav-id=https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/ class=dd-item><a href=/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/><span>Forretningsobjektmodeller</span>
@@ -30,125 +30,162 @@ parent"><a href=/docs/informasjonsmodeller/><span>Informasjonsmodeller</span>
 Endre</a></div><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb><span id=sidebar-toggle-span><a href=# id=sidebar-toggle data-sidebar-toggle><i class="fa fa-bars"></i></a></span>
 <span id=toc-menu><i class="fa fa-list-alt"></i></span>
 <span class=links><a href=https://brreg.github.io/docs/>BR docs</a> > <a href=https://brreg.github.io/docs/apidokumentasjon/>API-dokumentasjon</a> > <a href=https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/>Register over reelle rettighetshavere</a> > Åpent API</span></div><div class=progress><div class=wrapper><nav id=TableOfContents><ul><li><a href=#innledning>Innledning</a></li><li><a href=#api-referanse>API-referanse</a></li><li><a href=#sikkerhetsmekanismer>Sikkerhetsmekanismer</a></li><li><a href=#skjerming>Skjerming</a><ul><li></li></ul></li><li><a href=#grensesnittbeskrivelse>Grensesnittbeskrivelse</a><ul><li><a href=#oppslag-på-organisasjonsnummer>Oppslag på organisasjonsnummer</a></li></ul></li><li><a href=#http-statuskoder>HTTP-statuskoder</a></li><li><a href=#ordliste>Ordliste</a></li></ul></nav></div></div></div><div id=body-inner><h1>Åpent API</h1><h2 id=innledning>Innledning</h2><p>Brønnøysundregistrene tilbyr en åpen, standardisert maskin-til-maskin-tjeneste (API) som kan benyttes av eksterne konsumenter for innsyn i Register over reelle rettighetshavere.</p><p>Denne dokumentasjonen viser hvordan eksterne systemer kan integrere seg mot APIet, og hvordan man benytter seg av tjenesten for å hente data.</p><p><em><strong>Denne siden er fortsatt under utvikling.</strong></em></p><h2 id=api-referanse>API-referanse</h2><p>Denne tjenesten tilbyr informasjon om reelle rettighetshavere ved oppslag på organisasjonsnummer.</p><p><em>Lenker til Swagger-dokumentasjon og OpenAPI-spec kommer her.</em></p><h2 id=sikkerhetsmekanismer>Sikkerhetsmekanismer</h2><p>Siden dette er et åpent API er det ingen sikkerhetsmekanismer.</p><h2 id=skjerming>Skjerming</h2><p>Hvis en reell rettighetshaver er mindreårig eller er unntatt fra innsyn vil enkelte personopplysninger være skjermet.</p><h4 id=for-en-skjermet-rettighetshaver-vil-responen-kun-inneholde>For en skjermet rettighetshaver vil responen kun inneholde:</h4><ul><li>foedselsaar</li><li>statsborgerskap</li><li>bostedsland</li><li>posisjon</li></ul><h2 id=grensesnittbeskrivelse>Grensesnittbeskrivelse</h2><table><thead><tr><th style=text-align:left>HTTP-metode</th><th style=text-align:left>URL</th><th style=text-align:left>Beskrivelse</th></tr></thead><tbody><tr><td style=text-align:left>GET</td><td style=text-align:left>https://{domene}/api/aapen/reelle-rettigheteter/{organisasjonsnummer}</td><td style=text-align:left>Hent opplysninger om en reell rettighet på angitt organisasjonsnummer. En reell rettighet for en gitt virksomhet inneholder en liste med reelle rettighetshavere, hvis dette er registrert.</td></tr></tbody></table><p><strong>Domener</strong>:</p><ul><li>For testmiljø : <code>https://rrh.ppe.brreg.no</code></li><li>For produksjon: <code>https://rrh.brreg.no</code></li></ul><h3 id=oppslag-på-organisasjonsnummer>Oppslag på organisasjonsnummer</h3><h4 id=beskrivelse>Beskrivelse</h4><p>Tjenesten tar imot en forespørsel om oppslag på et organisasjonsnummer. Forespørselen valideres og returnerer opplysninger om reelle rettighetshavere.</p><h4 id=request>Request</h4><p>Tar i mot et organisasjonsnummer som en del av URL, med obligatorisk path-parameter <code>organisasjonsnummer</code> som det søkes på.</p><h4 id=validering>Validering</h4><ul><li>Forespørselen skal alltid inneholde organisasjonsnummeret det gjøres oppslag på.</li><li>Dersom forespørselen inneholder et organisasjonsnummer som ikke er lovlig oppbygd, returneres det en feilmelding.</li></ul><h4 id=response>Response</h4><p>Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format) i retur. JSON-dokumentet inneholder opplysninger om reelle rettighetshavere.</p><h4 id=eksempelrespons-for-oppslag-på-organisasjonsnummer>Eksempelrespons for oppslag på organisasjonsnummer</h4><p><em><strong>Eksempelresponsen er kun et utkast, og strukturen kan endre seg</strong></em></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;registreringId&#34;</span>: <span style=color:#e6db74>&#34;1f92ac29-7b4f-4f6b-b402-6e9bc7a3ff59&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;registreringId&#34;</span>: <span style=color:#e6db74>&#34;83201f83-b92a-484c-a92c-3d5736fd1adc&#34;</span>,
 </span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;registreringStatus&#34;</span>: {
 </span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;registreringstatus.regi&#34;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;beskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Reelle rettighetshavere er registrert&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;kodetekst&#34;</span>: <span style=color:#e6db74>&#34;Reelle rettighetshavere er registrert&#34;</span>
 </span></span><span style=display:flex><span>  },
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;gjelderFraDato&#34;</span>: <span style=color:#e6db74>&#34;2022-09-06T09:17:39.87542Z&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;registrertDato&#34;</span>: <span style=color:#e6db74>&#34;2022-12-15T12:00:06.231509Z&#34;</span>,
 </span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;reelleRettighetshavereStatus&#34;</span>: {
 </span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;reellerettighetshaverestatus.arid&#34;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;beskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Alle reelle rettighetshavere kan identifiseres&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;kodetekst&#34;</span>: <span style=color:#e6db74>&#34;Virksomheten har meldt at de har reelle rettighetshavere, og at alle reelle rettighetshavere er identifisert&#34;</span>
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;registreringspliktigVirksomhet&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;organisasjonsnummer&#34;</span>: <span style=color:#e6db74>&#34;111111111&#34;</span>
 </span></span><span style=display:flex><span>  },
 </span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;reelleRettighetshavere&#34;</span>: [
 </span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;foedselsdato&#34;</span>: <span style=color:#e6db74>&#34;2002-11-05&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;foedselsaar&#34;</span>: <span style=color:#e6db74>&#34;2002&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;navn&#34;</span>: {
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;fornavn&#34;</span>: <span style=color:#e6db74>&#34;STOLT EFFEKTIV&#34;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;mellomnavn&#34;</span>: <span style=color:#e6db74>&#34;KUL&#34;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;etternavn&#34;</span>: <span style=color:#e6db74>&#34;PARASOLL&#34;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;fulltNavn&#34;</span>: <span style=color:#e6db74>&#34;STOLT EFFEKTIV KUL PARASOLL&#34;</span>
-</span></span><span style=display:flex><span>      },
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;foerstRegistrertDato&#34;</span>: <span style=color:#e6db74>&#34;2022-09-06T09:17:39.275205Z&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;endretDato&#34;</span>: <span style=color:#e6db74>&#34;2022-09-06T09:17:39.275205Z&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;statsborgerskap&#34;</span>: [
-</span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;landkode&#34;</span>: <span style=color:#e6db74>&#34;NOR&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;land&#34;</span>: <span style=color:#e6db74>&#34;Norge&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;folkeregistrertPerson&#34;</span>: {
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;foedselsdato&#34;</span>: <span style=color:#e6db74>&#34;2002-11-05&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;foedselsaar&#34;</span>: <span style=color:#e6db74>&#34;2002&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;navn&#34;</span>: {
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;fornavn&#34;</span>: <span style=color:#e6db74>&#34;STOLT EFFEKTIV&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;mellomnavn&#34;</span>: <span style=color:#e6db74>&#34;KUL&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;etternavn&#34;</span>: <span style=color:#e6db74>&#34;PARASOLL&#34;</span>
 </span></span><span style=display:flex><span>        },
-</span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;landkode&#34;</span>: <span style=color:#e6db74>&#34;MEX&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;land&#34;</span>: <span style=color:#e6db74>&#34;Mexico&#34;</span>
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>      ],
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;erDoed&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;statsborgerskap&#34;</span>: [
+</span></span><span style=display:flex><span>          {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;landkode&#34;</span>: <span style=color:#e6db74>&#34;NOR&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;land&#34;</span>: <span style=color:#e6db74>&#34;Norge&#34;</span>
+</span></span><span style=display:flex><span>          },
+</span></span><span style=display:flex><span>          {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;landkode&#34;</span>: <span style=color:#e6db74>&#34;MEX&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;land&#34;</span>: <span style=color:#e6db74>&#34;Mexico&#34;</span>
+</span></span><span style=display:flex><span>          }
+</span></span><span style=display:flex><span>        ]
+</span></span><span style=display:flex><span>      },
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;bostedsland&#34;</span>: {
 </span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;landkode&#34;</span>: <span style=color:#e6db74>&#34;NOR&#34;</span>,
 </span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;land&#34;</span>: <span style=color:#e6db74>&#34;Norge&#34;</span>
 </span></span><span style=display:flex><span>      },
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;erDoed&#34;</span>: <span style=color:#66d9ef>false</span>,
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;erUnntattFraInnsyn&#34;</span>: <span style=color:#66d9ef>false</span>,
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;posisjoner&#34;</span>: [
 </span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;posisjonType&#34;</span>: {
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;type&#34;</span>: {
 </span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;posisjontype.eier&#34;</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;beskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Eierskap&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;kodetekst&#34;</span>: <span style=color:#e6db74>&#34;Eierskap&#34;</span>
 </span></span><span style=display:flex><span>          },
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;stoerrelseIntervall&#34;</span>: {
 </span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;stoerrelseintervall.int2&#34;</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;beskrivelse&#34;</span>: <span style=color:#e6db74>&#34;50% - 74,99%&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;kodetekst&#34;</span>: <span style=color:#e6db74>&#34;50% - 74,99%&#34;</span>
 </span></span><span style=display:flex><span>          },
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;grunnlag&#34;</span>: [
 </span></span><span style=display:flex><span>            {
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;grunnlagType&#34;</span>: {
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;grunnlagtype.dire&#34;</span>,
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;beskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Direkte&#34;</span>
-</span></span><span style=display:flex><span>              }
-</span></span><span style=display:flex><span>            },
-</span></span><span style=display:flex><span>            {
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;grunnlagType&#34;</span>: {
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;grunnlagtype.indi&#34;</span>,
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;beskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Indirekte&#34;</span>
-</span></span><span style=display:flex><span>              }
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;grunnlagtype.dire&#34;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;kodetekst&#34;</span>: <span style=color:#e6db74>&#34;Direkte&#34;</span>
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>          ]
 </span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>      ]
+</span></span><span style=display:flex><span>      ],
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;foerstRegistrertDato&#34;</span>: <span style=color:#e6db74>&#34;2022-12-16T12:00:06.242Z&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;endretDato&#34;</span>: <span style=color:#e6db74>&#34;2022-12-16T12:00:06.242Z&#34;</span>
 </span></span><span style=display:flex><span>    },
 </span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;foedselsdato&#34;</span>: <span style=color:#e6db74>&#34;1983-12-01&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;foedselsaar&#34;</span>: <span style=color:#e6db74>&#34;1983&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;navn&#34;</span>: {
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;fulltNavn&#34;</span>: <span style=color:#e6db74>&#34;TOM SVENSKE NELSON&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;utenlandskPerson&#34;</span>: {
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;foedselsdato&#34;</span>: <span style=color:#e6db74>&#34;1983-03-24&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;foedselsaar&#34;</span>: <span style=color:#e6db74>&#34;1983&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;fulltNavn&#34;</span>: <span style=color:#e6db74>&#34;GILL BATES&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;statsborgerskap&#34;</span>: [
+</span></span><span style=display:flex><span>          {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;landkode&#34;</span>: <span style=color:#e6db74>&#34;DEU&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;land&#34;</span>: <span style=color:#e6db74>&#34;Tyskland&#34;</span>
+</span></span><span style=display:flex><span>          },
+</span></span><span style=display:flex><span>          {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;landkode&#34;</span>: <span style=color:#e6db74>&#34;SWE&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;land&#34;</span>: <span style=color:#e6db74>&#34;Sverige&#34;</span>
+</span></span><span style=display:flex><span>          },
+</span></span><span style=display:flex><span>          {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;landkode&#34;</span>: <span style=color:#e6db74>&#34;USA&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;land&#34;</span>: <span style=color:#e6db74>&#34;USA&#34;</span>
+</span></span><span style=display:flex><span>          }
+</span></span><span style=display:flex><span>        ]
 </span></span><span style=display:flex><span>      },
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;foerstRegistrertDato&#34;</span>: <span style=color:#e6db74>&#34;2022-09-06T09:17:39.275205Z&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;endretDato&#34;</span>: <span style=color:#e6db74>&#34;2022-09-06T09:17:39.275205Z&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;statsborgerskap&#34;</span>: [
-</span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;landkode&#34;</span>: <span style=color:#e6db74>&#34;SWE&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;land&#34;</span>: <span style=color:#e6db74>&#34;Sverige&#34;</span>
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>      ],
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;bostedsland&#34;</span>: {
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;landkode&#34;</span>: <span style=color:#e6db74>&#34;SWE&#34;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;land&#34;</span>: <span style=color:#e6db74>&#34;Sverige&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;landkode&#34;</span>: <span style=color:#e6db74>&#34;USA&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;land&#34;</span>: <span style=color:#e6db74>&#34;USA&#34;</span>
 </span></span><span style=display:flex><span>      },
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;erDoed&#34;</span>: <span style=color:#66d9ef>false</span>,
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;erUnntattFraInnsyn&#34;</span>: <span style=color:#66d9ef>false</span>,
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;posisjoner&#34;</span>: [
 </span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;posisjonType&#34;</span>: {
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;posisjontype.eier&#34;</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;beskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Eierskap&#34;</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;type&#34;</span>: {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;posisjontype.kont&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;kodetekst&#34;</span>: <span style=color:#e6db74>&#34;Kontroll over stemmerettigheter&#34;</span>
 </span></span><span style=display:flex><span>          },
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;stoerrelseIntervall&#34;</span>: {
 </span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;stoerrelseintervall.int1&#34;</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;beskrivelse&#34;</span>: <span style=color:#e6db74>&#34;25,01% - 49,99%&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;kodetekst&#34;</span>: <span style=color:#e6db74>&#34;25,01% - 49,99%&#34;</span>
 </span></span><span style=display:flex><span>          },
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;grunnlag&#34;</span>: [
 </span></span><span style=display:flex><span>            {
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;grunnlagType&#34;</span>: {
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;grunnlagtype.indi&#34;</span>,
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;beskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Indirekte&#34;</span>
-</span></span><span style=display:flex><span>              }
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;grunnlagtype.indi&#34;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;kodetekst&#34;</span>: <span style=color:#e6db74>&#34;Indirekte&#34;</span>
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;grunnlagtype.enav&#34;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;kodetekst&#34;</span>: <span style=color:#e6db74>&#34;Enighet eller avtale&#34;</span>
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>          ]
 </span></span><span style=display:flex><span>        },
 </span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;posisjonType&#34;</span>: {
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;type&#34;</span>: {
 </span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;posisjontype.ruas&#34;</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;beskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Rett til å utpeke eller avsette minst halvparten av styremedlemmene&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;kodetekst&#34;</span>: <span style=color:#e6db74>&#34;Rett til å utpeke eller avsette minst halvparten av styremedlemmene&#34;</span>
 </span></span><span style=display:flex><span>          },
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;grunnlag&#34;</span>: [
 </span></span><span style=display:flex><span>            {
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;grunnlagType&#34;</span>: {
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;grunnlagtype.enav&#34;</span>,
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;beskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Enighet eller avtale&#34;</span>
-</span></span><span style=display:flex><span>              }
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;grunnlagtype.enav&#34;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;kodetekst&#34;</span>: <span style=color:#e6db74>&#34;Enighet eller avtale&#34;</span>
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>          ]
 </span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>      ]
+</span></span><span style=display:flex><span>      ],
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;foerstRegistrertDato&#34;</span>: <span style=color:#e6db74>&#34;2022-12-16T12:00:06.242Z&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;endretDato&#34;</span>: <span style=color:#e6db74>&#34;2022-12-16T12:00:06.242Z&#34;</span>
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;folkeregistrertPerson&#34;</span>: {
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;foedselsdato&#34;</span>: <span style=color:#e6db74>&#34;1971-07-18&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;foedselsaar&#34;</span>: <span style=color:#e6db74>&#34;1971&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;navn&#34;</span>: {
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;fornavn&#34;</span>: <span style=color:#e6db74>&#34;MINIMALISTISK&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;etternavn&#34;</span>: <span style=color:#e6db74>&#34;HANDLELISTE&#34;</span>
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;erDoed&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;statsborgerskap&#34;</span>: [
+</span></span><span style=display:flex><span>          {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;landkode&#34;</span>: <span style=color:#e6db74>&#34;MSR&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;land&#34;</span>: <span style=color:#e6db74>&#34;Montserrat&#34;</span>
+</span></span><span style=display:flex><span>          }
+</span></span><span style=display:flex><span>        ]
+</span></span><span style=display:flex><span>      },
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;bostedsland&#34;</span>: {
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;landkode&#34;</span>: <span style=color:#e6db74>&#34;NOR&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;land&#34;</span>: <span style=color:#e6db74>&#34;Norge&#34;</span>
+</span></span><span style=display:flex><span>      },
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;erUnntattFraInnsyn&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;posisjoner&#34;</span>: [
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;type&#34;</span>: {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;kode&#34;</span>: <span style=color:#e6db74>&#34;posisjontype.anne&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;kodetekst&#34;</span>: <span style=color:#e6db74>&#34;Kontroll på annen måte&#34;</span>
+</span></span><span style=display:flex><span>          },
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;grunnlag&#34;</span>: [],
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;beskrivelseAnnenMaate&#34;</span>: <span style=color:#e6db74>&#34;Beskrivelse av hva kontrollen går ut på.&#34;</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>      ],
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;foerstRegistrertDato&#34;</span>: <span style=color:#e6db74>&#34;2022-12-16T12:00:06.251Z&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;endretDato&#34;</span>: <span style=color:#e6db74>&#34;2022-12-16T12:00:06.251Z&#34;</span>
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>  ]
 </span></span><span style=display:flex><span>}
