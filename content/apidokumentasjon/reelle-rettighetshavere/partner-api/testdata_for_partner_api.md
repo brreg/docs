@@ -1,9 +1,13 @@
 ---
-title: Testdata for partner API
-description: Testdata for partner API.
+title: Testdata for Partner API
+description: Testdata for Partner API.
 weight: 100
 alwaysopen: true
 ---
+### Beskrivelse
+Her er en oversikt over testdata i vårt testmiljø. Testmiljøet kan inneholde flere registreringer enn de beskrevet under,  
+og man kan derfor få flere registreringer i et totalbestanduttrekk.
+
 
 |Forekomst|Org.nr.|Navn|Fødselsnummer/D-nummer|Fødselsdato|Fornavn|Mellomnavn|Etternavn|Fullt navn|Er død?|Statsborgerskap|Bostedsland|Posisjontype Eier|Størrelseintervall|Grunnlag|Posisjontype Kontroll|Størrelseintervall|Grunnlag|Posisjontype Rett til å utpeke/avsette styre|Grunnlag|Kan ikke identifisere flere reelle rettighetshavere|Har ikke reelle rettighetshavere, norsk eier|Har ikke reelle rettighetshavere, utenlandsk eier|Offentlig virksomhet eier over 75 %|Utenlandsk virksomhet|Kan ikke identifisere reelle rettighetshavere|Kontroll på annen måte|Beskrivelse kontroll på annen måte|Unntatt innsyn|
 |:----|:----|:----|:---------------------|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
