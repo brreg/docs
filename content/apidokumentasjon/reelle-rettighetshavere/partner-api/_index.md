@@ -295,10 +295,10 @@ Dersom kallet lykkes får man HTTP-status 200 samt en Zippet fil (på JSON- elle
 
 ##### Eksempelrespons for totalbestand
 Om man henter ut totalbestand som JSON, vil filen være en liste der elementene i listen er på samme format som endepunktet `Oppslag på organisasjonsnummer`.  
-**Eksempelfil på JSON-format kan lastes ned her snart**
+[Eksempelfil på JSON-format](https://raw.githubusercontent.com/brreg/openAPI/master/specs/exampleResponses/REELLE_PARTNER_API_totalbestand.csv)
 
 Om man henter ut totalbestand som CSV, vil man få en kommaseparert fil som kan åpnes i for eksempel Excel.  
-**Eksempelfil på CSV-format kan lastes ned her snart**
+[Eksempelfil på CSV-format](https://raw.githubusercontent.com/brreg/openAPI/master/specs/exampleResponses/REELLE_PARTNER_API_totalbestand.csv)
 
 ---
 
