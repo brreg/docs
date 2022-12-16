@@ -76,9 +76,11 @@ Se [veiledning for integrasjon mot Maskinporten]({{<ref "mp-integrasjonsveiledni
 [Regelverk](https://lovdata.no/dokument/SF/forskrift/2021-06-21-2056?q=forskrift%20reelle%20rettighetshavere): Hjemler for tilgjengeliggjøring av data fra Brønnøysundregistrene.
 ## Grensesnittbeskrivelse
 
-| HTTP-metode   | URL                                                                       | Beskrivelse                                                                                                                                                                                      |
-|:------------- |:--------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| GET           | https://\{domene\}/api/partner/reelle-rettigheteter/{organisasjonsnummer} | Hent opplysninger om en reell rettighet på angitt organisasjonsnummer. <br/>En reell rettighet for en gitt virksomhet inneholder en liste med reelle rettighetshavere, hvis dette er registrert. |
+| HTTP-metode | URL                                                                     | Beskrivelse                                                                                                                                                                                      |
+|:------------|:------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GET         | https://\{domene\}/api/partner/reelle-rettigheter/{organisasjonsnummer} | Hent opplysninger om en reell rettighet på angitt organisasjonsnummer. <br/>En reell rettighet for en gitt virksomhet inneholder en liste med reelle rettighetshavere, hvis dette er registrert. |
+| GET         | https://\{domene\}/api/partner/reelle-rettigheter/totalbestand/json     | Hent alle registrerte opplysninger i registeret i form av JSON. Returnerer JSON i en ZIP-fil.                                                                                                    |
+| GET         | https://\{domene\}/api/partner/reelle-rettigheter/totalbestand/csv      | Hent alle registrerte opplysninger i registeret i form av CSV. Returnerer CSV i en ZIP-fil.                                                                                                      |
 
 
 **Domener**:
@@ -110,126 +112,164 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
 ***Eksempelresponsen er kun et utkast, og strukturen kan endre seg***
 ```json
 {
-   "registreringId": "1f92ac29-7b4f-4f6b-b402-6e9bc7a3ff59",
+   "registreringId": "83201f83-b92a-484c-a92c-3d5736fd1adc",
    "registreringStatus": {
       "kode": "registreringstatus.regi",
-      "beskrivelse": "Reelle rettighetshavere er registrert"
+      "kodetekst": "Reelle rettighetshavere er registrert"
    },
-   "gjelderFraDato": "2022-09-06T09:17:39.87542Z",
+   "registrertDato": "2022-12-15T12:00:06.231509Z",
    "reelleRettighetshavereStatus": {
       "kode": "reellerettighetshaverestatus.arid",
-      "beskrivelse": "Alle reelle rettighetshavere kan identifiseres"
+      "kodetekst": "Virksomheten har meldt at de har reelle rettighetshavere, og at alle reelle rettighetshavere er identifisert"
+   },
+   "registreringspliktigVirksomhet": {
+      "organisasjonsnummer": "111111111"
    },
    "reelleRettighetshavere": [
       {
-         "foedselsEllerDNummer": 12345678901,
-         "foedselsdato": "2002-11-05",
-         "foedselsaar": "2002",
-         "navn": {
-            "fornavn": "STOLT EFFEKTIV",
-            "mellomnavn": "KUL",
-            "etternavn": "PARASOLL",
-            "fulltNavn": "STOLT EFFEKTIV KUL PARASOLL"
-         },
-         "foerstRegistrertDato": "2022-09-06T09:17:39.275205Z",
-         "endretDato": "2022-09-06T09:17:39.275205Z",
-         "statsborgerskap": [
-            {
-               "landkode": "NOR",
-               "land": "Norge"
+         "folkeregistrertPerson": {
+            "foedselsEllerDNummer": "23456789012",
+            "foedselsdato": "2002-11-05",
+            "foedselsaar": "2002",
+            "navn": {
+               "fornavn": "STOLT EFFEKTIV",
+               "mellomnavn": "KUL",
+               "etternavn": "PARASOLL"
             },
-            {
-               "landkode": "MEX",
-               "land": "Mexico"
-            }
-         ],
+            "erDoed": false,
+            "statsborgerskap": [
+               {
+                  "landkode": "NOR",
+                  "land": "Norge"
+               },
+               {
+                  "landkode": "MEX",
+                  "land": "Mexico"
+               }
+            ]
+         },
          "bostedsland": {
             "landkode": "NOR",
             "land": "Norge"
          },
-         "erDoed": false,
          "erUnntattFraInnsyn": false,
          "posisjoner": [
             {
-               "posisjonType": {
+               "type": {
                   "kode": "posisjontype.eier",
-                  "beskrivelse": "Eierskap"
+                  "kodetekst": "Eierskap"
                },
                "stoerrelseIntervall": {
                   "kode": "stoerrelseintervall.int2",
-                  "beskrivelse": "50% - 74,99%"
+                  "kodetekst": "50% - 74,99%"
                },
                "grunnlag": [
                   {
-                     "grunnlagType": {
-                        "kode": "grunnlagtype.dire",
-                        "beskrivelse": "Direkte"
-                     }
-                  },
-                  {
-                     "grunnlagType": {
-                        "kode": "grunnlagtype.indi",
-                        "beskrivelse": "Indirekte"
-                     }
+                     "kode": "grunnlagtype.dire",
+                     "kodetekst": "Direkte"
                   }
                ]
             }
-         ]
+         ],
+         "foerstRegistrertDato": "2022-12-16T12:00:06.242Z",
+         "endretDato": "2022-12-16T12:00:06.242Z"
       },
       {
-         "foedselsdato": "1983-12-01",
-         "foedselsaar": "1983",
-         "navn": {
-            "fulltNavn": "TOM SVENSKE NELSON"
+         "utenlandskPerson": {
+            "foedselsdato": "1983-03-24",
+            "foedselsaar": "1983",
+            "fulltNavn": "GILL BATES",
+            "statsborgerskap": [
+               {
+                  "landkode": "DEU",
+                  "land": "Tyskland"
+               },
+               {
+                  "landkode": "SWE",
+                  "land": "Sverige"
+               },
+               {
+                  "landkode": "USA",
+                  "land": "USA"
+               }
+            ]
          },
-         "foerstRegistrertDato": "2022-09-06T09:17:39.275205Z",
-         "endretDato": "2022-09-06T09:17:39.275205Z",
-         "statsborgerskap": [
-            {
-               "landkode": "SWE",
-               "land": "Sverige"
-            }
-         ],
          "bostedsland": {
-            "landkode": "SWE",
-            "land": "Sverige"
+            "landkode": "USA",
+            "land": "USA"
          },
-         "erDoed": false,
          "erUnntattFraInnsyn": false,
          "posisjoner": [
             {
-               "posisjonType": {
-                  "kode": "posisjontype.eier",
-                  "beskrivelse": "Eierskap"
+               "type": {
+                  "kode": "posisjontype.kont",
+                  "kodetekst": "Kontroll over stemmerettigheter"
                },
                "stoerrelseIntervall": {
                   "kode": "stoerrelseintervall.int1",
-                  "beskrivelse": "25,01% - 49,99%"
+                  "kodetekst": "25,01% - 49,99%"
                },
                "grunnlag": [
                   {
-                     "grunnlagType": {
-                        "kode": "grunnlagtype.indi",
-                        "beskrivelse": "Indirekte"
-                     }
+                     "kode": "grunnlagtype.indi",
+                     "kodetekst": "Indirekte"
+                  },
+                  {
+                     "kode": "grunnlagtype.enav",
+                     "kodetekst": "Enighet eller avtale"
                   }
                ]
             },
             {
-               "posisjonType": {
+               "type": {
                   "kode": "posisjontype.ruas",
-                  "beskrivelse": "Rett til å utpeke eller avsette minst halvparten av styremedlemmene"
+                  "kodetekst": "Rett til å utpeke eller avsette minst halvparten av styremedlemmene"
                },
                "grunnlag": [
                   {
-                     "grunnlagType": {
-                        "kode": "grunnlagtype.enav",
-                        "beskrivelse": "Enighet eller avtale"
-                     }
+                     "kode": "grunnlagtype.enav",
+                     "kodetekst": "Enighet eller avtale"
                   }
                ]
             }
-         ]
+         ],
+         "foerstRegistrertDato": "2022-12-16T12:00:06.242Z",
+         "endretDato": "2022-12-16T12:00:06.242Z"
+      },
+      {
+         "folkeregistrertPerson": {
+            "foedselsEllerDNummer": "12345678901",
+            "foedselsdato": "1971-07-18",
+            "foedselsaar": "1971",
+            "navn": {
+               "fornavn": "MINIMALISTISK",
+               "etternavn": "HANDLELISTE"
+            },
+            "erDoed": false,
+            "statsborgerskap": [
+               {
+                  "landkode": "MSR",
+                  "land": "Montserrat"
+               }
+            ]
+         },
+         "bostedsland": {
+            "landkode": "NOR",
+            "land": "Norge"
+         },
+         "erUnntattFraInnsyn": false,
+         "posisjoner": [
+            {
+               "type": {
+                  "kode": "posisjontype.anne",
+                  "kodetekst": "Kontroll på annen måte"
+               },
+               "grunnlag": [],
+               "beskrivelseAnnenMaate": "Beskrivelse av hva kontrollen går ut på."
+            }
+         ],
+         "foerstRegistrertDato": "2022-12-16T12:00:06.251Z",
+         "endretDato": "2022-12-16T12:00:06.251Z"
       }
    ]
 }

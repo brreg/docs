@@ -69,125 +69,162 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
 
 ```json
 {
-  "registreringId": "1f92ac29-7b4f-4f6b-b402-6e9bc7a3ff59",
+  "registreringId": "83201f83-b92a-484c-a92c-3d5736fd1adc",
   "registreringStatus": {
     "kode": "registreringstatus.regi",
-    "beskrivelse": "Reelle rettighetshavere er registrert"
+    "kodetekst": "Reelle rettighetshavere er registrert"
   },
-  "gjelderFraDato": "2022-09-06T09:17:39.87542Z",
+  "registrertDato": "2022-12-15T12:00:06.231509Z",
   "reelleRettighetshavereStatus": {
     "kode": "reellerettighetshaverestatus.arid",
-    "beskrivelse": "Alle reelle rettighetshavere kan identifiseres"
+    "kodetekst": "Virksomheten har meldt at de har reelle rettighetshavere, og at alle reelle rettighetshavere er identifisert"
+  },
+  "registreringspliktigVirksomhet": {
+    "organisasjonsnummer": "111111111"
   },
   "reelleRettighetshavere": [
     {
-      "foedselsdato": "2002-11-05",
-      "foedselsaar": "2002",
-      "navn": {
-        "fornavn": "STOLT EFFEKTIV",
-        "mellomnavn": "KUL",
-        "etternavn": "PARASOLL",
-        "fulltNavn": "STOLT EFFEKTIV KUL PARASOLL"
-      },
-      "foerstRegistrertDato": "2022-09-06T09:17:39.275205Z",
-      "endretDato": "2022-09-06T09:17:39.275205Z",
-      "statsborgerskap": [
-        {
-          "landkode": "NOR",
-          "land": "Norge"
+      "folkeregistrertPerson": {
+        "foedselsdato": "2002-11-05",
+        "foedselsaar": "2002",
+        "navn": {
+          "fornavn": "STOLT EFFEKTIV",
+          "mellomnavn": "KUL",
+          "etternavn": "PARASOLL"
         },
-        {
-          "landkode": "MEX",
-          "land": "Mexico"
-        }
-      ],
+        "erDoed": false,
+        "statsborgerskap": [
+          {
+            "landkode": "NOR",
+            "land": "Norge"
+          },
+          {
+            "landkode": "MEX",
+            "land": "Mexico"
+          }
+        ]
+      },
       "bostedsland": {
         "landkode": "NOR",
         "land": "Norge"
       },
-      "erDoed": false,
       "erUnntattFraInnsyn": false,
       "posisjoner": [
         {
-          "posisjonType": {
+          "type": {
             "kode": "posisjontype.eier",
-            "beskrivelse": "Eierskap"
+            "kodetekst": "Eierskap"
           },
           "stoerrelseIntervall": {
             "kode": "stoerrelseintervall.int2",
-            "beskrivelse": "50% - 74,99%"
+            "kodetekst": "50% - 74,99%"
           },
           "grunnlag": [
             {
-              "grunnlagType": {
-                "kode": "grunnlagtype.dire",
-                "beskrivelse": "Direkte"
-              }
-            },
-            {
-              "grunnlagType": {
-                "kode": "grunnlagtype.indi",
-                "beskrivelse": "Indirekte"
-              }
+              "kode": "grunnlagtype.dire",
+              "kodetekst": "Direkte"
             }
           ]
         }
-      ]
+      ],
+      "foerstRegistrertDato": "2022-12-16T12:00:06.242Z",
+      "endretDato": "2022-12-16T12:00:06.242Z"
     },
     {
-      "foedselsdato": "1983-12-01",
-      "foedselsaar": "1983",
-      "navn": {
-        "fulltNavn": "TOM SVENSKE NELSON"
+      "utenlandskPerson": {
+        "foedselsdato": "1983-03-24",
+        "foedselsaar": "1983",
+        "fulltNavn": "GILL BATES",
+        "statsborgerskap": [
+          {
+            "landkode": "DEU",
+            "land": "Tyskland"
+          },
+          {
+            "landkode": "SWE",
+            "land": "Sverige"
+          },
+          {
+            "landkode": "USA",
+            "land": "USA"
+          }
+        ]
       },
-      "foerstRegistrertDato": "2022-09-06T09:17:39.275205Z",
-      "endretDato": "2022-09-06T09:17:39.275205Z",
-      "statsborgerskap": [
-        {
-          "landkode": "SWE",
-          "land": "Sverige"
-        }
-      ],
       "bostedsland": {
-        "landkode": "SWE",
-        "land": "Sverige"
+        "landkode": "USA",
+        "land": "USA"
       },
-      "erDoed": false,
       "erUnntattFraInnsyn": false,
       "posisjoner": [
         {
-          "posisjonType": {
-            "kode": "posisjontype.eier",
-            "beskrivelse": "Eierskap"
+          "type": {
+            "kode": "posisjontype.kont",
+            "kodetekst": "Kontroll over stemmerettigheter"
           },
           "stoerrelseIntervall": {
             "kode": "stoerrelseintervall.int1",
-            "beskrivelse": "25,01% - 49,99%"
+            "kodetekst": "25,01% - 49,99%"
           },
           "grunnlag": [
             {
-              "grunnlagType": {
-                "kode": "grunnlagtype.indi",
-                "beskrivelse": "Indirekte"
-              }
+              "kode": "grunnlagtype.indi",
+              "kodetekst": "Indirekte"
+            },
+            {
+              "kode": "grunnlagtype.enav",
+              "kodetekst": "Enighet eller avtale"
             }
           ]
         },
         {
-          "posisjonType": {
+          "type": {
             "kode": "posisjontype.ruas",
-            "beskrivelse": "Rett til å utpeke eller avsette minst halvparten av styremedlemmene"
+            "kodetekst": "Rett til å utpeke eller avsette minst halvparten av styremedlemmene"
           },
           "grunnlag": [
             {
-              "grunnlagType": {
-                "kode": "grunnlagtype.enav",
-                "beskrivelse": "Enighet eller avtale"
-              }
+              "kode": "grunnlagtype.enav",
+              "kodetekst": "Enighet eller avtale"
             }
           ]
         }
-      ]
+      ],
+      "foerstRegistrertDato": "2022-12-16T12:00:06.242Z",
+      "endretDato": "2022-12-16T12:00:06.242Z"
+    },
+    {
+      "folkeregistrertPerson": {
+        "foedselsdato": "1971-07-18",
+        "foedselsaar": "1971",
+        "navn": {
+          "fornavn": "MINIMALISTISK",
+          "etternavn": "HANDLELISTE"
+        },
+        "erDoed": false,
+        "statsborgerskap": [
+          {
+            "landkode": "MSR",
+            "land": "Montserrat"
+          }
+        ]
+      },
+      "bostedsland": {
+        "landkode": "NOR",
+        "land": "Norge"
+      },
+      "erUnntattFraInnsyn": false,
+      "posisjoner": [
+        {
+          "type": {
+            "kode": "posisjontype.anne",
+            "kodetekst": "Kontroll på annen måte"
+          },
+          "grunnlag": [],
+          "beskrivelseAnnenMaate": "Beskrivelse av hva kontrollen går ut på."
+        }
+      ],
+      "foerstRegistrertDato": "2022-12-16T12:00:06.251Z",
+      "endretDato": "2022-12-16T12:00:06.251Z"
     }
   ]
 }
