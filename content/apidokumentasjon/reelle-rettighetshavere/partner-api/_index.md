@@ -99,7 +99,12 @@ Se [underside for testdata]({{<ref "testdata_for_partner_api.md">}}). Her finner
 
 #### Request
 
-Tar i mot et organisasjonsnummer som en del av URL, med obligatorisk path-parameter `organisasjonsnummer` som det søkes på.
+Tar i mot et organisasjonsnummer som en del av URL, med obligatorisk path-parameter `organisasjonsnummer` som det søkes på.  
+#### Versjonering
+
+**Vi anbefaler at dere legger til header `Accept` med verdi `application/vnd.brreg.reell.rettighet.v1+json;charset=UTF-8`.**  
+**Om vi kommer med en ny versjon av APIet vil dere da være sikre på at dere får den forespurte versjonen tilbake.**
+
 
 #### Validering
 
@@ -293,7 +298,7 @@ Tar i mot et organisasjonsnummer som en del av URL, med obligatorisk path-parame
 Dersom kallet lykkes får man HTTP-status 200 samt en Zippet fil (på JSON- eller CSV-format) i retur. Filen inneholder alle gjeldende opplysninger i Register over reelle rettighetshavere.  
 **I vårt testmiljø kan filen inneholde flere elementer en de som er beskrevet på vår side om [testdata]({{<ref "testdata_for_partner_api.md">}}).** 
 
-##### Eksempelrespons for totalbestand
+#### Eksempelrespons for totalbestand
 Om man henter ut totalbestand som JSON, vil filen være en liste der elementene i listen er på samme format som endepunktet `Oppslag på organisasjonsnummer`.  
 [Eksempelfil på JSON-format](https://raw.githubusercontent.com/brreg/openAPI/master/specs/exampleResponses/REELLE_PARTNER_API_totalbestand.csv)
 
