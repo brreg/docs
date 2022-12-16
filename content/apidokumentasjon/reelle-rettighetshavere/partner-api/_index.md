@@ -293,11 +293,11 @@ Tar i mot et organisasjonsnummer som en del av URL, med obligatorisk path-parame
 Dersom kallet lykkes får man HTTP-status 200 samt en Zippet fil (på JSON- eller CSV-format) i retur. Filen inneholder alle gjeldende opplysninger i Register over reelle rettighetshavere.
 
 ##### Eksempelrespons for totalbestand
-Om man henter ut totalbestand som JSON, vil filen være en liste der elementene i listen er på samme format som endepunktet `Oppslag på organisasjonsnummer`.
-** Eksempelfil på JSON-format kan lastes ned her snart **
+Om man henter ut totalbestand som JSON, vil filen være en liste der elementene i listen er på samme format som endepunktet `Oppslag på organisasjonsnummer`.  
+**Eksempelfil på JSON-format kan lastes ned her snart**
 
-Om man henter ut totalbestand som CSV, vil man få en kommaseparert fil som kan åpnes i for eksempel Excel.
-** Eksempelfil på CSV-format kan lastes ned her snart **
+Om man henter ut totalbestand som CSV, vil man få en kommaseparert fil som kan åpnes i for eksempel Excel.  
+**Eksempelfil på CSV-format kan lastes ned her snart**
 
 ---
 
