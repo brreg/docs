@@ -1,5 +1,5 @@
 ---
-title: Register over reelle rettighetshavere (bildefil for strukturmodell)
+title: Register over reelle rettighetshavere, strukturmodell
 description: Strukturmodell for Register over reelle rettighetshavere
 weight: 40
 ---

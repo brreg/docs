@@ -1,5 +1,5 @@
 ---
-title: Veiledning for integrasjon mot Maskinporten
+title: Integrasjon mot Maskinporten
 description: Veiledning for integrasjon mot Maskinporten
 weight: 100
 ---
@@ -14,7 +14,7 @@ Kort fortalt så må API-konsument initielt opprette en Maskinport-integrasjon (
 Det er også blitt opprettet en referanseapplikasjon for å gjøre det enklere se hvordan man skal integrere. 
 Koden for denne er lagt ut i brreg sitt repository på github: https://github.com/brreg/refapp-integrasjon
 
-**_MERK:_** API-konsument må en ha et gyldig virksomhetssertifikat, enten for et syntetisk organisasjonsnummer (testmiljø), eller for et gyldig organisasjonsnummer (produksjonsmiljø).
+**_MERK:_** **For løsøreregisteret:** API-konsument må en ha et gyldig virksomhetssertifikat, enten for et syntetisk organisasjonsnummer (testmiljø), eller for et gyldig organisasjonsnummer (produksjonsmiljø).
 
 
 ## Opprette Maskinport-integrasjon (oauth2-klient)
@@ -23,7 +23,7 @@ API-konsument trenger en oauth2-klient (også omtalt som klient) for å hente Ma
 
 Integrasjonen/klienten kan opprettes manuelt i [Samarbeidsportalen](https://minside-samarbeid.digdir.no/organization-home/services/service-admin) eller via Maskinporten sitt [selvbetjeningsAPI](https://docs.digdir.no/oidc_api_admin_maskinporten.html). Da selvbetjeningsAPIet også er beskyttet av Maskinport-token, må API-konsument ha en egen oauth2-klient, også omtalt som selvbetjeningsklient, for å bruke denne tjenesten. Ta kontakt med [Digdir sin servicedesk](mailto:servicedesk@digdir.no) for å få en selvbetjeningsklient.
 
-**_MERK:_** En klient for et syntetisk organisasjonsnummer (testmiljø) må opprettes via selvbetjeningsAPIet. Selvbetjeningsklienter for API-konsumenter av ITU/UTT-API er allerede opprettet med identifikator `oidc_<fiktivt organisasjonsnummer>_api`.
+**_MERK:_** **For løsøreregisteret:** En klient for et syntetisk organisasjonsnummer (testmiljø) må opprettes via selvbetjeningsAPIet. Selvbetjeningsklienter for API-konsumenter av ITU/UTT-API er allerede opprettet med identifikator `oidc_<fiktivt organisasjonsnummer>_api`.
 
 ### Veiledning til bruk av selvbetjeningsAPI
 
