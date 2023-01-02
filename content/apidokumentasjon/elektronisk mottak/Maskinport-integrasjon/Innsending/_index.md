@@ -30,13 +30,12 @@ Husk `Bearer` før tokenet.
 
 ## Grensesnittbeskrivelse
 
-Tjenesten benytter seg av standard HTTP GET og POST.
+Tjenesten benytter seg av standard HTTP POST.
 Følgende funksjonalitet tilbys for eksterne systemer/brukere:
 
 | HTTP-metode    | URL                                                | Beskrivelse                                  | Sikret med jwt |
 |:-------------- |:-------------------------------------------------- |:-------------------------------------------- |:-------------- |
 | POST           | https://mottak.brreg.no/inbound/upload             | Sender inn melding med 0 eller flere vedlegg | JA             |
-| GET            | https://mottak.brreg.no/inbound/swagger-ui.html#/  | Swagger dokumentasjon                        | NEI            |
 
 ### Upload
 
