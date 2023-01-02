@@ -39,14 +39,14 @@ Dette vil gjelde første side hvis det ikke har vært endringer på rettsstiftel
 </span></span></code></pre></div><p>Deretter vil man, basert på <em>&ldquo;sortValues&rdquo;</em> fra forrige <a href=#eksempelrespons>response</a>, utforme en request som dette:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
 </span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;lowerCutoff&#34;</span>: <span style=color:#e6db74>&#34;2020-11-04T10:00:00.000+02:00&#34;</span>,
 </span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;lastSortValues&#34;</span>: [
-</span></span><span style=display:flex><span>        <span style=color:#ae81ff>1635417473003</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;1635417473003&#34;</span>,
 </span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;6e470485-b12d-4e49-864e-34a2c50c1f65&#34;</span>
 </span></span><span style=display:flex><span>    ]
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><h4 id=response>Response</h4><p>Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-format, i form av et JSON-objekt som inneholder opplysninger om rettsstiftelsene.</p><h5 id=eksempelrespons>Eksempelrespons</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
 </span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;sistEndretSisteInnslag&#34;</span>: <span style=color:#e6db74>&#34;2022-03-31T12:00:02.359656Z&#34;</span>,
 </span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;sortValues&#34;</span>: [
-</span></span><span style=display:flex><span>    <span style=color:#ae81ff>1648728002359</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;1648728002359&#34;</span>,
 </span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;d9022f9f-efc0-4aa9-9eea-73fc8ea84898&#34;</span>
 </span></span><span style=display:flex><span>  ],
 </span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;antallRettsstiftelser&#34;</span>: <span style=color:#ae81ff>1000</span>,
