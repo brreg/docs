@@ -54,7 +54,7 @@ Deretter vil man, basert på *"sortValues"* fra forrige [response](#eksempelresp
 {
     "lowerCutoff": "2020-11-04T10:00:00.000+02:00",
     "lastSortValues": [
-        1635417473003,
+        "1635417473003",
         "6e470485-b12d-4e49-864e-34a2c50c1f65"
     ]
 }
@@ -70,7 +70,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 {
   "sistEndretSisteInnslag": "2022-03-31T12:00:02.359656Z",
   "sortValues": [
-    1648728002359,
+    "1648728002359",
     "d9022f9f-efc0-4aa9-9eea-73fc8ea84898"
   ],
   "antallRettsstiftelser": 1000,
