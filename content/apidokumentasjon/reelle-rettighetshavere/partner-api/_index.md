@@ -237,6 +237,19 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
                     "virksomhet": {
                       "organisasjonsnummer": "800367910"
                     }
+                  },
+                  {
+                    "utenlandskVirksomhet": {
+                      "registreringsnummerIHjemlandet": "ddd-ref-123456",
+                      "navn": "navn til virksomhet i utlandet",
+                      "internasjonalAdresse": {
+                        "friAdressetekst": "adresse til virksomhet i utlandet",
+                        "landkode": {
+                          "landkode": "SWE",
+                          "land": "Sverige"
+                        }
+                      }
+                    }
                   }
              ]
             },
