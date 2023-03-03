@@ -229,13 +229,11 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
                ],
                "mellomliggendeVirksomheter": [
                   {
-                    "mellomliggendeVirksomhetId": 123,
                     "virksomhet": {
                       "organisasjonsnummer": "800554334"
                     }
                   },
                   {
-                    "mellomliggendeVirksomhetId": 367,
                     "virksomhet": {
                       "organisasjonsnummer": "800367910"
                     }
