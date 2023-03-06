@@ -313,7 +313,6 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
 
 Henter ut alle gjeldende opplysninger i registeret i form av CSV eller JSON i en ZIP-fil. Filene blir oppdatert en gang i døgnet.
 
-
 #### Request
 
 Tar i mot et organisasjonsnummer som en del av URL, med obligatorisk path-parameter `organisasjonsnummer` som det søkes på.
