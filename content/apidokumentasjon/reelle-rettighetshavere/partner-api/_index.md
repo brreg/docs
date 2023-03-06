@@ -226,7 +226,32 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
                      "kode": "grunnlagtype.enav",
                      "kodetekst": "Enighet eller avtale"
                   }
-               ]
+               ],
+               "mellomliggendeVirksomheter": [
+                  {
+                    "virksomhet": {
+                      "organisasjonsnummer": "310219622"
+                    }
+                  },
+                  {
+                    "virksomhet": {
+                      "organisasjonsnummer": "310163449"
+                    }
+                  },
+                  {
+                    "utenlandskVirksomhet": {
+                      "registreringsnummerIHjemlandet": "ddd-ref-123456",
+                      "navn": "navn til virksomhet i utlandet",
+                      "internasjonalAdresse": {
+                        "friAdressetekst": "adresse til virksomhet i utlandet",
+                        "landkode": {
+                          "landkode": "SWE",
+                          "land": "Sverige"
+                        }
+                      }
+                    }
+                  }
+             ]
             },
             {
                "type": {
