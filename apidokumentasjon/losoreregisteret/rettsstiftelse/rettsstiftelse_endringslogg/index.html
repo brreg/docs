@@ -29,229 +29,138 @@ parent"><a href=/docs/informasjonsmodeller/><span>Informasjonsmodeller</span>
 <i class="fa fa-angle-right fa-lg category-icon"></i></a><ul><li data-nav-id=https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/strukturmodell/reellerettighetshavere_strukturmodell/ class=dd-item><a href=/docs/informasjonsmodeller/reelle-rettighetshavere/strukturmodell/reellerettighetshavere_strukturmodell/><span>Register over reelle rettighetshavere, strukturmodell</span></a></li></ul></li></ul></li></ul></li><li><h3>Lenker</h3><a href=https://github.com/brreg/openAPI><i class='fa fa-fw fa-star'></i> OpenAPI specs (GitHub)</a></li><li><a href=https://github.com/brreg/informasjonsmodeller.git><i class='fa fa-fw fa-star'></i> Informasjonsmodeller (GitHub)</a></li><li><a href=https://informasjonsforvaltning.github.io/><i class='fa fa-fw fa-info-circle'></i> Felles datakatalog</a></li><li><a href=https://altinn.github.io/docs/><i class='fa fa-fw fa-info-circle'></i> Altinn docs</a></li><li><a href=/docs/credits><i class='fa fa-fw fa-bullhorn'></i> Kred</a></li><li><a href=https://github.com/brreg/docs><i class='fa fa-fw fa-github'></i> GitHub</a></li></ul></div></nav><section id=body><div id=overlay></div><div class="padding highlightable"><div id=top-bar><div id=top-github-link><a class=github-link href=https://github.com/brreg/docs/blob/master/content/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_endringslogg.md target=blank><i class="fa fa-code-fork"></i>
 Endre</a></div><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb><span id=sidebar-toggle-span><a href=# id=sidebar-toggle data-sidebar-toggle><i class="fa fa-bars"></i></a></span>
 <span id=toc-menu><i class="fa fa-list-alt"></i></span>
-<span class=links><a href=https://brreg.github.io/docs/>BR docs</a> > <a href=https://brreg.github.io/docs/apidokumentasjon/>API-dokumentasjon</a> > <a href=https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/>Løsøreregisteret</a> > <a href=https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/>Rettsstiftelse</a> > Endringslogg</span></div><div class=progress><div class=wrapper><nav id=TableOfContents><ul><li><a href=#bruksmønster>Bruksmønster</a></li><li><a href=#grensesnittbeskrivelse>Grensesnittbeskrivelse</a><ul><li><a href=#henting-av-endringslogg>Henting av endringslogg</a></li></ul></li><li><a href=#paginering>Paginering</a><ul><li></li></ul></li><li><a href=#feilmeldinger>Feilmeldinger</a><ul><li></li></ul></li></ul></nav></div></div></div><div id=body-inner><h1>Endringslogg</h1><h2 id=bruksmønster>Bruksmønster</h2><p>Se <a href=https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_totalbestand/>siden for totalbestand</a> for en helhetlig oversikt av bruksmønsteret for endringslogg og totalbestand.</p><h2 id=grensesnittbeskrivelse>Grensesnittbeskrivelse</h2><table><thead><tr><th style=text-align:left>HTTP-metode</th><th style=text-align:left>URL</th><th style=text-align:left>Beskrivelse</th></tr></thead><tbody><tr><td style=text-align:left>POST</td><td style=text-align:left>https://{domene}/api/v1/rettsstiftelse/endringslogg</td><td style=text-align:left>Hent opplysninger endringer på rettstiftelser fra et ønsket tidspunkt</td></tr></tbody></table><p><strong>Domener</strong>:</p><ul><li>For testmiljø (ppe) <code>https://losoreregisteret.ppe.brreg.no/registerinfo</code></li><li>For produksjon <code>https://losoreregisteret.brreg.no/registerinfo</code></li></ul><h3 id=henting-av-endringslogg>Henting av endringslogg</h3><h4 id=beskrivelse>Beskrivelse</h4><p>Endepunktet tar imot en forespørsel med felter <em>lowerCutoff</em> for tidspunkt-avgrensning og <em>lastSortValues</em> for paginering.</p><p><em>Merk:</em> Kun rettsstiftelser nyere enn 30 dager vil inkluderes i responsen, uavhengig av om <em>lowerCutoff</em> settes før dette.</p><h4 id=validering>Validering</h4><ul><li>Maskinport-tokenet som blir sendt inn er knyttet til avtalepartens organisasjonsnummer, og dette organisasjonsnummeret skal være gyldig samt ha en gyldig avtale for å kunne hente ut opplysninger i Løsøreregisteret.</li><li>Det sjekkes at avtalepartens organisasjonsnummer er registrert og ikke slettet i Enhetsregisteret. Dersom det ikke er registrert, eller er slettet, returneres det en feilmelding.</li></ul><h2 id=paginering>Paginering</h2><p>Grunnet store datamengder er det nødvendig å paginere requests og respons til tjenesten. Dette gjøres ved hjelp av feltet <em>&ldquo;lastSortValues&rdquo;</em>.
+<span class=links><a href=https://brreg.github.io/docs/>BR docs</a> > <a href=https://brreg.github.io/docs/apidokumentasjon/>API-dokumentasjon</a> > <a href=https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/>Løsøreregisteret</a> > <a href=https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/>Rettsstiftelse</a> > Endringslogg</span></div><div class=progress><div class=wrapper><nav id=TableOfContents><ul><li><a href=#bruksmønster>Bruksmønster</a></li><li><a href=#grensesnittbeskrivelse>Grensesnittbeskrivelse</a><ul><li><a href=#henting-av-endringslogg>Henting av endringslogg</a></li></ul></li><li><a href=#paginering>Paginering</a><ul><li></li></ul></li><li><a href=#feilmeldinger>Feilmeldinger</a><ul><li></li></ul></li></ul></nav></div></div></div><div id=body-inner><h1>Endringslogg</h1><h2 id=bruksmønster>Bruksmønster</h2><p>Se <a href=https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_totalbestand/>siden for totalbestand</a> for en helhetlig oversikt av bruksmønsteret for endringslogg og totalbestand.</p><h2 id=grensesnittbeskrivelse>Grensesnittbeskrivelse</h2><table><thead><tr><th style=text-align:left>HTTP-metode</th><th style=text-align:left>URL</th><th style=text-align:left>Beskrivelse</th></tr></thead><tbody><tr><td style=text-align:left>POST</td><td style=text-align:left>https://{domene}/api/v2/rettsstiftelse/endringslogg</td><td style=text-align:left>Hent opplysninger endringer på rettstiftelser fra et ønsket tidspunkt</td></tr></tbody></table><p><strong>Domener</strong>:</p><ul><li>For testmiljø (ppe) <code>https://losoreregisteret.ppe.brreg.no/registerinfo</code></li><li>For produksjon <code>https://losoreregisteret.brreg.no/registerinfo</code></li></ul><h3 id=henting-av-endringslogg>Henting av endringslogg</h3><h4 id=beskrivelse>Beskrivelse</h4><p>Endepunktet tar imot en forespørsel med felter <em>lowerCutoff</em> for tidspunkt-avgrensning og <em>lastSortValues</em> for paginering.</p><p><em>Merk:</em> Kun rettsstiftelser nyere enn 30 dager vil inkluderes i responsen, uavhengig av om <em>lowerCutoff</em> settes før dette.</p><h4 id=validering>Validering</h4><ul><li>Maskinport-tokenet som blir sendt inn er knyttet til avtalepartens organisasjonsnummer, og dette organisasjonsnummeret skal være gyldig samt ha en gyldig avtale for å kunne hente ut opplysninger i Løsøreregisteret.</li><li>Det sjekkes at avtalepartens organisasjonsnummer er registrert og ikke slettet i Enhetsregisteret. Dersom det ikke er registrert, eller er slettet, returneres det en feilmelding.</li></ul><h2 id=paginering>Paginering</h2><p>Grunnet store datamengder er det nødvendig å paginere requests og respons til tjenesten. Dette gjøres ved hjelp av feltet <em>&ldquo;lastSortValues&rdquo;</em>.
 For å få første page skal dette feltet være <em>null</em>, deretter skal man sette dette feltet til verdien av feltet <em>&ldquo;sortValues&rdquo;</em> fra forrige response.
 Dette gjør at tjenesten er istand til å vite hvilken side av datasettet den skal returnere.</p><p><em>Merk:</em> Siste side vil ha 0 rettsstiftelser, og vil ikke inneholde <em>&ldquo;sortValues&rdquo;</em>.
 Dette vil gjelde første side hvis det ikke har vært endringer på rettsstiftelser etter tidspunktet angitt av <em>lowerCutoff</em>.</p><h4 id=request>Request</h4><p>Første request før paginering vil kunne se slik ut:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;lowerCutoff&#34;</span>: <span style=color:#e6db74>&#34;2020-11-04T10:00:00.000+02:00&#34;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;lastSortValues&#34;</span>: <span style=color:#66d9ef>null</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;lowerCutoff&#34;</span>: <span style=color:#e6db74>&#34;2023-03-01T00:00:00.000+02:00&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;lastSortValues&#34;</span>: <span style=color:#66d9ef>null</span>
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>Deretter vil man, basert på <em>&ldquo;sortValues&rdquo;</em> fra forrige <a href=#eksempelrespons>response</a>, utforme en request som dette:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;lowerCutoff&#34;</span>: <span style=color:#e6db74>&#34;2020-11-04T10:00:00.000+02:00&#34;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;lastSortValues&#34;</span>: [
-</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;1635417473003&#34;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;6e470485-b12d-4e49-864e-34a2c50c1f65&#34;</span>
-</span></span><span style=display:flex><span>    ]
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;lowerCutoff&#34;</span>: <span style=color:#e6db74>&#34;2023-03-01T00:00:00.000+02:00&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;lastSortValues&#34;</span>: [
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;1678199182817&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;24053b47-41bb-4f6b-b3ad-306fade98352&#34;</span>
+</span></span><span style=display:flex><span>  ]
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><h4 id=response>Response</h4><p>Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-format, i form av et JSON-objekt som inneholder opplysninger om rettsstiftelsene.</p><h5 id=eksempelrespons>Eksempelrespons</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;sistEndretSisteInnslag&#34;</span>: <span style=color:#e6db74>&#34;2022-03-31T12:00:02.359656Z&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;sistEndretSisteInnslag&#34;</span>: <span style=color:#e6db74>&#34;2023-03-07T14:26:22.817126Z&#34;</span>,
 </span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;sortValues&#34;</span>: [
-</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;1648728002359&#34;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;d9022f9f-efc0-4aa9-9eea-73fc8ea84898&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;1678199182817&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;24053b47-41bb-4f6b-b3ad-306fade98352&#34;</span>
 </span></span><span style=display:flex><span>  ],
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;antallRettsstiftelser&#34;</span>: <span style=color:#ae81ff>1000</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;antallRettsstiftelser&#34;</span>: <span style=color:#ae81ff>33</span>,
 </span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;rettsstiftelser&#34;</span>: [
 </span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;dokumentnummer&#34;</span>: <span style=color:#e6db74>&#34;2022001374&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;rettsstiftelsestype.sap&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;typeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Salgspant&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;innkomsttidspunkt&#34;</span>: <span style=color:#e6db74>&#34;2022-01-03T08:10:00Z&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;utlopRettsvernstid&#34;</span>: <span style=color:#e6db74>&#34;2042-01-03&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;roller&#34;</span>: [
-</span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolleinnehaverType&#34;</span>: <span style=color:#e6db74>&#34;VIRKSOMHET&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletype&#34;</span>: <span style=color:#e6db74>&#34;rolletype.panthaver&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Panthaver&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;identifikator&#34;</span>: <span style=color:#e6db74>&#34;310648876&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetype&#34;</span>: <span style=color:#e6db74>&#34;rollegruppe.rett&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Rettighetshaver&#34;</span>
-</span></span><span style=display:flex><span>        },
-</span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolleinnehaverType&#34;</span>: <span style=color:#e6db74>&#34;BRPERSON&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletype&#34;</span>: <span style=color:#e6db74>&#34;rolletype.pantsetter&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Pantsetter&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;navn&#34;</span>: <span style=color:#e6db74>&#34;PLUTSELIG MORMOR&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;identifikator&#34;</span>: <span style=color:#e6db74>&#34;13888998238&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetype&#34;</span>: <span style=color:#e6db74>&#34;rollegruppe.forp&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Forpliktet&#34;</span>
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>      ],
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;formuesgoder&#34;</span>: [
-</span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;formuesgodetype.mv.e&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;typeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;motorvogn registrert&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;identifiseringsmaateFormuesgode&#34;</span>: {
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;registreringsnummerMotorvogn&#34;</span>: <span style=color:#e6db74>&#34;XY1012&#34;</span>
-</span></span><span style=display:flex><span>          },
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;eierandel&#34;</span>: {
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;teller&#34;</span>: <span style=color:#ae81ff>1</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;nevner&#34;</span>: <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>          }
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>      ],
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;krav&#34;</span>: {
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;belop&#34;</span>: [
-</span></span><span style=display:flex><span>          {
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;belop&#34;</span>: <span style=color:#ae81ff>3214400.0</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;valuta&#34;</span>: <span style=color:#e6db74>&#34;NOK&#34;</span>
-</span></span><span style=display:flex><span>          }
-</span></span><span style=display:flex><span>        ],
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;kravSalgspant&#34;</span>: <span style=color:#e6db74>&#34;kravsalgspant.lan.til.kjoper&#34;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;kravSalgspantBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;lån som tredjeperson har ydet kjøperen&#34;</span>
-</span></span><span style=display:flex><span>      }
-</span></span><span style=display:flex><span>    },
-</span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;dokumentnummer&#34;</span>: <span style=color:#e6db74>&#34;2022001829&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;dokumentnummer&#34;</span>: <span style=color:#e6db74>&#34;1000001790&#34;</span>,
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;rettsstiftelsestype.frh&#34;</span>,
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;typeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Fratakelse av rettslig handleevne&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;innkomsttidspunkt&#34;</span>: <span style=color:#e6db74>&#34;2022-02-05T08:10:00Z&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;beslutningstidspunkt&#34;</span>: <span style=color:#e6db74>&#34;2022-02-04T23:00:00Z&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;roller&#34;</span>: [
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;status&#34;</span>: <span style=color:#e6db74>&#34;statusregistreringsobjekt.sl&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;statusBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;slettet&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;innkomsttidspunkt&#34;</span>: <span style=color:#e6db74>&#34;2022-09-22T19:00:00Z&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;beslutningstidspunkt&#34;</span>: <span style=color:#e6db74>&#34;2022-09-13T22:00:00Z&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;utlopRettsvernstid&#34;</span>: <span style=color:#e6db74>&#34;2023-03-04&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;slettet&#34;</span>: <span style=color:#e6db74>&#34;2023-03-06&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;paategning&#34;</span>: [],
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;rolle&#34;</span>: [
 </span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolleinnehaverType&#34;</span>: <span style=color:#e6db74>&#34;VIRKSOMHET&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletype&#34;</span>: <span style=color:#e6db74>&#34;rolletype.vergemalsmyndighet&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Vergemålsmyndighet&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;identifikator&#34;</span>: <span style=color:#e6db74>&#34;315524148&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletype&#34;</span>: <span style=color:#e6db74>&#34;rolletype.domstol&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Domstol&#34;</span>,
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetype&#34;</span>: <span style=color:#e6db74>&#34;rollegruppe.oppr&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Oppretter&#34;</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Oppretter&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolleinnehaver&#34;</span>: {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;aktorType&#34;</span>: <span style=color:#e6db74>&#34;aktortype.virksomhet&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;organisasjonsnummer&#34;</span>: <span style=color:#e6db74>&#34;811069302&#34;</span>
+</span></span><span style=display:flex><span>          }
 </span></span><span style=display:flex><span>        },
 </span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolleinnehaverType&#34;</span>: <span style=color:#e6db74>&#34;BRPERSON&#34;</span>,
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletype&#34;</span>: <span style=color:#e6db74>&#34;rolletype.undervergemal&#34;</span>,
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Under vergemål&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;navn&#34;</span>: <span style=color:#e6db74>&#34;AUTORISERT INNHEGNING&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;identifikator&#34;</span>: <span style=color:#e6db74>&#34;06821349425&#34;</span>,
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetype&#34;</span>: <span style=color:#e6db74>&#34;rollegruppe.anro&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Annen rolle&#34;</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Annen rolle&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolleinnehaver&#34;</span>: {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;aktorType&#34;</span>: <span style=color:#e6db74>&#34;aktortype.person&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;personnavn&#34;</span>: {
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;fornavn&#34;</span>: <span style=color:#e6db74>&#34;SJENERT&#34;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;etternavn&#34;</span>: <span style=color:#e6db74>&#34;INDREFILET&#34;</span>
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;fodselsnummerEllerDNummer&#34;</span>: <span style=color:#e6db74>&#34;12810449614&#34;</span>
+</span></span><span style=display:flex><span>          }
 </span></span><span style=display:flex><span>        },
 </span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolleinnehaverType&#34;</span>: <span style=color:#e6db74>&#34;BRPERSON&#34;</span>,
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletype&#34;</span>: <span style=color:#e6db74>&#34;rolletype.verge&#34;</span>,
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Verge&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;navn&#34;</span>: <span style=color:#e6db74>&#34;OBSERVANT HERBARIUM&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;identifikator&#34;</span>: <span style=color:#e6db74>&#34;06841848363&#34;</span>,
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetype&#34;</span>: <span style=color:#e6db74>&#34;rollegruppe.anro&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Annen rolle&#34;</span>
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>      ],
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;vergemaal&#34;</span>: {
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;personligForhold&#34;</span>: <span style=color:#66d9ef>true</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;okonomiskeForhold&#34;</span>: <span style=color:#66d9ef>true</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;varighet&#34;</span>: <span style=color:#e6db74>&#34;varighet.midlertidig&#34;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;varighetBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;midlertidig&#34;</span>
-</span></span><span style=display:flex><span>      }
-</span></span><span style=display:flex><span>    },
-</span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;dokumentnummer&#34;</span>: <span style=color:#e6db74>&#34;5120000004&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;rettsstiftelsestype.gjo&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;typeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Gjeldsordning&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;innkomsttidspunkt&#34;</span>: <span style=color:#e6db74>&#34;1991-02-26T15:15:51Z&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;utlopRettsvernstid&#34;</span>: <span style=color:#e6db74>&#34;2030-02-26&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;avgrensingRettsstiftelse&#34;</span>: <span style=color:#e6db74>&#34;JA&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;roller&#34;</span>: [
-</span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolleinnehaverType&#34;</span>: <span style=color:#e6db74>&#34;BRPERSON&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletype&#34;</span>: <span style=color:#e6db74>&#34;rolletype.saksoker&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;rolletype.saksoker&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;navn&#34;</span>: <span style=color:#e6db74>&#34;USTABIL FORNUFTIG FJERNKONTROLL&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;identifikator&#34;</span>: <span style=color:#e6db74>&#34;17071150380&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetype&#34;</span>: <span style=color:#e6db74>&#34;rollegruppe.rett&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Rettighetshaver&#34;</span>
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>      ],
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;formuesgoder&#34;</span>: [
-</span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;formuesgodetype.mv.e&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;typeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;motorvogn registrert&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;identifiseringsmaateFormuesgode&#34;</span>: {
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;registreringsnummerMotorvogn&#34;</span>: <span style=color:#e6db74>&#34;AX10100&#34;</span>
-</span></span><span style=display:flex><span>          },
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;eierandel&#34;</span>: {
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;teller&#34;</span>: <span style=color:#ae81ff>1</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;nevner&#34;</span>: <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Annen rolle&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolleinnehaver&#34;</span>: {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;aktorType&#34;</span>: <span style=color:#e6db74>&#34;aktortype.person&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;personnavn&#34;</span>: {
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;fornavn&#34;</span>: <span style=color:#e6db74>&#34;USYMMETRISK&#34;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;mellomnavn&#34;</span>: <span style=color:#e6db74>&#34;SOLSIKKE&#34;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;etternavn&#34;</span>: <span style=color:#e6db74>&#34;ABAKUS&#34;</span>
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;fodselsnummerEllerDNummer&#34;</span>: <span style=color:#e6db74>&#34;14865095369&#34;</span>
 </span></span><span style=display:flex><span>          }
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>      ],
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;krav&#34;</span>: {
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;belop&#34;</span>: [
-</span></span><span style=display:flex><span>          {
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;belop&#34;</span>: <span style=color:#ae81ff>2.12</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;valuta&#34;</span>: <span style=color:#e6db74>&#34;NOK&#34;</span>
-</span></span><span style=display:flex><span>          }
-</span></span><span style=display:flex><span>        ]
-</span></span><span style=display:flex><span>      },
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;gjeldsordning&#34;</span>: {
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;gjeldsordningstype.tvungen&#34;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;typeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;tvungen gjeldsordning&#34;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;gjeldsordningsperiodeFraDato&#34;</span>: <span style=color:#e6db74>&#34;2020-04-02&#34;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;gjeldsordningsperiodeTilDato&#34;</span>: <span style=color:#e6db74>&#34;2020-08-17&#34;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;gjeldsordningsperiodeAntallMaaneder&#34;</span>: <span style=color:#ae81ff>10</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;gjeldsordningsperiodeAntallAar&#34;</span>: <span style=color:#ae81ff>2</span>
-</span></span><span style=display:flex><span>      },
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;formuesgode&#34;</span>: [],
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;prioritetsvikelse&#34;</span>: [],
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;vergemaal&#34;</span>: {
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;personligForhold&#34;</span>: <span style=color:#66d9ef>true</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;okonomiskeForhold&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;gjelderPersonligeForhold&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;gjelderOkonomiskeForhold&#34;</span>: <span style=color:#66d9ef>false</span>,
 </span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;varighet&#34;</span>: <span style=color:#e6db74>&#34;varighet.varig&#34;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;varighetBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;varig&#34;</span>
-</span></span><span style=display:flex><span>      },
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;skifteutlegg&#34;</span>: {
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;skifteutleggtype.gjeld&#34;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;typeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Gjeld&#34;</span>
-</span></span><span style=display:flex><span>      },
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;paategninger&#34;</span>: [
-</span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;paategning&#34;</span>: <span style=color:#e6db74>&#34;Påtegning&#34;</span>
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>      ],
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;prioritetsvikelser&#34;</span>: [
-</span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;dokumentnummer&#34;</span>: <span style=color:#e6db74>&#34;2020000001&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rettighetshaverFremtidig&#34;</span>: <span style=color:#e6db74>&#34;Pantehaver&#34;</span>
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>      ]
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;varighetBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;varig&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;tidsbegrensetTilDato&#34;</span>: <span style=color:#e6db74>&#34;2023-03-04&#34;</span>
+</span></span><span style=display:flex><span>      }
 </span></span><span style=display:flex><span>    },
 </span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;dokumentnummer&#34;</span>: <span style=color:#e6db74>&#34;5020000011&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;rettsstiftelsestype.utp&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;typeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Utleggspant&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;innkomsttidspunkt&#34;</span>: <span style=color:#e6db74>&#34;2020-02-26T15:15:51Z&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;utlopRettsvernstid&#34;</span>: <span style=color:#e6db74>&#34;2030-02-26&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;avgrensingRettsstiftelse&#34;</span>: <span style=color:#e6db74>&#34;JA&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;roller&#34;</span>: [
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;dokumentnummer&#34;</span>: <span style=color:#e6db74>&#34;1000027512&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;rettsstiftelsestype.rek&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;typeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Åpning av rekonstruksjonsforhandling&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;status&#34;</span>: <span style=color:#e6db74>&#34;statusregistreringsobjekt.sl&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;statusBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;slettet&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;innkomsttidspunkt&#34;</span>: <span style=color:#e6db74>&#34;2023-03-05T20:00:00Z&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;beslutningstidspunkt&#34;</span>: <span style=color:#e6db74>&#34;2023-03-01T23:00:00Z&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;slettet&#34;</span>: <span style=color:#e6db74>&#34;2023-03-06&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;paategning&#34;</span>: [],
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;rolle&#34;</span>: [
 </span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolleinnehaverType&#34;</span>: <span style=color:#e6db74>&#34;BRPERSON&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletype&#34;</span>: <span style=color:#e6db74>&#34;rolletype.saksoker&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Saksøker&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;navn&#34;</span>: <span style=color:#e6db74>&#34;USTABIL FORNUFTIG FJERNKONTROLL&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;identifikator&#34;</span>: <span style=color:#e6db74>&#34;17071150380&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetype&#34;</span>: <span style=color:#e6db74>&#34;rollegruppe.rett&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Rettighetshaver&#34;</span>
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>      ],
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;formuesgoder&#34;</span>: [
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletype&#34;</span>: <span style=color:#e6db74>&#34;rolletype.domstol&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Domstol&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetype&#34;</span>: <span style=color:#e6db74>&#34;rollegruppe.oppr&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Oppretter&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolleinnehaver&#34;</span>: {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;aktorType&#34;</span>: <span style=color:#e6db74>&#34;aktortype.virksomhet&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;organisasjonsnummer&#34;</span>: <span style=color:#e6db74>&#34;811086282&#34;</span>
+</span></span><span style=display:flex><span>          }
+</span></span><span style=display:flex><span>        },
 </span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;formuesgodetype.vp.strukturert&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;typeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Verdipapir strukturert særskilt identifisert&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;identifiseringsmaateFormuesgode&#34;</span>: {
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;organisasjonsnummer&#34;</span>: <span style=color:#e6db74>&#34;315524148&#34;</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;antallAksjer&#34;</span>: <span style=color:#e6db74>&#34;62&#34;</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;aksjeklasse&#34;</span>: <span style=color:#e6db74>&#34;aksjeklasse.b&#34;</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;aksjeklasseBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;B-aksjer&#34;</span>
-</span></span><span style=display:flex><span>          },
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;eierandel&#34;</span>: {
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;teller&#34;</span>: <span style=color:#ae81ff>1</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;nevner&#34;</span>: <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletype&#34;</span>: <span style=color:#e6db74>&#34;rolletype.rekonstruktoer&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Rekonstruktør&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetype&#34;</span>: <span style=color:#e6db74>&#34;rollegruppe.anro&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Annen rolle&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolleinnehaver&#34;</span>: {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;aktorType&#34;</span>: <span style=color:#e6db74>&#34;aktortype.annenaktor&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;navn&#34;</span>: <span style=color:#e6db74>&#34;Adv. Eva Testing&#34;</span>
+</span></span><span style=display:flex><span>          }
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletype&#34;</span>: <span style=color:#e6db74>&#34;rolletype.skyldner&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Skyldner&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetype&#34;</span>: <span style=color:#e6db74>&#34;rollegruppe.anro&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rollegruppetypeBeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Annen rolle&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolleinnehaver&#34;</span>: {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;aktorType&#34;</span>: <span style=color:#e6db74>&#34;aktortype.person&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;personnavn&#34;</span>: {
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;fornavn&#34;</span>: <span style=color:#e6db74>&#34;EGOISTISK&#34;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;etternavn&#34;</span>: <span style=color:#e6db74>&#34;TROST&#34;</span>
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;fodselsnummerEllerDNummer&#34;</span>: <span style=color:#e6db74>&#34;22866398228&#34;</span>
 </span></span><span style=display:flex><span>          }
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>      ],
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;krav&#34;</span>: {
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;belop&#34;</span>: [
-</span></span><span style=display:flex><span>          {
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;belop&#34;</span>: <span style=color:#ae81ff>2.12</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;valuta&#34;</span>: <span style=color:#e6db74>&#34;NOK&#34;</span>
-</span></span><span style=display:flex><span>          }
-</span></span><span style=display:flex><span>        ]
-</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;formuesgode&#34;</span>: [],
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;prioritetsvikelse&#34;</span>: []
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>  ]
 </span></span><span style=display:flex><span>}
