@@ -6,9 +6,9 @@ weight: 140
 
 ## Grensesnittbeskrivelse
 
-| HTTP-metode   | URL                                                       | Beskrivelse                                                                      |
-|:------------- |:----------------------------------------------------------|:---------------------------------------------------------------------------------|
-| GET           | https://\{domene\}/api/v1/rettsstiftelse/fnr/\{fnr}\?sluttbrukerOrgNr={sluttbrukerOrgNr}      | Hent opplysninger om rettstiftelser knyttet til et fødselsnummer eller d-nummer. SluttbrukerOrgNr er valgfri |
+| HTTP-metode   | URL                                                                                      | Beskrivelse                                                                      |
+|:------------- |:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------|
+| GET           | https://\{domene\}/api/v2/rettsstiftelse/fnr/\{fnr}\?sluttbrukerOrgNr={sluttbrukerOrgNr} | Hent opplysninger om rettstiftelser knyttet til et fødselsnummer eller d-nummer. SluttbrukerOrgNr er valgfri |
 
 **Domener**:
 
@@ -42,422 +42,739 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 
 ```json
 {
-  "sokeparameter": "08029969222",
-  "oppslagstidspunkt": "2022-04-29T14:49:37.079388",
-  "antallRettsstiftelser": 148,
+  "sokeparameter": "28884199370",
+  "oppslagstidspunkt": "2023-03-07T14:22:34.823226",
+  "antallRettsstiftelser": 8,
   "rettsstiftelser": [
     {
-      "dokumentnummer": "2022909674",
+      "dokumentnummer": "1000027103",
       "type": "rettsstiftelsestype.utp",
       "typeBeskrivelse": "Utleggspant",
-      "innkomsttidspunkt": "2021-01-10T15:49:58.023Z",
-      "beslutningstidspunkt": "2021-01-09T09:02:00Z",
-      "status": "statusregistreringsobjekt.tl",
-      "statusBeskrivelse": "tinglyst",
-      "roller": [
+      "status": "statusregistreringsobjekt.nt",
+      "statusBeskrivelse": "nektet tinglyst",
+      "innkomsttidspunkt": "2023-02-16T20:00:00Z",
+      "beslutningstidspunkt": "2023-02-20T07:00:00Z",
+      "paategning": [],
+      "rolle": [
         {
-          "rolleinnehaverType": "VIRKSOMHET",
           "rolletype": "rolletype.namsmyndighet",
           "rolletypeBeskrivelse": "Namsmyndighet",
-          "navn": "ENGSTELIG TIGER AS",
-          "identifikator": "311243187",
-          "forretningsadresse": {
-            "land": "Norge",
-            "landkode": "NO",
-            "kommune": "STJØRDAL",
-            "kommunenummer": "5035",
-            "postnummer": "7504",
-            "poststed": "STJØRDAL",
-            "adresse": [
-              "Stokmovn 39"
-            ]
-          },
           "rollegruppetype": "rollegruppe.oppr",
-          "rollegruppetypeBeskrivelse": "Oppretter"
+          "rollegruppetypeBeskrivelse": "Oppretter",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810004312"
+          }
         },
         {
-          "rolleinnehaverType": "VIRKSOMHET",
           "rolletype": "rolletype.prosessfullmektig",
           "rolletypeBeskrivelse": "Prosessfullmektig",
-          "navn": "ENORM TIGER AS",
-          "identifikator": "311168991",
-          "forretningsadresse": {
-            "land": "Norge",
-            "landkode": "NO",
-            "kommune": "STJØRDAL",
-            "kommunenummer": "5035",
-            "postnummer": "7504",
-            "poststed": "STJØRDAL",
-            "adresse": [
-              "Stokmovn 39"
-            ]
-          },
           "rollegruppetype": "rollegruppe.anro",
-          "rollegruppetypeBeskrivelse": "Annen rolle"
+          "rollegruppetypeBeskrivelse": "Annen rolle",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810004312"
+          }
         },
         {
-          "rolleinnehaverType": "BRPERSON",
-          "rolletype": "rolletype.prosessfullmektig",
-          "rolletypeBeskrivelse": "Prosessfullmektig",
-          "navn": "Annie Andersson",
-          "vegadresse": {
-            "bruksenhetsnummer": "H0102",
-            "adressenavn": "Bakken",
-            "nummer": 48,
-            "poststed": "SANNIDAL",
-            "postnummer": "3766",
-            "kommunenummer": "0815"
-          },
-          "rollegruppetype": "rollegruppe.anro",
-          "rollegruppetypeBeskrivelse": "Annen rolle"
-        },
-        {
-          "rolleinnehaverType": "BRPERSON",
           "rolletype": "rolletype.saksoker",
           "rolletypeBeskrivelse": "Saksøker",
-          "navn": "MINKENDE BRUKSRETT",
-          "matrikkeladresse": {
-            "matrikkelnummer": {
-              "kommunenummer": "0301",
-              "gaardsnummer": 0,
-              "bruksnummer": 3,
-              "festenummer": 0
-            },
-            "undernummer": 0,
-            "poststed": "OSLO",
-            "postnummer": "0962"
-          },
           "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver"
+          "rollegruppetypeBeskrivelse": "Rettighetshaver",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810004142"
+          }
         },
         {
-          "rolleinnehaverType": "VIRKSOMHET",
-          "rolletype": "rolletype.saksoker",
-          "rolletypeBeskrivelse": "Saksøker",
-          "navn": "ENSOM TIGER AS",
-          "identifikator": "313184293",
-          "forretningsadresse": {
-            "land": "Norge",
-            "landkode": "NO",
-            "kommune": "STJØRDAL",
-            "kommunenummer": "5035",
-            "postnummer": "7504",
-            "poststed": "STJØRDAL",
-            "adresse": [
-              "Stokmovn 39"
-            ]
-          },
-          "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver"
-        },
-        {
-          "rolleinnehaverType": "BRPERSON",
-          "rolletype": "rollegruppe.forp",
-          "rolletypeBeskrivelse": "Forpliktet",
-          "navn": "HENSIKTSMESSIG CAMPINGVOGN",
-          "matrikkeladresse": {
-            "matrikkelnummer": {
-              "kommunenummer": "0301",
-              "gaardsnummer": 0,
-              "bruksnummer": 34,
-              "festenummer": 0
+          "rolletype": "rolletype.saksokt",
+          "rolletypeBeskrivelse": "Saksøkt",
+          "rollegruppetype": "rollegruppe.forp",
+          "rollegruppetypeBeskrivelse": "Forpliktet",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.person",
+            "personnavn": {
+              "fornavn": "SVIMMEL",
+              "etternavn": "BEVILLING"
             },
-            "undernummer": 0,
-            "poststed": "OSLO",
-            "postnummer": "0561"
-          },
-          "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver"
+            "adresse": {
+              "adresseType": "adressetype.vegadresse",
+              "brukskategori": "bostedsadresse",
+              "poststed": {
+                "navn": "SKJOLD",
+                "postnummer": "5574"
+              },
+              "kommune": {
+                "kommunenummer": "1160",
+                "kommunenavn": "Vindafjord"
+              },
+              "vegadresseID": "1021",
+              "bruksenhetsnummer": "H0101",
+              "adressenavn": "Haraldseidvågen",
+              "nummer": {
+                "nummer": "264"
+              }
+            }
+          }
         }
       ],
-      "formuesgoder": [
+      "formuesgode": [
         {
+          "identifiseringsmate": "identifiseringsmate.sarskilt",
+          "type": "formuesgodetype.pe.s",
+          "typeBeskrivelse": "Penger",
+          "eierandel": {
+            "teller": 1,
+            "nevner": 1
+          },
+          "identifikator": "Innestående på konto",
+          "identifiseringstype": "identifiseringstype.konto",
+          "identifiseringstypeBeskrivelse": "Innestående på konto"
+        },
+        {
+          "identifiseringsmate": "identifiseringsmate.entydig",
           "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "motorvogn registrert",
-          "identifiseringsmaateFormuesgode": {
-            "registreringsnummerMotorvogn": "CU10100"
-          },
+          "typeBeskrivelse": "Registrert motorvogn",
           "eierandel": {
             "teller": 1,
             "nevner": 1
-          }
-        },
-        {
-          "type": "formuesgodetype.pe.s",
-          "typeBeskrivelse": "penger",
-          "identifiseringsmaateFormuesgode": {
-            "identifikator": "Innestående på konto",
-            "identifiseringstype": "identifiseringstype.konto",
-            "identifiseringstypeBeskrivelse": "Innestående på konto"
           },
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          }
-        },
-        {
-          "type": "formuesgodetype.fo.s",
-          "typeBeskrivelse": "fordringer særskilt identifisert",
-          "identifiseringsmaateFormuesgode": {
-            "identifikator": "Tilgodehavende hos Statens Landbruksforvaltning - 2021",
-            "identifiseringstype": "identifiseringstype.generellBeskrivelse",
-            "identifiseringstypeBeskrivelse": "Beskrivelse av formuesgode"
-          },
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          }
-        },
-        {
-          "type": "formuesgodetype.fo.s",
-          "typeBeskrivelse": "fordringer særskilt identifisert",
-          "identifiseringsmaateFormuesgode": {
-            "identifikator": "Tilgodehavende hos TONO",
-            "identifiseringstype": "identifiseringstype.generellBeskrivelse",
-            "identifiseringstypeBeskrivelse": "Beskrivelse av formuesgode"
-          },
-          "eierandel": {}
-        },
-        {
-          "type": "formuesgodetype.fo.s",
-          "typeBeskrivelse": "fordringer særskilt identifisert",
-          "identifiseringsmaateFormuesgode": {
-            "identifikator": "Tilgodehavende hos GRAMO",
-            "identifiseringstype": "identifiseringstype.generellBeskrivelse",
-            "identifiseringstypeBeskrivelse": "Beskrivelse av formuesgode"
-          },
-          "eierandel": {}
-        },
-        {
-          "type": "formuesgodetype.pe.s",
-          "typeBeskrivelse": "penger",
-          "identifiseringsmaateFormuesgode": {
-            "identifikator": "Innestående på konto",
-            "identifiseringstype": "identifiseringstype.konto",
-            "identifiseringstypeBeskrivelse": "Innestående på konto"
-          },
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          }
-        },
-        {
-          "type": "formuesgodetype.pe.s",
-          "typeBeskrivelse": "penger",
-          "identifiseringsmaateFormuesgode": {
-            "identifikator": "Innestående på verdipapirkonto",
-            "identifiseringstype": "identifiseringstype.verdipapirkonto",
-            "identifiseringstypeBeskrivelse": "Innestående på verdipapirkonto"
-          },
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          }
-        },
-        {
-          "type": "formuesgodetype.pe.s",
-          "typeBeskrivelse": "penger",
-          "identifiseringsmaateFormuesgode": {
-            "identifikator": "Beslag gjort av Politiet",
-            "identifiseringstype": "identifiseringstype.generellBeskrivelse",
-            "identifiseringstypeBeskrivelse": "Beskrivelse av formuesgode"
-          },
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          }
-        },
-        {
-          "type": "formuesgodetype.pe.s",
-          "typeBeskrivelse": "penger",
-          "identifiseringsmaateFormuesgode": {
-            "identifikator": "Innestående på konto",
-            "identifiseringstype": "identifiseringstype.konto",
-            "identifiseringstypeBeskrivelse": "Innestående på konto"
-          },
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          }
-        },
-        {
-          "type": "formuesgodetype.vp.strukturert",
-          "typeBeskrivelse": "Verdipapir strukturert særskilt identifisert",
-          "identifiseringsmaateFormuesgode": {
-            "organisasjonsnummer": "313665704"
-          },
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          }
+          "registreringsnummerMotorvogn": "KK8844",
+          "historiskRegistreringsnummerMotorvogn": []
         }
       ],
+      "prioritetsvikelse": [],
       "krav": {
         "belop": [
           {
-            "belop": 65000.0,
+            "belop": 18644.00,
             "valuta": "NOK"
           }
         ]
       }
     },
     {
-      "dokumentnummer": "1000000184",
-      "type": "rettsstiftelsestype.frh",
-      "typeBeskrivelse": "Fratakelse av rettslig handleevne",
-      "innkomsttidspunkt": "2022-04-30T19:00:00Z",
-      "beslutningstidspunkt": "2022-04-28T22:00:00Z",
-      "status": "statusregistreringsobjekt.rg",
-      "statusBeskrivelse": "registrert",
-      "roller": [
-        {
-          "rolleinnehaverType": "VIRKSOMHET",
-          "rolletype": "rolletype.vergemalsmyndighet",
-          "rolletypeBeskrivelse": "Vergemålsmyndighet",
-          "identifikator": "313184293",
-          "rollegruppetype": "rollegruppe.oppr",
-          "rollegruppetypeBeskrivelse": "Oppretter"
-        },
-        {
-          "rolleinnehaverType": "BRPERSON",
-          "rolletype": "rolletype.undervergemal",
-          "rolletypeBeskrivelse": "Under vergemål",
-          "navn": "REDELIG STASJON",
-          "vegadresse": {
-            "bruksenhetsnummer": "H0101",
-            "adressenavn": "Kjøkkelvikbrekkene",
-            "nummer": 158,
-            "bokstav": "S",
-            "poststed": "LODDEFJORD",
-            "postnummer": "5178",
-            "kommunenummer": "4601"
-          },
-          "rollegruppetype": "rollegruppe.anro",
-          "rollegruppetypeBeskrivelse": "Annen rolle"
-        },
-        {
-          "rolleinnehaverType": "BRPERSON",
-          "rolletype": "rolletype.verge",
-          "rolletypeBeskrivelse": "Verge",
-          "navn": "OBSERVANT HERBARIUM",
-          "vegadresse": {
-            "bruksenhetsnummer": "H0101",
-            "adressenavn": "Austmannsvegen",
-            "nummer": 1,
-            "poststed": "SAND",
-            "postnummer": "4230",
-            "kommunenummer": "1134"
-          },
-          "rollegruppetype": "rollegruppe.anro",
-          "rollegruppetypeBeskrivelse": "Annen rolle"
-        }
-      ],
-      "vergemaal": {
-        "personligForhold": false,
-        "okonomiskeForhold": true,
-        "varighet": "varighet.midlertidig",
-        "varighetBeskrivelse": "midlertidig",
-        "tidsbegrensetTilDato": "2022-11-25"
-      }
-    },
-    {
-      "dokumentnummer": "2022001344",
-      "type": "rettsstiftelsestype.gjo",
-      "typeBeskrivelse": "Gjeldsordning",
-      "innkomsttidspunkt": "2022-01-05T08:10:00Z",
-      "beslutningstidspunkt": "2022-01-04T23:00:00Z",
-      "roller": [
-        {
-          "rolleinnehaverType": "VIRKSOMHET",
-          "rolletype": "rolletype.namsmann",
-          "rolletypeBeskrivelse": "Namsmann",
-          "identifikator": "310774375",
-          "rollegruppetype": "rollegruppe.oppr",
-          "rollegruppetypeBeskrivelse": "Oppretter"
-        },
-        {
-          "rolleinnehaverType": "BRPERSON",
-          "rolletype": "rolletype.skyldner",
-          "rolletypeBeskrivelse": "Skyldner",
-          "navn": "HEMMELIGHETSFULL FIL",
-          "identifikator": "08899899548",
-          "rollegruppetype": "rollegruppe.anro",
-          "rollegruppetypeBeskrivelse": "Annen rolle"
-        }
-      ],
-      "formuesgoder": [
-        {
-          "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "motorvogn registrert",
-          "identifiseringsmaateFormuesgode": {
-            "registreringsnummerMotorvogn": "BA67891"
-          },
-          "eierandel": {}
-        },
-        {
-          "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "motorvogn registrert",
-          "identifiseringsmaateFormuesgode": {
-            "registreringsnummerMotorvogn": "NF78945"
-          },
-          "eierandel": {}
-        }
-      ],
-      "gjeldsordning": {
-        "type": "gjeldsordningstype.forhandling",
-        "typeBeskrivelse": "åpning av gjeldsforhandling",
-        "meldefristKrav": "3",
-        "kravMeldesTil": "UNGARSK TIGER AS"
-      }
-    },
-    {
-      "dokumentnummer": "2022001356",
+      "dokumentnummer": "1000026992",
       "type": "rettsstiftelsestype.sap",
       "typeBeskrivelse": "Salgspant",
-      "innkomsttidspunkt": "2022-01-03T08:10:00Z",
-      "utlopRettsvernstid": "2042-01-03",
-      "roller": [
+      "status": "statusregistreringsobjekt.nt",
+      "statusBeskrivelse": "nektet tinglyst",
+      "innkomsttidspunkt": "2023-02-12T20:00:00Z",
+      "paategning": [],
+      "rolle": [
         {
-          "rolleinnehaverType": "VIRKSOMHET",
           "rolletype": "rolletype.panthaver",
           "rolletypeBeskrivelse": "Panthaver",
-          "identifikator": "313665704",
           "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver"
+          "rollegruppetypeBeskrivelse": "Rettighetshaver",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810004312"
+          }
         },
         {
-          "rolleinnehaverType": "BRPERSON",
           "rolletype": "rolletype.pantsetter",
           "rolletypeBeskrivelse": "Pantsetter",
-          "navn": "USYMMETRISK SOLSIKKE ABAKUS",
-          "identifikator": "14865095369",
           "rollegruppetype": "rollegruppe.forp",
-          "rollegruppetypeBeskrivelse": "Forpliktet"
-        }
-      ],
-      "formuesgoder": [
-        {
-          "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "motorvogn registrert",
-          "identifiseringsmaateFormuesgode": {
-            "registreringsnummerMotorvogn": "XY1012"
-          },
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
+          "rollegruppetypeBeskrivelse": "Forpliktet",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.person",
+            "personnavn": {
+              "fornavn": "SVIMMEL",
+              "etternavn": "BEVILLING"
+            },
+            "adresse": {
+              "adresseType": "adressetype.vegadresse",
+              "brukskategori": "bostedsadresse",
+              "poststed": {
+                "navn": "SKJOLD",
+                "postnummer": "5574"
+              },
+              "kommune": {
+                "kommunenummer": "1160",
+                "kommunenavn": "Vindafjord"
+              },
+              "vegadresseID": "1021",
+              "bruksenhetsnummer": "H0101",
+              "adressenavn": "Haraldseidvågen",
+              "nummer": {
+                "nummer": "264"
+              }
+            }
           }
         }
       ],
+      "formuesgode": [],
+      "prioritetsvikelse": [],
       "krav": {
         "belop": [
           {
-            "belop": 985200.0,
+            "belop": 320000.00,
             "valuta": "NOK"
           }
         ],
         "kravSalgspant": "kravsalgspant.lan.til.kjoper",
         "kravSalgspantBeskrivelse": "lån som tredjeperson har ydet kjøperen"
       }
+    },
+    {
+      "dokumentnummer": "1000026644",
+      "type": "rettsstiftelsestype.utp",
+      "typeBeskrivelse": "Utleggspant",
+      "status": "statusregistreringsobjekt.tl",
+      "statusBeskrivelse": "tinglyst",
+      "innkomsttidspunkt": "2023-02-02T20:00:00Z",
+      "beslutningstidspunkt": "2023-01-30T23:00:00Z",
+      "paategning": [
+        "Dokumentet har ved en feil vært ute av registeret."
+      ],
+      "rolle": [
+        {
+          "rolletype": "rolletype.namsmyndighet",
+          "rolletypeBeskrivelse": "Namsmyndighet",
+          "rollegruppetype": "rollegruppe.oppr",
+          "rollegruppetypeBeskrivelse": "Oppretter",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "811086002"
+          }
+        },
+        {
+          "rolletype": "rolletype.prosessfullmektig",
+          "rolletypeBeskrivelse": "Prosessfullmektig",
+          "rollegruppetype": "rollegruppe.anro",
+          "rollegruppetypeBeskrivelse": "Annen rolle",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810715782"
+          }
+        },
+        {
+          "rolletype": "rolletype.saksoker",
+          "rolletypeBeskrivelse": "Saksøker",
+          "rollegruppetype": "rollegruppe.rett",
+          "rollegruppetypeBeskrivelse": "Rettighetshaver",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810004312"
+          }
+        },
+        {
+          "rolletype": "rolletype.saksokt",
+          "rolletypeBeskrivelse": "Saksøkt",
+          "rollegruppetype": "rollegruppe.forp",
+          "rollegruppetypeBeskrivelse": "Forpliktet",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.person",
+            "personnavn": {
+              "fornavn": "SVIMMEL",
+              "etternavn": "BEVILLING"
+            },
+            "adresse": {
+              "adresseType": "adressetype.vegadresse",
+              "brukskategori": "bostedsadresse",
+              "poststed": {
+                "navn": "SKJOLD",
+                "postnummer": "5574"
+              },
+              "kommune": {
+                "kommunenummer": "1160",
+                "kommunenavn": "Vindafjord"
+              },
+              "vegadresseID": "1021",
+              "bruksenhetsnummer": "H0101",
+              "adressenavn": "Haraldseidvågen",
+              "nummer": {
+                "nummer": "264"
+              }
+            }
+          }
+        }
+      ],
+      "formuesgode": [
+        {
+          "identifiseringsmate": "identifiseringsmate.entydig",
+          "type": "formuesgodetype.mv.e",
+          "typeBeskrivelse": "Registrert motorvogn",
+          "eierandel": {
+            "teller": 1,
+            "nevner": 1
+          },
+          "registreringsnummerMotorvogn": "FT65432",
+          "historiskRegistreringsnummerMotorvogn": []
+        }
+      ],
+      "prioritetsvikelse": [],
+      "krav": {
+        "belop": [
+          {
+            "belop": 13200.00,
+            "valuta": "NOK"
+          }
+        ]
+      }
+    },
+    {
+      "dokumentnummer": "1000026966",
+      "type": "rettsstiftelsestype.sap",
+      "typeBeskrivelse": "Salgspant",
+      "status": "statusregistreringsobjekt.tl",
+      "statusBeskrivelse": "tinglyst",
+      "innkomsttidspunkt": "2023-02-12T20:00:00Z",
+      "paategning": [],
+      "rolle": [
+        {
+          "rolletype": "rolletype.panthaver",
+          "rolletypeBeskrivelse": "Panthaver",
+          "rollegruppetype": "rollegruppe.rett",
+          "rollegruppetypeBeskrivelse": "Rettighetshaver",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810601302"
+          }
+        },
+        {
+          "rolletype": "rolletype.pantsetter",
+          "rolletypeBeskrivelse": "Pantsetter",
+          "rollegruppetype": "rollegruppe.forp",
+          "rollegruppetypeBeskrivelse": "Forpliktet",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.person",
+            "personnavn": {
+              "fornavn": "SVIMMEL",
+              "etternavn": "BEVILLING"
+            },
+            "adresse": {
+              "adresseType": "adressetype.vegadresse",
+              "brukskategori": "bostedsadresse",
+              "poststed": {
+                "navn": "SKJOLD",
+                "postnummer": "5574"
+              },
+              "kommune": {
+                "kommunenummer": "1160",
+                "kommunenavn": "Vindafjord"
+              },
+              "vegadresseID": "1021",
+              "bruksenhetsnummer": "H0101",
+              "adressenavn": "Haraldseidvågen",
+              "nummer": {
+                "nummer": "264"
+              }
+            }
+          }
+        }
+      ],
+      "formuesgode": [
+        {
+          "identifiseringsmate": "identifiseringsmate.entydig",
+          "type": "formuesgodetype.mv.e",
+          "typeBeskrivelse": "Registrert motorvogn",
+          "eierandel": {
+            "teller": 1,
+            "nevner": 1
+          },
+          "registreringsnummerMotorvogn": "CV11114",
+          "historiskRegistreringsnummerMotorvogn": []
+        }
+      ],
+      "prioritetsvikelse": [],
+      "krav": {
+        "belop": [
+          {
+            "belop": 15963.00,
+            "valuta": "EUR"
+          },
+          {
+            "belop": 369800.00,
+            "valuta": "NOK"
+          }
+        ],
+        "kravSalgspant": "kravsalgspant.lan.til.kjoper",
+        "kravSalgspantBeskrivelse": "lån som tredjeperson har ydet kjøperen"
+      }
+    },
+    {
+      "dokumentnummer": "1000026967",
+      "type": "rettsstiftelsestype.sap",
+      "typeBeskrivelse": "Salgspant",
+      "status": "statusregistreringsobjekt.tl",
+      "statusBeskrivelse": "tinglyst",
+      "innkomsttidspunkt": "2023-02-12T20:00:00Z",
+      "paategning": [
+        "Dokumentet har ved en feil vært ute av registeret."
+      ],
+      "rolle": [
+        {
+          "rolletype": "rolletype.panthaver",
+          "rolletypeBeskrivelse": "Panthaver",
+          "rollegruppetype": "rollegruppe.rett",
+          "rollegruppetypeBeskrivelse": "Rettighetshaver",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810599332"
+          }
+        },
+        {
+          "rolletype": "rolletype.pantsetter",
+          "rolletypeBeskrivelse": "Pantsetter",
+          "rollegruppetype": "rollegruppe.forp",
+          "rollegruppetypeBeskrivelse": "Forpliktet",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.person",
+            "personnavn": {
+              "fornavn": "SVIMMEL",
+              "etternavn": "BEVILLING"
+            },
+            "adresse": {
+              "adresseType": "adressetype.vegadresse",
+              "brukskategori": "bostedsadresse",
+              "poststed": {
+                "navn": "SKJOLD",
+                "postnummer": "5574"
+              },
+              "kommune": {
+                "kommunenummer": "1160",
+                "kommunenavn": "Vindafjord"
+              },
+              "vegadresseID": "1021",
+              "bruksenhetsnummer": "H0101",
+              "adressenavn": "Haraldseidvågen",
+              "nummer": {
+                "nummer": "264"
+              }
+            }
+          }
+        }
+      ],
+      "formuesgode": [
+        {
+          "identifiseringsmate": "identifiseringsmate.entydig",
+          "type": "formuesgodetype.mv.e",
+          "typeBeskrivelse": "Registrert motorvogn",
+          "eierandel": {
+            "teller": 1,
+            "nevner": 1
+          },
+          "registreringsnummerMotorvogn": "CV11116",
+          "historiskRegistreringsnummerMotorvogn": []
+        }
+      ],
+      "prioritetsvikelse": [],
+      "krav": {
+        "belop": [
+          {
+            "belop": 249600.00,
+            "valuta": "NOK"
+          },
+          {
+            "belop": 24900.00,
+            "valuta": "EUR"
+          }
+        ],
+        "kravSalgspant": "kravsalgspant.lan.til.kjoper",
+        "kravSalgspantBeskrivelse": "lån som tredjeperson har ydet kjøperen"
+      }
+    },
+    {
+      "dokumentnummer": "1000027142",
+      "type": "rettsstiftelsestype.utp",
+      "typeBeskrivelse": "Utleggspant",
+      "status": "statusregistreringsobjekt.tl",
+      "statusBeskrivelse": "tinglyst",
+      "innkomsttidspunkt": "2023-02-16T20:00:00Z",
+      "beslutningstidspunkt": "2023-01-30T06:40:00Z",
+      "paategning": [],
+      "rolle": [
+        {
+          "rolletype": "rolletype.saksoker",
+          "rolletypeBeskrivelse": "Saksøker",
+          "rollegruppetype": "rollegruppe.rett",
+          "rollegruppetypeBeskrivelse": "Rettighetshaver",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810602082"
+          }
+        },
+        {
+          "rolletype": "rolletype.saksokt",
+          "rolletypeBeskrivelse": "Saksøkt",
+          "rollegruppetype": "rollegruppe.forp",
+          "rollegruppetypeBeskrivelse": "Forpliktet",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.person",
+            "personnavn": {
+              "fornavn": "SVIMMEL",
+              "etternavn": "BEVILLING"
+            },
+            "adresse": {
+              "adresseType": "adressetype.vegadresse",
+              "brukskategori": "bostedsadresse",
+              "poststed": {
+                "navn": "SKJOLD",
+                "postnummer": "5574"
+              },
+              "kommune": {
+                "kommunenummer": "1160",
+                "kommunenavn": "Vindafjord"
+              },
+              "vegadresseID": "1021",
+              "bruksenhetsnummer": "H0101",
+              "adressenavn": "Haraldseidvågen",
+              "nummer": {
+                "nummer": "264"
+              }
+            }
+          }
+        },
+        {
+          "rolletype": "rolletype.namsmyndighet",
+          "rolletypeBeskrivelse": "Namsmyndighet",
+          "rollegruppetype": "rollegruppe.oppr",
+          "rollegruppetypeBeskrivelse": "Oppretter",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810004312"
+          }
+        },
+        {
+          "rolletype": "rolletype.prosessfullmektig",
+          "rolletypeBeskrivelse": "Prosessfullmektig",
+          "rollegruppetype": "rollegruppe.anro",
+          "rollegruppetypeBeskrivelse": "Annen rolle",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810003502"
+          }
+        }
+      ],
+      "formuesgode": [
+        {
+          "identifiseringsmate": "identifiseringsmate.entydig",
+          "type": "formuesgodetype.mv.e",
+          "typeBeskrivelse": "Registrert motorvogn",
+          "eierandel": {
+            "teller": 1,
+            "nevner": 1
+          },
+          "registreringsnummerMotorvogn": "TF99999",
+          "historiskRegistreringsnummerMotorvogn": []
+        },
+        {
+          "identifiseringsmate": "identifiseringsmate.sarskilt",
+          "type": "formuesgodetype.af.s",
+          "typeBeskrivelse": "Annet formuesgode",
+          "eierandel": {
+            "teller": 1,
+            "nevner": 1
+          },
+          "identifikator": "10 Aksjer i 810003642, Beltegraver Hitachi 2021 mod serienr 12345868, Ford Taurus",
+          "identifiseringstype": "identifiseringstype.generellBeskrivelse",
+          "identifiseringstypeBeskrivelse": "Beskrivelse av formuesgode"
+        }
+      ],
+      "prioritetsvikelse": [],
+      "krav": {
+        "belop": [
+          {
+            "belop": 365123.00,
+            "valuta": "NOK"
+          }
+        ]
+      }
+    },
+    {
+      "dokumentnummer": "1000027169",
+      "type": "rettsstiftelsestype.utp",
+      "typeBeskrivelse": "Utleggspant",
+      "status": "statusregistreringsobjekt.tl",
+      "statusBeskrivelse": "tinglyst",
+      "innkomsttidspunkt": "2023-02-16T20:00:00Z",
+      "beslutningstidspunkt": "2022-01-02T06:00:00Z",
+      "paategning": [],
+      "rolle": [
+        {
+          "rolletype": "rolletype.namsmyndighet",
+          "rolletypeBeskrivelse": "Namsmyndighet",
+          "rollegruppetype": "rollegruppe.oppr",
+          "rollegruppetypeBeskrivelse": "Oppretter",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810003812"
+          }
+        },
+        {
+          "rolletype": "rolletype.prosessfullmektig",
+          "rolletypeBeskrivelse": "Prosessfullmektig",
+          "rollegruppetype": "rollegruppe.anro",
+          "rollegruppetypeBeskrivelse": "Annen rolle",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810601302"
+          }
+        },
+        {
+          "rolletype": "rolletype.saksoker",
+          "rolletypeBeskrivelse": "Saksøker",
+          "rollegruppetype": "rollegruppe.rett",
+          "rollegruppetypeBeskrivelse": "Rettighetshaver",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.person",
+            "personnavn": {
+              "fornavn": "NONFIGURATIV",
+              "etternavn": "MEDISTERDEIG"
+            },
+            "adresse": {
+              "adresseType": "adressetype.vegadresse",
+              "brukskategori": "bostedsadresse",
+              "poststed": {
+                "navn": "ASKIM",
+                "postnummer": "1832"
+              },
+              "kommune": {
+                "kommunenummer": "3014",
+                "kommunenavn": "Indre Østfold"
+              },
+              "vegadresseID": "24450",
+              "bruksenhetsnummer": "H0101",
+              "adressenavn": "Kalfaret",
+              "nummer": {
+                "nummer": "4",
+                "bokstav": "A"
+              }
+            }
+          }
+        },
+        {
+          "rolletype": "rolletype.saksokt",
+          "rolletypeBeskrivelse": "Saksøkt",
+          "rollegruppetype": "rollegruppe.forp",
+          "rollegruppetypeBeskrivelse": "Forpliktet",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.person",
+            "personnavn": {
+              "fornavn": "SVIMMEL",
+              "etternavn": "BEVILLING"
+            },
+            "adresse": {
+              "adresseType": "adressetype.vegadresse",
+              "brukskategori": "bostedsadresse",
+              "poststed": {
+                "navn": "SKJOLD",
+                "postnummer": "5574"
+              },
+              "kommune": {
+                "kommunenummer": "1160",
+                "kommunenavn": "Vindafjord"
+              },
+              "vegadresseID": "1021",
+              "bruksenhetsnummer": "H0101",
+              "adressenavn": "Haraldseidvågen",
+              "nummer": {
+                "nummer": "264"
+              }
+            }
+          }
+        }
+      ],
+      "formuesgode": [
+        {
+          "identifiseringsmate": "identifiseringsmate.sarskilt",
+          "type": "formuesgodetype.sb.s",
+          "typeBeskrivelse": "Småbåt",
+          "eierandel": {
+            "teller": 1,
+            "nevner": 1
+          },
+          "identifikator": "Askeladden 14 fot",
+          "identifiseringstype": "identifiseringstype.generellBeskrivelse",
+          "identifiseringstypeBeskrivelse": "Beskrivelse av formuesgode"
+        }
+      ],
+      "prioritetsvikelse": [],
+      "krav": {
+        "belop": [
+          {
+            "belop": 54215.00,
+            "valuta": "NOK"
+          }
+        ]
+      }
+    },
+    {
+      "dokumentnummer": "1000027441",
+      "type": "rettsstiftelsestype.bff",
+      "typeBeskrivelse": "Beslutning om forvaltning av formue",
+      "status": "statusregistreringsobjekt.tl",
+      "statusBeskrivelse": "tinglyst",
+      "innkomsttidspunkt": "2023-03-01T20:00:00Z",
+      "beslutningstidspunkt": "2023-02-27T23:00:00Z",
+      "paategning": [],
+      "rolle": [
+        {
+          "rolletype": "rolletype.domstol",
+          "rolletypeBeskrivelse": "Domstol",
+          "rollegruppetype": "rollegruppe.oppr",
+          "rollegruppetypeBeskrivelse": "Oppretter",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810003812"
+          }
+        },
+        {
+          "rolletype": "rolletype.person",
+          "rolletypeBeskrivelse": "Person",
+          "rollegruppetype": "rollegruppe.anro",
+          "rollegruppetypeBeskrivelse": "Annen rolle",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.person",
+            "personnavn": {
+              "fornavn": "SVIMMEL",
+              "etternavn": "BEVILLING"
+            },
+            "adresse": {
+              "adresseType": "adressetype.vegadresse",
+              "brukskategori": "bostedsadresse",
+              "poststed": {
+                "navn": "SKJOLD",
+                "postnummer": "5574"
+              },
+              "kommune": {
+                "kommunenummer": "1160",
+                "kommunenavn": "Vindafjord"
+              },
+              "vegadresseID": "1021",
+              "bruksenhetsnummer": "H0101",
+              "adressenavn": "Haraldseidvågen",
+              "nummer": {
+                "nummer": "264"
+              }
+            }
+          }
+        }
+      ],
+      "formuesgode": [
+        {
+          "identifiseringsmate": "identifiseringsmate.entydig",
+          "type": "formuesgodetype.mv.e",
+          "typeBeskrivelse": "Registrert motorvogn",
+          "eierandel": {
+            "teller": 1,
+            "nevner": 1
+          },
+          "registreringsnummerMotorvogn": "CU10011",
+          "historiskRegistreringsnummerMotorvogn": []
+        },
+        {
+          "identifiseringsmate": "identifiseringsmate.entydig",
+          "type": "formuesgodetype.mv.e",
+          "typeBeskrivelse": "Registrert motorvogn",
+          "eierandel": {},
+          "registreringsnummerMotorvogn": "XV12345",
+          "historiskRegistreringsnummerMotorvogn": []
+        }
+      ],
+      "prioritetsvikelse": []
     }
   ]
 }
@@ -479,9 +796,9 @@ Dersom man ikke får HTTP-status 200, så får man en melding fra tjenesten i JS
 
 ```json
 {
-    "korrelasjonsid": "5d217325-fa5a-47a1-8069-781fa5e1dedc",
-    "tidspunkt": "2020-10-28 13:21:45",
-    "feilmelding": "Feil i fødselsnummer/organisasjonsnummer, vennligst prøv på nytt"
+  "korrelasjonsid": "5d217325-fa5a-47a1-8069-781fa5e1dedc",
+  "tidspunkt": "2023-03-07 13:21:45",
+  "feilmelding": "Feil i fødselsnummer/organisasjonsnummer, vennligst prøv på nytt"
 }
 ```
 

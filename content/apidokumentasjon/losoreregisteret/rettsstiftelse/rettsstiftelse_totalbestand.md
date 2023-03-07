@@ -1,5 +1,5 @@
 ---
-title: Totalbestand 
+title: Totalbestand
 description: Beskrivelser av API innen domene Rettsstiftelse
 weight: 150
 ---
@@ -20,16 +20,16 @@ som ble prosessert iløpet av de siste 30 dagene.
 
 ## Grensesnittbeskrivelse
 
-| HTTP-metode   | URL                                                       | Beskrivelse                                                                   |
-|:------------- |:----------------------------------------------------------|:------------------------------------------------------------------------------|
-| POST          | https://\{domene\}/api/v1/rettsstiftelse/totalbestand     | Hent alle opplysninger om aktive rettstiftelser opp til et ønsket tidspunkt   |
+| HTTP-metode   | URL                                                   | Beskrivelse                                                                   |
+|:------------- |:------------------------------------------------------|:------------------------------------------------------------------------------|
+| POST          | https://\{domene\}/api/v2/rettsstiftelse/totalbestand | Hent alle opplysninger om aktive rettstiftelser opp til et ønsket tidspunkt   |
 
 **Domener**:
 
 * For testmiljø (ppe) `https://losoreregisteret.ppe.brreg.no/registerinfo`
 * For produksjon `https://losoreregisteret.brreg.no/registerinfo`
 
-### Henting av totalbestand 
+### Henting av totalbestand
 
 #### Beskrivelse
 
@@ -38,7 +38,7 @@ Tjenesten tar imot en forespørsel med feltene *upperCutOff* for tidspunkt-avgre
 #### Validering
 
 * Maskinport-tokenet som blir sendt inn er knyttet til avtalepartens organisasjonsnummer, og dette organisasjonsnummeret skal være gyldig samt ha en gyldig avtale for å kunne hente ut opplysninger i Løsøreregisteret.
-* Avgrensningsverdien *upperCutoff* i request-body er en timestamp med tidssone på formatet "YYYY-MM-DDTHH:MM:SS.mmm+HH:MM", det valideres at feltet ikke peker frem i tid. 
+* Avgrensningsverdien *upperCutoff* i request-body er en timestamp med tidssone på formatet "YYYY-MM-DDTHH:MM:SS.mmm+HH:MM", det valideres at feltet ikke peker frem i tid.
 * Det sjekkes at avtalepartens organisasjonsnummer er registrert og ikke slettet i Enhetsregisteret. Dersom det ikke er registrert, eller er slettet, returneres det en feilmelding.
 
 ## Paginering
@@ -53,17 +53,17 @@ Dette gjør at tjenesten er istand til å vite hvilken side av datasettet den sk
 Første request før paginering vil kunne se slik ut:
 ```json
 {
-    "upperCutoff": "2020-11-18T00:00:00.000+02:00",
-    "lastSortValues": null
+  "upperCutoff": "2023-03-06T00:00:00.000+02:00",
+  "lastSortValues": null
 }
 ```
 Deretter vil man, basert på *"sortValues"* fra forrige [response](#eksempelrespons), utforme en request som dette:
 ```json
 {
-    "upperCutoff": "2020-11-18T00:00:00.000+02:00",
+    "upperCutoff": "2023-03-06T00:00:00.000+02:00",
     "lastSortValues": [
-        "1635417473003",
-        "6e470485-b12d-4e49-864e-34a2c50c1f65"
+      "1675889424135",
+      "38068529-7a2d-42d3-971a-b305c9adf801"
     ]
 }
 ```
@@ -76,213 +76,145 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 
 ```json
 {
-  "upperCutoffForrigeRequest": "2022-05-01T22:00:00Z",
+  "upperCutoffForrigeRequest": "2023-03-05T22:00:00Z",
   "sortValues": [
-    "1646772480719",
-    "35db4a03-2e2d-4fc3-ab01-178e8bc41bcc"
+    "1675889424135",
+    "38068529-7a2d-42d3-971a-b305c9adf801"
   ],
   "antallRettsstiftelser": 1000,
   "rettsstiftelser": [
     {
-      "dokumentnummer": "2022001374",
+      "dokumentnummer": "1000007302",
       "type": "rettsstiftelsestype.sap",
       "typeBeskrivelse": "Salgspant",
-      "innkomsttidspunkt": "2022-01-03T08:10:00Z",
-      "utlopRettsvernstid": "2042-01-03",
-      "roller": [
+      "status": "statusregistreringsobjekt.tl",
+      "statusBeskrivelse": "tinglyst",
+      "innkomsttidspunkt": "2022-11-11T07:00:00Z",
+      "utlopRettsvernstid": "2042-11-11",
+      "paategning": [],
+      "rolle": [
         {
-          "rolleinnehaverType": "VIRKSOMHET",
           "rolletype": "rolletype.panthaver",
           "rolletypeBeskrivelse": "Panthaver",
-          "identifikator": "310648876",
           "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver"
+          "rollegruppetypeBeskrivelse": "Rettighetshaver",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810844612"
+          }
         },
         {
-          "rolleinnehaverType": "BRPERSON",
           "rolletype": "rolletype.pantsetter",
           "rolletypeBeskrivelse": "Pantsetter",
-          "navn": "PLUTSELIG MORMOR",
-          "identifikator": "13888998238",
           "rollegruppetype": "rollegruppe.forp",
-          "rollegruppetypeBeskrivelse": "Forpliktet"
-        }
-      ],
-      "formuesgoder": [
+          "rollegruppetypeBeskrivelse": "Forpliktet",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810845422"
+          }
+        },
         {
-          "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "motorvogn registrert",
-          "identifiseringsmaateFormuesgode": {
-            "registreringsnummerMotorvogn": "XY1012"
-          },
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
+          "rolletype": "rolletype.pantsetter",
+          "rolletypeBeskrivelse": "Pantsetter",
+          "rollegruppetype": "rollegruppe.forp",
+          "rollegruppetypeBeskrivelse": "Forpliktet",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.person",
+            "personnavn": {
+              "fornavn": "PLUTSELIG",
+              "etternavn": "MORMOR"
+            },
+            "fodselsnummerEllerDNummer": "13888998238"
           }
         }
       ],
+      "formuesgode": [
+        {
+          "identifiseringsmate": "identifiseringsmate.entydig",
+          "type": "formuesgodetype.mv.e",
+          "typeBeskrivelse": "Registrert motorvogn",
+          "eierandel": {},
+          "registreringsnummerMotorvogn": "CU11240",
+          "historiskRegistreringsnummerMotorvogn": []
+        }
+      ],
+      "prioritetsvikelse": [],
       "krav": {
         "belop": [
           {
-            "belop": 3214400.0,
+            "belop": 235572728.00,
             "valuta": "NOK"
           }
         ],
-        "kravSalgspant": "kravsalgspant.lan.til.kjoper",
-        "kravSalgspantBeskrivelse": "lån som tredjeperson har ydet kjøperen"
+        "kravSalgspant": "kravsalgspant.selgers.krav",
+        "kravSalgspantBeskrivelse": "selgerens krav på kjøpesummen"
       }
     },
     {
-      "dokumentnummer": "2022001829",
-      "type": "rettsstiftelsestype.frh",
-      "typeBeskrivelse": "Fratakelse av rettslig handleevne",
-      "innkomsttidspunkt": "2022-02-05T08:10:00Z",
-      "beslutningstidspunkt": "2022-02-04T23:00:00Z",
-      "roller": [
+      "dokumentnummer": "1000007301",
+      "type": "rettsstiftelsestype.sap",
+      "typeBeskrivelse": "Salgspant",
+      "status": "statusregistreringsobjekt.tl",
+      "statusBeskrivelse": "tinglyst",
+      "innkomsttidspunkt": "2022-11-11T07:00:00Z",
+      "utlopRettsvernstid": "2042-11-11",
+      "paategning": [],
+      "rolle": [
         {
-          "rolleinnehaverType": "VIRKSOMHET",
-          "rolletype": "rolletype.vergemalsmyndighet",
-          "rolletypeBeskrivelse": "Vergemålsmyndighet",
-          "identifikator": "315524148",
-          "rollegruppetype": "rollegruppe.oppr",
-          "rollegruppetypeBeskrivelse": "Oppretter"
-        },
-        {
-          "rolleinnehaverType": "BRPERSON",
-          "rolletype": "rolletype.undervergemal",
-          "rolletypeBeskrivelse": "Under vergemål",
-          "navn": "AUTORISERT INNHEGNING",
-          "identifikator": "06821349425",
-          "rollegruppetype": "rollegruppe.anro",
-          "rollegruppetypeBeskrivelse": "Annen rolle"
-        },
-        {
-          "rolleinnehaverType": "BRPERSON",
-          "rolletype": "rolletype.verge",
-          "rolletypeBeskrivelse": "Verge",
-          "navn": "OBSERVANT HERBARIUM",
-          "identifikator": "06841848363",
-          "rollegruppetype": "rollegruppe.anro",
-          "rollegruppetypeBeskrivelse": "Annen rolle"
-        }
-      ],
-      "vergemaal": {
-        "personligForhold": true,
-        "okonomiskeForhold": true,
-        "varighet": "varighet.midlertidig",
-        "varighetBeskrivelse": "midlertidig"
-      }
-    },
-    {
-      "dokumentnummer": "5120000004",
-      "type": "rettsstiftelsestype.gjo",
-      "typeBeskrivelse": "Gjeldsordning",
-      "innkomsttidspunkt": "1991-02-26T15:15:51Z",
-      "utlopRettsvernstid": "2030-02-26",
-      "avgrensingRettsstiftelse": "JA",
-      "roller": [
-        {
-          "rolleinnehaverType": "BRPERSON",
-          "rolletype": "rolletype.saksoker",
-          "rolletypeBeskrivelse": "rolletype.saksoker",
-          "navn": "USTABIL FORNUFTIG FJERNKONTROLL",
-          "identifikator": "17071150380",
+          "rolletype": "rolletype.panthaver",
+          "rolletypeBeskrivelse": "Panthaver",
           "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver"
+          "rollegruppetypeBeskrivelse": "Rettighetshaver",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810844612"
+          }
+        },
+        {
+          "rolletype": "rolletype.pantsetter",
+          "rolletypeBeskrivelse": "Pantsetter",
+          "rollegruppetype": "rollegruppe.forp",
+          "rollegruppetypeBeskrivelse": "Forpliktet",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810845422"
+          }
+        },
+        {
+          "rolletype": "rolletype.pantsetter",
+          "rolletypeBeskrivelse": "Pantsetter",
+          "rollegruppetype": "rollegruppe.forp",
+          "rollegruppetypeBeskrivelse": "Forpliktet",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.person",
+            "personnavn": {
+              "fornavn": "PLUTSELIG",
+              "etternavn": "MORMOR"
+            },
+            "fodselsnummerEllerDNummer": "13888998238"
+          }
         }
       ],
-      "formuesgoder": [
+      "formuesgode": [
         {
+          "identifiseringsmate": "identifiseringsmate.entydig",
           "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "motorvogn registrert",
-          "identifiseringsmaateFormuesgode": {
-            "registreringsnummerMotorvogn": "AX10100"
-          },
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          }
+          "typeBeskrivelse": "Registrert motorvogn",
+          "eierandel": {},
+          "registreringsnummerMotorvogn": "CU11240",
+          "historiskRegistreringsnummerMotorvogn": []
         }
       ],
+      "prioritetsvikelse": [],
       "krav": {
         "belop": [
           {
-            "belop": 2.12,
+            "belop": 1556438453.00,
             "valuta": "NOK"
           }
-        ]
-      },
-      "gjeldsordning": {
-        "type": "gjeldsordningstype.tvungen",
-        "typeBeskrivelse": "tvungen gjeldsordning",
-        "gjeldsordningsperiodeFraDato": "2020-04-02",
-        "gjeldsordningsperiodeTilDato": "2020-08-17",
-        "gjeldsordningsperiodeAntallMaaneder": 10,
-        "gjeldsordningsperiodeAntallAar": 2
-      },
-      "vergemaal": {
-        "personligForhold": true,
-        "okonomiskeForhold": false,
-        "varighet": "varighet.varig",
-        "varighetBeskrivelse": "varig"
-      },
-      "skifteutlegg": {
-        "type": "skifteutleggtype.gjeld",
-        "typeBeskrivelse": "Gjeld"
-      },
-      "paategninger": [
-        {
-          "paategning": "Påtegning"
-        }
-      ],
-      "prioritetsvikelser": [
-        {
-          "dokumentnummer": "2020000001",
-          "rettighetshaverFremtidig": "Pantehaver"
-        }
-      ]
-    },
-    {
-      "dokumentnummer": "5020000011",
-      "type": "rettsstiftelsestype.utp",
-      "typeBeskrivelse": "Utleggspant",
-      "innkomsttidspunkt": "2020-02-26T15:15:51Z",
-      "utlopRettsvernstid": "2030-02-26",
-      "avgrensingRettsstiftelse": "JA",
-      "roller": [
-        {
-          "rolleinnehaverType": "BRPERSON",
-          "rolletype": "rolletype.saksoker",
-          "rolletypeBeskrivelse": "Saksøker",
-          "navn": "USTABIL FORNUFTIG FJERNKONTROLL",
-          "identifikator": "17071150380",
-          "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver"
-        }
-      ],
-      "formuesgoder": [
-        {
-          "type": "formuesgodetype.vp.strukturert",
-          "typeBeskrivelse": "Verdipapir strukturert særskilt identifisert",
-          "identifiseringsmaateFormuesgode": {
-            "organisasjonsnummer": "315524148",
-            "antallAksjer": "62",
-            "aksjeklasse": "aksjeklasse.b",
-            "aksjeklasseBeskrivelse": "B-aksjer"
-          },
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          }
-        }
-      ],
-      "krav": {
-        "belop": [
-          {
-            "belop": 2.12,
-            "valuta": "NOK"
-          }
-        ]
+        ],
+        "kravSalgspant": "kravsalgspant.selgers.krav",
+        "kravSalgspantBeskrivelse": "selgerens krav på kjøpesummen"
       }
     }
   ]
@@ -304,9 +236,9 @@ Dersom man ikke får HTTP-status 200, så får man en melding fra tjenesten i JS
 
 ```json
 {
-    "korrelasjonsid": "cba2c68f-2f04-4104-9dbf-8e69c5e36c5c",
-    "tidspunkt": "2020-10-28 13:23:35",
-    "feilmelding": "upperCutOff kan ikke peke frem i tid"
+  "korrelasjonsid": "cba2c68f-2f04-4104-9dbf-8e69c5e36c5c",
+  "tidspunkt": "2023-03-07 13:23:35",
+  "feilmelding": "upperCutOff kan ikke peke frem i tid"
 }
 ```
 

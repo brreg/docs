@@ -6,9 +6,9 @@ weight: 120
 
 ## Grensesnittbeskrivelse
 
-| HTTP-metode   | URL                                                       | Beskrivelse                                                              |
-|:------------- |:----------------------------------------------------------|:-------------------------------------------------------------------------|
-| GET           | https://\{domene\}/api/v1/rettsstiftelse/regnr/\{regnr\}  | Hent opplysninger om rettstiftelser knyttet til et registreringsnummer.  |
+| HTTP-metode   | URL                                                      | Beskrivelse                                                              |
+|:------------- |:---------------------------------------------------------|:-------------------------------------------------------------------------|
+| GET           | https://\{domene\}/api/v2/rettsstiftelse/regnr/\{regnr\} | Hent opplysninger om rettstiftelser knyttet til et registreringsnummer.  |
 
 **Domener**:
 
@@ -41,38 +41,69 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 ```json
 {
   "sokeparameter": "CU10100",
-  "oppslagstidspunkt": "2022-05-02T12:16:41.12885",
-  "antallRettsstiftelser": 148,
+  "oppslagstidspunkt": "2023-03-07T13:53:55.92107",
+  "antallRettsstiftelser": 2,
   "rettsstiftelser": [
     {
       "dokumentnummer": "2020000003",
       "type": "rettsstiftelsestype.utp",
       "typeBeskrivelse": "Utleggspant",
+      "status": "statusregistreringsobjekt.tl",
+      "statusBeskrivelse": "tinglyst",
       "innkomsttidspunkt": "2020-02-26T15:15:51Z",
-      "utlopRettsvernstid": "2030-02-26",
       "avgrensingRettsstiftelse": "JA",
-      "roller": [
+      "paategning": [
+        "Påtegning"
+      ],
+      "rolle": [
         {
-          "rolleinnehaverType": "BRPERSON",
           "rolletype": "rolletype.saksoker",
           "rolletypeBeskrivelse": "Saksøker",
-          "navn": "USTABIL FORNUFTIG FJERNKONTROLL",
-          "identifikator": "17071150380",
           "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver"
+          "rollegruppetypeBeskrivelse": "Rettighetshaver",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.person",
+            "personnavn": {
+              "fornavn": "USTABIL",
+              "mellomnavn": "FORNUFTIG",
+              "etternavn": "FJERNKONTROLL"
+            },
+            "adresse": {
+              "adresseType": "adressetype.vegadresse",
+              "brukskategori": "bostedsadresse",
+              "poststed": {
+                "navn": "OSLO",
+                "postnummer": "1281"
+              },
+              "kommune": {
+                "kommunenummer": "0301",
+                "kommunenavn": "Oslo"
+              },
+              "vegadresseID": "00001",
+              "bruksenhetsnummer": "H0101",
+              "adressenavn": "Helga Vaneks vei",
+              "nummer": {}
+            }
+          }
         }
       ],
-      "formuesgoder": [
+      "formuesgode": [
         {
+          "identifiseringsmate": "identifiseringsmate.entydig",
           "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "motorvogn registrert",
-          "identifiseringsmaateFormuesgode": {
-            "registreringsnummerMotorvogn": "CU10100"
-          },
+          "typeBeskrivelse": "Registrert motorvogn",
           "eierandel": {
             "teller": 1,
             "nevner": 1
-          }
+          },
+          "registreringsnummerMotorvogn": "CU10100",
+          "historiskRegistreringsnummerMotorvogn": []
+        }
+      ],
+      "prioritetsvikelse": [
+        {
+          "dokumentnummer": "2020000001",
+          "rettighetshaverFremtidig": "Pantehaver"
         }
       ],
       "krav": {
@@ -83,159 +114,116 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
           }
         ]
       },
-      "gjeldsordning": {
-        "type": "gjeldsordningstype.tvungen",
-        "typeBeskrivelse": "tvungen gjeldsordning",
-        "gjeldsordningsperiodeFraDato": "2020-04-02",
-        "gjeldsordningsperiodeTilDato": "2020-08-17",
-        "gjeldsordningsperiodeAntallMaaneder": 10,
-        "gjeldsordningsperiodeAntallAar": 2
-      },
-      "vergemaal": {
-        "personligForhold": true,
-        "okonomiskeForhold": false,
-        "varighet": "varighet.varig",
-        "varighetBeskrivelse": "varig"
-      },
       "skifteutlegg": {
         "type": "skifteutleggtype.gjeld",
         "typeBeskrivelse": "Gjeld"
       },
-      "paategninger": [
-        {
-          "paategning": "Påtegning"
-        }
-      ],
-      "prioritetsvikelser": [
-        {
-          "dokumentnummer": "2020000001",
-          "rettighetshaverFremtidig": "Pantehaver"
-        }
-      ]
-    },
-    {
-      "dokumentnummer": "5120000004",
-      "type": "rettsstiftelsestype.gjo",
-      "typeBeskrivelse": "Gjeldsordning",
-      "innkomsttidspunkt": "1991-02-26T15:15:51Z",
-      "utlopRettsvernstid": "2030-02-26",
-      "avgrensingRettsstiftelse": "JA",
-      "roller": [
-        {
-          "rolleinnehaverType": "BRPERSON",
-          "rolletype": "rolletype.saksoker",
-          "rolletypeBeskrivelse": "rolletype.saksoker",
-          "navn": "USTABIL FORNUFTIG FJERNKONTROLL",
-          "identifikator": "17071150380",
-          "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver"
-        }
-      ],
-      "formuesgoder": [
-        {
-          "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "motorvogn registrert",
-          "identifiseringsmaateFormuesgode": {
-            "registreringsnummerMotorvogn": "CU10100"
-          },
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          }
-        }
-      ],
-      "krav": {
-        "belop": [
-          {
-            "belop": 2.12,
-            "valuta": "NOK"
-          }
-        ]
+      "vergemaal": {
+        "gjelderPersonligeForhold": true,
+        "gjelderOkonomiskeForhold": false,
+        "varighet": "varighet.varig",
+        "varighetBeskrivelse": "varig"
       },
       "gjeldsordning": {
         "type": "gjeldsordningstype.tvungen",
         "typeBeskrivelse": "tvungen gjeldsordning",
-        "gjeldsordningsperiodeFraDato": "2020-04-02",
-        "gjeldsordningsperiodeTilDato": "2020-08-17",
-        "gjeldsordningsperiodeAntallMaaneder": 10,
-        "gjeldsordningsperiodeAntallAar": 2
-      },
-      "vergemaal": {
-        "personligForhold": true,
-        "okonomiskeForhold": false,
-        "varighet": "varighet.varig",
-        "varighetBeskrivelse": "varig"
-      },
-      "skifteutlegg": {
-        "type": "skifteutleggtype.gjeld",
-        "typeBeskrivelse": "Gjeld"
-      },
-      "paategninger": [
-        {
-          "paategning": "Påtegning"
-        }
-      ],
-      "prioritetsvikelser": [
-        {
-          "dokumentnummer": "2020000001",
-          "rettighetshaverFremtidig": "Pantehaver"
-        }
-      ]
-    },
-    {
-      "dokumentnummer": "2021000456",
-      "type": "rettsstiftelsestype.sap",
-      "typeBeskrivelse": "Salgspant",
-      "innkomsttidspunkt": "2021-10-29T08:10:00Z",
-      "utlopRettsvernstid": "2041-10-29",
-      "roller": [
-        {
-          "rolleinnehaverType": "VIRKSOMHET",
-          "rolletype": "rolletype.panthaver",
-          "rolletypeBeskrivelse": "Panthaver",
-          "identifikator": "215148742",
-          "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver"
+        "periode": {
+          "fraDato": "2020-04-02",
+          "tilDato": "2020-08-17"
         },
+        "gjeldsordningsperiodeAntallMaaneder": 10,
+        "gjeldsordningsperiodeAntallAar": 2
+      }
+    },
+    {
+      "dokumentnummer": "2020000031",
+      "type": "rettsstiftelsestype.utp",
+      "typeBeskrivelse": "Utleggspant",
+      "status": "statusregistreringsobjekt.tl",
+      "statusBeskrivelse": "tinglyst",
+      "innkomsttidspunkt": "2020-02-26T15:15:51Z",
+      "avgrensingRettsstiftelse": "JA",
+      "paategning": [
+        "Påtegning"
+      ],
+      "rolle": [
         {
-          "rolleinnehaverType": "BRPERSON",
-          "rolletype": "rolletype.pantsetter",
-          "rolletypeBeskrivelse": "Pantsetter",
-          "navn": "FULLKOMMEN SEKK",
-          "identifikator": "19810199639",
-          "rollegruppetype": "rollegruppe.forp",
-          "rollegruppetypeBeskrivelse": "Forpliktet"
+          "rolletype": "rolletype.saksoker",
+          "rolletypeBeskrivelse": "Saksøker",
+          "rollegruppetype": "rollegruppe.rett",
+          "rollegruppetypeBeskrivelse": "Rettighetshaver",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.person",
+            "personnavn": {
+              "fornavn": "USTABIL",
+              "mellomnavn": "FORNUFTIG",
+              "etternavn": "FJERNKONTROLL"
+            },
+            "adresse": {
+              "adresseType": "adressetype.vegadresse",
+              "brukskategori": "bostedsadresse",
+              "poststed": {
+                "navn": "OSLO",
+                "postnummer": "1281"
+              },
+              "kommune": {
+                "kommunenummer": "0301",
+                "kommunenavn": "Oslo"
+              },
+              "vegadresseID": "00001",
+              "bruksenhetsnummer": "H0101",
+              "adressenavn": "Helga Vaneks vei",
+              "nummer": {}
+            }
+          }
         }
       ],
-      "formuesgoder": [
+      "formuesgode": [
         {
+          "identifiseringsmate": "identifiseringsmate.entydig",
           "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "motorvogn registrert",
-          "identifiseringsmaateFormuesgode": {
-            "registreringsnummerMotorvogn": "CU10100"
-          },
+          "typeBeskrivelse": "Registrert motorvogn",
           "eierandel": {
             "teller": 1,
             "nevner": 1
-          }
+          },
+          "registreringsnummerMotorvogn": "CU10100",
+          "historiskRegistreringsnummerMotorvogn": []
+        }
+      ],
+      "prioritetsvikelse": [
+        {
+          "dokumentnummer": "2020000001",
+          "rettighetshaverFremtidig": "Pantehaver"
         }
       ],
       "krav": {
         "belop": [
           {
-            "belop": 120000.0,
+            "belop": 2.12,
             "valuta": "NOK"
           }
-        ],
-        "kravSalgspant": "kravsalgspant.lan.til.kjoper",
-        "kravSalgspantBeskrivelse": "lån som tredjeperson har ydet kjøperen"
+        ]
+      },
+      "skifteutlegg": {
+        "type": "skifteutleggtype.gjeld",
+        "typeBeskrivelse": "Gjeld"
       },
       "vergemaal": {
-        "personligForhold": false,
-        "okonomiskeForhold": true,
-        "varighet": "varighet.midlertidig",
-        "varighetBeskrivelse": "midlertidig",
-        "tidsbegrensetTilDato": "2022-11-25"
+        "gjelderPersonligeForhold": true,
+        "gjelderOkonomiskeForhold": false,
+        "varighet": "varighet.varig",
+        "varighetBeskrivelse": "varig"
+      },
+      "gjeldsordning": {
+        "type": "gjeldsordningstype.tvungen",
+        "typeBeskrivelse": "tvungen gjeldsordning",
+        "periode": {
+          "fraDato": "2020-04-02",
+          "tilDato": "2020-08-17"
+        },
+        "gjeldsordningsperiodeAntallMaaneder": 10,
+        "gjeldsordningsperiodeAntallAar": 2
       }
     }
   ]
@@ -258,9 +246,9 @@ Dersom man ikke får HTTP-status 200, så får man en melding fra tjenesten i JS
 
 ```json
 {
-    "korrelasjonsid": "cba2c68f-2f04-4104-9dbf-8e69c5e36c5c",
-    "tidspunkt": "2020-10-28 13:23:35",
-    "feilmelding": "Feil i registreringsnummer, vennligst prøv på nytt"
+  "korrelasjonsid": "cba2c68f-2f04-4104-9dbf-8e69c5e36c5c",
+  "tidspunkt": "2023-03-07 13:23:35",
+  "feilmelding": "Feil i registreringsnummer, vennligst prøv på nytt"
 }
 ```
 

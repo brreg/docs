@@ -6,7 +6,7 @@ weight: 110
 
 ## UNDER ARBEID
 
-Dette APIet er ikke tilgjengelig ennå, men dokumentasjon er påbegynt og vil oppdateres fortløpende under utviklingen av APIet.
+APIet er tilgjengelig, men det er fremdeles under utvikling så mindre endringer kan forekomme.
 
 ## Innledning
 
