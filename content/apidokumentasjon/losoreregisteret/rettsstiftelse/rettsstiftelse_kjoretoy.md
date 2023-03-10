@@ -43,7 +43,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
   "sokeparameter": "CU10100",
   "oppslagstidspunkt": "2023-03-07T13:53:55.92107",
   "antallRettsstiftelser": 2,
-  "rettsstiftelser": [
+  "rettsstiftelse": [
     {
       "dokumentnummer": "2020000003",
       "type": "rettsstiftelsestype.utp",

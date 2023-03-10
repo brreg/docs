@@ -82,7 +82,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
     "38068529-7a2d-42d3-971a-b305c9adf801"
   ],
   "antallRettsstiftelser": 1000,
-  "rettsstiftelser": [
+  "rettsstiftelse": [
     {
       "dokumentnummer": "1000007302",
       "type": "rettsstiftelsestype.sap",

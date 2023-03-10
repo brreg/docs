@@ -74,7 +74,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
     "24053b47-41bb-4f6b-b3ad-306fade98352"
   ],
   "antallRettsstiftelser": 33,
-  "rettsstiftelser": [
+  "rettsstiftelse": [
     {
       "dokumentnummer": "1000001790",
       "type": "rettsstiftelsestype.frh",
