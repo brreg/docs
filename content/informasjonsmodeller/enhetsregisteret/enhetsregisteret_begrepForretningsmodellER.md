@@ -1,7 +1,7 @@
 ---
 title: Begrep for forretningsmodeller for Enhetsregisteret
 description: Begrep for forretningsmodeller for Enhetsregisteret
-weight: 110
+weight: 10
 ---
 
 Nedenfor vises begreper som er sentrale innenfor Enhetsregisteret og Foretaksregisteret. Vi gjør oppmerksom på at begreper som ikke har status "godkjent", er under arbeid og kan bli endret. Begreper som har status godkjent, er også publisert i Felles begrepskatalog, som er en del av [Felles Datakatalog](https://fellesdatakatalog.brreg.no/).
