@@ -43,7 +43,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 ```json
 {
   "sokeparameter": "28884199370",
-  "oppslagstidspunkt": "2023-03-07T14:22:34.823226",
+  "oppslagstidspunkt": "2023-04-14T14:28:33.412027+02:00",
   "antallRettsstiftelser": 8,
   "rettsstiftelse": [
     {
@@ -52,8 +52,8 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Utleggspant",
       "status": "statusregistreringsobjekt.nt",
       "statusBeskrivelse": "nektet tinglyst",
-      "innkomsttidspunkt": "2023-02-16T20:00:00Z",
-      "beslutningstidspunkt": "2023-02-20T07:00:00Z",
+      "innkomsttidspunkt": "2021-01-10T16:49:58.023+01:00",
+      "beslutningstidspunkt": "2021-01-10T10:02:00+01:00",
       "paategning": [],
       "rolle": [
         {
@@ -159,7 +159,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Salgspant",
       "status": "statusregistreringsobjekt.nt",
       "statusBeskrivelse": "nektet tinglyst",
-      "innkomsttidspunkt": "2023-02-12T20:00:00Z",
+      "innkomsttidspunkt": "2022-10-01T12:00:00+02:00",
       "paategning": [],
       "rolle": [
         {
@@ -223,8 +223,8 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Utleggspant",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2023-02-02T20:00:00Z",
-      "beslutningstidspunkt": "2023-01-30T23:00:00Z",
+      "innkomsttidspunkt": "2021-01-10T16:49:58.023+01:00",
+      "beslutningstidspunkt": "2021-01-10T10:02:00+01:00",
       "paategning": [
         "Dokumentet har ved en feil vært ute av registeret."
       ],
@@ -320,7 +320,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Salgspant",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2023-02-12T20:00:00Z",
+      "innkomsttidspunkt": "2022-10-01T12:00:00+02:00",
       "paategning": [],
       "rolle": [
         {
@@ -400,7 +400,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Salgspant",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2023-02-12T20:00:00Z",
+      "innkomsttidspunkt": "2022-10-01T12:00:00+02:00",
       "paategning": [
         "Dokumentet har ved en feil vært ute av registeret."
       ],
@@ -482,8 +482,8 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Utleggspant",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2023-02-16T20:00:00Z",
-      "beslutningstidspunkt": "2023-01-30T06:40:00Z",
+      "innkomsttidspunkt": "2021-01-10T16:49:58.023+01:00",
+      "beslutningstidspunkt": "2021-01-10T10:02:00+01:00",
       "paategning": [],
       "rolle": [
         {
@@ -589,8 +589,8 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Utleggspant",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2023-02-16T20:00:00Z",
-      "beslutningstidspunkt": "2022-01-02T06:00:00Z",
+      "innkomsttidspunkt": "2021-01-10T16:49:58.023+01:00",
+      "beslutningstidspunkt": "2021-01-10T10:02:00+01:00",
       "paategning": [],
       "rolle": [
         {
@@ -707,8 +707,8 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Beslutning om forvaltning av formue",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2023-03-01T20:00:00Z",
-      "beslutningstidspunkt": "2023-02-27T23:00:00Z",
+      "innkomsttidspunkt": "2021-01-10T16:49:58.023+01:00",
+      "beslutningstidspunkt": "2021-01-10T10:02:00+01:00",
       "paategning": [],
       "rolle": [
         {
@@ -796,7 +796,7 @@ Dersom man ikke får HTTP-status 200, så får man en melding fra tjenesten i JS
 ```json
 {
   "korrelasjonsid": "5d217325-fa5a-47a1-8069-781fa5e1dedc",
-  "tidspunkt": "2023-03-07 13:21:45",
+  "tidspunkt": "2023-04-17T08:53:21.859622+02:00",
   "feilmelding": "Feil i fødselsnummer/organisasjonsnummer, vennligst prøv på nytt"
 }
 ```

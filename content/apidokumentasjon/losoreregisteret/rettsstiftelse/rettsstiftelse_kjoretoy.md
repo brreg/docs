@@ -41,7 +41,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 ```json
 {
   "sokeparameter": "CU10100",
-  "oppslagstidspunkt": "2023-03-07T13:53:55.92107",
+  "oppslagstidspunkt": "2023-03-07T13:53:55.92107+01:00",
   "antallRettsstiftelser": 2,
   "rettsstiftelse": [
     {
@@ -50,7 +50,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Utleggspant",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2020-02-26T15:15:51Z",
+      "innkomsttidspunkt": "2020-02-26T15:15:51.14512+01:00",
       "avgrensingRettsstiftelse": "JA",
       "paategning": [
         "Påtegning"
@@ -141,7 +141,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Utleggspant",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2020-02-26T15:15:51Z",
+      "innkomsttidspunkt": "2020-02-26T15:15:51.14512+01:00",
       "avgrensingRettsstiftelse": "JA",
       "paategning": [
         "Påtegning"
@@ -246,7 +246,7 @@ Dersom man ikke får HTTP-status 200, så får man en melding fra tjenesten i JS
 ```json
 {
   "korrelasjonsid": "cba2c68f-2f04-4104-9dbf-8e69c5e36c5c",
-  "tidspunkt": "2023-03-07 13:23:35",
+  "tidspunkt": "2023-03-07T13:23:35.14512+01:00",
   "feilmelding": "Feil i registreringsnummer, vennligst prøv på nytt"
 }
 ```

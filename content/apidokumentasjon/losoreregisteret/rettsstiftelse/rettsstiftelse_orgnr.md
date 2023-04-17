@@ -43,7 +43,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 ```json
 {
   "sokeparameter": "811087432",
-  "oppslagstidspunkt": "2023-03-07T14:06:25.87466",
+  "oppslagstidspunkt": "2023-04-07T08:51:01.622294+02:00",
   "antallRettsstiftelser": 4,
   "rettsstiftelse": [
     {
@@ -52,7 +52,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Leasing",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2022-08-23T19:00:00Z",
+      "innkomsttidspunkt": "2022-08-23T19:00:00.14512+02:00",
       "paategning": [],
       "rolle": [
         {
@@ -118,7 +118,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Leasing",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2022-08-22T19:00:00Z",
+      "innkomsttidspunkt": "2022-08-22T19:00:00.14512+02:00",
       "paategning": [],
       "rolle": [
         {
@@ -163,7 +163,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Leasing",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2022-09-12T19:00:00Z",
+      "innkomsttidspunkt": "2022-09-12T19:00:00.14512+02:00",
       "paategning": [],
       "rolle": [
         {
@@ -208,7 +208,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Leasing",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2022-09-12T19:00:00Z",
+      "innkomsttidspunkt": "2022-09-12T19:00:00.14512+02:00",
       "paategning": [],
       "rolle": [
         {
@@ -267,7 +267,7 @@ Dersom man ikke får HTTP-status 200, så får man en melding fra tjenesten i JS
 ```json
 {
   "korrelasjonsid": "c1c188f5-2fe2-4a1b-97f1-360fff37ea21",
-  "tidspunkt": "2023-03-07 13:25:53",
+  "tidspunkt": "2023-04-17T08:52:52.960824+02:00",
   "feilmelding": "Feil i fødselsnummer/organisasjonsnummer, vennligst prøv på nytt"
 }
 ```

@@ -14,6 +14,9 @@ Brønnøysundregistrene tilbyr en begrenset, standardisert maskin-til-maskin-tje
 
 Denne dokumentasjonen viser hvordan eksterne systemer kan integrere seg mot APIet, og hvordan man benytter seg av tjenesten for å hente data.
 
+Det er også blitt opprettet en referanseapplikasjon for å gjøre det enklere å se hvordan man skal integrere.
+Koden for denne er lagt ut i brreg sitt repository på github: [refapp-integrasjon](https://github.com/brreg/refapp-integrasjon)
+
 ## Syntetiske testdata
 
 Når APIet gjøres tilgjengelig vil siden oppdateres med informasjon om syntetiske data i testmiljøet
@@ -32,6 +35,8 @@ Dokumentasjon er også tilgjengelig i Swagger:
 
 * [Testmiljø](https://losoreregisteret.ppe.brreg.no/registerinfo/swagger-ui.html)
 * [Produksjonsmiljø](https://losoreregisteret.brreg.no/registerinfo/swagger-ui.html)
+
+Eksempel på request- og response-objekter (implementert i Java) for APIet kan sees her: [refapp-integrasjon DTOer](https://github.com/brreg/refapp-integrasjon/tree/main/src/main/java/refappintegrasjon/dto)
 
 ## Sikkerhetsmekanismer
 

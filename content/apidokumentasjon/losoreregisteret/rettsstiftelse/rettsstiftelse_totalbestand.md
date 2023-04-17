@@ -76,12 +76,12 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 
 ```json
 {
-  "upperCutoffForrigeRequest": "2023-03-05T22:00:00Z",
+  "upperCutoffForrigeRequest": "2023-03-06T00:00:00.000+02:00",
   "sortValues": [
     "1675889424135",
     "38068529-7a2d-42d3-971a-b305c9adf801"
   ],
-  "antallRettsstiftelser": 1000,
+  "antallRettsstiftelser": 2,
   "rettsstiftelse": [
     {
       "dokumentnummer": "1000007302",
@@ -89,7 +89,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Salgspant",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2022-11-11T07:00:00Z",
+      "innkomsttidspunkt": "2021-01-10T16:49:58.023+01:00",
       "utlopRettsvernstid": "2042-11-11",
       "paategning": [],
       "rolle": [
@@ -156,7 +156,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Salgspant",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2022-11-11T07:00:00Z",
+      "innkomsttidspunkt": "2022-10-01T12:00:00+02:00",
       "utlopRettsvernstid": "2042-11-11",
       "paategning": [],
       "rolle": [
@@ -237,8 +237,8 @@ Dersom man ikke får HTTP-status 200, så får man en melding fra tjenesten i JS
 ```json
 {
   "korrelasjonsid": "cba2c68f-2f04-4104-9dbf-8e69c5e36c5c",
-  "tidspunkt": "2023-03-07 13:23:35",
-  "feilmelding": "upperCutOff kan ikke peke frem i tid"
+  "tidspunkt": "2023-04-17T09:16:08.815966+02:00",
+  "feilmelding": "Totalbestand kan ikke hentes med upperCutoff frem i tid."
 }
 ```
 

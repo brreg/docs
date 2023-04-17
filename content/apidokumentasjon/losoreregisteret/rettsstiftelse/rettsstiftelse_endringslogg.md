@@ -68,12 +68,12 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 
 ```json
 {
-  "sistEndretSisteInnslag": "2023-03-07T14:26:22.817126Z",
+  "sistEndretSisteInnslag": "2023-03-07T14:26:22.817126+01:00",
   "sortValues": [
     "1678199182817",
     "24053b47-41bb-4f6b-b3ad-306fade98352"
   ],
-  "antallRettsstiftelser": 33,
+  "antallRettsstiftelser": 2,
   "rettsstiftelse": [
     {
       "dokumentnummer": "1000001790",
@@ -81,8 +81,8 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Fratakelse av rettslig handleevne",
       "status": "statusregistreringsobjekt.sl",
       "statusBeskrivelse": "slettet",
-      "innkomsttidspunkt": "2022-09-22T19:00:00Z",
-      "beslutningstidspunkt": "2022-09-13T22:00:00Z",
+      "innkomsttidspunkt": "2021-01-10T16:49:58.023+01:00",
+      "beslutningstidspunkt": "2021-01-10T10:02:00+01:00",
       "utlopRettsvernstid": "2023-03-04",
       "slettet": "2023-03-06",
       "paategning": [],
@@ -143,8 +143,8 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Åpning av rekonstruksjonsforhandling",
       "status": "statusregistreringsobjekt.sl",
       "statusBeskrivelse": "slettet",
-      "innkomsttidspunkt": "2023-03-05T20:00:00Z",
-      "beslutningstidspunkt": "2023-03-01T23:00:00Z",
+      "innkomsttidspunkt": "2022-10-01T12:00:00+02:00",
+      "beslutningstidspunkt": "2022-10-03T12:00:00+02:00",
       "slettet": "2023-03-06",
       "paategning": [],
       "rolle": [
@@ -204,13 +204,9 @@ Dersom man ikke får HTTP-status 200, så får man en melding fra tjenesten i JS
 
 ```json
 {
-  "sokeparameter": null,
-  "oppslagstidspunkt": null,
-  "antallRettsstiftelser": null,
-  "rettsstiftelser": null,
   "korrelasjonsid": "abd970cf-dae9-45cc-a9af-2011e512f96b",
-  "tidspunkt": "2022-04-29 15:03:42",
-  "feilmelding": "Feil under autentisering av abonnent"
+  "tidspunkt": "2023-04-17T09:18:39.931121+02:00",
+  "feilmelding": "lowerCutoff kan ikke være mer enn 30 dager tilbake i tid"
 }
 ```
 
