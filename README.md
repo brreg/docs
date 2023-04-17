@@ -5,7 +5,7 @@ Vi er i gang med å forbedre [Brønnøysundregistrenes dokumentasjon](https://br
 # Getting started
 
 - Skaff tilgang til en github bruker tilkoblet din brsys-mail og clone deretter dette docs-repoet
-- Last ned hugo, se her for instruksjoner: [Nedlasting av Hugo](https://gohugo.io/getting-started/installing/). Filer for nedlasting er tilgjengelige på [Hugos releases GitHub](https://github.com/gohugoio/hugo/releases). Om du bruker vanlig Windows så kan du velge releasen med navn som slutter på `windows-amd64.zip`.
+- Last ned hugo, se her for instruksjoner: [Nedlasting av Hugo](https://gohugo.io/getting-started/installing/). Filer for nedlasting er tilgjengelige på [Hugos releases GitHub](https://github.com/gohugoio/hugo/releases). Om du bruker vanlig Windows så kan du velge releasen med navn som slutter på `windows-amd64.zip`. Pass på at du laster ned versjonen som brukes i applikasjonen.
 - Pakk ut filen og legg den i rotmappen på docs-repoet. Ved innsjekk av endringer vil git overse Hugo-filen (.gitignore) slik at den ikke lastes opp.
 
 ## Ønsker du å bidra?

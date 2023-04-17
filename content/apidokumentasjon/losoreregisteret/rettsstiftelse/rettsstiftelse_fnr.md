@@ -784,13 +784,12 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 
 ## Feilmeldinger
 
-Dersom man ikke får HTTP-status 200, så får man en melding fra tjenesten i JSON-format.
+Dersom man ikke får HTTP-status 200, så får man en melding fra tjenesten i JSON-format. Hvis det er ingen treff får man fortsatt 200-status.
 
 | HTTP-kode | Feilmelding                                                      |
 |:----------|:-----------------------------------------------------------------|
 | 400       | Feil i fødselsnummer/organisasjonsnummer, vennligst prøv på nytt |
 | 403       | Feil under autentisering av abonnent                             |
-| 404       | fnr mangler                                                      |
 
 ##### Eksempelrespons feilmelding
 
