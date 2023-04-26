@@ -80,8 +80,6 @@ Se [veiledning for integrasjon mot Maskinporten]({{<ref "mp-integrasjonsveiledni
 |:------------|:----------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | GET         | https://\{domene\}/api/partner/reelle-rettigheter/{organisasjonsnummer}     | Hent opplysninger om en reell rettighet på angitt organisasjonsnummer. <br/>En reell rettighet for en gitt virksomhet inneholder en liste med reelle rettighetshavere, hvis dette er registrert. |
 | GET         | https://\{domene\}/api/partner/reelle-rettigheter/totalbestand/json         | Hent alle registrerte opplysninger i registeret i form av JSON. Returnerer JSON i en ZIP-fil.                                                                                                    |
-| GET         | https://\{domene\}/api/partner/reelle-rettigheter/totalbestand/csv          | Hent alle registrerte opplysninger i registeret i form av CSV. Returnerer CSV i en ZIP-fil.                                                                                                      |
-
 
 **Domener**:
 
@@ -311,7 +309,7 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
 
 #### Beskrivelse
 
-Henter ut alle gjeldende opplysninger i registeret i form av CSV eller JSON i en ZIP-fil. Filene blir oppdatert en gang i døgnet.
+Henter ut alle gjeldende opplysninger i registeret i form av JSON i en ZIP-fil. Filene blir oppdatert en gang i døgnet.
 
 #### Request
 
@@ -319,15 +317,12 @@ Tar i mot et organisasjonsnummer som en del av URL, med obligatorisk path-parame
 
 #### Response
 
-Dersom kallet lykkes får man HTTP-status 200 samt en Zippet fil (på JSON- eller CSV-format) i retur. Filen inneholder alle gjeldende opplysninger i Register over reelle rettighetshavere.  
+Dersom kallet lykkes får man HTTP-status 200 samt en Zippet fil (på JSON-format) i retur. Filen inneholder alle gjeldende opplysninger i Register over reelle rettighetshavere.  
 **I vårt testmiljø kan filen inneholde flere elementer en de som er beskrevet på vår side om [testdata]({{<ref "testdata_for_partner_api.md">}}).** 
 
 #### Eksempelrespons for totalbestand
 Om man henter ut totalbestand som JSON, vil filen være en liste der elementene i listen er på samme format som endepunktet `Oppslag på organisasjonsnummer`.  
-[Eksempelfil på JSON-format](https://raw.githubusercontent.com/brreg/openAPI/master/specs/exampleResponses/REELLE_PARTNER_API_totalbestand.csv)
-
-Om man henter ut totalbestand som CSV, vil man få en kommaseparert fil som kan åpnes i for eksempel Excel.  
-[Eksempelfil på CSV-format](https://raw.githubusercontent.com/brreg/openAPI/master/specs/exampleResponses/REELLE_PARTNER_API_totalbestand.csv)
+[Eksempelfil på JSON-format](https://raw.githubusercontent.com/brreg/openAPI/master/specs/exampleResponses/REELLE_PARTNER_API_totalbestand.json)
 
 ---
 
