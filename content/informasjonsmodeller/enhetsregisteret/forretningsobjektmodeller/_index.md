@@ -4,4 +4,4 @@ description: Forretningsobjektmodeller for Enhetsregisteret
 weight: 11
 ---
 
-{{% children description="true" %}}
+{{% children description="true" /%}}

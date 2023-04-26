@@ -21,4 +21,4 @@ OpenAPI-spesifikasjonene vil også tilgjengeliggjøres gjennom [Felles API-katal
 som vil sørge for at API-ene enklere kan oppdages av de som måtte være interesserte, og inneholde en link tilbake til dokumentasjonen som ligger på disse sidene.  
 
 
-{{% children description="false" %}}
+{{% children /%}}

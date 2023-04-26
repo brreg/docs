@@ -5,4 +5,4 @@ weight: 90
 alwaysopen: true
 ---
 
-{{% children description="true" %}}
+{{% children description="true" /%}}

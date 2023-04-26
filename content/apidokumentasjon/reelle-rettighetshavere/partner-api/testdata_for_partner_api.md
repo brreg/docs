@@ -40,4 +40,4 @@ og man kan derfor få flere registreringer i et totalbestanduttrekk.
 |9|311685678|MUNTER NORMAL TIGER AS|                      |04.04.2004| | | |Karl Gustav Medelsvensson| |Sverige, Sveits|Sverige| | | | | | | | | | | | | | |SANN|TEST - Posisjon kontroll på en annen måte.|SANN|
 |10|210204822|KUNNSKAPSRIK EVIG HUND DA| 289231-48452         | |BESTEMT|null|PLASMA| |USANN|Norge	|Sverige|SANN|75-100 %|Direkte| | | | | |SANN| | | | | | | | |
 
-{{% children description="false" %}}
+{{% children /%}}

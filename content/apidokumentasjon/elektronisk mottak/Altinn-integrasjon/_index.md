@@ -8,4 +8,4 @@ Denne siden er foreløpig opprettet kun for å illustrere oppbygningen av dokume
 
 Brønnøysundregistrenes elektroniske mottak tilbyr innsending av meldinger gjennom Altinns formidlingstjeneste og innsendingstjeneste.
 
-{{% children description="false" %}}
+{{% children /%}}

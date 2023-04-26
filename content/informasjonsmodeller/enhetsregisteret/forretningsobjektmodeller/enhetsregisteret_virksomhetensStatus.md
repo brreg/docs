@@ -4,7 +4,7 @@ description: Virksomhetens status i Enhetsregisteret
 weight: 40
 ---
 
-{{% children description="true" %}}
+{{% children description="true" /%}}
 
 Visningen gir oversikt over viktige tilstander en virksomhet kan ha, som at virksomheten er under avvikling eller at den skal sammenslås med andre virksomheter. Den viser også hvilke andre registre virksomheten er registrert i.
 

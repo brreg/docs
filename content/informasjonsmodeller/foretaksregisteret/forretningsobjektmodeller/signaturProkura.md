@@ -4,7 +4,7 @@ description: Signatur og prokura i et foretak
 weight: 60
 ---
 
-{{% children description="true" %}}
+{{% children description="true" /%}}
 
 Denne visningen gir en fremstilling av hvordan et foretak kan forplikte seg og hvem som kan forplikte foretaket.
 

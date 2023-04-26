@@ -4,4 +4,4 @@ description: Strukturmodeller for Foretaksregisteret
 weight: 100
 ---
 
-{{% children description="true" %}}
+{{% children description="true" /%}}

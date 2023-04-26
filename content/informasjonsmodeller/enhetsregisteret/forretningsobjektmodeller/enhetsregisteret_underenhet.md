@@ -4,7 +4,7 @@ description: Underenhet i Enhetsregisteret
 weight: 80
 ---
 
-{{% children description="true" %}}
+{{% children description="true" /%}}
 
 Underenhet er en del av virksomheten og er en integrert del av denne. Underenheten identifiseres med et eget organisasjonsnummer. En underenhet kan ikke eksistere alene og har alltid en knytning mot en annen hovedenhet. En underenhet kan f.eks. være en geografisk adskilt lokasjon hvor det drives aktivitet med én eller flere ansatte.
 

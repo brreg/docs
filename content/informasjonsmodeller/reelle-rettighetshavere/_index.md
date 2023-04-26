@@ -6,4 +6,4 @@ weight: 100
 
 Her kommer det info.
 
-{{% children description="true" %}}
+{{% children description="true" /%}}

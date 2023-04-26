@@ -4,7 +4,7 @@ description: Foretaksgruppe i Enhetsregisteret
 weight: 60
 ---
 
-{{% children description="true" %}}
+{{% children description="true" /%}}
 
 Visningen for foretaksgruppe gir oversikt over hvilke strukturer en virksomhet kan være en del av som f.eks. konsern.
 

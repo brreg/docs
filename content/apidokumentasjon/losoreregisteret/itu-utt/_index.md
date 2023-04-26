@@ -8,4 +8,4 @@ Scope for APIene i Maskinporten: `brreg:losore/utlegg`.
 
 Se sidene under for ønsket API.
 
-{{% children description="false" %}}
+{{% children /%}}

@@ -8,4 +8,4 @@ Denne siden er foreløpig opprettet kun for å illustrere oppbygningen av dokume
 
 I mellomtiden kan eksisterende API fra Enhetsregisteret være av interesse [Enhetsregisteret i Felles API-katalog](https://data.norge.no/datasets/68d08f28-a16d-4fab-a953-ed4ab08ce2e2).
 
-{{% children description="false" %}}
+{{% children /%}}
