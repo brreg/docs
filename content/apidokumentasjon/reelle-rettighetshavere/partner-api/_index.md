@@ -131,6 +131,15 @@ Dersom kallet lykkes får man HTTP-status 200 samt et dokument (på JSON-format)
    "registreringspliktigVirksomhet": {
       "organisasjonsnummer": "111111111"
    },
+   "regulertMarked": {
+      "type": "markedtype.oslo",
+      "navn": "Euronext Oslo",
+      "landkode": {
+         "landkode": "NOR",
+         "land": "Norge"
+      },
+      "internettadresse": "https://www.euronext.com/en/markets/oslo"
+   },
    "reelleRettighetshavere": [
       {
          "folkeregistrertPerson": {
