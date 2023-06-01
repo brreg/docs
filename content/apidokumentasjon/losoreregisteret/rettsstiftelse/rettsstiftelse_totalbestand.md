@@ -20,9 +20,9 @@ som ble prosessert iløpet av de siste 30 dagene.
 
 ## Grensesnittbeskrivelse
 
-| HTTP-metode   | URL                                                   | Beskrivelse                                                                   |
-|:------------- |:------------------------------------------------------|:------------------------------------------------------------------------------|
-| POST          | https://\{domene\}/api/v2/rettsstiftelse/totalbestand | Hent alle opplysninger om aktive rettstiftelser opp til et ønsket tidspunkt   |
+| HTTP-metode   | URL                                                   | Beskrivelse                                                                                        |
+|:------------- |:------------------------------------------------------|:---------------------------------------------------------------------------------------------------|
+| POST          | https://\{domene\}/api/v2/rettsstiftelse/totalbestand?language={language} | Hent alle opplysninger om aktive rettsstiftelser opp til et ønsket tidspunkt. Language er valgfri. |
 
 **Domener**:
 
@@ -34,12 +34,14 @@ som ble prosessert iløpet av de siste 30 dagene.
 #### Beskrivelse
 
 Tjenesten tar imot en forespørsel med feltene *upperCutOff* for tidspunkt-avgrensning og *lastSortValues* for paginering.
+Den valgfrie query parameteren "language" angir språkkode (ISO 639-2) for hvilket språk som skal benyttes for beskrivelser i responsen. Hvis den ikke er angitt benyttes norsk bokmål (NOB).
 
 #### Validering
 
 * Maskinport-tokenet som blir sendt inn er knyttet til avtalepartens organisasjonsnummer, og dette organisasjonsnummeret skal være gyldig samt ha en gyldig avtale for å kunne hente ut opplysninger i Løsøreregisteret.
 * Avgrensningsverdien *upperCutoff* i request-body er en timestamp med tidssone på formatet "YYYY-MM-DDTHH:MM:SS.mmm+HH:MM", det valideres at feltet ikke peker frem i tid.
 * Det sjekkes at avtalepartens organisasjonsnummer er registrert og ikke slettet i Enhetsregisteret. Dersom det ikke er registrert, eller er slettet, returneres det en feilmelding.
+* Hvis "language" er angitt må verdien være en støttet språkkode, hvis ikke returneres det en feilmelding med informasjon om støttede språkkoder.
 
 ## Paginering
 
@@ -62,8 +64,8 @@ Deretter vil man, basert på *"sortValues"* fra forrige [response](#eksempelresp
 {
     "upperCutoff": "2023-03-06T00:00:00.000+02:00",
     "lastSortValues": [
-      "1675889424135",
-      "38068529-7a2d-42d3-971a-b305c9adf801"
+      "1685515741112",
+      "1000009845"
     ]
 }
 ```
@@ -78,18 +80,18 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 {
   "upperCutoffForrigeRequest": "2023-03-06T00:00:00.000+02:00",
   "sortValues": [
-    "1675889424135",
-    "38068529-7a2d-42d3-971a-b305c9adf801"
+    "1685515741112",
+    "1000009845"
   ],
-  "antallRettsstiftelser": 2,
+  "antallRettsstiftelser": 1,
   "rettsstiftelse": [
     {
-      "dokumentnummer": "1000007302",
+      "dokumentnummer": "1000009845",
       "type": "rettsstiftelsestype.sap",
       "typeBeskrivelse": "Salgspant",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2021-01-10T16:49:58.023+01:00",
+      "innkomsttidspunkt": "2022-11-11T08:00:00+01:00",
       "utlopRettsvernstid": "2042-11-11",
       "paategning": [],
       "rolle": [
@@ -134,7 +136,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
           "type": "formuesgodetype.mv.e",
           "typeBeskrivelse": "Registrert motorvogn",
           "eierandel": {},
-          "registreringsnummerMotorvogn": "CU11240",
+          "registreringsnummerMotorvogn": "CU11242",
           "historiskRegistreringsnummerMotorvogn": []
         }
       ],
@@ -142,74 +144,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "krav": {
         "belop": [
           {
-            "belop": 235572728.00,
-            "valuta": "NOK"
-          }
-        ],
-        "kravSalgspant": "kravsalgspant.selgers.krav",
-        "kravSalgspantBeskrivelse": "selgerens krav på kjøpesummen"
-      }
-    },
-    {
-      "dokumentnummer": "1000007301",
-      "type": "rettsstiftelsestype.sap",
-      "typeBeskrivelse": "Salgspant",
-      "status": "statusregistreringsobjekt.tl",
-      "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2022-10-01T12:00:00+02:00",
-      "utlopRettsvernstid": "2042-11-11",
-      "paategning": [],
-      "rolle": [
-        {
-          "rolletype": "rolletype.panthaver",
-          "rolletypeBeskrivelse": "Panthaver",
-          "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver",
-          "rolleinnehaver": {
-            "aktorType": "aktortype.virksomhet",
-            "organisasjonsnummer": "810844612"
-          }
-        },
-        {
-          "rolletype": "rolletype.pantsetter",
-          "rolletypeBeskrivelse": "Pantsetter",
-          "rollegruppetype": "rollegruppe.forp",
-          "rollegruppetypeBeskrivelse": "Forpliktet",
-          "rolleinnehaver": {
-            "aktorType": "aktortype.virksomhet",
-            "organisasjonsnummer": "810845422"
-          }
-        },
-        {
-          "rolletype": "rolletype.pantsetter",
-          "rolletypeBeskrivelse": "Pantsetter",
-          "rollegruppetype": "rollegruppe.forp",
-          "rollegruppetypeBeskrivelse": "Forpliktet",
-          "rolleinnehaver": {
-            "aktorType": "aktortype.person",
-            "personnavn": {
-              "fornavn": "PLUTSELIG",
-              "etternavn": "MORMOR"
-            },
-            "fodselsnummerEllerDNummer": "13888998238"
-          }
-        }
-      ],
-      "formuesgode": [
-        {
-          "identifiseringsmate": "identifiseringsmate.entydig",
-          "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "Registrert motorvogn",
-          "eierandel": {},
-          "registreringsnummerMotorvogn": "CU11240",
-          "historiskRegistreringsnummerMotorvogn": []
-        }
-      ],
-      "prioritetsvikelse": [],
-      "krav": {
-        "belop": [
-          {
-            "belop": 1556438453.00,
+            "belop": 105158028,
             "valuta": "NOK"
           }
         ],

@@ -6,9 +6,9 @@ weight: 130
 
 ## Grensesnittbeskrivelse
 
-| HTTP-metode   | URL                                                                                          | Beskrivelse                                                              |
-|:------------- |:---------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
-| GET           | https://\{domene\}/api/v2/rettsstiftelse/orgnr/\{orgnr}\?sluttbrukerOrgNr={sluttbrukerOrgNr} | Hent opplysninger om rettstiftelser knyttet til et organisasjonsnummer. SluttbrukerOrgNr er valgfri  |
+| HTTP-metode   | URL                                                                                                              | Beskrivelse                                                                                                       |
+|:------------- |:-----------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------|
+| GET           | https://\{domene\}/api/v2/rettsstiftelse/orgnr/\{orgnr}\?language={language}&sluttbrukerOrgNr={sluttbrukerOrgNr} | Hent opplysninger om rettsstiftelser knyttet til et organisasjonsnummer. Language og sluttbrukerOrgNr er valgfri. |
 
 **Domener**:
 
@@ -19,20 +19,22 @@ weight: 130
 
 #### Beskrivelse
 
-Tjenesten tar imot en forespørsel om oppslag på et organisasjonsnummer, forespørselen valideres før utførelsen og returnerer opplysninger om kun aktive rettstiftelser på organisasjonsnummer.
+Tjenesten tar imot en forespørsel om oppslag på et organisasjonsnummer, forespørselen valideres før utførelsen og returnerer opplysninger om kun aktive rettsstiftelser på organisasjonsnummer.
 
 #### Request
 
 Tar i mot et organisasjonsnummer (orgnr) som del av URL.
-Valgfri parameter "sluttbrukerOrgNr" muliggjør at konsumenten kan presisere at oppslaget gjøres på vegne av en tredjepart som har avtale med konsumenten om uthenting av data. Dette er mest aktuelt for avtaleparter som omtales som distributører. Parameteren forventes utformet som et standard organisasjonsnummer fra Enhetsregisteret.
+Den valgfrie query parameteren "language" angir språkkode (ISO 639-2) for hvilket språk som skal benyttes for beskrivelser i responsen. Hvis den ikke er angitt benyttes norsk bokmål (NOB).
+Valgfri query parameter "sluttbrukerOrgNr" muliggjør at konsumenten kan presisere at oppslaget gjøres på vegne av en tredjepart som har avtale med konsumenten om uthenting av data. Dette er mest aktuelt for avtaleparter som omtales som distributører. Parameteren forventes utformet som et standard organisasjonsnummer fra Enhetsregisteret.
 
 #### Validering av forespørsler
 
-* Maskinport-tokenet som blir sendt inn er knyttet til avtalepartens orgnummer, og dette orgnummeret skal være gyldig samt ha en gyldig avtale om å kunne hente ut opplysninger i Løsøreregisteret.
+* Maskinport-tokenet som blir sendt inn er knyttet til avtalepartens orgnummer, og dette orgnummeret skal være gyldig, samt ha en gyldig avtale om å kunne hente ut opplysninger i Løsøreregisteret.
 * Forespørselen skal alltid inneholde orgnr som det gjøres oppslag på.
-* Dersom forespørselen inneholder et orgnr som ikke er lovlig oppbygd, returneres det en feilmelding.
+* Dersom forespørselen inneholder et orgnr som ikke er lovlig oppbygget, returneres det en feilmelding.
 * Det sjekkes at avtalepartens organisasjonsnummer er registrert og ikke slettet i Enhetsregisteret. Dersom det ikke er registrert, eller er slettet, returneres det en feilmelding.
-* Dersom forespørselen inneholder parameter "sluttbrukerOrgNr" som ikke er lovlig oppbygd, returneres det en feilmelding
+* Hvis "language" er angitt må verdien være en støttet språkkode, hvis ikke returneres det en feilmelding med informasjon om støttede språkkoder.
+* Dersom forespørselen inneholder parameter "sluttbrukerOrgNr" som ikke er lovlig oppbygd, returneres det en feilmelding.
 
 #### Response
 
@@ -42,210 +44,73 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 
 ```json
 {
-  "sokeparameter": "811087432",
-  "oppslagstidspunkt": "2023-04-07T08:51:01.622294+02:00",
-  "antallRettsstiftelser": 4,
+  "sokeparameter": "810304642",
+  "antallRettsstiftelser": 1,
+  "oppslagstidspunkt": "2023-05-31T08:52:33.311351+02:00",
   "rettsstiftelse": [
     {
-      "dokumentnummer": "1000001353",
-      "type": "rettsstiftelsestype.lea",
-      "typeBeskrivelse": "Leasing",
+      "dokumentnummer": "1000025203",
+      "type": "rettsstiftelsestype.pfr",
+      "typeBeskrivelse": "Pant i fiskeredskaper",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2022-08-23T19:00:00.14512+02:00",
+      "innkomsttidspunkt": "2022-12-15T12:38:35+01:00",
       "paategning": [],
       "rolle": [
         {
-          "rolletype": "rolletype.eier",
-          "rolletypeBeskrivelse": "Eier",
+          "rolletype": "rolletype.panthaver",
+          "rolletypeBeskrivelse": "Panthaver",
           "rollegruppetype": "rollegruppe.rett",
           "rollegruppetypeBeskrivelse": "Rettighetshaver",
           "rolleinnehaver": {
-            "aktorType": "aktortype.person",
-            "personnavn": {
-              "fornavn": "ERFAREN",
-              "etternavn": "COSINUS"
-            },
+            "aktorType": "aktortype.virksomhet",
+            "navn": "INNESLUTTET LYSEGRØNN TIGER AS",
+            "organisasjonsnummer": "313299767",
             "adresse": {
-              "adresseType": "adressetype.vegadresse",
-              "brukskategori": "bostedsadresse",
+              "adresseType": "adressetype.ustrukturertAdresse",
+              "brukskategori": "forretningsadresse",
+              "adresselinje1": "Brekkaveien 1I",
               "poststed": {
-                "navn": "KRISTIANSAND S",
-                "postnummer": "4632"
+                "navn": "SORTLAND",
+                "postnummer": "8402"
               },
               "kommune": {
-                "kommunenummer": "4204",
-                "kommunenavn": "Kristiansand"
-              },
-              "vegadresseID": "14770",
-              "bruksenhetsnummer": "H0101",
-              "adressenavn": "Kuholmsveien",
-              "nummer": {
-                "nummer": "112"
+                "kommunenummer": "1870",
+                "kommunenavn": "SORTLAND"
               }
             }
           }
         },
         {
-          "rolletype": "rolletype.leietaker",
-          "rolletypeBeskrivelse": "Leietaker",
+          "rolletype": "rolletype.pantsetter",
+          "rolletypeBeskrivelse": "Pantsetter",
           "rollegruppetype": "rollegruppe.forp",
           "rollegruppetypeBeskrivelse": "Forpliktet",
           "rolleinnehaver": {
             "aktorType": "aktortype.virksomhet",
-            "organisasjonsnummer": "811087432"
+            "organisasjonsnummer": "810304642"
           }
         }
       ],
       "formuesgode": [
         {
-          "identifiseringsmate": "identifiseringsmate.entydig",
-          "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "Registrert motorvogn",
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          },
-          "registreringsnummerMotorvogn": "XY1012",
-          "historiskRegistreringsnummerMotorvogn": []
+          "identifiseringsmate": "identifiseringsmate.tingsinnbegrep",
+          "type": "formuesgodetype.fi.t",
+          "typeBeskrivelse": "Fiskeredskap",
+          "eierandel": {},
+          "avgrensingTingsinnbegrep": "avgrensingtingsinnbegrep.hel",
+          "avgrensingTingsinnbegrepBeskrivelse": "i sin helhet, slik det er til enhver tid"
         }
       ],
-      "prioritetsvikelse": []
-    },
-    {
-      "dokumentnummer": "1000001451",
-      "type": "rettsstiftelsestype.lea",
-      "typeBeskrivelse": "Leasing",
-      "status": "statusregistreringsobjekt.tl",
-      "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2022-08-22T19:00:00.14512+02:00",
-      "paategning": [],
-      "rolle": [
-        {
-          "rolletype": "rolletype.eier",
-          "rolletypeBeskrivelse": "Eier",
-          "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver",
-          "rolleinnehaver": {
-            "aktorType": "aktortype.virksomhet",
-            "organisasjonsnummer": "811087572"
+      "prioritetsvikelse": [],
+      "krav": {
+        "belop": [
+          {
+            "belop": 741000,
+            "valuta": "NOK"
           }
-        },
-        {
-          "rolletype": "rolletype.leietaker",
-          "rolletypeBeskrivelse": "Leietaker",
-          "rollegruppetype": "rollegruppe.forp",
-          "rollegruppetypeBeskrivelse": "Forpliktet",
-          "rolleinnehaver": {
-            "aktorType": "aktortype.virksomhet",
-            "organisasjonsnummer": "811087432"
-          }
-        }
-      ],
-      "formuesgode": [
-        {
-          "identifiseringsmate": "identifiseringsmate.entydig",
-          "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "Registrert motorvogn",
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          },
-          "registreringsnummerMotorvogn": "RE12345",
-          "historiskRegistreringsnummerMotorvogn": []
-        }
-      ],
-      "prioritetsvikelse": []
-    },
-    {
-      "dokumentnummer": "1000001516",
-      "type": "rettsstiftelsestype.lea",
-      "typeBeskrivelse": "Leasing",
-      "status": "statusregistreringsobjekt.tl",
-      "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2022-09-12T19:00:00.14512+02:00",
-      "paategning": [],
-      "rolle": [
-        {
-          "rolletype": "rolletype.eier",
-          "rolletypeBeskrivelse": "Eier",
-          "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver",
-          "rolleinnehaver": {
-            "aktorType": "aktortype.virksomhet",
-            "organisasjonsnummer": "811088242"
-          }
-        },
-        {
-          "rolletype": "rolletype.leietaker",
-          "rolletypeBeskrivelse": "Leietaker",
-          "rollegruppetype": "rollegruppe.forp",
-          "rollegruppetypeBeskrivelse": "Forpliktet",
-          "rolleinnehaver": {
-            "aktorType": "aktortype.virksomhet",
-            "organisasjonsnummer": "811087432"
-          }
-        }
-      ],
-      "formuesgode": [
-        {
-          "identifiseringsmate": "identifiseringsmate.entydig",
-          "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "Registrert motorvogn",
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          },
-          "registreringsnummerMotorvogn": "RE12345",
-          "historiskRegistreringsnummerMotorvogn": []
-        }
-      ],
-      "prioritetsvikelse": []
-    },
-    {
-      "dokumentnummer": "1000001565",
-      "type": "rettsstiftelsestype.lea",
-      "typeBeskrivelse": "Leasing",
-      "status": "statusregistreringsobjekt.tl",
-      "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2022-09-12T19:00:00.14512+02:00",
-      "paategning": [],
-      "rolle": [
-        {
-          "rolletype": "rolletype.eier",
-          "rolletypeBeskrivelse": "Eier",
-          "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver",
-          "rolleinnehaver": {
-            "aktorType": "aktortype.virksomhet",
-            "organisasjonsnummer": "811087572"
-          }
-        },
-        {
-          "rolletype": "rolletype.leietaker",
-          "rolletypeBeskrivelse": "Leietaker",
-          "rollegruppetype": "rollegruppe.forp",
-          "rollegruppetypeBeskrivelse": "Forpliktet",
-          "rolleinnehaver": {
-            "aktorType": "aktortype.virksomhet",
-            "organisasjonsnummer": "811087432"
-          }
-        }
-      ],
-      "formuesgode": [
-        {
-          "identifiseringsmate": "identifiseringsmate.entydig",
-          "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "Registrert motorvogn",
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          },
-          "registreringsnummerMotorvogn": "RE12345",
-          "historiskRegistreringsnummerMotorvogn": []
-        }
-      ],
-      "prioritetsvikelse": []
+        ]
+      }
     }
   ]
 }

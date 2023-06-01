@@ -1,14 +1,14 @@
 ---
-title: Henting av rettstiftelser knyttet til kjøretøy
+title: Henting av rettsstiftelser knyttet til kjøretøy
 description: Beskrivelser av API innen domene Rettsstiftelse
 weight: 120
 ---
 
 ## Grensesnittbeskrivelse
 
-| HTTP-metode   | URL                                                      | Beskrivelse                                                              |
-|:------------- |:---------------------------------------------------------|:-------------------------------------------------------------------------|
-| GET           | https://\{domene\}/api/v2/rettsstiftelse/regnr/\{regnr\} | Hent opplysninger om rettstiftelser knyttet til et registreringsnummer.  |
+| HTTP-metode   | URL                                                      | Beskrivelse                                                                                   |
+|:------------- |:---------------------------------------------------------|:----------------------------------------------------------------------------------------------|
+| GET           | https://\{domene\}/api/v2/rettsstiftelse/regnr/\{regnr\}?language={language} | Hent opplysninger om rettsstiftelser knyttet til et registreringsnummer. Language er valgfri. |
 
 **Domener**:
 
@@ -19,11 +19,12 @@ weight: 120
 
 #### Beskrivelse
 
-Tjenesten tar imot en forespørsel om oppslag på et registreringsnummer, forespørselen valideres før utførelsen og returnerer opplysninger om kun aktive rettstiftelser på registreringsnummeret.
+Tjenesten tar imot en forespørsel om oppslag på et registreringsnummer, forespørselen valideres før utførelsen og returnerer opplysninger om kun aktive rettsstiftelser på registreringsnummeret.
 
 #### Request
 
 Tar i mot et registreringsnummer (regnr) som del av URL.
+Den valgfrie query parameteren "language" angir språkkode (ISO 639-2) for hvilket språk som skal benyttes for beskrivelser i responsen. Hvis den ikke er angitt benyttes norsk bokmål (NOB).
 
 #### Validering
 
@@ -31,6 +32,7 @@ Tar i mot et registreringsnummer (regnr) som del av URL.
 * Forespørselen skal alltid inneholde regnr som det gjøres oppslag på.
 * Dersom forespørselen inneholder et regnr som ikke er lovlig oppbygd, returneres det en feilmelding.
 * Det sjekkes at avtalepartens organisasjonsnummer er registrert og ikke slettet i Enhetsregisteret. Dersom det ikke er registrert, eller er slettet, returneres det en feilmelding.
+* Hvis "language" er angitt må verdien være en støttet språkkode, hvis ikke returneres det en feilmelding med informasjon om støttede språkkoder.
 
 #### Response
 
@@ -40,50 +42,88 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 
 ```json
 {
-  "sokeparameter": "CU10100",
-  "oppslagstidspunkt": "2023-03-07T13:53:55.92107+01:00",
-  "antallRettsstiftelser": 2,
+  "sokeparameter": "AB52874",
+  "antallRettsstiftelser": 1,
+  "oppslagstidspunkt": "2023-05-31T09:23:14.026651+02:00",
   "rettsstiftelse": [
     {
-      "dokumentnummer": "2020000003",
-      "type": "rettsstiftelsestype.utp",
-      "typeBeskrivelse": "Utleggspant",
+      "dokumentnummer": "1000125407",
+      "type": "rettsstiftelsestype.pbf",
+      "typeBeskrivelse": "Privat beslagsforbud",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2020-02-26T15:15:51.14512+01:00",
-      "avgrensingRettsstiftelse": "JA",
-      "paategning": [
-        "Påtegning"
-      ],
+      "innkomsttidspunkt": "2023-05-09T21:00:00+02:00",
+      "avgrensingRettsstiftelse": "Beslagsforbudet skal gjelde til 14.05.2080. ",
+      "paategning": [],
       "rolle": [
         {
-          "rolletype": "rolletype.saksoker",
-          "rolletypeBeskrivelse": "Saksøker",
-          "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver",
+          "rolletype": "rolletype.erverver",
+          "rolletypeBeskrivelse": "Erverver",
+          "rollegruppetype": "rollegruppe.anro",
+          "rollegruppetypeBeskrivelse": "Annen rolle",
           "rolleinnehaver": {
             "aktorType": "aktortype.person",
             "personnavn": {
-              "fornavn": "USTABIL",
-              "mellomnavn": "FORNUFTIG",
-              "etternavn": "FJERNKONTROLL"
+              "fornavn": "FRYKTLØS",
+              "etternavn": "TURBIN"
             },
             "adresse": {
               "adresseType": "adressetype.vegadresse",
               "brukskategori": "bostedsadresse",
+              "adressenavn": "Borgundsvegen",
+              "nummer": {
+                "nummer": "226"
+              },
+              "bruksenhetsnummer": "H0201",
               "poststed": {
-                "navn": "OSLO",
-                "postnummer": "1281"
+                "navn": "BORGUND",
+                "postnummer": "6888"
               },
               "kommune": {
-                "kommunenummer": "0301",
-                "kommunenavn": "Oslo"
-              },
-              "vegadresseID": "00001",
-              "bruksenhetsnummer": "H0101",
-              "adressenavn": "Helga Vaneks vei",
-              "nummer": {}
+                "kommunenummer": "4642",
+                "kommunenavn": "Lærdal"
+              }
             }
+          }
+        },
+        {
+          "rolletype": "rolletype.overdrager",
+          "rolletypeBeskrivelse": "Overdrager",
+          "rollegruppetype": "rollegruppe.anro",
+          "rollegruppetypeBeskrivelse": "Annen rolle",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.person",
+            "personnavn": {
+              "fornavn": "MODIG",
+              "etternavn": "TRAFIKKORK"
+            },
+            "adresse": {
+              "adresseType": "adressetype.vegadresse",
+              "brukskategori": "bostedsadresse",
+              "adressenavn": "Øvre Helle",
+              "nummer": {
+                "nummer": "23"
+              },
+              "bruksenhetsnummer": "H0101",
+              "poststed": {
+                "navn": "KONSMO",
+                "postnummer": "4525"
+              },
+              "kommune": {
+                "kommunenummer": "4225",
+                "kommunenavn": "Lyngdal"
+              }
+            }
+          }
+        },
+        {
+          "rolletype": "rolletype.tillitsmann",
+          "rolletypeBeskrivelse": "Tillitsmann",
+          "rollegruppetype": "rollegruppe.anro",
+          "rollegruppetypeBeskrivelse": "Annen rolle",
+          "rolleinnehaver": {
+            "aktorType": "aktortype.annenaktor",
+            "navn": "Advokat Lars Larsen"
           }
         }
       ],
@@ -92,93 +132,10 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
           "identifiseringsmate": "identifiseringsmate.entydig",
           "type": "formuesgodetype.mv.e",
           "typeBeskrivelse": "Registrert motorvogn",
-          "eierandel": {
-            "teller": 1,
-            "nevner": 1
-          },
-          "registreringsnummerMotorvogn": "CU10100",
+          "eierandel": {},
+          "registreringsnummerMotorvogn": "AB52874",
           "historiskRegistreringsnummerMotorvogn": []
-        }
-      ],
-      "prioritetsvikelse": [
-        {
-          "dokumentnummer": "2020000001",
-          "rettighetshaverFremtidig": "Pantehaver"
-        }
-      ],
-      "krav": {
-        "belop": [
-          {
-            "belop": 2.12,
-            "valuta": "NOK"
-          }
-        ]
-      },
-      "skifteutlegg": {
-        "type": "skifteutleggtype.gjeld",
-        "typeBeskrivelse": "Gjeld"
-      },
-      "vergemaal": {
-        "gjelderPersonligeForhold": true,
-        "gjelderOkonomiskeForhold": false,
-        "varighet": "varighet.varig",
-        "varighetBeskrivelse": "varig"
-      },
-      "gjeldsordning": {
-        "type": "gjeldsordningstype.tvungen",
-        "typeBeskrivelse": "tvungen gjeldsordning",
-        "periode": {
-          "fraDato": "2020-04-02",
-          "tilDato": "2020-08-17"
         },
-        "gjeldsordningsperiodeAntallMaaneder": 10,
-        "gjeldsordningsperiodeAntallAar": 2
-      }
-    },
-    {
-      "dokumentnummer": "2020000031",
-      "type": "rettsstiftelsestype.utp",
-      "typeBeskrivelse": "Utleggspant",
-      "status": "statusregistreringsobjekt.tl",
-      "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2020-02-26T15:15:51.14512+01:00",
-      "avgrensingRettsstiftelse": "JA",
-      "paategning": [
-        "Påtegning"
-      ],
-      "rolle": [
-        {
-          "rolletype": "rolletype.saksoker",
-          "rolletypeBeskrivelse": "Saksøker",
-          "rollegruppetype": "rollegruppe.rett",
-          "rollegruppetypeBeskrivelse": "Rettighetshaver",
-          "rolleinnehaver": {
-            "aktorType": "aktortype.person",
-            "personnavn": {
-              "fornavn": "USTABIL",
-              "mellomnavn": "FORNUFTIG",
-              "etternavn": "FJERNKONTROLL"
-            },
-            "adresse": {
-              "adresseType": "adressetype.vegadresse",
-              "brukskategori": "bostedsadresse",
-              "poststed": {
-                "navn": "OSLO",
-                "postnummer": "1281"
-              },
-              "kommune": {
-                "kommunenummer": "0301",
-                "kommunenavn": "Oslo"
-              },
-              "vegadresseID": "00001",
-              "bruksenhetsnummer": "H0101",
-              "adressenavn": "Helga Vaneks vei",
-              "nummer": {}
-            }
-          }
-        }
-      ],
-      "formuesgode": [
         {
           "identifiseringsmate": "identifiseringsmate.entydig",
           "type": "formuesgodetype.mv.e",
@@ -187,44 +144,11 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
             "teller": 1,
             "nevner": 1
           },
-          "registreringsnummerMotorvogn": "CU10100",
+          "registreringsnummerMotorvogn": "AB12345",
           "historiskRegistreringsnummerMotorvogn": []
         }
       ],
-      "prioritetsvikelse": [
-        {
-          "dokumentnummer": "2020000001",
-          "rettighetshaverFremtidig": "Pantehaver"
-        }
-      ],
-      "krav": {
-        "belop": [
-          {
-            "belop": 2.12,
-            "valuta": "NOK"
-          }
-        ]
-      },
-      "skifteutlegg": {
-        "type": "skifteutleggtype.gjeld",
-        "typeBeskrivelse": "Gjeld"
-      },
-      "vergemaal": {
-        "gjelderPersonligeForhold": true,
-        "gjelderOkonomiskeForhold": false,
-        "varighet": "varighet.varig",
-        "varighetBeskrivelse": "varig"
-      },
-      "gjeldsordning": {
-        "type": "gjeldsordningstype.tvungen",
-        "typeBeskrivelse": "tvungen gjeldsordning",
-        "periode": {
-          "fraDato": "2020-04-02",
-          "tilDato": "2020-08-17"
-        },
-        "gjeldsordningsperiodeAntallMaaneder": 10,
-        "gjeldsordningsperiodeAntallAar": 2
-      }
+      "prioritetsvikelse": []
     }
   ]
 }

@@ -10,9 +10,9 @@ Se [siden for totalbestand]({{<ref "rettsstiftelse_totalbestand.md">}}) for en h
 
 ## Grensesnittbeskrivelse
 
-| HTTP-metode   | URL                                                   | Beskrivelse                                                                   |
-|:------------- |:------------------------------------------------------|:------------------------------------------------------------------------------|
-| POST          | https://\{domene\}/api/v2/rettsstiftelse/endringslogg | Hent opplysninger endringer på rettstiftelser fra et ønsket tidspunkt         |
+| HTTP-metode   | URL                                                   | Beskrivelse                                                                                  |
+|:------------- |:------------------------------------------------------|:---------------------------------------------------------------------------------------------|
+| POST          | https://\{domene\}/api/v2/rettsstiftelse/endringslogg?language={language} | Hent opplysninger endringer på rettsstiftelser fra et ønsket tidspunkt. Language er valgfri. |
 
 **Domener**:
 
@@ -24,6 +24,7 @@ Se [siden for totalbestand]({{<ref "rettsstiftelse_totalbestand.md">}}) for en h
 #### Beskrivelse
 
 Endepunktet tar imot en forespørsel med felter *lowerCutoff* for tidspunkt-avgrensning og *lastSortValues* for paginering.
+Den valgfrie query parameteren "language" angir språkkode (ISO 639-2) for hvilket språk som skal benyttes for beskrivelser i responsen. Hvis den ikke er angitt benyttes norsk bokmål (NOB).
 
 *Merk:* Kun rettsstiftelser nyere enn 30 dager vil inkluderes i responsen, uavhengig av om *lowerCutoff* settes før dette.
 
@@ -31,6 +32,7 @@ Endepunktet tar imot en forespørsel med felter *lowerCutoff* for tidspunkt-avgr
 
 * Maskinport-tokenet som blir sendt inn er knyttet til avtalepartens organisasjonsnummer, og dette organisasjonsnummeret skal være gyldig samt ha en gyldig avtale for å kunne hente ut opplysninger i Løsøreregisteret.
 * Det sjekkes at avtalepartens organisasjonsnummer er registrert og ikke slettet i Enhetsregisteret. Dersom det ikke er registrert, eller er slettet, returneres det en feilmelding.
+* Hvis "language" er angitt må verdien være en støttet språkkode, hvis ikke returneres det en feilmelding med informasjon om støttede språkkoder.
 
 ## Paginering
 
@@ -54,8 +56,8 @@ Deretter vil man, basert på *"sortValues"* fra forrige [response](#eksempelresp
 {
   "lowerCutoff": "2023-03-01T00:00:00.000+02:00",
   "lastSortValues": [
-    "1678199182817",
-    "24053b47-41bb-4f6b-b3ad-306fade98352"
+    "1685515741112",
+    "1000009845"
   ]
 }
 ```
@@ -68,123 +70,79 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 
 ```json
 {
-  "sistEndretSisteInnslag": "2023-03-07T14:26:22.817126+01:00",
+  "sistEndretSisteInnslag": "2023-05-31T08:49:01.112334+02:00",
   "sortValues": [
-    "1678199182817",
-    "24053b47-41bb-4f6b-b3ad-306fade98352"
+    "1685515741112",
+    "1000009845"
   ],
-  "antallRettsstiftelser": 2,
+  "antallRettsstiftelser": 1,
   "rettsstiftelse": [
     {
-      "dokumentnummer": "1000001790",
-      "type": "rettsstiftelsestype.frh",
-      "typeBeskrivelse": "Fratakelse av rettslig handleevne",
-      "status": "statusregistreringsobjekt.sl",
-      "statusBeskrivelse": "slettet",
-      "innkomsttidspunkt": "2021-01-10T16:49:58.023+01:00",
-      "beslutningstidspunkt": "2021-01-10T10:02:00+01:00",
-      "utlopRettsvernstid": "2023-03-04",
-      "slettet": "2023-03-06",
+      "dokumentnummer": "1000009845",
+      "type": "rettsstiftelsestype.sap",
+      "typeBeskrivelse": "Salgspant",
+      "status": "statusregistreringsobjekt.tl",
+      "statusBeskrivelse": "tinglyst",
+      "innkomsttidspunkt": "2022-11-11T08:00:00+01:00",
+      "utlopRettsvernstid": "2042-11-11",
       "paategning": [],
       "rolle": [
         {
-          "rolletype": "rolletype.domstol",
-          "rolletypeBeskrivelse": "Domstol",
-          "rollegruppetype": "rollegruppe.oppr",
-          "rollegruppetypeBeskrivelse": "Oppretter",
+          "rolletype": "rolletype.panthaver",
+          "rolletypeBeskrivelse": "Panthaver",
+          "rollegruppetype": "rollegruppe.rett",
+          "rollegruppetypeBeskrivelse": "Rettighetshaver",
           "rolleinnehaver": {
             "aktorType": "aktortype.virksomhet",
-            "organisasjonsnummer": "811069302"
+            "organisasjonsnummer": "810844612"
           }
         },
         {
-          "rolletype": "rolletype.undervergemal",
-          "rolletypeBeskrivelse": "Under vergemål",
-          "rollegruppetype": "rollegruppe.anro",
-          "rollegruppetypeBeskrivelse": "Annen rolle",
+          "rolletype": "rolletype.pantsetter",
+          "rolletypeBeskrivelse": "Pantsetter",
+          "rollegruppetype": "rollegruppe.forp",
+          "rollegruppetypeBeskrivelse": "Forpliktet",
           "rolleinnehaver": {
-            "aktorType": "aktortype.person",
-            "personnavn": {
-              "fornavn": "SJENERT",
-              "etternavn": "INDREFILET"
-            },
-            "fodselsnummerEllerDNummer": "12810449614"
+            "aktorType": "aktortype.virksomhet",
+            "organisasjonsnummer": "810845422"
           }
         },
         {
-          "rolletype": "rolletype.verge",
-          "rolletypeBeskrivelse": "Verge",
-          "rollegruppetype": "rollegruppe.anro",
-          "rollegruppetypeBeskrivelse": "Annen rolle",
+          "rolletype": "rolletype.pantsetter",
+          "rolletypeBeskrivelse": "Pantsetter",
+          "rollegruppetype": "rollegruppe.forp",
+          "rollegruppetypeBeskrivelse": "Forpliktet",
           "rolleinnehaver": {
             "aktorType": "aktortype.person",
             "personnavn": {
-              "fornavn": "USYMMETRISK",
-              "mellomnavn": "SOLSIKKE",
-              "etternavn": "ABAKUS"
+              "fornavn": "PLUTSELIG",
+              "etternavn": "MORMOR"
             },
-            "fodselsnummerEllerDNummer": "14865095369"
+            "fodselsnummerEllerDNummer": "13888998238"
           }
         }
       ],
-      "formuesgode": [],
+      "formuesgode": [
+        {
+          "identifiseringsmate": "identifiseringsmate.entydig",
+          "type": "formuesgodetype.mv.e",
+          "typeBeskrivelse": "Registrert motorvogn",
+          "eierandel": {},
+          "registreringsnummerMotorvogn": "CU11242",
+          "historiskRegistreringsnummerMotorvogn": []
+        }
+      ],
       "prioritetsvikelse": [],
-      "vergemaal": {
-        "gjelderPersonligeForhold": true,
-        "gjelderOkonomiskeForhold": false,
-        "varighet": "varighet.varig",
-        "varighetBeskrivelse": "varig",
-        "tidsbegrensetTilDato": "2023-03-04"
+      "krav": {
+        "belop": [
+          {
+            "belop": 105158028,
+            "valuta": "NOK"
+          }
+        ],
+        "kravSalgspant": "kravsalgspant.selgers.krav",
+        "kravSalgspantBeskrivelse": "selgerens krav på kjøpesummen"
       }
-    },
-    {
-      "dokumentnummer": "1000027512",
-      "type": "rettsstiftelsestype.rek",
-      "typeBeskrivelse": "Åpning av rekonstruksjonsforhandling",
-      "status": "statusregistreringsobjekt.sl",
-      "statusBeskrivelse": "slettet",
-      "innkomsttidspunkt": "2022-10-01T12:00:00+02:00",
-      "beslutningstidspunkt": "2022-10-03T12:00:00+02:00",
-      "slettet": "2023-03-06",
-      "paategning": [],
-      "rolle": [
-        {
-          "rolletype": "rolletype.domstol",
-          "rolletypeBeskrivelse": "Domstol",
-          "rollegruppetype": "rollegruppe.oppr",
-          "rollegruppetypeBeskrivelse": "Oppretter",
-          "rolleinnehaver": {
-            "aktorType": "aktortype.virksomhet",
-            "organisasjonsnummer": "811086282"
-          }
-        },
-        {
-          "rolletype": "rolletype.rekonstruktoer",
-          "rolletypeBeskrivelse": "Rekonstruktør",
-          "rollegruppetype": "rollegruppe.anro",
-          "rollegruppetypeBeskrivelse": "Annen rolle",
-          "rolleinnehaver": {
-            "aktorType": "aktortype.annenaktor",
-            "navn": "Adv. Eva Testing"
-          }
-        },
-        {
-          "rolletype": "rolletype.skyldner",
-          "rolletypeBeskrivelse": "Skyldner",
-          "rollegruppetype": "rollegruppe.anro",
-          "rollegruppetypeBeskrivelse": "Annen rolle",
-          "rolleinnehaver": {
-            "aktorType": "aktortype.person",
-            "personnavn": {
-              "fornavn": "EGOISTISK",
-              "etternavn": "TROST"
-            },
-            "fodselsnummerEllerDNummer": "22866398228"
-          }
-        }
-      ],
-      "formuesgode": [],
-      "prioritetsvikelse": []
     }
   ]
 }

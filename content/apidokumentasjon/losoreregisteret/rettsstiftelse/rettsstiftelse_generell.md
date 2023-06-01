@@ -4,10 +4,6 @@ description: Beskrivelser av API innen domene Rettsstiftelse
 weight: 110
 ---
 
-## UNDER ARBEID
-
-APIet er tilgjengelig, men det er fremdeles under utvikling så mindre endringer kan forekomme.
-
 ## Innledning
 
 Brønnøysundregistrene tilbyr en begrenset, standardisert maskin-til-maskin-tjeneste (API) som kan benyttes av eksterne partnere for innsyn i rettsstiftelser fra Løsøregisteret.
@@ -19,7 +15,11 @@ Koden for denne er lagt ut i brreg sitt repository på github: [refapp-integrasj
 
 ## Syntetiske testdata
 
-Når APIet gjøres tilgjengelig vil siden oppdateres med informasjon om syntetiske data i testmiljøet
+For enkelte fødsels-, organisasjons og registreringsnummer kan det være registrert flere tusen rettsstiftelser i vårt testmiljø. 
+Ved oppslag på disse kan du oppleve time-out feilmelding. Forsøk da oppslag på en annen identifikator. 
+Brønnøysundregistrene benytter selv det samme testmiljøet, og testdataene er ikke statisk. 
+Disse endres kontinuerlig basert på vår egen testing, samt tinglysning i vårt testmiljø som utføres av eksterne brukere. 
+Du vil også sporadisk kunne finne testdata som har innhold som ikke er i henhold til forretningsregler, eller testdata som er mangelfulle.
 
 ## API-referanse
 
