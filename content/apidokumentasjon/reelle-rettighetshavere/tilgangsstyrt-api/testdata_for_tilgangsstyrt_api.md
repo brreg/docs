@@ -1,6 +1,6 @@
 ---
-title: Testdata for Partner API
-description: Testdata for Partner API.
+title: Testdata for Tilgangsstyrt API
+description: Testdata for Tilgangsstyrt API.
 weight: 100
 alwaysopen: true
 ---
