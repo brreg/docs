@@ -77,10 +77,10 @@ Se [veiledning for integrasjon mot Maskinporten]({{<ref "mp-integrasjonsveiledni
 [Regelverk](https://lovdata.no/dokument/SF/forskrift/2021-06-21-2056?q=forskrift%20reelle%20rettighetshavere): Hjemler for tilgjengeliggjøring av data fra Brønnøysundregistrene.
 ## Grensesnittbeskrivelse
 
-| HTTP-metode | URL                                                       | Beskrivelse                                                                                                                       |
-|:------------|:----------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
-| GET         | https://\{domene\}/api/virksomheter/{organisasjonsnummer} | Hent gjeldende opplysninger om reelle rettighetshavere for virksomheter på angitt organisasjonsnummer.                            |
-| GET         | https://\{domene\}/api/virksomheter/json                  | Hent alle gjeldende opplysninger om reelle rettighetshaver for virksomheter registert i registeret. Returnerer JSON i en ZIP-fil. |
+| HTTP-metode | URL                                                       | Beskrivelse                                                                                                                                                                                      |
+|:------------|:----------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GET         | https://\{domene\}/api/virksomheter/{organisasjonsnummer} | Hent opplysninger om reelle rettighetshavere for virksomheter på angitt organisasjonsnummer.                                                                                                     |
+| GET         | https://\{domene\}/api/virksomheter/json                  | Hent totalbestand over alle reelle rettighetshavere som er registrert i register over reelle rettighetshavere. Returnerer i JSON-format i en ZIP-fil. Responsen inneholder ikke historiske data. |
 
 **Domener**:
 
