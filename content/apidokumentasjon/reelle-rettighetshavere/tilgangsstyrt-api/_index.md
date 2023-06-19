@@ -59,9 +59,9 @@ n) forvalter av alternative investeringsfond
 o) låneformidlingsforetak
 
 ## Sikkerhetsmekanismer
-Siden dette er et tilgangsstyrt API må konsumenter autentiseres gjennom [Maskinporten](https://docs.digdir.no/maskinporten_guide_apikonsument.html).
+Konsumenter må autentiseres gjennom [Maskinporten](https://docs.digdir.no/maskinporten_guide_apikonsument.html).
 
-For å kunne få tilgang til våre tilgangsstyrte API er det tre forutsetninger.
+For å kunne få tilgang til APIet er det tre forutsetninger.
 
 1. Virksomhetssertifikat
 2. Registrert klient hos Maskinporten
