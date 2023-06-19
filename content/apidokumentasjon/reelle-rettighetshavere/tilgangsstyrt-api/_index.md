@@ -79,7 +79,7 @@ Se [veiledning for integrasjon mot Maskinporten]({{<ref "mp-integrasjonsveiledni
 
 | HTTP-metode | URL                                                       | Beskrivelse                                                                                                                                                                                      |
 |:------------|:----------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| GET         | https://\{domene\}/api/virksomheter/{organisasjonsnummer} | Hent opplysninger om reelle rettighetshavere for virksomheter på angitt organisasjonsnummer.                                                                                                     |
+| GET         | https://\{domene\}/api/virksomheter/{organisasjonsnummer} | Hent opplysninger om reelle rettighetshavere for en virksomhet                                                                                                                                   |
 | GET         | https://\{domene\}/api/virksomheter/json                  | Hent totalbestand over alle reelle rettighetshavere som er registrert i register over reelle rettighetshavere. Returneres i JSON-format i en ZIP-fil. Responsen inneholder ikke historiske data. |
 
 **Domener**:
@@ -158,7 +158,6 @@ Definisjoner på begrep som er brukt i denne dokumentasjonen.
 | API                   | Programmeringsgrensesnitt                                                                                                                         |
 | Tilgangsstyrt API     | Et API som krever autentisering/autorisering (for eksempel ved bruk av Maskinporten)                                                              |
 | Reell rettighetshaver | En reell rettighetshaver er en fysisk person som gjennom sin eierandel eller stemmeandel, alene eller sammen med andre, kontrollerer virksomheten |
-| Gjeldende opplysning  | Siste registrerte opplysning som er godkjent                                                                                                      |
 | HTTP                  | Datakommunikasjonsstandard                                                                                                                        |
 | HTTP-statuskoder      | Statuskoder for datakommunikasjonsstandard                                                                                                        |
 | REST                  | Datakommunikasjonmønster                                                                                                                          |
