@@ -5,7 +5,7 @@ weight: 100
 ---
 
 ## Innledning
-Brønnøysundregistrene tilbyr en lukket, standardisert maskin-til-maskin-tjeneste (API) som kan benyttes av eksterne konsumenter for innsyn i Register over reelle rettighetshavere.
+Brønnøysundregistrene tilbyr et tilgangsstyrt, standardisert maskin-til-maskin-tjeneste (API) som kan benyttes av eksterne konsumenter for innsyn i Register over reelle rettighetshavere.
 
 Denne dokumentasjonen viser hvordan eksterne systemer kan integrere seg mot APIet, og hvordan man benytter seg av tjenesten for å hente data.
 
@@ -23,7 +23,7 @@ Tjenesten skjermer ikke informasjon om mindreårige og andre som er unntatt fra 
 
 ## Hvordan få tilgang
 
-For å få tilgang til tilgangsstyrt API må du sende e-post til `opendata.rrh@brreg.no`. I e-posten må du opplyse om hvilket organisasjonsnummer det gjelder, og hvilken hjemmel til utvidet tilgang virksomheten faller inn under.  
+For å få tilgang til APIet må du sende e-post til `opendata.rrh@brreg.no`. I e-posten må du opplyse om hvilket organisasjonsnummer det gjelder, og hvilken hjemmel til utvidet tilgang virksomheten faller inn under.  
 Hvis tilgangen gjelder testmiljø må du i tillegg oppgi hvilken ip-adresse dere kommer fra da API'ene i test har ip-filtrering.  
 Vi trenger også kontaktperson, med navn, epost-adresse og telefonnummer.
 
@@ -59,9 +59,9 @@ n) forvalter av alternative investeringsfond
 o) låneformidlingsforetak
 
 ## Sikkerhetsmekanismer
-Siden dette er et Tilgangsstyrt API må konsumenter autentiseres gjennom [Maskinporten](https://docs.digdir.no/maskinporten_guide_apikonsument.html).
+Siden dette er et tilgangsstyrt API må konsumenter autentiseres gjennom [Maskinporten](https://docs.digdir.no/maskinporten_guide_apikonsument.html).
 
-For å kunne få tilgang til våre Tilgangsstyrte API er det tre forutsetninger.
+For å kunne få tilgang til våre tilgangsstyrte API er det tre forutsetninger.
 
 1. Virksomhetssertifikat
 2. Registrert klient hos Maskinporten
@@ -77,10 +77,10 @@ Se [veiledning for integrasjon mot Maskinporten]({{<ref "mp-integrasjonsveiledni
 [Regelverk](https://lovdata.no/dokument/SF/forskrift/2021-06-21-2056?q=forskrift%20reelle%20rettighetshavere): Hjemler for tilgjengeliggjøring av data fra Brønnøysundregistrene.
 ## Grensesnittbeskrivelse
 
-| HTTP-metode | URL                                                                         | Beskrivelse                                                                                                                                                                                      |
-|:------------|:----------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| GET         | https://\{domene\}/api/reelle-rettigheter/{organisasjonsnummer}     | Hent opplysninger om en reell rettighet på angitt organisasjonsnummer. <br/>En reell rettighet for en gitt virksomhet inneholder en liste med reelle rettighetshavere, hvis dette er registrert. |
-| GET         | https://\{domene\}/api/reelle-rettigheter/totalbestand/json         | Hent alle registrerte opplysninger i registeret i form av JSON. Returnerer JSON i en ZIP-fil.                                                                                                    |
+| HTTP-metode | URL                                                       | Beskrivelse                                                                                                                       |
+|:------------|:----------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
+| GET         | https://\{domene\}/api/virksomheter/{organisasjonsnummer} | Hent gjeldende opplysninger om reelle rettighetshavere for virksomheter på angitt organisasjonsnummer.                            |
+| GET         | https://\{domene\}/api/virksomheter/json                  | Hent alle gjeldende opplysninger om reelle rettighetshaver for virksomheter registert i registeret. Returnerer JSON i en ZIP-fil. |
 
 **Domener**:
 
@@ -101,7 +101,7 @@ Se [underside for testdata]({{<ref "testdata_for_tilgangsstyrt_api.md">}}). Her 
 Tar i mot et organisasjonsnummer som en del av URL, med obligatorisk path-parameter `organisasjonsnummer` som det søkes på.  
 #### Versjonering
 
-**Vi anbefaler at dere legger til header `Accept` med verdi `application/vnd.brreg.reell.rettighet.v1+json;charset=UTF-8`.**  
+**Vi anbefaler at dere legger til header `Accept` med verdi `application/vnd.brreg.reelle.virksomheter.v1+json;charset=UTF-8`.**  
 **Om vi kommer med en ny versjon av APIet vil dere da være sikre på at dere får den forespurte versjonen tilbake.**
 
 
@@ -136,7 +136,7 @@ Dersom kallet lykkes får man HTTP-status 200 samt en Zippet fil (på JSON-forma
 #### Eksempelrespons for totalbestand
 ***Eksempelfil for oppslag på totalbestand kommer snart, vi jobber med å finpusse responsmodellen***
 
----
+---\0+\
 
 
 ## HTTP-statuskoder
@@ -153,15 +153,16 @@ Dersom kallet lykkes får man HTTP-status 200 samt en Zippet fil (på JSON-forma
 
 Definisjoner på begrep som er brukt i denne dokumentasjonen.
 
-| Begrep              | Definisjon                                                                                                          |
-|:--------------------|:--------------------------------------------------------------------------------------------------------------------|
-| API                 | Programmeringsgrensesnitt                                                                                           |
-| Tilgangsstyrt API         | Et API som krever autentisering/autorisering (for eksempel ved bruk av Maskinporten)                                |
-| Reell rettighet     | En reell rettighet for en gitt virksomhet inneholder en liste med reelle rettighetshavere, hvis dette er registrert |
-| HTTP                | Datakommunikasjonsstandard                                                                                          |
-| HTTP-statuskoder    | Statuskoder for datakommunikasjonsstandard                                                                          |
-| REST                | Datakommunikasjonmønster                                                                                            |
-| JSON                | Åpen standard for dataformat                                                                                        |
-| Organisasjonsnummer | Identifikasjonsnummer for virksomhet                                                                                |
+| Begrep                | Definisjon                                                                                                                                        |
+|:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
+| API                   | Programmeringsgrensesnitt                                                                                                                         |
+| Tilgangsstyrt API     | Et API som krever autentisering/autorisering (for eksempel ved bruk av Maskinporten)                                                              |
+| Reell rettighetshaver | En reell rettighetshaver er en fysisk person som gjennom sin eierandel eller stemmeandel, alene eller sammen med andre, kontrollerer virksomheten |
+| Gjeldende opplysning  | Siste registrerte opplysning som er godkjent                                                                                                      |
+| HTTP                  | Datakommunikasjonsstandard                                                                                                                        |
+| HTTP-statuskoder      | Statuskoder for datakommunikasjonsstandard                                                                                                        |
+| REST                  | Datakommunikasjonmønster                                                                                                                          |
+| JSON                  | Åpen standard for dataformat                                                                                                                      |
+| Organisasjonsnummer   | Identifikasjonsnummer for virksomhet                                                                                                              |
 
 ---
