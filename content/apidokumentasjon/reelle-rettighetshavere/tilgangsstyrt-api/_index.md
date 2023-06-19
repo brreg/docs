@@ -80,7 +80,7 @@ Se [veiledning for integrasjon mot Maskinporten]({{<ref "mp-integrasjonsveiledni
 | HTTP-metode | URL                                                       | Beskrivelse                                                                                                                                                                                      |
 |:------------|:----------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | GET         | https://\{domene\}/api/virksomheter/{organisasjonsnummer} | Hent opplysninger om reelle rettighetshavere for virksomheter på angitt organisasjonsnummer.                                                                                                     |
-| GET         | https://\{domene\}/api/virksomheter/json                  | Hent totalbestand over alle reelle rettighetshavere som er registrert i register over reelle rettighetshavere. Returnerer i JSON-format i en ZIP-fil. Responsen inneholder ikke historiske data. |
+| GET         | https://\{domene\}/api/virksomheter/json                  | Hent totalbestand over alle reelle rettighetshavere som er registrert i register over reelle rettighetshavere. Returneres i JSON-format i en ZIP-fil. Responsen inneholder ikke historiske data. |
 
 **Domener**:
 
