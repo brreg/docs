@@ -4,5 +4,5 @@ description: Kodeliste for Løsøreregisteret
 weight: 100
 ---
 
-Kodeliste for løsøreregisteret finnes her i [denne Excel-filen](LR%20kodeliste%20230607.xlsx)
+Kodeliste for løsøreregisteret finnes her i [denne Excel-filen](LR%20kodeliste%20230818.xlsx)
 {{% children /%}}
