@@ -165,7 +165,6 @@ Dersom man ikke får HTTP-status 200, så får man en melding fra tjenesten i JS
 
 ```json
 {
-  "sokeparameter": null,
   "korrelasjonsid": "41c0b5b3-ed0a-4392-a57a-9bfc57dcd48c",
   "tidspunkt": "2023-08-11T14:27:33.724162177+02:00",
   "feilmelding": "Feil i fødselsnummer, vennligst prøv på nytt"
