@@ -1,4 +1,4 @@
-<!doctype html><html lang=nb class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.117.0"><meta name=description content="Beskrivelser av API innen domene Ektepaktregisteret"><title>Ektepakt knyttet til person :: BR dokumentasjon</title><link rel="shortcut icon" href=/docs/images/favicon.png type=image/x-icon><link href=/docs/css/nucleus.css rel=stylesheet><link href=/docs/css/font-awesome.min.css rel=stylesheet><link href=/docs/css/hybrid.css rel=stylesheet><link href=/docs/css/featherlight.min.css rel=stylesheet><link href=/docs/css/horsey.css rel=stylesheet><link href=/docs/css/theme.css rel=stylesheet><link rel=stylesheet href=/docs/css/bootstrap.min.css><script src=/docs/js/jquery-2.x.min.js></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style><link href=/docs/css/altinn.css rel=stylesheet></head><body data-url=/docs/apidokumentasjon/ektepaktregisteret/ektepakt/><nav id=sidebar><div class=highlightable><div id=header-wrapper><div id=header><p><a href=/docs title="BR docs"><img src=/docs/images/brreg_logo_hvit.png alt=BR> docs</a></p></div><div class=searchbox><label for=search-by><i class="fa fa-search"></i></label>
+<!doctype html><html lang=nb class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.118.2"><meta name=description content="Beskrivelser av API innen domene Ektepaktregisteret"><title>Ektepakt knyttet til person :: BR dokumentasjon</title><link rel="shortcut icon" href=/docs/images/favicon.png type=image/x-icon><link href=/docs/css/nucleus.css rel=stylesheet><link href=/docs/css/font-awesome.min.css rel=stylesheet><link href=/docs/css/hybrid.css rel=stylesheet><link href=/docs/css/featherlight.min.css rel=stylesheet><link href=/docs/css/horsey.css rel=stylesheet><link href=/docs/css/theme.css rel=stylesheet><link rel=stylesheet href=/docs/css/bootstrap.min.css><script src=/docs/js/jquery-2.x.min.js></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style><link href=/docs/css/altinn.css rel=stylesheet></head><body data-url=/docs/apidokumentasjon/ektepaktregisteret/ektepakt/><nav id=sidebar><div class=highlightable><div id=header-wrapper><div id=header><p><a href=/docs title="BR docs"><img src=/docs/images/brreg_logo_hvit.png alt=BR> docs</a></p></div><div class=searchbox><label for=search-by><i class="fa fa-search"></i></label>
 <input data-search-input id=search-by type=text placeholder=Søk...>
 <span data-search-clear><i class="fa fa-close"></i></span></div><script src=/docs/js/lunr.min.js></script>
 <script src=/docs/js/horsey.js></script>
@@ -39,12 +39,12 @@ Endre</a></div><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org
 Den valgfrie query parameteren &ldquo;spraakkode&rdquo; angir språkkode (ISO 639-2) for hvilket språk som skal benyttes for beskrivelser i responsen. Hvis den ikke er angitt benyttes norsk bokmål (NOB).</p><h4 id=validering>Validering</h4><ul><li>Maskinport-tokenet som blir sendt inn er knyttet til avtalepartens orgnummer, og dette orgnummeret skal være gyldig samt ha en gyldig avtale om å kunne hente ut opplysninger i Ektepaktregisteret.</li><li>Forespørselen skal alltid inneholde fnr som det gjøres oppslag på.</li><li>Dersom forespørselen inneholder et fnr som ikke er lovlig oppbygd, returneres det en feilmelding.</li><li>Det sjekkes at avtalepartens organisasjonsnummer er registrert og ikke slettet i Enhetsregisteret. Dersom det ikke er registrert, eller er slettet, returneres det en feilmelding.</li><li>Hvis &ldquo;spraakkode&rdquo; er angitt må verdien være en støttet språkkode, hvis ikke returneres det en feilmelding med informasjon om støttede språkkoder.</li></ul><h4 id=response>Response</h4><p>Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-format, i form av et JSON-objekt som inneholder opplysninger om ektepakten(e).</p><h5 id=eksempelrespons>Eksempelrespons</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
 </span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;rolleinnehaver&#34;</span>: <span style=color:#e6db74>&#34;06821349425&#34;</span>,
 </span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;antallEktepakt&#34;</span>: <span style=color:#ae81ff>1</span>,
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;oppslagstidspunkt&#34;</span>: <span style=color:#e6db74>&#34;2023-08-11T13:29:26.101673632Z&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;oppslagstidspunkt&#34;</span>: <span style=color:#e6db74>&#34;2023-09-05T16:39:55.373958263+02:00&#34;</span>,
 </span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;spraak&#34;</span>: <span style=color:#e6db74>&#34;NOB&#34;</span>,
 </span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;ektepakt&#34;</span>: [
 </span></span><span style=display:flex><span>    {
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;ektepaktnummer&#34;</span>: <span style=color:#ae81ff>1</span>,
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;innkomsttidspunkt&#34;</span>: <span style=color:#e6db74>&#34;2023-06-01T03:30:00Z&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;innkomsttidspunkt&#34;</span>: <span style=color:#e6db74>&#34;2023-06-01T05:30:00+02:00&#34;</span>,
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;ektepakttype&#34;</span>: <span style=color:#e6db74>&#34;ektepakttype.ektepakt&#34;</span>,
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;ektepakttypebeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Ektepakt&#34;</span>,
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;status&#34;</span>: <span style=color:#e6db74>&#34;ektepaktstatus.tinglyst&#34;</span>,
@@ -55,8 +55,8 @@ Den valgfrie query parameteren &ldquo;spraakkode&rdquo; angir språkkode (ISO 63
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;paategning&#34;</span>: [],
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;avtaleinnhold&#34;</span>: [
 </span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;avtaletype&#34;</span>: <span style=color:#e6db74>&#34;avtaletype.gave&#34;</span>,
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;avtaletypebeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Ektepakten inneholder gave&#34;</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;avtaletype&#34;</span>: <span style=color:#e6db74>&#34;avtaletype.fulltSaereie&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;avtaletypebeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Vi skal ha fullt særeie&#34;</span>
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>      ],
 </span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;rolle&#34;</span>: [
@@ -66,22 +66,16 @@ Den valgfrie query parameteren &ldquo;spraakkode&rdquo; angir språkkode (ISO 63
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;person&#34;</span>: {
 </span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;navn&#34;</span>: {
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;fornavn&#34;</span>: <span style=color:#e6db74>&#34;AUTORISERT&#34;</span>,
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;mellomnavn&#34;</span>: <span style=color:#66d9ef>null</span>,
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;etternavn&#34;</span>: <span style=color:#e6db74>&#34;INNHEGNING&#34;</span>
 </span></span><span style=display:flex><span>            },
 </span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;adresse&#34;</span>: {
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;adresseType&#34;</span>: <span style=color:#e6db74>&#34;adressetype.vegadresse&#34;</span>,
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;brukskategori&#34;</span>: <span style=color:#e6db74>&#34;bostedsadresse&#34;</span>,
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;coNavn&#34;</span>: <span style=color:#66d9ef>null</span>,
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;adressenavnTillegg&#34;</span>: <span style=color:#66d9ef>null</span>,
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;adressenavn&#34;</span>: <span style=color:#e6db74>&#34;Gaukvegen&#34;</span>,
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;kortAdressenavn&#34;</span>: <span style=color:#66d9ef>null</span>,
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;nummer&#34;</span>: {
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;nummer&#34;</span>: <span style=color:#e6db74>&#34;13&#34;</span>,
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;bokstav&#34;</span>: <span style=color:#66d9ef>null</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;nummer&#34;</span>: <span style=color:#e6db74>&#34;13&#34;</span>
 </span></span><span style=display:flex><span>              },
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;bruksenhetsnummer&#34;</span>: <span style=color:#e6db74>&#34;H0101&#34;</span>,
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;vegadresseID&#34;</span>: <span style=color:#66d9ef>null</span>,
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;poststed&#34;</span>: {
 </span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;navn&#34;</span>: <span style=color:#e6db74>&#34;KONGSVINGER&#34;</span>,
 </span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;postnummer&#34;</span>: <span style=color:#e6db74>&#34;2209&#34;</span>
@@ -92,12 +86,7 @@ Den valgfrie query parameteren &ldquo;spraakkode&rdquo; angir språkkode (ISO 63
 </span></span><span style=display:flex><span>              }
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>          },
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;avtaleinnhold&#34;</span>: [
-</span></span><span style=display:flex><span>            {
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;avtaletype&#34;</span>: <span style=color:#e6db74>&#34;avtaletype.fulltSaereie&#34;</span>,
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;avtaletypebeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Vi skal ha fullt særeie&#34;</span>
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>          ]
+</span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;avtaleinnhold&#34;</span>: []
 </span></span><span style=display:flex><span>        },
 </span></span><span style=display:flex><span>        {
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;rolletype&#34;</span>: <span style=color:#e6db74>&#34;rolletype.ektefelle&#34;</span>,
@@ -105,22 +94,14 @@ Den valgfrie query parameteren &ldquo;spraakkode&rdquo; angir språkkode (ISO 63
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;person&#34;</span>: {
 </span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;navn&#34;</span>: {
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;fornavn&#34;</span>: <span style=color:#e6db74>&#34;SORGLØS&#34;</span>,
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;mellomnavn&#34;</span>: <span style=color:#66d9ef>null</span>,
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;etternavn&#34;</span>: <span style=color:#e6db74>&#34;BOLLE&#34;</span>
 </span></span><span style=display:flex><span>            },
 </span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;adresse&#34;</span>: {
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;adresseType&#34;</span>: <span style=color:#e6db74>&#34;adressetype.vegadresse&#34;</span>,
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;brukskategori&#34;</span>: <span style=color:#e6db74>&#34;bostedsadresse&#34;</span>,
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;coNavn&#34;</span>: <span style=color:#66d9ef>null</span>,
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;adressenavnTillegg&#34;</span>: <span style=color:#66d9ef>null</span>,
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;adressenavn&#34;</span>: <span style=color:#e6db74>&#34;Kløvåsen&#34;</span>,
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;kortAdressenavn&#34;</span>: <span style=color:#66d9ef>null</span>,
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;nummer&#34;</span>: {
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;nummer&#34;</span>: <span style=color:#66d9ef>null</span>,
-</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;bokstav&#34;</span>: <span style=color:#66d9ef>null</span>
-</span></span><span style=display:flex><span>              },
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;nummer&#34;</span>: {},
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;bruksenhetsnummer&#34;</span>: <span style=color:#e6db74>&#34;H0101&#34;</span>,
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;vegadresseID&#34;</span>: <span style=color:#66d9ef>null</span>,
 </span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;poststed&#34;</span>: {
 </span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;navn&#34;</span>: <span style=color:#e6db74>&#34;RAMNES&#34;</span>,
 </span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;postnummer&#34;</span>: <span style=color:#e6db74>&#34;3175&#34;</span>
@@ -133,8 +114,8 @@ Den valgfrie query parameteren &ldquo;spraakkode&rdquo; angir språkkode (ISO 63
 </span></span><span style=display:flex><span>          },
 </span></span><span style=display:flex><span>          <span style=color:#f92672>&#34;avtaleinnhold&#34;</span>: [
 </span></span><span style=display:flex><span>            {
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;avtaletype&#34;</span>: <span style=color:#e6db74>&#34;avtaletype.delvisSaereie&#34;</span>,
-</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;avtaletypebeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Vi skal ha delvis særeie&#34;</span>
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;avtaletype&#34;</span>: <span style=color:#e6db74>&#34;avtaletype.saereieBlirFelleseieVedRolleSinDoed&#34;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;avtaletypebeskrivelse&#34;</span>: <span style=color:#e6db74>&#34;Særeie blir felleseie om jeg dør først&#34;</span>
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>          ]
 </span></span><span style=display:flex><span>        }
