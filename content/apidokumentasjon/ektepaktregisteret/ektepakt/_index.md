@@ -44,12 +44,12 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 {
   "rolleinnehaver": "06821349425",
   "antallEktepakt": 1,
-  "oppslagstidspunkt": "2023-08-11T13:29:26.101673632Z",
+  "oppslagstidspunkt": "2023-09-05T16:39:55.373958263+02:00",
   "spraak": "NOB",
   "ektepakt": [
     {
       "ektepaktnummer": 1,
-      "innkomsttidspunkt": "2023-06-01T03:30:00Z",
+      "innkomsttidspunkt": "2023-06-01T05:30:00+02:00",
       "ektepakttype": "ektepakttype.ektepakt",
       "ektepakttypebeskrivelse": "Ektepakt",
       "status": "ektepaktstatus.tinglyst",
@@ -60,8 +60,8 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "paategning": [],
       "avtaleinnhold": [
         {
-          "avtaletype": "avtaletype.gave",
-          "avtaletypebeskrivelse": "Ektepakten inneholder gave"
+          "avtaletype": "avtaletype.fulltSaereie",
+          "avtaletypebeskrivelse": "Vi skal ha fullt særeie"
         }
       ],
       "rolle": [
@@ -71,22 +71,16 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
           "person": {
             "navn": {
               "fornavn": "AUTORISERT",
-              "mellomnavn": null,
               "etternavn": "INNHEGNING"
             },
             "adresse": {
               "adresseType": "adressetype.vegadresse",
               "brukskategori": "bostedsadresse",
-              "coNavn": null,
-              "adressenavnTillegg": null,
               "adressenavn": "Gaukvegen",
-              "kortAdressenavn": null,
               "nummer": {
-                "nummer": "13",
-                "bokstav": null
+                "nummer": "13"
               },
               "bruksenhetsnummer": "H0101",
-              "vegadresseID": null,
               "poststed": {
                 "navn": "KONGSVINGER",
                 "postnummer": "2209"
@@ -97,12 +91,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
               }
             }
           },
-          "avtaleinnhold": [
-            {
-              "avtaletype": "avtaletype.fulltSaereie",
-              "avtaletypebeskrivelse": "Vi skal ha fullt særeie"
-            }
-          ]
+          "avtaleinnhold": []
         },
         {
           "rolletype": "rolletype.ektefelle",
@@ -110,22 +99,14 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
           "person": {
             "navn": {
               "fornavn": "SORGLØS",
-              "mellomnavn": null,
               "etternavn": "BOLLE"
             },
             "adresse": {
               "adresseType": "adressetype.vegadresse",
               "brukskategori": "bostedsadresse",
-              "coNavn": null,
-              "adressenavnTillegg": null,
               "adressenavn": "Kløvåsen",
-              "kortAdressenavn": null,
-              "nummer": {
-                "nummer": null,
-                "bokstav": null
-              },
+              "nummer": {},
               "bruksenhetsnummer": "H0101",
-              "vegadresseID": null,
               "poststed": {
                 "navn": "RAMNES",
                 "postnummer": "3175"
@@ -138,8 +119,8 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
           },
           "avtaleinnhold": [
             {
-              "avtaletype": "avtaletype.delvisSaereie",
-              "avtaletypebeskrivelse": "Vi skal ha delvis særeie"
+              "avtaletype": "avtaletype.saereieBlirFelleseieVedRolleSinDoed",
+              "avtaletypebeskrivelse": "Særeie blir felleseie om jeg dør først"
             }
           ]
         }
