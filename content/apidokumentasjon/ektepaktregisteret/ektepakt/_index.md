@@ -37,6 +37,7 @@ Den valgfrie query parameteren "spraakkode" angir språkkode (ISO 639-2) for hvi
 #### Response
 
 Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-format, i form av et JSON-objekt som inneholder opplysninger om ektepakten(e).
+Avtaletyper leveres i korrekt sortert rekkefølge i responsen.
 
 ##### Eksempelrespons
 
