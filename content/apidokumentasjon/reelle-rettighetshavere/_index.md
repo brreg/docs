@@ -1,7 +1,7 @@
 ---
 title: Register over reelle rettighetshavere
 description: Beskrivelser av API innen domene Reelle rettighetshavere
-weight: 120
+weight: 100
 ---
 
 ## Våre tjenester ## 
