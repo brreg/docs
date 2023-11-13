@@ -1,5 +1,5 @@
 ---
-title: Testdata for Tilgangsstyrt API
+title: Testdata
 description: Testdata for Tilgangsstyrt API.
 weight: 100
 alwaysopen: true
