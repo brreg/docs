@@ -54,4 +54,4 @@ Vi forutsetter at du i tillegg til å lese vår veiledning grundig setter deg in
 
 ## Ta i bruk tjenestene
 Når du har fått tilgang fra Brønnøysundregistrene, og du har gjennomført nødvendige bestillinger og oppsett av klient i maskinporten er du klar til å benytte våre tjenester.  
-Det naturlige neste steget er å sette deg inn i API-dokumentasjonen. Du kan feks finne dokumentasjon for Oppslagstjenester [her]({{<ref "..\oppslagstjenester\_index.md">}}).  
+Det naturlige neste steget er å sette deg inn i API-dokumentasjonen. Du kan feks finne dokumentasjon for Oppslagstjenester [her]({{<ref "../oppslagstjenester/_index.md">}}).  
