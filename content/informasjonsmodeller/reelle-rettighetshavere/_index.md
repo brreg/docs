@@ -4,6 +4,6 @@ description: Informasjonsmodell for Register over reelle rettighetshavere
 weight: 100
 ---
 
-Her kommer det info.
+På sidene under finner du forretningsprosessmodeller og strukturmodeller for Register over reelle rettighetshavere.
 
 {{% children description="true" /%}}
