@@ -11,10 +11,7 @@ en tjeneste for testdatasøk som tilbys av Skatteetaten.
 
 ## Oversikt
 
-Under finner du tabeller som demonstrerer en rekke varianter av registreringer/data du finner i vårt testmiljø, og 
-som du vil få treff på dersom du slår opp i våre tjenster. Tabellene er ikke en utømmende oversikt liste over 
-tilgjengelige data.
-
+Under finner du et utvalg av testdata fra vårt testmiljø som kan brukes som input ved testing av våre APIer. Utvalget nedenfor er ikke en uttømmende oversikt over alle tilgjengelige testdata.
 
 | Orgnummer | Organisasjonsnavn                      | Beskrivelse                                                                                                                                                                                    |
 |-----------|----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
