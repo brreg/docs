@@ -3,6 +3,10 @@ title: Register over reelle rettighetshavere
 description: Beskrivelser av API innen domene Reelle rettighetshavere
 weight: 100
 ---
+{{< warning >}}
+API'ene for Register over Reelle rettighetshavere er foreløpig ikke tilgjengelig, men vi vil gi informasjon så snart
+vi åpner opp for å bestille tilgang.
+{{< /warning >}}
 
 ## Om registeret
 
