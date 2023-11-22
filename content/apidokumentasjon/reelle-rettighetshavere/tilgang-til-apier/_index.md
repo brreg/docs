@@ -13,6 +13,11 @@ weight: 2
   * [Jeg har fått tilgang, hva gjør jeg nå?](#jeg-har-fått-tilgang-hva-gjør-jeg-nå)
 <!-- TOC -->
 
+{{< warning >}}
+API'ene for Register over Reelle rettighetshavere er foreløpig ikke tilgjengelig, men vi vil gi informasjon så snart
+vi åpner opp for å bestille tilgang.
+{{< /warning >}}
+
 ## Innledning
 
 Denne siden forklarer hvem som kan få tilgang til våre tjenester samt hvordan man bestiller tilgangen.
