@@ -23,7 +23,7 @@ Systemleverandører kan ikke bestille tilgang i produksjon. I produksjon må til
 Gjelder det tilgang i test, må du se hvordan du kan bestille tilgang i vårt testmiljø på siden: [Bestille tilgang som systemleverandør](../tilgang-til-apier/tilgang-for-systemleverandoerer-i-test).
 
 ## Hvordan delegere tilgang til en systemleverendør
-> **_NB!_** Hvis delegeringen skal gjøres i Altinns testmiljø TT02 må systemleverandør ha bestilt tilgang og ha enten:
+> **_NB!_** Hvis delegeringen skal gjøres i Altinns testmiljø (TT02) må systemleverandør ha bestilt tilgang og ha enten:
 > * Fått en fiktiv virksomhet med tilgang til vårt testmiljø.
 > * En kunde som har fått tilgang og som kan delegere denne tilgangen til dere.
 

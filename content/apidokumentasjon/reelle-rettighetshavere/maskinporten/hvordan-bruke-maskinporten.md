@@ -19,8 +19,7 @@ lese denne veiledningen setter deg grundig inn i [Digdir sin egen dokumentasjon
 om maskinporten](https://samarbeid.digdir.no/maskinporten/maskinporten/25).**
 
 ## Prosess for å ta i bruk våre APIer
-Kall til APIene må inkludere et gyldig _token_ fra Maskinporten for å få tilgang. Under er prosessen for å få et slik
-token og benytte det mot våre API oppsummert:
+Kall til APIene må inkludere et gyldig _token_ fra Maskinporten for å få tilgang. For å hente ut et gyldig token kan du følge disse stegene:
 
 1. Bestill og få tilgang til vår tjeneste i henhold til [bestillingsprosedyren for tilgang](../../tilgang-til-apier/tilgang-i-test).
     * Du vil motta et maskinporten-scope, og informasjon om hva det gir tilgang til. Det finnes to
@@ -28,7 +27,7 @@ token og benytte det mot våre API oppsummert:
         * `brreg:reelle/offentlig`
         * `brreg:reelle/rapporteringspliktig`
 2. Opprett en Maskinporten-integrasjon/klient
-    * Dette innebærer at du har registrerer en klient hos maskinporten som knyttes opp mot det scopet du
+    * Dette innebærer at du har registrert en klient hos maskinporten som knyttes opp mot det scopet du
       har fått tildelt (se punkt 1).
     * Vi anbefaler at du følger den punktvise fremgangsmåten som beskrives i [Digdir sin dokumentasjon](https://samarbeid.digdir.no/maskinporten/konsument/119),
       samt [Maskinsportens guide til hvordan du bruker Maskinporten som API-konsument](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument)

@@ -14,8 +14,7 @@ weight: 3
 
 Register over reelle rettighetshavere benytter maskinporten som autentiserings- og autorisasjonsmekanisme for
 tilgangsstyrte tjenester. Maskinporten er en av Digdirs fellesløsninger og sørger for sikker autentisering og
-autorisasjon for datautveksling mellom virksomheter. Løsningen garanterer identiteten mellom virksomheter og gjør
-det mulig å binde sammen systemer og utvikle nye tjenester på en effektiv måte.  
+autorisasjon for datautveksling mellom virksomheter. 
 
 **Vi forutsetter at du i tillegg til å
 lese denne veiledningen setter deg grundig inn i [Digdir sin egen dokumentasjon

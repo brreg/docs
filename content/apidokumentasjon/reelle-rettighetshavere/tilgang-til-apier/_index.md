@@ -12,12 +12,12 @@ weight: 2
 <!-- TOC -->
 
 {{< warning >}}
-For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmiljøet. Tilgang til produksjonsmiljøet er foreløpig ikke åpent for eksterne brukere. Så snart dette er klart, vil vi informere om prosessen for å søke tilgang til produksjonsmiljøet. Vi vil gi informasjon så snart vi åpner opp for å bestille tilgang.
+For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmiljøet. Tilgang til produksjonsmiljøet er foreløpig ikke åpent for eksterne brukere. Så snart dette er klart, vil vi gi informasjon om prosessen for å søke tilgang til produksjonsmiljøet.
 {{< /warning >}}
 
 ## Innledning
 
-Denne siden forklarer hvem som kan få tilgang til våre tjenester samt hvordan man bestiller tilgangen.
+Denne siden forklarer hvem som kan få tilgang til våre tjenester, samt hvordan man bestiller tilgangen.
 Vi har også laget en [**veiledning for bruk av maskinporten**](../maskinporten) som beskriver 
 mer teknisk hvordan du autentiserer deg når du skal benytte våre tjenester.
 
@@ -37,6 +37,6 @@ Er du systemleverandør, se egen side: [Tilgang for systemleverandører i test](
 
 ## Jeg har fått tilgang, hva gjør jeg nå?
 
-Når du har fått en bekreftelse fra Brønnøysundregistrene om at du har fått tilgang til våre tjenester i vårt testmiljø vil neste steg
+Når du har fått tilgang til våre tjenester i testmiljøet vil neste steg
 være å integrere seg mot Maskinporten. Vi har laget en [veiledning for 
 integrasjon mot maskinporten](../maskinporten).

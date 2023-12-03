@@ -8,10 +8,11 @@ weight: 2
   * [Hvordan bestiller jeg tilgang til tjenestene i test?](#hvordan-bestiller-jeg-tilgang-til-tjenestene-i-test)
     * [Jeg skal bruke en systemleverandør, hva gjør jeg?](#jeg-skal-bruke-en-systemleverandør-hva-gjør-jeg)
   * [Jeg har tidligere bestilt tilgang, hva gjør jeg?](#jeg-har-tidligere-bestilt-tilgang-hva-gjør-jeg)
+  * [Jeg har fått tilgang, hva gjør jeg nå?](#jeg-har-fått-tilgang-hva-gjør-jeg-nå)
 <!-- TOC -->
 
 {{< warning >}}
-For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmiljøet. Tilgang til produksjonsmiljøet er foreløpig ikke åpent for eksterne brukere. Så snart dette er klart, vil vi informere om prosessen for å søke tilgang til produksjonsmiljøet. Vi vil gi informasjon så snart vi åpner opp for å bestille tilgang.
+For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmiljøet. Tilgang til produksjonsmiljøet er foreløpig ikke åpent for eksterne brukere. Så snart dette er klart, vil vi gi informasjon om prosessen for å søke tilgang til produksjonsmiljøet.
 {{< /warning >}}
 
 # Innledning
@@ -21,8 +22,7 @@ Hvis du har [rett på tilgang til våre tjenester](../hvem-kan-faa-tilgang) kan 
 
 
 ## Hvordan bestiller jeg tilgang til tjenestene i test?
-> **_NB!_** TT02 er et testmiljø med hovedsaklig syntetiske testdata, og innlesing av ekte virksomheter gjøres kun ved
-> behov. Vær oppmerksom på at det da leses inn produksjonsdata om virksomheten i et testmiljø
+> **_NB!_** Når du bestiller tilgang må du være oppmerksom på at det leses inn data om din virksomhet i et testmiljø hos Altinn.
 
 Dersom du mener din virksomhet oppfyller kriteriene over sender du en epost til `opendata.rrh@brreg.no` hvor du
 opplyser om følgende:
