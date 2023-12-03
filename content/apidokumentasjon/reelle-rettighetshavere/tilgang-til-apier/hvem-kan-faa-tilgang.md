@@ -1,7 +1,7 @@
 ---
 title: Hvem kan få tilgang?
 description: Informasjon om hvem som kan få tilgang til våre APIer
-weight: 20
+weight: 1
 ---
 
 <!-- TOC -->

@@ -1,7 +1,7 @@
 ---
 title: Tilgang for systemleverandører i test
 description: Informasjon om hvordan en systemleverandør kan søke om tilgang til test
-weight: 20
+weight: 3
 ---
 
 <!-- TOC -->
@@ -10,6 +10,7 @@ weight: 20
     * [Opprettelse av fiktiv virksomhet](#opprettelse-av-fiktiv-virksomhet)
     * [Delegering fra eksisterende kunde](#delegering-fra-eksisterende-kunde)
   * [Hvordan bestiller jeg tilgang til tjenestene i test?](#hvordan-bestiller-jeg-tilgang-til-tjenestene-i-test)
+  * [Hva gjør vi med bestillingen](#hva-gjør-vi-med-bestillingen)
 <!-- TOC -->
 
 {{< warning >}}
@@ -20,8 +21,6 @@ For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmilj�
 Hvis du er systemleverandør kan du få tilgang til vårt testmiljø.
 
 **Hvis du har rett på direkte tilgang, [se egen side for direkte tilgang.](../tilgang-i-test)**
-
-
 
 ## Tilgangsmuligheter for systemleverandører
 
@@ -34,6 +33,8 @@ Vi kan, etter forespørsel, opprette en fiktiv virksomhet i vårt testmiljø og 
 Alternativt kan du be en av dine eksisterende kunder om å bestille tilgang i testmiljøet. Når kunden har mottatt tilgangen, kan de deretter delegere denne tilgangen til deg som systemleverandør.
 
 ## Hvordan bestiller jeg tilgang til tjenestene i test?
+> **_NB!_** TT02 er et testmiljø med hovedsaklig syntetiske testdata, og innlesing av ekte virksomheter gjøres kun ved
+> behov. Vær oppmerksom på at det da leses inn produksjonsdata om virksomheten i et testmiljø
 
 Dersom du skal være systemleverandør sender du en epost til `opendata.rrh@brreg.no` hvor du
 opplyser om følgende:
@@ -42,3 +43,12 @@ opplyser om følgende:
 * Virksomhetens navn
 * Navn, epost-adresse og telefonnummer for kontaktperson
 * **Om dere ønsker opprettelse av en fiktiv virksomhet eller om dere får delegert tilgang via reell kunde**
+  * Hvis en reell kunde skal delegere tilgang, må dere sende:
+    * Kundens organisasjonsnummer
+    * Kundens organisasjonsnavn
+    * Kundens e-postadresse
+    * Kundens mobiltelefonnummer
+
+## Hva gjør vi med bestillingen
+Etter at vi har mottatt bestilling fra systemleverandør vil vi i samarbeid med Altinn sørge for at virksomhetene (den som har fått tilgang samt systemeleverandør) blir lest inn i TT02 slik at det er mulig å gjennomføre delegeringen.
+Når det er gjort vil vi gi tilbakemelding om hvilket fødselsnummer som kan benyttes for innlogging i TT02.

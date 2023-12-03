@@ -18,7 +18,7 @@ For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmilj�
 ## Innledning
 
 Denne siden forklarer hvem som kan få tilgang til våre tjenester samt hvordan man bestiller tilgangen.
-Vi har også laget en [**veiledning**](./maskinporten-veiledning) som beskriver 
+Vi har også laget en [**veiledning for bruk av maskinporten**](../maskinporten) som beskriver 
 mer teknisk hvordan du autentiserer deg når du skal benytte våre tjenester.
 
 ## Hvem kan få tilgang til tjenestene?
@@ -37,6 +37,6 @@ Er du systemleverandør, se egen side: [Tilgang for systemleverandører i test](
 
 ## Jeg har fått tilgang, hva gjør jeg nå?
 
-Når du har fått en bekreftelse fra Brønnøysundregistrene om at du har fått tilgang til våre tjenester vil neste steg
+Når du har fått en bekreftelse fra Brønnøysundregistrene om at du har fått tilgang til våre tjenester i vårt testmiljø vil neste steg
 være å integrere seg mot Maskinporten. Vi har laget en [veiledning for 
-integrasjon mot maskinporten](maskinporten-veiledning).
+integrasjon mot maskinporten](../maskinporten).
