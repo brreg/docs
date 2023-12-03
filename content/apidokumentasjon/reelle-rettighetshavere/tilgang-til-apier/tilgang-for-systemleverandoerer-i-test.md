@@ -52,3 +52,9 @@ opplyser om følgende:
 ## Hva gjør vi med bestillingen
 Etter at vi har mottatt bestilling fra systemleverandør vil vi i samarbeid med Altinn sørge for at virksomhetene (den som har fått tilgang samt systemeleverandør) blir lest inn i TT02 slik at det er mulig å gjennomføre delegeringen.
 Når det er gjort vil vi gi tilbakemelding om hvilket fødselsnummer som kan benyttes for innlogging i TT02.
+
+## Jeg har fått tilgang, hva gjør jeg nå?
+
+Når du har fått en bekreftelse fra Brønnøysundregistrene om at du har fått tilgang til våre tjenester i vårt testmiljø vil neste steg
+være å integrere seg mot Maskinporten. Vi har laget en [veiledning for
+integrasjon mot maskinporten](../../maskinporten).

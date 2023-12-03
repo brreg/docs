@@ -39,3 +39,9 @@ Se mer på [egen side for bestilling for systemleverandører](../tilgang-for-sys
 
 ## Jeg har tidligere bestilt tilgang, hva gjør jeg?
 Dersom du tidligere har oversendt informasjonen over, trenger du ikke å gjøre noe. Vi vil ta kontakt om du må ettersende informasjon.
+
+## Jeg har fått tilgang, hva gjør jeg nå?
+
+Når du har fått en bekreftelse fra Brønnøysundregistrene om at du har fått tilgang til våre tjenester i vårt testmiljø vil neste steg
+være å integrere seg mot Maskinporten. Vi har laget en [veiledning for
+integrasjon mot maskinporten](../../maskinporten).
