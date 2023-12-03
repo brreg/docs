@@ -25,7 +25,7 @@ Du finner mer informasjon om registeret på [våre nettsider](https://www.brreg.
 
 * [Beskrivelse av APIene vi tilbyr](./apier-vi-tilbyr)
 * [Informasjon om hvordan du får tilgang til APIene](./tilgang-til-apier)
-  * [Veiledning til Maskinporten](./tilgang-til-apier/maskinporten-veiledning)
+  * [Veiledning til Maskinporten](./maskinporten)
 * [Testdata](./testdata)
 * [Nyheter og driftsmeldinger](./nyheter-og-driftsmeldinger)
 
