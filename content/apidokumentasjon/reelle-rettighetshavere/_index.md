@@ -4,8 +4,7 @@ description: Beskrivelser av API innen domene Reelle rettighetshavere
 weight: 100
 ---
 {{< warning >}}
-API'ene for Register over Reelle rettighetshavere er foreløpig ikke tilgjengelig, men vi vil gi informasjon så snart
-vi åpner opp for å bestille tilgang.
+For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmiljøet. Tilgang til produksjonsmiljøet er foreløpig ikke åpent for eksterne brukere. Så snart dette er klart, vil vi gi informasjon om prosessen for å søke tilgang til produksjonsmiljøet.
 {{< /warning >}}
 
 ## Om registeret
