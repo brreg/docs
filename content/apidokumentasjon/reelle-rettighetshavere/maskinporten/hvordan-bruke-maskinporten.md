@@ -4,13 +4,6 @@ description: Veiledning for integrasjon mot Maskinporten for direkte tilgang
 weight: 1
 ---
 
-<!-- TOC -->
-  * [Innledning](#innledning)
-  * [Prosess for å ta i bruk våre APIer](#prosess-for-å-ta-i-bruk-våre-apier)
-  * [Hvordan teste et tilgangsstyrt API?](#hvordan-teste-et-tilgangsstyrt-api)
-  * [Jeg har problemer med maskinport-integrasjonen eller delegering i Altinn](#jeg-har-problemer-med-maskinport-integrasjonen-eller-delegering-i-altinn)
-<!-- TOC -->
-
 ## Innledning
 > **_NB!_** Hvis du er systemleverandør eller skal bruke systemleverandør, se [egen side for bruk av maskinporten som systemleverandør](../hvordan-bruke-maskinporten-som-systemleverandør).
 
@@ -38,9 +31,11 @@ Kall til APIene må inkludere et gyldig _token_ fra Maskinporten for å få tilg
     * Se [Digdirs sekvensdiagram](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument#5-be-om-token)
       for illustrasjon av hvordan dette fungerer.
 
+> Vi validerer ikke at Audience (Aud-feltet) i token er satt
+
 ## Hvordan teste et tilgangsstyrt API?
 [Her er en how-to artikkel](https://docs.digdir.no/docs/idporten/oidc/oidc_sample_jwtgrant_postman) på hvordan du kan
-bruke Postman for å teste API'er.
+bruke Postman for å teste APIer.
 
 ## Jeg har problemer med maskinport-integrasjonen eller delegering i Altinn
 

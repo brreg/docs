@@ -3,13 +3,6 @@ title: Tilgang i test
 description: Informasjon om å søke om direkte tilgang til test
 weight: 2
 ---
-<!-- TOC -->
-* [Innledning](#innledning)
-  * [Hvordan bestiller jeg tilgang til tjenestene i test?](#hvordan-bestiller-jeg-tilgang-til-tjenestene-i-test)
-    * [Jeg skal bruke en systemleverandør, hva gjør jeg?](#jeg-skal-bruke-en-systemleverandør-hva-gjør-jeg)
-  * [Jeg har tidligere bestilt tilgang, hva gjør jeg?](#jeg-har-tidligere-bestilt-tilgang-hva-gjør-jeg)
-  * [Jeg har fått tilgang, hva gjør jeg nå?](#jeg-har-fått-tilgang-hva-gjør-jeg-nå)
-<!-- TOC -->
 
 {{< warning >}}
 For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmiljøet. Tilgang til produksjonsmiljøet er foreløpig ikke åpent for eksterne brukere. Så snart dette er klart, vil vi gi informasjon om prosessen for å søke tilgang til produksjonsmiljøet.
@@ -22,8 +15,6 @@ Hvis du har [rett på tilgang til våre tjenester](../hvem-kan-faa-tilgang) kan 
 
 
 ## Hvordan bestiller jeg tilgang til tjenestene i test?
-> **_NB!_** Når du bestiller tilgang må du være oppmerksom på at det leses inn data om din virksomhet i et testmiljø hos Altinn.
-
 Dersom du mener din virksomhet oppfyller kriteriene over sender du en epost til `opendata.rrh@brreg.no` hvor du
 opplyser om følgende:
 
@@ -38,7 +29,7 @@ Om du skal bruke en systemleverandør er det ikke sikkert at du trenger tilgang 
 Se mer på [egen side for bestilling for systemleverandører](../tilgang-for-systemleverandoerer-i-test).
 
 ## Jeg har tidligere bestilt tilgang, hva gjør jeg?
-Dersom du tidligere har oversendt informasjonen over, trenger du ikke å gjøre noe. Vi vil ta kontakt om du må ettersende informasjon.
+Dersom du tidligere har oversendt informasjonen over, trenger du ikke å gjøre noe. Vi vil ta kontakt dersom du må ettersende informasjon.
 
 ## Jeg har fått tilgang, hva gjør jeg nå?
 

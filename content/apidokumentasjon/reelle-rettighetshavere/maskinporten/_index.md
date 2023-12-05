@@ -4,12 +4,6 @@ description: Veiledning for integrasjon mot Maskinporten
 weight: 3
 ---
 
-<!-- TOC -->
-  * [Innledning](#innledning)
-  * [Prosess for å ta i bruk våre APIer](#prosess-for-å-ta-i-bruk-våre-apier)
-  * [Jeg har problemer med maskinport-integrasjonen eller delegering i Altinn](#jeg-har-problemer-med-maskinport-integrasjonen-eller-delegering-i-altinn)
-<!-- TOC -->
-
 ## Innledning
 
 Register over reelle rettighetshavere benytter maskinporten som autentiserings- og autorisasjonsmekanisme for

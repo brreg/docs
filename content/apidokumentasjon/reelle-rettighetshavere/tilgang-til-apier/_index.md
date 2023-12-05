@@ -4,13 +4,6 @@ description: Hvordan få tilgang til tjenester for Register over reelle rettighe
 weight: 2
 ---
 
-<!-- TOC -->
-  * [Innledning](#innledning)
-  * [Hvem kan få tilgang til tjenestene?](#hvem-kan-få-tilgang-til-tjenestene)
-  * [Hvordan bestiller jeg tilgang til tjenestene?](#hvordan-bestiller-jeg-tilgang-til-tjenestene)
-  * [Jeg har fått tilgang, hva gjør jeg nå?](#jeg-har-fått-tilgang-hva-gjør-jeg-nå)
-<!-- TOC -->
-
 {{< warning >}}
 For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmiljøet. Tilgang til produksjonsmiljøet er foreløpig ikke åpent for eksterne brukere. Så snart dette er klart, vil vi gi informasjon om prosessen for å søke tilgang til produksjonsmiljøet.
 {{< /warning >}}
@@ -33,7 +26,7 @@ For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmilj�
 
 For vanlig direkte tilgang, se side: [Tilgang i test](./tilgang-i-test)
 
-Er du systemleverandør, se egen side: [Tilgang for systemleverandører i test](./tilgang-for-systemleverandoerer-i-test)
+Er du systemleverandør, se egen side: [Tilgang for systemleverandører i test](./systemleverandoerer)
 
 ## Jeg har fått tilgang, hva gjør jeg nå?
 

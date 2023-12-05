@@ -16,8 +16,8 @@ Du finner mer informasjon om registeret på [våre nettsider](https://www.brreg.
 ## APIer vi tilbyr ## 
 
 * APIet "Virksomheter" er et API for uthenting av opplysninger fra registeret:
-  * [OpenAPI-spesifikasjon](https://rrh.brreg.no/api/oppslag/openapi/openapi.zip)
-  * [Swagger-UI tjeneste](https://rrh.brreg.no/api/oppslag)
+  * [OpenAPI-spesifikasjon i test](https://rrh.ppe.brreg.no/api/oppslag/openapi/openapi.zip)
+  * [Swagger-UI tjeneste i test](https://rrh.ppe.brreg.no/api/oppslag)
   * Mer informasjon om APIet finner du på siden [Virksomheter](./apier-vi-tilbyr/virksomheter)
 
 ## På dokumentasjonssidene våre finner du

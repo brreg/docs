@@ -4,25 +4,15 @@ description: Veiledning for integrasjon mot Maskinporten som systemleverandør
 weight: 3
 ---
 
-<!-- TOC -->
-* [Innledning](#innledning)
-  * [Hvordan bestille tilgang som systemleverandør](#hvordan-bestille-tilgang-som-systemleverandør)
-  * [Hvordan delegere tilgang til en systemleverendør](#hvordan-delegere-tilgang-til-en-systemleverendør)
-  * [Hvordan skal systemleverandør bruke den delegerte tilgangen?](#hvordan-skal-systemleverandør-bruke-den-delegerte-tilgangen)
-  * [Hvordan teste et tilgangsstyrt API?](#hvordan-teste-et-tilgangsstyrt-api)
-  * [Jeg har problemer med maskinport-integrasjonen eller delegering i Altinn](#jeg-har-problemer-med-maskinport-integrasjonen-eller-delegering-i-altinn)
-<!-- TOC -->
-
-# Innledning
 Veiledning for systemleverandører.
 
 ## Hvordan bestille tilgang som systemleverandør
 {{< warning >}}
 Systemleverandører kan ikke bestille tilgang i produksjon. I produksjon må tilgang delegeres av en aktør som har lovrettet tilgang.
 {{< /warning >}}
-Gjelder det tilgang i test, må du se hvordan du kan bestille tilgang i vårt testmiljø på siden: [Bestille tilgang som systemleverandør](../tilgang-til-apier/tilgang-for-systemleverandoerer-i-test).
+Gjelder det tilgang i test, må du se hvordan du kan bestille tilgang i vårt testmiljø på siden: [Bestille tilgang som systemleverandør](../../tilgang-til-apier/systemleverandoerer).
 
-## Hvordan delegere tilgang til en systemleverendør
+## Hvordan delegere tilgang til en systemleverandør
 > **_NB!_** Hvis delegeringen skal gjøres i Altinns testmiljø (TT02) må systemleverandør ha bestilt tilgang og ha enten:
 > * Fått en fiktiv virksomhet med tilgang til vårt testmiljø.
 > * En kunde som har fått tilgang og som kan delegere denne tilgangen til dere.
@@ -65,7 +55,7 @@ Det er verdt å poengtere enkelte ting knyttet til hvordan systemleverandør ska
 Før man har kommet så langt at man har laget en applikasjon som kan integrere seg mot våre tilgangsstyrte API'er ønsker
 man gjerne å gjøre noen initielle tester.  
 [Her er en how-to artikkel](https://docs.digdir.no/docs/idporten/oidc/oidc_sample_jwtgrant_postman) på hvordan du kan
-bruke Postman for å teste API'er.
+bruke Postman for å teste APIer.
 
 ## Jeg har problemer med maskinport-integrasjonen eller delegering i Altinn
 
