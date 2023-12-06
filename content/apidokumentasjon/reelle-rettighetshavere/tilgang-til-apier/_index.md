@@ -24,9 +24,9 @@ Se undersiden: [Hvem kan få tilgang?](./hvem-kan-faa-tilgang)
 For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmiljøet.
 {{< /warning >}}
 
-For vanlig direkte tilgang, se side: [Tilgang i test](./tilgang-i-test)
+For vanlig (direkte) tilgang, se side: [Vanlig (direkte) tilgang](./vanlig-direkte-tilgang)
 
-Er du systemleverandør, se egen side: [Tilgang for systemleverandører i test](./systemleverandoerer)
+Er du systemleverandør, se egen side: [Systemleverandører](./systemleverandoerer)
 
 ## Jeg har fått tilgang, hva gjør jeg nå?
 

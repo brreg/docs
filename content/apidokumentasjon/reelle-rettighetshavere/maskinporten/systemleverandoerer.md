@@ -1,5 +1,5 @@
 ---
-title: Maskinporten for systemleverandører
+title: Systemleverandører
 description: Veiledning for integrasjon mot Maskinporten som systemleverandør
 weight: 3
 ---
@@ -8,7 +8,7 @@ Veiledning for systemleverandører.
 
 ## Hvordan bestille tilgang som systemleverandør
 {{< warning >}}
-Systemleverandører kan ikke bestille tilgang i produksjon. I produksjon må tilgang delegeres av en aktør som har lovrettet tilgang.
+Systemleverandører kan ikke bestille tilgang i produksjon. I produksjon må tilgang delegeres av en aktør som vil være berettiget til å få tilgang til våre tjenester.
 {{< /warning >}}
 Gjelder det tilgang i test, må du se hvordan du kan bestille tilgang i vårt testmiljø på siden: [Bestille tilgang som systemleverandør](../../tilgang-til-apier/systemleverandoerer).
 

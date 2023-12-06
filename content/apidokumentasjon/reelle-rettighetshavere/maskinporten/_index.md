@@ -14,11 +14,11 @@ autorisasjon for datautveksling mellom virksomheter.
 lese denne veiledningen setter deg grundig inn i [Digdir sin egen dokumentasjon
 om maskinporten](https://samarbeid.digdir.no/maskinporten/maskinporten/25).**
 
-## Prosess for å ta i bruk våre APIer
+## Prosess for å ta i bruk Maskinporten mot våre APIer
 
-For normal tilgang, se [Hvordan bruke Maskinporten](./hvordan-bruke-maskinporten).  
+For vanlig (direkte) tilgang, se [Hvordan bruke Maskinporten](./hvordan-bruke-maskinporten).  
 
-Hvis du er systemleverandør, se [Hvordan bruke Maskinporten som systemleverandør](hvordan-bruke-maskinporten-som-systemleverandør).
+Hvis du er systemleverandør, se [Hvordan bruke Maskinporten som systemleverandør](./systemleverandoerer).
 
 ## Jeg har problemer med maskinport-integrasjonen eller delegering i Altinn
 

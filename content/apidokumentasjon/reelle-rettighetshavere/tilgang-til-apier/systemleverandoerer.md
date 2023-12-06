@@ -8,10 +8,9 @@ weight: 3
 For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmiljøet. Tilgang til produksjonsmiljøet er foreløpig ikke åpent for eksterne brukere. Så snart dette er klart, vil vi gi informasjon om prosessen for å søke tilgang til produksjonsmiljøet.
 {{< /warning >}}
 
-# Innledning
 Hvis du er systemleverandør kan du få tilgang til vårt testmiljø.
 
-**Hvis du har rett på direkte tilgang, [se egen side for direkte tilgang.](../tilgang-i-test)**
+**Hvis du har rett på direkte tilgang, [se egen side for direkte tilgang.](../vanlig-direkte-tilgang)**
 
 ## Tilgangsmuligheter for systemleverandører
 
@@ -29,7 +28,8 @@ opplyser om følgende:
 
 * Virksomhetens organisasjonsnummer
 * Virksomhetens navn
-* Navn, epost-adresse og telefonnummer for kontaktperson (som er involvert i testen)
+* Epost-adresse for kontaktperson (som er involvert i testen)
+* Telefonnummer for kontaktperson (som er involvert i testen)
 * **Om dere ønsker opprettelse av en fiktiv virksomhet eller om dere får delegert tilgang via reell kunde**
   * Hvis en reell kunde skal delegere tilgang, må dere sende:
     * Kundens organisasjonsnummer
@@ -39,7 +39,7 @@ opplyser om følgende:
 
 ## Hva gjør vi med bestillingen
 Etter at vi har mottatt bestillingen vil vi sørge for at din virksomhet blir lest inn i Altinns testmiljø (TT02). Det vil da være mulig å få delegert tilgang.
-Dersom du valgte delegering via en fiktiv virksomhet vil vi gi informasjon om hvilket fødselsnummer som kan benyttes for innlogging i Altinns testmiljø (TT02).
+Vi gir deg informasjon om hvilket fødselsnummer som kan benyttes for innlogging i Altinns testmiljø (TT02). Siden dette er et testmiljø vil dette fødselsnummeret være syntetisk.
 
 ## Jeg har fått tilgang, hva gjør jeg nå?
 
