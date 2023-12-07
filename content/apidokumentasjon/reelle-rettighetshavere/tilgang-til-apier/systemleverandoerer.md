@@ -19,27 +19,49 @@ Systemleverandører må få delegert tilgang i Maskinporten for å få tilgang i
 ### 1) Opprettelse av fiktiv virksomhet
 Vi kan, etter forespørsel, opprette en fiktiv virksomhet i vårt testmiljø og tildele et maskinporten-scope til denne. Dette gir deg som systemleverandør muligheten til selv å delegere denne tilgangen videre til deg selv. Denne metoden er ideell for å teste funksjonaliteten uten å involvere en faktisk kunde.
 
+**Prosessen for å bestille tilgang og få opprettet en fiktiv virksomhet er:**
+1. Send en epost til `opendata.rrh@brreg.no` hvor du opplyser om følgende:
+   * Virksomhetens organisasjonsnummer
+   * Virksomhetens navn
+   * Navn på deres kontaktperson (som er involvert i testen)
+   * Epost-adresse til deres kontaktperson (som er involvert i testen)
+   * Telefonnummer til deres kontaktperson (som er involvert i testen)
+   * **Si at dere ønsker å delegere tilgang selv via en fiktiv virksomhet**
+2. Vi mottar bestillingen og gjør følgende:
+   * Leser inn ditt virksomhets organisasjonsnummer i Altinns testmiljø (TT02)
+   * Oppretter en fiktiv virksomhet som dere kan logge på med et fiktivt fødselsnummer
+   * Sender mail til dere med informasjonen over
+3. Når dere har mottatt bekreftelse fra oss om at alt er klart kan dere:
+   * Delegere tilgang fra den fiktive virksomheten til deres virksomhet i Altinn
+   * Se mer om dette på [side om Maskinporten for systemleverandører](../../maskinporten/systemleverandoerer)
+   
+
 ### 2) Delegering fra eksisterende kunde
-Alternativt kan du be en av dine eksisterende kunder om å bestille tilgang i testmiljøet. Når kunden har mottatt tilgangen, kan de deretter delegere denne tilgangen til deg som systemleverandør.
+Alternativt kan dere be en av dine eksisterende kunder om å bestille tilgang i testmiljøet. Når kunden har mottatt tilgangen, kan de deretter delegere denne tilgangen til deg som systemleverandør.  
 
-## Hvordan bestiller jeg tilgang til tjenestene i test?
-Dersom du skal være systemleverandør sender du en epost til `opendata.rrh@brreg.no` hvor du
-opplyser om følgende:
-
-* Virksomhetens organisasjonsnummer
-* Virksomhetens navn
-* Epost-adresse for kontaktperson (som er involvert i testen)
-* Telefonnummer for kontaktperson (som er involvert i testen)
-* **Om dere ønsker opprettelse av en fiktiv virksomhet eller om dere får delegert tilgang via reell kunde**
-  * Hvis en reell kunde skal delegere tilgang, må dere sende:
+**Prosessen for å få delegert tilgang i vårt testmiljø blir da:**
+1. Kunden som skal delegere tilgang til din virksomhet bestiller direkte tilgang:
+   * Se hvordan dette gjøres på [side for å bestille vanlig (direkte) tilgang](../vanlig-direkte-tilgang)
+2. Kunden får bekreftelse om at de har fått tilgang
+3. Du som systemleverandør sender en epost til `opendata.rrh@brreg.no` hvor du opplyser om følgende:
+    * Virksomhetens organisasjonsnummer
+    * Virksomhetens navn
+    * Navn på deres kontaktperson (som er involvert i testen)
+    * Epost-adresse til deres kontaktperson (som er involvert i testen)
+    * Telefonnummer til deres kontaktperson (som er involvert i testen)
     * Kundens organisasjonsnummer
     * Kundens organisasjonsnavn
-    * Kundens e-postadresse (som er involvert i testen)
-    * Kundens mobiltelefonnummer (som er involvert i testen)
-
-## Hva gjør vi med bestillingen
-Etter at vi har mottatt bestillingen vil vi sørge for at din virksomhet blir lest inn i Altinns testmiljø (TT02). Det vil da være mulig å få delegert tilgang.
-Vi gir deg informasjon om hvilket fødselsnummer som kan benyttes for innlogging i Altinns testmiljø (TT02). Siden dette er et testmiljø vil dette fødselsnummeret være syntetisk.
+    * Navn på kundens kontaktperson (som er involvert i testen)
+    * Epost-adresse til kundens kontaktperson (som er involvert i testen)
+    * Telefonnummer til kundens kontaktperson (som er involvert i testen)
+4. Vi mottar bestillingen og gjør følgende:
+    * Leser inn ditt og deres kundes organisasjonsnummer i Altinns testmiljø (TT02)
+    * Oppretter en fiktiv person med et fiktivt fødselsnummer for deres kunde sin virksomhet
+    * Oppretter en fiktiv person med et fiktivt fødselsnummer for deres virksomhet
+    * Sender mail til dere med informasjonen over
+5. Når dere har mottatt bekreftelse fra oss om at alt er klart kan du:
+    * Be din kunde om å delegere tilgang fra sin virksomheten til deres virksomhet i Altinn.
+    * Se mer om dette på [side om Maskinporten for systemleverandører](../../maskinporten/systemleverandoerer)
 
 ## Jeg har fått tilgang, hva gjør jeg nå?
 
