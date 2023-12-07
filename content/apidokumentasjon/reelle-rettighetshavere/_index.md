@@ -4,8 +4,7 @@ description: Beskrivelser av API innen domene Reelle rettighetshavere
 weight: 100
 ---
 {{< warning >}}
-API'ene for Register over Reelle rettighetshavere er foreløpig ikke tilgjengelig, men vi vil gi informasjon så snart
-vi åpner opp for å bestille tilgang.
+For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmiljøet. Tilgang til produksjonsmiljøet er foreløpig ikke åpent for eksterne brukere. Så snart dette er klart, vil vi gi informasjon om prosessen for å søke tilgang til produksjonsmiljøet.
 {{< /warning >}}
 
 ## Om registeret
@@ -17,15 +16,15 @@ Du finner mer informasjon om registeret på [våre nettsider](https://www.brreg.
 ## APIer vi tilbyr ## 
 
 * APIet "Virksomheter" er et API for uthenting av opplysninger fra registeret:
-  * [OpenAPI-spesifikasjon](https://rrh.brreg.no/api/oppslag/openapi/openapi.zip)
-  * [Swagger-UI tjeneste](https://rrh.brreg.no/api/oppslag)
+  * [OpenAPI-spesifikasjon i test](https://rrh.ppe.brreg.no/api/oppslag/openapi/openapi.zip)
+  * [Swagger-UI tjeneste i test](https://rrh.ppe.brreg.no/api/oppslag)
   * Mer informasjon om APIet finner du på siden [Virksomheter](./apier-vi-tilbyr/virksomheter)
 
 ## På dokumentasjonssidene våre finner du
 
 * [Beskrivelse av APIene vi tilbyr](./apier-vi-tilbyr)
 * [Informasjon om hvordan du får tilgang til APIene](./tilgang-til-apier)
-  * [Veiledning til Maskinporten](./tilgang-til-apier/maskinporten-veiledning)
+  * [Veiledning til Maskinporten](./maskinporten)
 * [Testdata](./testdata)
 * [Nyheter og driftsmeldinger](./nyheter-og-driftsmeldinger)
 

@@ -9,7 +9,7 @@ Se undersidene i menyen til venstre for hvilke APIer som tilbys.
 ## Versjonering
 
 APIene følger Semantic Versioning (SemVer) standarden, der major/hovedversjonen er en del av URLen til tjenesten.
-URLer er tilgjengelig på følgende format: `https://rrh.brreg.no/api/domene/v{hovedversjon}/{tjeneste}`.
+URLer er tilgjengelig på følgende format: `https://rrh.brreg.no/api/{domene}/v{hovedversjon}/{tjeneste}`.
 
 * Eventuelle inkompatible endringer vil medføre en ny hovedversjon, og dermed en ny URL
 * Ved publisering av en ny hovedversjon vil også den forrige hovedversjonen være operativ i en overgangsperiode

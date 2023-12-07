@@ -6,9 +6,9 @@ weight: 100
 
 `Virksomheter` er et API for oppslag/søk i Register over reelle rettighetshavere.
 
-* API'et tilbyr opplysninger om registrerte virksomheter og deres reelle rettighetshavere ved oppslag med ulike
+* APIet tilbyr opplysninger om registrerte virksomheter og deres reelle rettighetshavere ved oppslag med ulike
   parametere, samt nedlasting av registerets totalbestand
-* APIet er tilgangsstyrt, se siden [Hvordan få tilgang?](../../tilgang-til-apier)
+* APIet er tilgangsstyrt, se siden [Tilgang til APIer](../../tilgang-til-apier)
 * Opplysningene om reelle rettighetshavere inkluderer fullt fødsels- eller D-nummer fra Folkeregisteret.
   API'et skjermer ikke opplysninger om mindreårige og andre som er unntatt fra innsyn
 
