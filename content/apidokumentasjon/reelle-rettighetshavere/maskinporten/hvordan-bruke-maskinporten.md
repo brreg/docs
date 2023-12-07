@@ -5,7 +5,7 @@ weight: 1
 ---
 
 ## Innledning
-> **_NB!_** Hvis du er systemleverandør eller skal bruke systemleverandør, se [egen side for bruk av maskinporten som systemleverandør](../systemleverandoer).
+> **_NB!_** Hvis du er systemleverandør eller skal bruke systemleverandør, se [egen side for bruk av maskinporten som systemleverandør](../systemleverandoerer).
 
 **Vi forutsetter at du i tillegg til å
 lese denne veiledningen setter deg grundig inn i [Digdir sin egen dokumentasjon
