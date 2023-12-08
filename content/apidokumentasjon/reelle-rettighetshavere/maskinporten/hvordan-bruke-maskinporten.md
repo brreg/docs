@@ -26,16 +26,14 @@ Kall til APIene må inkludere et gyldig _token_ fra Maskinporten for å få tilg
       samt [Maskinportens guide til hvordan du bruker Maskinporten som API-konsument](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument)
 3. Hent token fra maskinporten med klienten fra punkt 2.
     * Se [Digdirs dokumentasjon](https://docs.digdir.no/docs/Maskinporten/maskinporten_protocol_token)
+    * Se [denne guiden for hvordan du kan hente ut et maskinporten-token](https://docs.digdir.no/docs/idporten/oidc/oidc_sample_jwtgrant_postman)
 4. Utfør kall mot vår tjeneste med token du fikk i punkt 3.
     * Tokenet skal inkluderes i `Authorization`-headeren slik: ```Authorization: Bearer  <access_token>```
     * Se [Digdirs sekvensdiagram](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument#5-be-om-token)
       for illustrasjon av hvordan dette fungerer.
+    * Se [denne guiden for hvordan du kan bruke et maskinporten-token mot et API](https://docs.digdir.no/docs/idporten/oidc/oidc_sample_jwtgrant_postman)
 
 > Vi validerer ikke at Audience (Aud-feltet) i token er satt
-
-## Hvordan teste et tilgangsstyrt API?
-[Her er en how-to artikkel](https://docs.digdir.no/docs/idporten/oidc/oidc_sample_jwtgrant_postman) på hvordan du kan
-bruke Postman for å teste APIer.
 
 ## Jeg har problemer med maskinport-integrasjonen eller delegering i Altinn
 

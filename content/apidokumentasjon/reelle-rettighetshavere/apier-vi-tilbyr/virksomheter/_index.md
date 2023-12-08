@@ -10,7 +10,7 @@ weight: 100
   parametere, samt nedlasting av registerets totalbestand
 * APIet er tilgangsstyrt, se siden [Tilgang til APIer](../../tilgang-til-apier)
 * Opplysningene om reelle rettighetshavere inkluderer fullt fødsels- eller D-nummer fra Folkeregisteret.
-  API'et skjermer ikke opplysninger om mindreårige og andre som er unntatt fra innsyn
+  APIet skjermer ikke opplysninger om mindreårige og andre som er unntatt fra innsyn
 
 ## API-spesifikasjon
 

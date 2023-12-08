@@ -11,10 +11,10 @@ For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmilj�
 # Innledning
 Hvis du har [rett på tilgang til våre tjenester](../hvem-kan-faa-tilgang) kan du bestille tilgang til vårt testmiljø. I vårt testmiljø kan du teste ut våre APIer med syntetiske data.
 
-**Hvis du er systemleverandør, [se egen side for systemleverandører.](../systemleverandoerer)**
+> **_NB!_** Systemleverandører vil i utgangspunktet ikke ha direkte tilgang til våre tjenester, men kan få delegert tilgang fra en aktør som har fått tilgang. [Se egen side for detaljer om hvordan du får tilgang som systemleverandør.](../systemleverandoerer)
 
 ## Hvordan bestiller jeg tilgang til tjenestene i test?
-Dersom du mener din virksomhet oppfyller kriteriene over sender du en epost til `opendata.rrh@brreg.no` hvor du
+Dersom du mener din virksomhet oppfyller kriteriene sender du en epost til `opendata.rrh@brreg.no` hvor du
 opplyser om følgende:
 
 * Virksomhetens organisasjonsnummer
@@ -22,7 +22,7 @@ opplyser om følgende:
 * Navn på deres kontaktperson (som er involvert i testen)
 * Epost-adresse til deres kontaktperson (som er involvert i testen)
 * Telefonnummer til deres kontaktperson (som er involvert i testen)
-* Hvilken hjemmel til utvidet tilgang virksomheten faller inn under (se over for informasjon om hvem som kan få tilgang)
+* Hvilken hjemmel til utvidet tilgang virksomheten faller inn under [(se her for informasjon om hvem som kan få tilgang)](../hvem-kan-faa-tilgang)
 
 ### Jeg skal bruke en systemleverandør, hva gjør jeg?
 Om du skal bruke en systemleverandør er det ikke sikkert at du trenger tilgang i vårt testmiljø. Hør med din leverandør om hvordan leverandøren ønsker å teste våre tjenester.  
