@@ -19,8 +19,8 @@ weight: 130
 
 #### Beskrivelse
 
-Tjenesten tar imot en forespørsel om oppslag på et organisasjonsnummer, forespørselen valideres før utførelsen og returnerer opplysninger om kun aktive rettsstiftelser på organisasjonsnummer.<br>
-Vi gjør oppmerksom på at heftelser og andre rettsstiftelser som gjelder <i>Enkeltpersonforetak</i> (ENK) og <i>Andre enkeltpersoner som registreres i tilknyttet register</i> (PERS), vil være registrert på innehavers fødselsnummer.
+Tjenesten tar imot en forespørsel om oppslag på et organisasjonsnummer, forespørselen valideres før utførelsen og returnerer opplysninger om kun aktive rettsstiftelser på organisasjonsnummer.  
+Vi gjør oppmerksom på at heftelser og andre rettsstiftelser som gjelder *Enkeltpersonforetak* (ENK) og *Andre enkeltpersoner som registreres i tilknyttet register* (PERS), vil være registrert på innehavers fødselsnummer.
 
 #### Request
 
