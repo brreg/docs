@@ -4,6 +4,12 @@ description: Beskrivelse av tjeneste for oppslag/søk i Register over reelle ret
 weight: 100
 ---
 
+- [API-spesifikasjon](#api-spesifikasjon)
+- [Kodeliste](#kodeliste)
+- [Løsningsmodell](#løsningsmodell) 
+- [Endringslogg](#endringslogg) 
+
+
 `Virksomheter` er et API for oppslag/søk i Register over reelle rettighetshavere.
 
 * APIet tilbyr opplysninger om registrerte virksomheter og deres reelle rettighetshavere ved oppslag med ulike
@@ -87,3 +93,21 @@ En kodeliste som inneholder alle relevante koder med beskrivelser kan du [laste 
 | **InternasjonalAdresse**           |                                                    | Adresse for utenlandsk mellomliggende virksomhet                                                                                                               |
 |                                    | friAdressetekst                                    | Adresse for den utenlandske mellomliggende virksomheten. Kan bestå av flere adresselinjer                                                                      |
 |                                    | land                                               | Landkode og navn på hjemlandet til den utenlandske mellomliggende virksomheten                                                                                 |
+
+## Endringslogg
+
+Endringsloggen dokumenterer alle endringer som er gjort på Virksomhet APIet for Reelle Rettighetshavere.  
+Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
+og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
+
+### 1.0.0-beta2 - 2024-02-16
+
+#### Lagt til
+
+- Nytt endepunkt for å hente en liste med alle tilgjenglige kodelister. Dette endepunktet kan feks. brukes til
+  visning i eventuelle brukergrensesnitt, dynamisk oppdatering av kodelister, validering og lignende.
+
+#### Endret
+
+- Funksjonalitet for oppslag på virksomhet er endret til å inkludere opplysninger om både nåværende og tidligere registrerte reelle rettighetshavere.
+- Søk på fødselsnummer er oppdatert til å gi en liste over virksomheter hvor personen, identifisert ved det angitte fødsels- eller D-nummeret, er eller har vært registrert som reell rettighetshaver.
