@@ -55,7 +55,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
       "typeBeskrivelse": "Pant i fiskeredskaper",
       "status": "statusregistreringsobjekt.tl",
       "statusBeskrivelse": "tinglyst",
-      "innkomsttidspunkt": "2022-12-15T12:38:35+01:00",
+      "innkomsttidspunkt": "2022-12-15T12:38:00+01:00",
       "paategning": [],
       "rolle": [
         {

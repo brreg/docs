@@ -38,6 +38,9 @@ Dokumentasjon er også tilgjengelig i Swagger:
 
 Eksempel på request- og response-objekter (implementert i Java) for APIet kan sees her: [refapp-integrasjon DTOer](https://github.com/brreg/refapp-integrasjon/tree/main/src/main/java/refappintegrasjon/dto)
 
+Klokkeslettprioritet ble innført i Løsøreregisteret fra 1. mars 2024. Tidsangivelse for innkomsttidspunkt vil da være tt:mm.00.
+Sekunder og evt. ms vil angis med verdi 0. Før denne dato gjelder dagsprioritet.
+
 ## Sikkerhetsmekanismer
 
 Siden dette er begrensede API så skal kallende parter autentiseres gjennom [Maskinporten](https://docs.digdir.no/maskinporten_guide_apikonsument.html).
