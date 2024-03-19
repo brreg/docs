@@ -100,7 +100,7 @@ Endringsloggen dokumenterer alle endringer som er gjort på Virksomhet APIet for
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
 
-### 1.0.0-beta2 - 2024-02-16
+### 1.0.0-beta2 - 2024-02-28
 
 #### Lagt til
 
