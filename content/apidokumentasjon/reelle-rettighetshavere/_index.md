@@ -19,6 +19,7 @@ Du finner mer informasjon om registeret på [våre nettsider](https://www.brreg.
   * [OpenAPI-spesifikasjon i test](https://rrh.ppe.brreg.no/api/oppslag/openapi/openapi.zip)
   * [Swagger-UI tjeneste i test](https://rrh.ppe.brreg.no/api/oppslag)
   * Mer informasjon om APIet finner du på siden [Virksomheter](./apier-vi-tilbyr/virksomheter)
+  * Informasjon om endringer finner du på siden [Endringslogg](./apier-vi-tilbyr/virksomheter#endringslogg)
 
 ## På dokumentasjonssidene våre finner du
 
