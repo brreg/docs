@@ -2,6 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/apier-vi-tilbyr/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/tilgang-til-apier/hvem-kan-faa-tilgang/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/maskinporten/hvordan-bruke-maskinporten/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/tilgang-til-apier/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/tilgang-til-apier/vanlig-direkte-tilgang/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/maskinporten/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/maskinporten/systemleverandoerer/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/tilgang-til-apier/systemleverandoerer/</loc>
+  </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/enhetsregisteret_omarbeidet/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/foretaksregisteret_omarbeidet/</loc>
@@ -26,8 +42,6 @@
   </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_kontaktinformasjon/</loc>
   </url><url>
-    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/komme-i-gang/maskinporten-veiledning/</loc>
-  </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/enhetsregisteret_omarbeidetstrukturmodeller/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/foretaksregisteret_omarbeidetstrukturmodeller/</loc>
@@ -45,12 +59,6 @@
     <loc>https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_rollerer/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/strukturmodeller/enhetsregisteret_hovedenhetmrolle/</loc>
-  </url><url>
-    <loc>https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/forretningsobjektmodeller/reellerettighetshavere_forretningsobjektmodell_1/</loc>
-  </url><url>
-    <loc>https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/forretningsobjektmodeller/reellerettighetshavere_forretningsobjektmodell_2/</loc>
-  </url><url>
-    <loc>https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/strukturmodell/reellerettighetshavere_strukturmodell/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/foretaksregisteret_rollerfr/</loc>
   </url><url>
@@ -120,10 +128,6 @@
   </url><url>
     <loc>https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/kodeliste/</loc>
   </url><url>
-    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/komme-i-gang/</loc>
-  </url><url>
-    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/oppslagstjenester/virksomheter/loesningsmodell/</loc>
-  </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/ektepaktregisteret/loesningsmodeller/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/loesoereregisteret/loesningsmodeller/</loc>
@@ -132,7 +136,9 @@
   </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/loesoereregisteret/</loc>
   </url><url>
-    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/oppslagstjenester/</loc>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/maskinell-innrapportering/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/</loc>
   </url><url>
@@ -144,17 +150,19 @@
   </url><url>
     <loc>https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/strukturmodeller/</loc>
   </url><url>
-    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/oppslagstjenester/virksomheter/testdata_for_tilgangsstyrt_api/</loc>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/testdata/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/apidokumentasjon/elektronisk-mottak/maskinport-integrasjon/uthenting/</loc>
   </url><url>
-    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/oppslagstjenester/virksomheter/</loc>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/apier-vi-tilbyr/virksomheter/</loc>
+  </url><url>
+    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/nyheter-og-driftsmeldinger/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_generell/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_kjoretoy/</loc>
-  </url><url>
-    <loc>https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/</loc>
   </url><url>
     <loc>https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_orgnr/</loc>
   </url><url>

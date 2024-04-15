@@ -1,0 +1,4088 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.124.1">
+    <meta name="description" content="Signatur og Prokura i ER">
+
+
+    
+    <title>Signatur og Prokura :: BR dokumentasjon</title>
+    
+    <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
+    <link href="/docs/css/nucleus.css" rel="stylesheet">
+    <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/docs/css/hybrid.css" rel="stylesheet">
+    <link href="/docs/css/featherlight.min.css" rel="stylesheet">
+    <link href="/docs/css/horsey.css" rel="stylesheet">
+    
+    <link href="/docs/css/theme.css" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/docs/css/bootstrap.min.css">
+    <script src="/docs/js/jquery-2.x.min.js"></script>
+    <style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+
+
+
+    
+<link href="/docs/css/altinn.css" rel="stylesheet">
+
+
+
+
+
+
+  </head>
+  <body class="" data-url="/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_signaturprokura/">
+    <nav id="sidebar" class="">
+
+
+
+
+
+<div class="highlightable">
+  <div id="header-wrapper">
+    <div id="header">
+      
+	<p><a href="/docs" title="BR docs"><img src="/docs/images/brreg_logo_hvit.png" alt="BR"> docs</a></p>
+
+
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Søk...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+<script src="/docs/js/lunr.min.js"></script>
+<script src="/docs/js/horsey.js"></script>
+<script>
+    var baseurl = "https:\/\/brreg.github.io\/docs\/";
+</script>
+<script src="/docs/js/search.js"></script>
+
+    
+  </div>
+
+  
+    <ul class="topics">
+        
+        
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/generelt/" class="dd-item
+        
+        
+        parent
+        ">
+      <a href="/docs/generelt/">
+        <span>Generelt</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/generelt/om-dokumentasjonen/" class="dd-item
+     
+      ">
+        <a href="/docs/generelt/om-dokumentasjonen/">
+        <span>Om dokumentasjonen</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/generelt/kontakt-oss/" class="dd-item
+     
+      ">
+        <a href="/docs/generelt/kontakt-oss/">
+        <span>Kontakt oss</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/" class="dd-item
+        
+        
+        parent
+        ">
+      <a href="/docs/apidokumentasjon/">
+        <span>API-dokumentasjon</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/ektepaktregisteret/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/ektepaktregisteret/">
+        <span>Ektepaktregisteret</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/ektepaktregisteret/ektepakt/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/ektepaktregisteret/ektepakt/">
+        <span>Ektepakt knyttet til person</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/ektepaktregisteret/kodeliste/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/ektepaktregisteret/kodeliste/">
+        <span>Kodeliste</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/elektronisk-mottak/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/elektronisk-mottak/">
+        <span>Elektronisk mottak</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/elektronisk-mottak/maskinport-integrasjon/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/elektronisk-mottak/maskinport-integrasjon/">
+        <span>Integrasjon direkte mot BR</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/elektronisk-mottak/maskinport-integrasjon/innsending/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/elektronisk-mottak/maskinport-integrasjon/innsending/">
+        <span>Innsending av meldinger</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/elektronisk-mottak/maskinport-integrasjon/uthenting/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/elektronisk-mottak/maskinport-integrasjon/uthenting/">
+        <span>Uthenting av meldinger</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/elektronisk-mottak/altinn-integrasjon/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/elektronisk-mottak/altinn-integrasjon/">
+        <span>Integrasjon via Altinn</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/enhetsregisteret/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/enhetsregisteret/">
+        <span>Enhetsregisteret</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/foretaksregisteret/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/foretaksregisteret/">
+        <span>Foretaksregisteret</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/integrasjon-maskinporten/mp-integrasjonsveiledning/" class="dd-item
+     
+      ">
+        <a href="/docs/apidokumentasjon/integrasjon-maskinporten/mp-integrasjonsveiledning/">
+        <span>Integrasjon mot Maskinporten</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/losoreregisteret/">
+        <span>Løsøreregisteret</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/itu-utt/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/losoreregisteret/itu-utt/">
+        <span>Intet til utlegg/utleggstrekk (ITU/UTT)</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/itu-utt/distributor/" class="dd-item
+     
+      ">
+        <a href="/docs/apidokumentasjon/losoreregisteret/itu-utt/distributor/">
+        <span>ITU/UTT for distributører</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/itu-utt/kredittopplysningsforetak/" class="dd-item
+     
+      ">
+        <a href="/docs/apidokumentasjon/losoreregisteret/itu-utt/kredittopplysningsforetak/">
+        <span>ITU/UTT for kredittopplysningsforetak</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/kodeliste/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/losoreregisteret/kodeliste/">
+        <span>Kodeliste</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/">
+        <span>Rettsstiftelse</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_generell/" class="dd-item
+     
+      ">
+        <a href="/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_generell/">
+        <span>Generelt - Uthenting av rettsstiftelser</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_kjoretoy/" class="dd-item
+     
+      ">
+        <a href="/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_kjoretoy/">
+        <span>Henting av rettsstiftelser knyttet til kjøretøy</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_orgnr/" class="dd-item
+     
+      ">
+        <a href="/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_orgnr/">
+        <span>Henting av rettsstiftelser knyttet til virksomhet</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_fnr/" class="dd-item
+     
+      ">
+        <a href="/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_fnr/">
+        <span>Henting av rettsstiftelser knyttet til person</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_totalbestand/" class="dd-item
+     
+      ">
+        <a href="/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_totalbestand/">
+        <span>Totalbestand</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_endringslogg/" class="dd-item
+     
+      ">
+        <a href="/docs/apidokumentasjon/losoreregisteret/rettsstiftelse/rettsstiftelse_endringslogg/">
+        <span>Endringslogg</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/reelle-rettighetshavere/">
+        <span>Register over reelle rettighetshavere</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/maskinell-innrapportering/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/reelle-rettighetshavere/maskinell-innrapportering/">
+        <span>Maskinell innrapportering</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/">
+        <span>Tilgjengeliggjøring</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/apier-vi-tilbyr/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/apier-vi-tilbyr/">
+        <span>APIer vi tilbyr</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/apier-vi-tilbyr/virksomheter/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/apier-vi-tilbyr/virksomheter/">
+        <span>Virksomheter</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/tilgang-til-apier/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/tilgang-til-apier/">
+        <span>Tilgang til APIer</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/tilgang-til-apier/hvem-kan-faa-tilgang/" class="dd-item
+     
+      ">
+        <a href="/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/tilgang-til-apier/hvem-kan-faa-tilgang/">
+        <span>Hvem kan få tilgang?</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/tilgang-til-apier/vanlig-direkte-tilgang/" class="dd-item
+     
+      ">
+        <a href="/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/tilgang-til-apier/vanlig-direkte-tilgang/">
+        <span>Vanlig (direkte) tilgang</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/tilgang-til-apier/systemleverandoerer/" class="dd-item
+     
+      ">
+        <a href="/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/tilgang-til-apier/systemleverandoerer/">
+        <span>Systemleverandører</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/maskinporten/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/maskinporten/">
+        <span>Maskinporten</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/maskinporten/hvordan-bruke-maskinporten/" class="dd-item
+     
+      ">
+        <a href="/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/maskinporten/hvordan-bruke-maskinporten/">
+        <span>Hvordan bruke Maskinporten</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/maskinporten/systemleverandoerer/" class="dd-item
+     
+      ">
+        <a href="/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/maskinporten/systemleverandoerer/">
+        <span>Systemleverandører</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/testdata/" class="dd-item
+        
+        
+        parent
+        ">
+      <a href="/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/testdata/">
+        <span>Testdata</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/nyheter-og-driftsmeldinger/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/nyheter-og-driftsmeldinger/">
+        <span>Nyheter og driftsmeldinger</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/" class="dd-item
+        parent
+        
+        parent
+        ">
+      <a href="/docs/informasjonsmodeller/">
+        <span>Informasjonsmodeller</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/ektepaktregisteret/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/informasjonsmodeller/ektepaktregisteret/">
+        <span>Ektepaktregisteret</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/ektepaktregisteret/loesningsmodeller/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/informasjonsmodeller/ektepaktregisteret/loesningsmodeller/">
+        <span>Løsningsmodeller</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/ektepaktregisteret/loesningsmodeller/ektepaktregisteret_loesningsmodell/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/ektepaktregisteret/loesningsmodeller/ektepaktregisteret_loesningsmodell/">
+        <span>Tilgjengeliggjøring</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/docs/informasjonsmodeller/enhetsregisteret/">
+        <span>Enhetsregisteret</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/enhetsregisteret_omarbeidet/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/enhetsregisteret_omarbeidet/">
+        <span>Om arbeidet med forretningsobjektmodeller</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/enhetsregisteret_begrepforretningsmodeller/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/enhetsregisteret_begrepforretningsmodeller/">
+        <span>Begrep for forretningsmodeller for Enhetsregisteret</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/">
+        <span>Forretningsobjektmodeller</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_sentraleopplysninger/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_sentraleopplysninger/">
+        <span>Sentrale opplysninger</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_kontaktinformasjon/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_kontaktinformasjon/">
+        <span>Kontaktinformasjon</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_rollerer/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_rollerer/">
+        <span>Roller i Enhetsregisteret</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_virksomhetensstatus/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_virksomhetensstatus/">
+        <span>Virksomhetens status</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_kontrollansvar/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_kontrollansvar/">
+        <span>Kontrollansvar</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_foretaksgruppe/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_foretaksgruppe/">
+        <span>Foretaksgruppe</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_strukturoffentligforvaltning/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_strukturoffentligforvaltning/">
+        <span>Struktur offentlig forvaltning</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_underenhet/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_underenhet/">
+        <span>Underenhet</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_signaturprokura/" class="dd-item
+     active
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_signaturprokura/">
+        <span>Signatur og Prokura</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/enhetsregisteret_omarbeidetstrukturmodeller/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/enhetsregisteret_omarbeidetstrukturmodeller/">
+        <span>Om arbeidet med strukturmodeller</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/strukturmodeller/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/informasjonsmodeller/enhetsregisteret/strukturmodeller/">
+        <span>Strukturmodeller</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/strukturmodeller/enhetsregisteret_virksomhet/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/strukturmodeller/enhetsregisteret_virksomhet/">
+        <span>Virksomhet</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/strukturmodeller/enhetsregisteret_virksomhetsstruktur/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/strukturmodeller/enhetsregisteret_virksomhetsstruktur/">
+        <span>Virksomhetsstruktur</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/strukturmodeller/enhetsregisteret_kontaktinformasjon/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/strukturmodeller/enhetsregisteret_kontaktinformasjon/">
+        <span>Kontaktinformasjon</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/strukturmodeller/enhetsregisteret_hovedenhetmrolle/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/strukturmodeller/enhetsregisteret_hovedenhetmrolle/">
+        <span>Hovedenhet med roller</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/strukturmodeller/enhetsregisteret_enkeltpersonforetak/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/enhetsregisteret/strukturmodeller/enhetsregisteret_enkeltpersonforetak/">
+        <span>Enkeltpersonforetak i Enhetsregisteret</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/informasjonsmodeller/foretaksregisteret/">
+        <span>Foretaksregisteret</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/foretaksregisteret_omarbeidet/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/foretaksregisteret/foretaksregisteret_omarbeidet/">
+        <span>Om arbeidet med forretningsobjektmodeller</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/">
+        <span>Forretningsobjektmodeller</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/foretaksregisteret_sentraleopplysninger/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/foretaksregisteret_sentraleopplysninger/">
+        <span>Sentrale opplysninger</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/foretaksregisteret_foretaketsstatus/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/foretaksregisteret_foretaketsstatus/">
+        <span>Foretakets status</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/foretaksregisteret_adresseinformasjon/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/foretaksregisteret_adresseinformasjon/">
+        <span>Adresseinformasjon</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/foretaksregisteret_rollerfr/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/foretaksregisteret_rollerfr/">
+        <span>Roller i Foretaksregisteret</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/revisjonsplikt/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/revisjonsplikt/">
+        <span>Revisjonsplikt</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/signaturprokura/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/signaturprokura/">
+        <span>Signatur og prokura</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/kapital/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/foretaksregisteret/forretningsobjektmodeller/kapital/">
+        <span>Kapital</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/foretaksregisteret_omarbeidetstrukturmodeller/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/foretaksregisteret/foretaksregisteret_omarbeidetstrukturmodeller/">
+        <span>Om arbeidet med strukturmodeller</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/strukturmodeller/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/informasjonsmodeller/foretaksregisteret/strukturmodeller/">
+        <span>Strukturmodeller</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/foretaksregisteret/strukturmodeller/foretaksregisteret_enkeltpersonforetak/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/foretaksregisteret/strukturmodeller/foretaksregisteret_enkeltpersonforetak/">
+        <span>Enkeltpersonforetak i Foretaksregisteret</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/loesoereregisteret/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/informasjonsmodeller/loesoereregisteret/">
+        <span>Løsøreregisteret</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/loesoereregisteret/loesningsmodeller/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/informasjonsmodeller/loesoereregisteret/loesningsmodeller/">
+        <span>Løsningsmodeller</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/loesoereregisteret/loesningsmodeller/loesoereregisteret_loesningsmodell_bestand/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/loesoereregisteret/loesningsmodeller/loesoereregisteret_loesningsmodell_bestand/">
+        <span>Endringslogg og totalbestand</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/loesoereregisteret/loesningsmodeller/loesoereregisteret_loesningsmodell_oppslag/" class="dd-item
+     
+      ">
+        <a href="/docs/informasjonsmodeller/loesoereregisteret/loesningsmodeller/loesoereregisteret_loesningsmodell_oppslag/">
+        <span>Oppslag</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/informasjonsmodeller/reelle-rettighetshavere/">
+        <span>Register over reelle rettighetshavere</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/forretningsobjektmodeller/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/informasjonsmodeller/reelle-rettighetshavere/forretningsobjektmodeller/">
+        <span>Forretningsobjektmodell</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="https://brreg.github.io/docs/informasjonsmodeller/reelle-rettighetshavere/strukturmodell/" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs/informasjonsmodeller/reelle-rettighetshavere/strukturmodell/">
+        <span>Strukturmodell</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+        
+
+        
+        
+            
+                <li>
+                    <h3>Lenker</h3>
+                    <a href="https://github.com/brreg/openAPI"><i class='fa fa-fw fa-star'></i> OpenAPI specs (GitHub)</a>
+                    
+                </li>
+            
+                <li>
+                    
+                    <a href="https://github.com/brreg/informasjonsmodeller.git"><i class='fa fa-fw fa-star'></i> Informasjonsmodeller (GitHub)</a>
+                    
+                </li>
+            
+                <li>
+                    
+                    <a href="https://informasjonsforvaltning.github.io/"><i class='fa fa-fw fa-info-circle'></i> Felles datakatalog</a>
+                    
+                </li>
+            
+                <li>
+                    
+                    <a href="https://altinn.github.io/docs/"><i class='fa fa-fw fa-info-circle'></i> Altinn docs</a>
+                    
+                </li>
+            
+                <li>
+                    
+                    <a href="/docs/credits"><i class='fa fa-fw fa-bullhorn'></i> Kred</a>
+                    
+                </li>
+            
+                <li>
+                    
+                    <a href="https://github.com/brreg/docs"><i class='fa fa-fw fa-github'></i> GitHub</a>
+                    
+                </li>
+            
+           
+        
+        
+
+        
+    </ul>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+        
+          <div id="top-bar">
+            
+              
+              
+              
+            <div id="top-github-link">
+              <a class="github-link" href="https://github.com/brreg/docs/blob/master/content/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_signaturProkura.md" target="blank">
+                <i class="fa fa-code-fork"></i>
+                Endre
+              </a>
+            </div>
+              
+            
+
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span id="sidebar-toggle-span">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                  </a>
+                </span>
+                
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                
+                <span class="links">
+                  
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <a href='https://brreg.github.io/docs/'>BR docs</a> > <a href='https://brreg.github.io/docs/informasjonsmodeller/'>Informasjonsmodeller</a> > <a href='https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/'>Enhetsregisteret</a> > <a href='https://brreg.github.io/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/'>Forretningsobjektmodeller</a> > Signatur og Prokura
+
+
+
+
+
+
+
+
+
+
+                </span>
+            </div>
+            
+              <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+            
+          </div>
+        
+        
+        <div id="body-inner">
+          
+            
+              <h1>Signatur og Prokura</h1>
+            
+          
+
+
+
+
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Denne visningen gir en fremstilling av hvordan en virksomhet kan forplikte seg og hvem som kan forplikte virksomheten.</p>
+<p><img src="https://github.com/brreg/informasjonsmodeller/blob/main/enhetsregisteret/forretningsobjektmodeller/signaturProkura.jpg?raw=true" alt="SignProk"></p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+      </div>
+    </div>
+
+    
+ 
+    
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+        
+            <a class="nav nav-prev" href="/docs/informasjonsmodeller/enhetsregisteret/forretningsobjektmodeller/enhetsregisteret_underenhet/" title="Underenhet"> <i class="fa fa-chevron-left"></i></a>
+        
+        
+            <a class="nav nav-next" href="/docs/informasjonsmodeller/enhetsregisteret/enhetsregisteret_omarbeidetstrukturmodeller/" title="Om arbeidet med strukturmodeller" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+    </div>
+
+    </section>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/docs/js/clipboard.min.js"></script>
+    <script src="/docs/js/featherlight.min.js"></script>
+    <script src="/docs/js/html5shiv-printshiv.min.js"></script>
+    <script src="/docs/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/docs/js/modernizr.custom.71422.js"></script>
+    <script src="/docs/js/learn.js"></script>
+    <script src="/docs/js/hugo-learn.js"></script>
+
+    
+    <link href="/docs/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/docs/mermaid/mermaid.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    
+
+    
+
+  </body>
+</html>
+
