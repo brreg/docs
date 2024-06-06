@@ -4,7 +4,7 @@ description: Beskrivelse av hvordan man får tilgang til å sende inn registreri
 weight: 100
 ---
 
-For å kunne rapportere inn reelle rettighetshavere på vegne av dine kunder inn til oss trenger du følgende: 
+For å kunne rapportere inn reelle rettighetshavere på vegne av dine kunder trenger du følgende: 
 1. En `api_klient` hos ID-porten.
 2. Du må registrere ditt datasystem og signere egenerklæring hos Altinn.
 3. Du må bestille tilgang til Altinns REST API. Etter bestilling får du en API-nøkkel, og tilgang til å gi din `api_klient` følgende scopes:
@@ -15,7 +15,7 @@ For å kunne rapportere inn reelle rettighetshavere på vegne av dine kunder inn
 
 ## 1. Sette opp api_klient hos ID-porten
 
-For å lage en integrasjon av typen `api_klient` hos ID-porten anbefaler vi at du gjør det gjennom Digdirs Selvbetjening eller selvbetjenings-API.
+For å lage en integrasjon av typen `api_klient` hos ID-porten anbefaler vi at du gjør det gjennom Digdirs Selvbetjening eller Selvbetjenings-API.
 For mer informasjon, [se Digdirs guide: Registrering av klienter](https://docs.digdir.no/docs/idporten/oidc/oidc_func_clientreg), eller se neste kapittel.
 
 ### Sette opp api_klient via Selvbetjening på Samarbeidsportalen
@@ -50,7 +50,7 @@ Når du har fått tilgang til Altinns REST API skal du:
       * Dette kan du gjøre ved å logge på [Samarbeidsportalen](https://minside-samarbeid.digdir.no/my-organisation/integrations/admin), velg `api_klient`-en du opprettet i listen over integrasjoner, og legg til scopene til klienten.
 
 
-## Jeg har problemer med ID-porten-integrasjonen, registreringen av datasystem hos Altinn eller bestilling av tilgang  til REST API i Altinn
+## Jeg har problemer
 Hvis du har problemer med å registrere en `api_klient` hos ID-porten skal henvendelser i utgangspunktet gå til Digdir.
 Kontakt servicedesk@digdir.no oppgi client_id og miljø og forklar problemet.
 
