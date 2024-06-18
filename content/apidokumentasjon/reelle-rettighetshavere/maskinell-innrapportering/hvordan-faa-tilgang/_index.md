@@ -4,11 +4,14 @@ description: Beskrivelse av hvordan man får tilgang til å sende inn registreri
 weight: 100
 ---
 
-For å kunne rapportere inn reelle rettighetshavere på vegne av dine kunder trenger du følgende: 
-1. En `api_klient` hos ID-porten.
-2. Du må registrere ditt datasystem og signere egenerklæring hos Altinn.
-3. Du må bestille tilgang til Altinns REST API. Etter bestilling får du en API-nøkkel, og tilgang til å gi din `api_klient` følgende scopes:
-   * `altinn:instances.read` og `altinn:instances.write`
+For å kunne rapportere inn reelle rettighetshavere på vegne av dine kunder kan du følge guiden på denne siden:
+<!-- TOC -->
+  * [1. Sette opp api_klient hos ID-porten](#1-sette-opp-api_klient-hos-id-porten)
+    * [Sette opp api_klient via Selvbetjening på Samarbeidsportalen](#sette-opp-api_klient-via-selvbetjening-på-samarbeidsportalen)
+  * [2. Registrere datasystem og signere egenerklæring hos Altinn](#2-registrere-datasystem-og-signere-egenerklæring-hos-altinn)
+  * [3. Bestille tilgang til Altinns REST API](#3-bestille-tilgang-til-altinns-rest-api)
+  * [Jeg har problemer](#jeg-har-problemer)
+<!-- TOC -->
 
 > **_NB!_** Hvis du som sluttbrukersystem har gjort dette tidligere i forbindelse med en annen integrasjon mot ID-porten og Altinn så trenger du **_ikke_** å gjøre det på nytt. Du kan da gjenbruke API-nøkkelen du fikk fra Altinn, og `api_klient`-en du opprettet hos ID-porten. API-klienten må ha tilgang til scopene `altinn:instances.read` og `altinn:instances.write`.  
 
@@ -40,7 +43,7 @@ Dette gjør du ved å:
 1. Gjøre som beskrevet i Steg 1. i [Digdirs guide.](https://altinn.github.io/docs/api/datasystem/)
 
 ## 3. Bestille tilgang til Altinns REST API
-
+Innrapportering gjøres ved API-kall mot vår Altinn APP. For å få lov til dette trenger du tilgang til Altinns REST API.
 Som du også kan lese i [Digdirs guide](https://altinn.github.io/docs/api/datasystem/) kan dette gjøres på [denne lenken.](https://digdir.apps.altinn.no/digdir/be-om-api-nokkel/)
 * [**Se denne PDFen**](Bestill%20tilgang%20til%20REST%20API%20-%20Digitaliseringsdirektoratet.pdf) for å se et eksempel på hva du trenger å fylle ut. 
 

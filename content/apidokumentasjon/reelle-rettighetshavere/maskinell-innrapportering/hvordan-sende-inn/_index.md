@@ -15,7 +15,7 @@ Du kan sende inn registreringer til oss ved å følge stegene på denne siden:
     * [4. Hent prefill-data](#4-hent-prefill-data)
     * [5. Du bygger opp en registrering som JSON i ditt system](#5-du-bygger-opp-en-registrering-som-json-i-ditt-system)
     * [6. Opprett en instans av vårt Altinn skjema](#6-opprett-en-instans-av-vårt-altinn-skjema)
-    * [7. Du setter skjemadata i instansen](#7-du-setter-skjemadata-i-instansen)
+    * [7. Du setter skjemadata på instansen](#7-du-setter-skjemadata-på-instansen)
     * [8. Du går videre til neste prosess](#8-du-går-videre-til-neste-prosess)
       * [8.1 Om du ønsker å hente ut detaljerte feilmeldinger, kan du kalle validate-endepunktet](#81-om-du-ønsker-å-hente-ut-detaljerte-feilmeldinger-kan-du-kalle-validate-endepunktet)
     * [9. Du sender inn skjemaet til Brønnøysundregistrene](#9-du-sender-inn-skjemaet-til-brønnøysundregistrene)
@@ -189,8 +189,7 @@ Vi prefiller alle skjemainstanser med preutfylte data. Alle skjemainstanser blir
 
 **Disse feltene og verdien du henter her _MÅ_ være satt i steget når du setter skjemadataen**
 
-For å forenkle prosessen med å sende inn registreringer nye opplysninger vil virksomheten tidligere har rapportert inn
-opplysninger om reelle rettighetshavere vil skjemainstansen være preutfylt med forrige innrapportere data.
+For å forenkle prosessen med å sende inn nye opplysninger om reelle rettighetshavere vil skjemainstansen være preutfylt med forrige innrapportere data.
 Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på opplysningene, og sende disse inn.
 
 `GET {{altinn-miljø}}/brg/rrh-innrapportering/prefill/{partyId}`
@@ -202,7 +201,7 @@ Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på opp
     "skjemainnhold": {
         "metadata": {
             "tjeneste": "rrh.ktr.reelle",
-            "tjenestehandling": "endring"
+            "tjenestehandling": "nyregistrering"
             "rettighetsinformasjonsid": "RRH202200000008"
             "registreringsid": "1af8df28-1bf4-4f5c-92cd-6b1ecedb2c61"
         },
@@ -215,7 +214,7 @@ Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på opp
 {{< /expandableCode >}}
 
 
-{{< expandableCode title="Respons for en bedrift som har sendt inn registrering fra før" lang="json" >}}
+{{< expandableCode title="Respons for en virksomhet som har sendt inn registrering fra før" lang="json" >}}
 {
     "versjon": "0.0.7",
     "endret": "2024-05-07",
@@ -270,7 +269,7 @@ Se gjerne egen underside <strong>"lenke kommer"</strong> for hvordan du skal byg
 
 
 {{< info >}}
-<strong>Du må alltid ta utgangspunkt i prefilldata når du skal rapportere inn reelle rettighetshavere i ditt sluttbrukersystem!</strong><br>
+<strong>Selv om virksomheten ikke har innrapportert opplysninger om reelle rettighetshavere før, må du alltid ta utgangspunkt i prefilldata når du skal rapportere inn reelle rettighetshavere i ditt sluttbrukersystem!</strong><br> 
 Feltene versjon og endret, samt innholdet i "metadata" som du rapporter inn <strong> må være identisk med innholdet du hentet ut i prefilldataen</strong>.
 {{< /info >}}
 
@@ -291,9 +290,9 @@ Kommer
 {{< /expandableCode >}}
 
 
-### 7. Du setter skjemadata i instansen
+### 7. Du setter skjemadata på instansen
 
-Du må nå sette skjemadaten, som du opprettet i steg 5., i instansen. Dette gjør du ved å kalle dette endepunktet:
+Du må nå sette skjemadata som du opprettet i steg 5 på instansen. Dette gjør du ved å kalle dette endepunktet:
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{partyId}}/{{skjema_instans_id}}/data/{{skjema_instans_data_id}}?dataType=Brønnøysundregistrene_ReelleRettighetshavere_M`
 * Her må du bruke `skjema_instans_id` og `skjema_instans_data_id` fra forrige API-kall.
 
@@ -315,4 +314,4 @@ Dette sender også inn skjemaet inn til oss. Dette gjør du ved å kalle endepun
 
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next?elementId=BREnd`
 
-Du har nå sendt inn en registrering(en instans av altinnskjemaet) inn til oss!
+Du har nå sendt inn skjemaet til Brønnøysundregistrene!
