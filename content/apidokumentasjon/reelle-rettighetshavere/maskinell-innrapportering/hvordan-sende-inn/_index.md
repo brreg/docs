@@ -304,9 +304,6 @@ Du kan gå til neste prosess ved å kalle endepunktet:
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next`
 * Om skjemaet inneholder feil, vil du få feilmelding.
 
-#### 8.1 Om du ønsker å hente ut detaljerte feilmeldinger, kan du kalle validate-endepunktet
-Trenger vi dette? Mulig vi kan returnere feilmelding i respons i "neste Prosess"-steget?
-
 ### 9. Du sender inn skjemaet til Brønnøysundregistrene
 
 Om du ikke fikk noen feilmeldinger i forrige steg, kan du gå til neste prosess, BrEnd, som avslutter instansen.
