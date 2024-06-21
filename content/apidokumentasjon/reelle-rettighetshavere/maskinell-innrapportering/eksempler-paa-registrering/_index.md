@@ -16,11 +16,11 @@ weight: 200
 
 ### Brukerreise
 
-Ole Olsen er eneaksjonær i Snekkeren AS, og har fått brev fra Register over reelle rettighetshavere om at virksomheten må registrere sine reelle rettighetshavere. Virksomheten har et sluttbrukersystem som har implementert muligheter for maskinell innrapportering.
+Ole Olsen er eneaksjonær i Snekkeren AS. Han har fått et brev fra Register over reelle rettighetshavere om at virksomheten må registrere sine reelle rettighetshavere. Virksomheten har et sluttbrukersystem som har implementert muligheter for maskinell innrapportering.
 
 ### Hva skal virksomheten gjøre?
 
-Ole Olsen logger seg inn på sitt sluttbrukersystem, sørger for at han rapporterer for Snekkeren AS, og finner innsending av reelle rettighetshavere. Han skal fylle ut følgende:
+Ole Olsen logger seg inn på virksomhetens sluttbrukersystem, sørger for at han rapporterer for Snekkeren AS, og finner innsending av reelle rettighetshavere. Han fyller ut følgende:
 
 * Virksomheten har reelle rettighetshavere
 * Oppgi fødselsnummer til Ole Olsen
@@ -37,10 +37,10 @@ Ole Olsen logger seg inn på sitt sluttbrukersystem, sørger for at han rapporte
 ## Eksempel 2: To reelle rettighetshavere i et AS, en norsk og en utenlandsk {#eksempel2}
 
 ### Brukerreise
-Ole Olsen og Svante Turesson (er svensk, men har både svensk og amerikansk statsborgerskap) eier 50% hver i Snekkeren AS, og virksomheten har fått brev fra Register over reelle rettighetshavere om at virksomheten må registrere sine reelle rettighetshavere. Virksomheten har et sluttbrukersystem som har implementert muligheter for maskinell innrapportering.
+Ole Olsen, som er norsk, og Svante Turesson, som er svensk med svensk og amerikansk statsborgerskap, eier 50% hver i Snekkeren AS. Virksomheten har fått brev fra Register over reelle rettighetshavere om at de må registrere sine reelle rettighetshavere. Virksomheten har et sluttbrukersystem som har implementert muligheter for maskinell innrapportering.
 
 ### Hva skal virksomheten gjøre?
-Ole Olsen eller Gill Bates logger seg inn på sitt sluttbrukersystem, sørger for at de rapporterer for Snekkeren AS, og finner innsending av reelle rettighetshavere. De skal fylle ut følgende før innsending:
+Ole Olsen eller Svante Turesson logger seg inn på virksomhetens sluttbrukersystem, sørger for at de rapporterer for Snekkeren AS, og finner innsending av reelle rettighetshavere. De fyller ut følgende før innsending:
 
 * Virksomheten har reelle rettighetshavere
 * Oppgi fødselsnummer til Ole Olsen
@@ -62,10 +62,10 @@ Ole Olsen eller Gill Bates logger seg inn på sitt sluttbrukersystem, sørger fo
 
 ## Eksempel 3: En reell rettighetshaver med to mellomliggende virksomheter (norsk og utenlandsk) {#eksempel3}
 ### Brukerreise
-Ole Olsen er indirekte eier i Snekkeren AS fordi han eier 60% av aksjene i både Trelast AS og Woods AB. Resterende 40 % av aksjene i virksomhetene er eid av ansatte som har under 25 % hver.
+Ole Olsen er indirekte eier i Snekkeren AS fordi han eier 60% av aksjene i både Trelast AS og Woods AB. De resterende 40 % av aksjene i virksomhetene er eid av ansatte som har under 25 % hver. Virksomheten har et sluttbrukersystem som har implementert muligheter for maskinell innrapportering.
 
 ### Hva skal virksomheten gjøre?
-Ole Olsen logger seg inn på sitt sluttbrukersystem, sørger for at han rapporterer for Snekkeren AS, og finner innsending av reelle rettighetshavere. Han skal fylle ut følgende:
+Ole Olsen logger seg inn på virksomhetens sluttbrukersystem, sørger for at han rapporterer for Snekkeren AS, og finner innsending av reelle rettighetshavere. Han fyller ut følgende:
 
 * Virksomheten har reelle rettighetshavere
 * Oppgi fødselsnummer til Ole Olsen
@@ -99,10 +99,10 @@ Ole Olsen logger seg inn på sitt sluttbrukersystem, sørger for at han rapporte
 
 ## Eksempel 5: Fem reelle rettighetshavere som eier 20% hver {#eksempel5}
 ### Brukerreise
-Ole Olsen, Svante Sturesson, Bente Hansen, Hilde Knutsen og Sølvi Person eier 20% hver av aksjene i Snekkeren AS, og det foreligger ingen interne avtaler som gjør at noen av dem har større stemmerett enn andre aksjeeiere.
+Ole Olsen, Svante Sturesson, Bente Hansen, Hilde Knutsen og Sølvi Person eier 20% hver av aksjene i Snekkeren AS. Det foreligger ingen interne avtaler som gir noen av dem har større stemmerett enn andre aksjeeiere. Virksomheten har et sluttbrukersystem som har implementert muligheter for maskinell innrapportering.
 
 ### Hva skal virksomheten gjøre?
-En av de som har tilgang til virksomheten sitt sluttbrukersystem logger seg inn, sørger for at han/hun rapporterer for Snekkeren AS, finner innsending av reelle rettighetshavere, og fyller ut følgende:
+En med tilgang til virksomhetens sluttbrukersystem logger seg inn, sørger for at han/hun rapporterer for Snekkeren AS, finner innsending av reelle rettighetshavere, og fyller ut følgende:
 
 * Virksomheten har ikke reelle rettighetshavere
 
