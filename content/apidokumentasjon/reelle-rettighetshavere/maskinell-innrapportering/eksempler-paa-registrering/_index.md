@@ -28,7 +28,45 @@ Ole Olsen er eneaksjonær i Snekkeren AS, og har fått brev fra Register over re
 
 {{< expandableCode title="JSON-eksempel" lang="json" >}}
 {
-    "eksempel": "kommer"
+  "skjemadata": {
+    "registreringspliktigVirksomhet": {
+      "organisasjonsnummer": "313976769"
+    },
+    "reelleRettighetshavereidentifikasjon": "reellerettighetshavereidentifikasjon.harReelleRettighetshavere",
+    "aarsakTilAtVirksomhetIkkeHarReelleRettighetshavere": null,
+    "finnesDetReelleRettighetshavereITilleggTilRolleinnehavereForStiftelse": null,
+    "reellRettighetshaver": [
+      {
+        "erRegistrertIFolkeregisteret": true,
+        "folkeregistrertPerson": {
+          "foedselsEllerDNummer": "20825796305"
+        },
+        "utenlandskPerson": null,
+        "harPosisjonEierskap": true,
+        "posisjonEierskap": {
+          "stoerrelsesintervall": "stoerrelsesintervall.intervall3",
+          "grunnlag": "grunnlagstype.direkte",
+          "mellomliggendeVirksomhet": []
+        },
+        "harPosisjonKontrollOverStemmerettigheter": false,
+        "posisjonKontrollOverStemmerettigheter": null,
+        "harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene": false,
+        "grunnlagForPosisjonenRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene": null,
+        "harPosisjonKontrollPaaAnnenMaate": null,
+        "beskrivelseAvPosisjonenKontrollPaaAnnenMaate": null,
+        "harPosisjonAvgittGrunnkapital": false,
+        "harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene": false,
+        "harPosisjonDestinatar": false,
+        "harPosisjonSaerligeRettigheter": false
+      }
+    ],
+    "kanIkkeIdentifisereFlereReelleRettighetshavere": false,
+    "erVirksomhetRegistrertPaaRegulertMarked": null,
+    "regulertMarked": null,
+    "erReelleRettighetshavereRegistrertIUtenlandskRegister": null,
+    "utenlandskRegister": null,
+    "rolleinnehaver": []
+  }
 }
 {{< /expandableCode >}}
 
