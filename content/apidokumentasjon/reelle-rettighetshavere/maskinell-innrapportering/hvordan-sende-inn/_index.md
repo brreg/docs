@@ -260,7 +260,7 @@ Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på opp
 }
 {{< /expandableCode >}}
 
-### 5. Du bygger opp en opplysninger om Reelle rettighetshavere som JSON i ditt system
+### 5. Du bygger opp opplysninger om Reelle rettighetshavere som JSON i ditt system
 
 {{< info >}}
 Se gjerne egen underside <strong>"lenke kommer"</strong> for hvordan du skal bygge opp JSON.
