@@ -1,15 +1,25 @@
 ---
-title: Eksempler på en registrering
+title: Eksempler
 description: Eksempler på hvordan en registrering kan se ut
 weight: 200
 ---
 
 <!-- TOC -->
-* [Eksempel 1: Eneaksjonær i et AS](#eksempel1)
-* [Eksempel 2: To reelle rettighetshavere i et AS, en norsk og en utenlandsk](#eksempel2)
-* [Eksempel 3: En reell rettighetshaver med to mellomliggende virksomheter (norsk og utenlandsk)](#eksempel3)
-* [Eksempel 4: Fire reelle rettighetshavere med hver sin posisjon](#eksempel4)
-* [Eksempel 5: Fem reelle rettighetshavere som eier 20% hver](#eksempel5)
+  * [Eksempel 1: Eneaksjonær i et AS {#eksempel1}](#eksempel-1-eneaksjonær-i-et-as-eksempel1)
+    * [Brukerreise](#brukerreise)
+    * [Hva skal virksomheten registrere?](#hva-skal-virksomheten-registrere)
+  * [Eksempel 2: To reelle rettighetshavere i et AS, en norsk og en utenlandsk {#eksempel2}](#eksempel-2-to-reelle-rettighetshavere-i-et-as-en-norsk-og-en-utenlandsk-eksempel2)
+    * [Brukerreise](#brukerreise-1)
+    * [Hva skal virksomheten registrere?](#hva-skal-virksomheten-registrere-1)
+  * [Eksempel 3: En reell rettighetshaver med to mellomliggende virksomheter (norsk og utenlandsk) {#eksempel3}](#eksempel-3-en-reell-rettighetshaver-med-to-mellomliggende-virksomheter-norsk-og-utenlandsk-eksempel3)
+    * [Brukerreise](#brukerreise-2)
+    * [Hva skal virksomheten registrere?](#hva-skal-virksomheten-registrere-2)
+  * [Eksempel 4: Fire reelle rettighetshavere med hver sin posisjon {#eksempel4}](#eksempel-4-fire-reelle-rettighetshavere-med-hver-sin-posisjon-eksempel4)
+    * [Brukerreise](#brukerreise-3)
+    * [Hva skal virksomheten registrere?](#hva-skal-virksomheten-registrere-3)
+  * [Eksempel 5: Fem reelle rettighetshavere som eier 20% hver {#eksempel5}](#eksempel-5-fem-reelle-rettighetshavere-som-eier-20-hver-eksempel5)
+    * [Brukerreise](#brukerreise-4)
+    * [Hva skal virksomheten gjøre?](#hva-skal-virksomheten-gjøre)
 <!-- TOC -->
 
 ## Eksempel 1: Eneaksjonær i et AS {#eksempel1}

@@ -1,5 +1,5 @@
 ---
-title: Hvordan sende inn registreringer
+title: Innsending av Altinn-skjema
 description: Beskrivelse av hvordan man sender inn registreringer som tredjeleverandør.
 weight: 100
 ---
@@ -17,7 +17,6 @@ Du kan sende inn registreringer til oss ved å følge stegene på denne siden:
     * [6. Opprett en instans av vårt Altinn skjema](#6-opprett-en-instans-av-vårt-altinn-skjema)
     * [7. Du setter skjemadata på instansen](#7-du-setter-skjemadata-på-instansen)
     * [8. Du går videre til neste prosess](#8-du-går-videre-til-neste-prosess)
-      * [8.1 Om du ønsker å hente ut detaljerte feilmeldinger, kan du kalle validate-endepunktet](#81-om-du-ønsker-å-hente-ut-detaljerte-feilmeldinger-kan-du-kalle-validate-endepunktet)
     * [9. Du sender inn skjemaet til Brønnøysundregistrene](#9-du-sender-inn-skjemaet-til-brønnøysundregistrene)
 <!-- TOC -->
 

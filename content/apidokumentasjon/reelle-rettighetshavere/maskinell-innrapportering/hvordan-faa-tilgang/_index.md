@@ -1,7 +1,7 @@
 ---
-title: Hvordan få tilgang som sluttbrukersystem?
+title: Tilgang
 description: Beskrivelse av hvordan man får tilgang til å sende inn registreringer som tredjeleverandør.
-weight: 100
+weight: 10
 ---
 
 For å kunne rapportere inn reelle rettighetshavere på vegne av dine kunder kan du følge guiden på denne siden:
