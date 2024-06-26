@@ -4,7 +4,7 @@ description: Beskrivelse av hvordan man får tilgang til å sende inn registreri
 weight: 10
 ---
 
-For å kunne rapportere inn reelle rettighetshavere på vegne av dine kunder kan du følge guiden på denne siden:
+For å kunne rapportere inn opplysninger om Reelle rettighetshavere på vegne av dine kunder kan du følge guiden på denne siden:
 <!-- TOC -->
   * [1. Sette opp api_klient hos ID-porten](#1-sette-opp-api_klient-hos-id-porten)
     * [Sette opp api_klient via Selvbetjening på Samarbeidsportalen](#sette-opp-api_klient-via-selvbetjening-på-samarbeidsportalen)

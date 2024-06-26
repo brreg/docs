@@ -4,7 +4,7 @@ description: Beskrivelse av hvordan man sender inn registreringer som tredjeleve
 weight: 100
 ---
 
-Du kan sende inn registreringer til oss ved å følge stegene på denne siden:
+Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere til oss ved å følge stegene på denne siden:
 <!-- TOC -->
   * [ID-porten](#id-porten)
     * [1. Sende sluttbruker til ID-porten](#1-sende-sluttbruker-til-id-porten)
@@ -12,11 +12,11 @@ Du kan sende inn registreringer til oss ved å følge stegene på denne siden:
     * [2. Veksle inn ID-porten-tokenet til et Altinn-token](#2-veksle-inn-id-porten-tokenet-til-et-altinn-token)
   * [API-kall mot Altinn APP](#api-kall-mot-altinn-app)
     * [3. Hent partyId til virksomheten](#3-hent-partyid-til-virksomheten)
-    * [4. Hent prefill-data](#4-hent-prefill-data)
-    * [5. Du bygger opp en registrering som JSON i ditt system](#5-du-bygger-opp-en-registrering-som-json-i-ditt-system)
-    * [6. Opprett en instans av vårt Altinn skjema](#6-opprett-en-instans-av-vårt-altinn-skjema)
-    * [7. Du setter skjemadata på instansen](#7-du-setter-skjemadata-på-instansen)
-    * [8. Du går videre til neste prosess](#8-du-går-videre-til-neste-prosess)
+    * [4. Hent preutfylte skjemadata](#4-hent-preutfylte-skjemadata)
+    * [5. Du bygger opp en opplysninger om Reelle rettighetshavere som JSON i ditt system](#5-du-bygger-opp-en-opplysninger-om-reelle-rettighetshavere-som-json-i-ditt-system)
+    * [6. Opprett en instans av vårt Altinn-skjema](#6-opprett-en-instans-av-vårt-altinn-skjema)
+    * [7. Du setter opplysninger om Reelle rettighetshavere som skjemadata på instansen (som du bygget opp i steg 5.)](#7-du-setter-opplysninger-om-reelle-rettighetshavere-som-skjemadata-på-instansen-som-du-bygget-opp-i-steg-5)
+    * [8. Du går videre til neste prosess (Validering av skjema)](#8-du-går-videre-til-neste-prosess-validering-av-skjema)
     * [9. Du sender inn skjemaet til Brønnøysundregistrene](#9-du-sender-inn-skjemaet-til-brønnøysundregistrene)
 <!-- TOC -->
 
@@ -179,7 +179,7 @@ organisasjonsnummeret du skal sende inn for. Du trenger partyId i alle resterend
 ]
 {{< /expandableCode >}}
 
-### 4. Hent prefill-data
+### 4. Hent preutfylte skjemadata
 
 Vi prefiller alle skjemainstanser med preutfylte data. Alle skjemainstanser blir preutfylt med:
 
@@ -260,7 +260,7 @@ Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på opp
 }
 {{< /expandableCode >}}
 
-### 5. Du bygger opp en registrering som JSON i ditt system
+### 5. Du bygger opp en opplysninger om Reelle rettighetshavere som JSON i ditt system
 
 {{< info >}}
 Se gjerne egen underside <strong>"lenke kommer"</strong> for hvordan du skal bygge opp JSON.
@@ -274,7 +274,7 @@ Feltene versjon og endret, samt innholdet i "metadata" som du rapporter inn <str
 
 Når du har ferdigstilt registreringen som JSON kan du sende denne inn til oss.
 
-### 6. Opprett en instans av vårt Altinn skjema
+### 6. Opprett en instans av vårt Altinn-skjema
 
 Med en ferdigstilt registrering kan du sende denne inn til oss.
 Første steg er å opprette en instans av vårt Altinn-skjema. Dette gjør du med følgende API-kall:
@@ -289,13 +289,13 @@ Kommer
 {{< /expandableCode >}}
 
 
-### 7. Du setter skjemadata på instansen
+### 7. Du setter opplysninger om Reelle rettighetshavere som skjemadata på instansen (som du bygget opp i steg 5.)
 
 Du må nå sette skjemadata som du opprettet i steg 5 på instansen. Dette gjør du ved å kalle dette endepunktet:
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{partyId}}/{{skjema_instans_id}}/data/{{skjema_instans_data_id}}?dataType=Brønnøysundregistrene_ReelleRettighetshavere_M`
 * Her må du bruke `skjema_instans_id` og `skjema_instans_data_id` fra forrige API-kall.
 
-### 8. Du går videre til neste prosess
+### 8. Du går videre til neste prosess (Validering av skjema)
 
 Du kan nå gå videre til neste prosess i Altinn. Dette fører til at skjemadataen du har satt blir validert, og at skjemaet blir klargjort for innsending.
 Du kan gå til neste prosess ved å kalle endepunktet:
