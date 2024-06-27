@@ -6,6 +6,7 @@ weight: 100
 
 Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere til oss ved å følge stegene på denne siden:
 <!-- TOC -->
+  * [Sekvensdiagram](#sekvensdiagram)
   * [ID-porten](#id-porten)
     * [1. Sende sluttbruker til ID-porten](#1-sende-sluttbruker-til-id-porten)
   * [Veksle inn Altinn-token](#veksle-inn-altinn-token)
@@ -13,12 +14,17 @@ Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere t
   * [API-kall mot Altinn APP](#api-kall-mot-altinn-app)
     * [3. Hent partyId til virksomheten](#3-hent-partyid-til-virksomheten)
     * [4. Hent preutfylte skjemadata](#4-hent-preutfylte-skjemadata)
-    * [5. Du bygger opp en opplysninger om Reelle rettighetshavere som JSON i ditt system](#5-du-bygger-opp-en-opplysninger-om-reelle-rettighetshavere-som-json-i-ditt-system)
+    * [5. Du bygger opp opplysninger om Reelle rettighetshavere som JSON i ditt system](#5-du-bygger-opp-opplysninger-om-reelle-rettighetshavere-som-json-i-ditt-system)
     * [6. Opprett en instans av vårt Altinn-skjema](#6-opprett-en-instans-av-vårt-altinn-skjema)
     * [7. Du setter opplysninger om Reelle rettighetshavere som skjemadata på instansen (som du bygget opp i steg 5.)](#7-du-setter-opplysninger-om-reelle-rettighetshavere-som-skjemadata-på-instansen-som-du-bygget-opp-i-steg-5)
     * [8. Du går videre til neste prosess (Validering av skjema)](#8-du-går-videre-til-neste-prosess-validering-av-skjema)
     * [9. Du sender inn skjemaet til Brønnøysundregistrene](#9-du-sender-inn-skjemaet-til-brønnøysundregistrene)
 <!-- TOC -->
+
+
+## Sekvensdiagram
+
+![Sekvensdiagram](sekvensdiagram_minn.png)
 
 ## ID-porten
 
