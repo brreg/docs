@@ -19,7 +19,7 @@ weight: 200
     * [Hvilke opplysninger skal sendes inn?](#hvilke-opplysninger-skal-sendes-inn-3)
   * [Eksempel 5: Fem reelle rettighetshavere som eier 20% hver](#eksempel5)
     * [Brukerreise](#brukerreise-4)
-    * [Hva skal virksomheten gjøre?](#hvilke-opplysninger-skal-sendes-inn-4)
+    * [Hvilke opplysninger skal sendes inn?](#hvilke-opplysninger-skal-sendes-inn-4)
 <!-- TOC -->
 
 ## Eksempel 1: Eneaksjonær i et AS {#eksempel1}
