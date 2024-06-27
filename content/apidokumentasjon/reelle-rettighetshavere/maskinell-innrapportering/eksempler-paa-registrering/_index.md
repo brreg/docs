@@ -5,24 +5,24 @@ weight: 200
 ---
 
 <!-- TOC -->
-  * [Eksempel 1: Eneaksjonær i et AS](#eksempel1)
+  * [Eksempel 1: Eneaksjonær i et AS](#eksempel-1-eneaksjonær-i-et-as)
     * [Brukerreise](#brukerreise)
     * [Hvilke opplysninger skal sendes inn?](#hvilke-opplysninger-skal-sendes-inn)
-  * [Eksempel 2: To reelle rettighetshavere i et AS, en norsk og en utenlandsk](#eksempel2)
+  * [Eksempel 2: To reelle rettighetshavere i et AS, en norsk og en utenlandsk](#eksempel-2-to-reelle-rettighetshavere-i-et-as-en-norsk-og-en-utenlandsk)
     * [Brukerreise](#brukerreise-1)
     * [Hvilke opplysninger skal sendes inn?](#hvilke-opplysninger-skal-sendes-inn-1)
-  * [Eksempel 3: En reell rettighetshaver med en mellomliggende virksomhet](#eksempel3)
+  * [Eksempel 3: En reell rettighetshaver med en mellomliggende virksomhet](#eksempel-3-en-reell-rettighetshaver-med-en-mellomliggende-virksomhet)
     * [Brukerreise](#brukerreise-2)
     * [Hvilke opplysninger skal sendes inn?](#hvilke-opplysninger-skal-sendes-inn-2)
-  * [Eksempel 4: Fire reelle rettighetshavere med hver sin posisjon](#eksempel4)
+  * [Eksempel 4: Fire reelle rettighetshavere med hver sin posisjon](#eksempel-4-fire-reelle-rettighetshavere-med-hver-sin-posisjon)
     * [Brukerreise](#brukerreise-3)
     * [Hvilke opplysninger skal sendes inn?](#hvilke-opplysninger-skal-sendes-inn-3)
-  * [Eksempel 5: Fem reelle rettighetshavere som eier 20% hver](#eksempel5)
+  * [Eksempel 5: Fem reelle rettighetshavere som eier 20% hver](#eksempel-5-fem-reelle-rettighetshavere-som-eier-20-hver)
     * [Brukerreise](#brukerreise-4)
     * [Hvilke opplysninger skal sendes inn?](#hvilke-opplysninger-skal-sendes-inn-4)
 <!-- TOC -->
 
-## Eksempel 1: Eneaksjonær i et AS {#eksempel1}
+## Eksempel 1: Eneaksjonær i et AS
 
 ### Brukerreise
 
@@ -86,7 +86,7 @@ Snekkeren AS, og finner innsending av reelle rettighetshavere.
 }
 {{< /expandableCode >}}
 
-## Eksempel 2: To reelle rettighetshavere i et AS, en norsk og en utenlandsk {#eksempel2}
+## Eksempel 2: To reelle rettighetshavere i et AS, en norsk og en utenlandsk
 
 ### Brukerreise
 Ole Olsen og Svante Turesson (er svensk, men har både svensk og amerikansk statsborgerskap) eier 50% hver i 
@@ -115,7 +115,7 @@ for Snekkeren AS, og finner innsending av reelle rettighetshavere.
 }
 {{< /expandableCode >}}
 
-## Eksempel 3: En reell rettighetshaver med en mellomliggende virksomhet {#eksempel3}
+## Eksempel 3: En reell rettighetshaver med en mellomliggende virksomhet
 
 ### Brukerreise
 Ole Olsen er indirekte eier i Snekkeren AS fordi han eier 60% av aksjene i Trelast AS. Resterende 40 % av aksjene i 
@@ -188,7 +188,7 @@ at han rapporterer for Snekkeren AS, og finner innsending av reelle rettighetsha
 {{< /expandableCode >}}
 
 
-## Eksempel 4: Fire reelle rettighetshavere med hver sin posisjon {#eksempel4}
+## Eksempel 4: Fire reelle rettighetshavere med hver sin posisjon
 
 ### Brukerreise
 Snekkeren AS har fire reelle rettighetshavere som har hver sin posisjon. Ole Olsen eier 26% av aksjene, Hans Hansen 
@@ -221,7 +221,7 @@ rettighetshavere.
 {{< /expandableCode >}}
 
 
-## Eksempel 5: Fem reelle rettighetshavere som eier 20% hver {#eksempel5}
+## Eksempel 5: Fem reelle rettighetshavere som eier 20% hver
 ### Brukerreise
 Ole Olsen, Svante Sturesson, Bente Hansen, Hilde Knutsen og Sølvi Person eier 20% hver av aksjene i Snekkeren AS, og 
 det foreligger ingen interne avtaler som gjør at noen av dem har større stemmerett enn andre aksjeeiere. En av de som 

@@ -206,7 +206,7 @@ Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på opp
     "skjemainnhold": {
         "metadata": {
             "tjeneste": "rrh.ktr.reelle",
-            "tjenestehandling": "nyregistrering"
+            "tjenestehandling": "nyregistrering",
             "rettighetsinformasjonsid": "RRH202200000008"
             "registreringsid": "1af8df28-1bf4-4f5c-92cd-6b1ecedb2c61"
         },
@@ -221,66 +221,73 @@ Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på opp
 
 {{< expandableCode title="Respons for en virksomhet som har sendt inn registrering fra før" lang="json" >}}
 {
-    "versjon": "0.0.7",
-    "endret": "2024-05-07",
-    "skjemainnhold": {
-        "metadata": {
-            "tjeneste": "rrh.ktr.reelle",
-            "tjenestehandling": "endring"
-            "rettighetsinformasjonsid": "RRH202200000008"
-            "registreringsid": "1af8df28-1bf4-4f5c-92cd-6b1ecedb2c61"
-        },
-        "integrasjon": {
-            "hfHentPreutfyllingFeilet": false,
-            "hfHentRollerFeilet": null
-        },
-        "skjemadata": {
-            "rettighetsinformasjonsid": "RRH202300000007",
-            "registreringsid": "9af8df28-1bf4-4f5c-92cd-6b1ecedb2c68",
-            "endret": "2023-12-01T13:30:42.896Z",
-            "registreringspliktigVirksomhet": {
-                "organisasjonsnummer": "310211036",
-                "hfSoekOrganisasjonsnummerFeilkode": null,
-                "hfNavn": "POMPØS KNUSLETE LEOPARD ASA",
-                "hfOrganisasjonsform": "ASA",
-                "hfForretningsadresse": null,
-                "hfNavnPaaHovedvirksomhetRegistrertIEoes": null,
-                "hfLandnavnForHovedvirksomhetRegistrertIEoes": null
-            },
-            "reelleRettighetshavereidentifikasjon": null,
-            "aarsakTilAtVirksomhetIkkeHarReelleRettighetshavere": null,
-            "finnesDetReelleRettighetshavereITilleggTilRolleinnehavereForStiftelse": null,
-            "reellRettighetshaver": [],
-            "kanIkkeIdentifisereFlereReelleRettighetshavere": null,
-            "erVirksomhetRegistrertPaaRegulertMarked": true,
-            "regulertMarked": {
-                "markedstype": "markedstype.euronextOslo",
-                "hfLandnavn": "Norge",
-                "hfInternettadresse": "https://www.euronext.com/nb/markets/oslo"
-            },
-            "erReelleRettighetshavereRegistrertIUtenlandskRegister": null,
-            "utenlandskRegister": null,
-            "rolleinnehaver": []
+  "versjon": "0.0.7",
+  "endret": "2024-05-07",
+  "skjemainnhold": {
+    "metadata": {
+      "tjeneste": "rrh.ktr.reelle",
+      "tjenestehandling": "endring",
+      "rettighetsinformasjonsid": "RRH202300000020",
+      "registreringsid": "cace0a64-cf41-4c33-af37-a6f16aa9e356"
+    },
+    "fagsystem": {
+      "organisasjonsnummer": "313496058",
+      "navn": "Sluttbrukersystem sitt navn"
+    },
+    "skjemadata": {
+      "registreringspliktigVirksomhet": {
+        "organisasjonsnummer": "311780352"
+      },
+      "reelleRettighetshavereidentifikasjon": "reellerettighetshavereidentifikasjon.harReelleRettighetshavere",
+      "reellRettighetshaver": [
+        {
+          "erRegistrertIFolkeregisteret": true,
+          "folkeregistrertPerson": {
+            "foedselsEllerDNummer": "05910298382"
+          },
+          "harPosisjonEierskap": true,
+          "posisjonEierskap": {
+            "stoerrelsesintervall": "stoerrelsesintervall.intervall3",
+            "grunnlag": "grunnlagstype.direkte",
+            "mellomliggendeVirksomhet": []
+          },
+          "harPosisjonKontrollOverStemmerettigheter": false,
+          "harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene": false,
+          "harPosisjonAvgittGrunnkapital": false,
+          "harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene": false,
+          "harPosisjonDestinatar": false,
+          "harPosisjonSaerligeRettigheter": false
         }
+      ],
+      "kanIkkeIdentifisereFlereReelleRettighetshavere": false,
+      "rolleinnehaver": []
     }
+  }
 }
 {{< /expandableCode >}}
 
 ### 5. Du bygger opp opplysninger om Reelle rettighetshavere som JSON i ditt system
 
 {{< info >}}
-Se gjerne egen underside <strong>"lenke kommer"</strong> for hvordan du skal bygge opp JSON.
+Vi jobber med en side som forklarer hvilke felter som skal settes når. <strong>"Lenke kommer"</strong>.
 {{< /info >}}
 
+Se gjerne [siden med eksempler](../eksempler-paa-registrering) for å se eksempler på ferdigutfylte JSON-opplysninger.  
+
+For å teste hvordan ulike kombinasjoner av reelle rettighetshavere skal settes, kan du manuelt fylle disse ut i vårt Altinn-skjema på TT02. 
+Etterpå kan du maskinelt hente ut preutfylte skjemadata ([steg 4.](#4-hent-preutfylte-skjemadata)), og se hvordan opplysningene ser ut i JSON.
 
 {{< info >}}
 <strong>Selv om virksomheten ikke har innrapportert opplysninger om reelle rettighetshavere før, må du alltid ta utgangspunkt i prefilldata når du skal rapportere inn reelle rettighetshavere i ditt sluttbrukersystem!</strong><br> 
 Feltene versjon og endret, samt innholdet i "metadata" som du rapporter inn <strong> må være identisk med innholdet du hentet ut i prefilldataen</strong>.
 {{< /info >}}
 
-Når du har ferdigstilt registreringen som JSON kan du sende denne inn til oss.
+Når du har ferdigstilt opplysningene som JSON kan du gå videre til neste steg.
 
 ### 6. Opprett en instans av vårt Altinn-skjema
+{{< warning >}}
+Hvis det har tatt tid å fylle ut opplysninger kan det hende at Altinn-tokenet har gått ut. Da må du gjenta steg 1. og steg 2., slik at du får et gyldig Altinn-token.
+{{< /warning >}}
 
 Med en ferdigstilt registrering kan du sende denne inn til oss.
 Første steg er å opprette en instans av vårt Altinn-skjema. Dette gjør du med følgende API-kall:
