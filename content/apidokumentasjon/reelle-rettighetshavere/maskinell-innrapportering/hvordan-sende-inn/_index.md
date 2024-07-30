@@ -187,19 +187,19 @@ organisasjonsnummeret du skal sende inn for. Du trenger partyId i alle resterend
 
 ### 4. Hent preutfylte skjemadata
 
-Vi prefiller alle skjemainstanser med preutfylte data. Alle skjemainstanser blir preutfylt med:
+Vi forhåndsutfyller alle skjemainstanser med preutfylte data. Alle skjemainstanser blir preutfylt med:
 
 * rettighetsinformasjonsid
 * registreringsid
 
-**Disse feltene og verdien du henter her _MÅ_ være satt i steget når du setter skjemadataen**
+**Disse feltene og verdiene du henter her _MÅ_ være satt i steget når du setter skjemadataen**
 
-For å forenkle prosessen med å sende inn nye opplysninger om reelle rettighetshavere vil skjemainstansen være preutfylt med forrige innrapportere data.
+For å forenkle prosessen med å sende inn nye opplysninger om reelle rettighetshavere vil skjemainstansen være preutfylt med forrige innrapporterte data.
 Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på opplysningene, og sende disse inn.
 
 `GET {{altinn-miljø}}/brg/rrh-innrapportering/prefill/{partyId}`
 
-{{< expandableCode title="Eksempel på prefilldata for en virskomhet som aldri har rapportert inn reelle rettighetshavere" lang="json" >}}
+{{< expandableCode title="Eksempel på prefilldata for en virksomhet som aldri har rapportert inn reelle rettighetshavere" lang="json" >}}
 {
     "versjon": "0.0.7",
     "endret": "2024-05-07",
@@ -272,13 +272,16 @@ Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på opp
 Vi jobber med en side som forklarer hvilke felter som skal settes når. <strong>"Lenke kommer"</strong>.
 {{< /info >}}
 
-Se gjerne [siden med eksempler](../eksempler-paa-registrering) for å se eksempler på ferdigutfylte JSON-opplysninger.  
+JSON-skjema for å validere endringer er tilgjengelig her: **"Lenke kommer"**. Sjekk at versjonsnummeret på skjemaet 
+samsvarer med feltet `versjon` i de preutfylte skjemadataene ([steg 4.](#4-hent-preutfylte-skjemadata)).
+
+Se gjerne [siden med eksempler](../eksempler-paa-registrering) for å se eksempler på ferdigutfylte JSON-opplysninger. 
 
 For å teste hvordan ulike kombinasjoner av reelle rettighetshavere skal settes, kan du manuelt fylle disse ut i vårt Altinn-skjema på TT02. 
 Etterpå kan du maskinelt hente ut preutfylte skjemadata ([steg 4.](#4-hent-preutfylte-skjemadata)), og se hvordan opplysningene ser ut i JSON.
 
 {{< info >}}
-<strong>Selv om virksomheten ikke har innrapportert opplysninger om reelle rettighetshavere før, må du alltid ta utgangspunkt i prefilldata når du skal rapportere inn reelle rettighetshavere i ditt sluttbrukersystem!</strong><br> 
+<strong>Selv om virksomheten ikke har innrapportert opplysninger om reelle rettighetshavere tidligere, må du alltid ta utgangspunkt i prefilldata når du skal rapportere inn reelle rettighetshavere i ditt sluttbrukersystem!</strong><br> 
 Feltene versjon og endret, samt innholdet i "metadata" som du rapporter inn <strong> må være identisk med innholdet du hentet ut i prefilldataen</strong>.
 {{< /info >}}
 
@@ -295,10 +298,88 @@ Første steg er å opprette en instans av vårt Altinn-skjema. Dette gjør du me
 `POST {{altinn-miljø}}/brg/rrh-innrapportering/instances?instanceOwnerPartyId={{partyId}}`
 * Her må du bruke `partyId` som du hentet i steg 3.
 
-I responsen får du `skjema_instans_id` og `skjema_instans_data_id` som du må bruke i neste kall.
+I responsen får du UUID `skjema_instans_id` fra feltet `id` og `skjema_instans_data_id` fra feltet `data.id`, som du må bruke i de påfølgende kallene.
+Merk at id-feltet inneholder både partyId og skjema_instans_data_id. PartyId må fjernes for å få kun UUID-en.
 
 {{< expandableCode title="Eksempel på respons" lang="json" >}}
-Kommer
+{
+  "id": "51543302/a1c8aea5-f236-49b4-9c8c-74797d14962b",
+  "instanceOwner": {
+    "partyId": "51543302",
+    "personNumber": null,
+    "organisationNumber": "310211036",
+    "username": null
+  },
+  "appId": "brg/rrh-innrapportering",
+  "org": "brg",
+  "selfLinks": {
+    "apps": "https://brg.apps.tt02.altinn.no/brg/rrh-innrapportering/instances/51543302/a1c8aea5-f236-49b4-9c8c-74797d14962b",
+    "platform": "https://platform.tt02.altinn.no/storage/api/v1/instances/51543302/a1c8aea5-f236-49b4-9c8c-74797d14962b"
+  },
+  "dueBefore": null,
+  "visibleAfter": "2024-07-29T06:31:13.2428807Z",
+  "process": {
+    "started": "2024-07-29T06:31:13.1826546Z",
+    "startEvent": "BRStart",
+    "currentTask": {
+      "flow": 2,
+      "started": "2024-07-29T06:31:13.1934811Z",
+      "elementId": "TaskUtfylling",
+      "name": "Utfylling",
+      "altinnTaskType": "data",
+      "ended": null,
+      "validated": null,
+      "flowType": "CompleteCurrentMoveToNext"
+    },
+    "ended": null,
+    "endEvent": null
+  },
+  "status": {
+    "isArchived": false,
+    "archived": null,
+    "isSoftDeleted": false,
+    "softDeleted": null,
+    "isHardDeleted": false,
+    "hardDeleted": null,
+    "readStatus": 1,
+    "substatus": null
+  },
+  "completeConfirmations": null,
+  "data": [
+    {
+      "id": "deeb1367-5686-4353-870d-93b4ac95befe",
+      "instanceGuid": "a1c8aea5-f236-49b4-9c8c-74797d14962b",
+      "dataType": "Brønnøysundregistrene_ReelleRettighetshavere_M",
+      "filename": null,
+      "contentType": "application/xml",
+      "blobStoragePath": "brg/rrh-innrapportering/a1c8aea5-f236-49b4-9c8c-74797d14962b/data/deeb1367-5686-4353-870d-93b4ac95befe",
+      "selfLinks": {
+        "apps": "https://brg.apps.tt02.altinn.no/brg/rrh-innrapportering/instances/51543302/a1c8aea5-f236-49b4-9c8c-74797d14962b/data/deeb1367-5686-4353-870d-93b4ac95befe",
+        "platform": "https://platform.tt02.altinn.no/storage/api/v1/instances/51543302/a1c8aea5-f236-49b4-9c8c-74797d14962b/data/deeb1367-5686-4353-870d-93b4ac95befe"
+      },
+      "size": 496,
+      "contentHash": null,
+      "locked": false,
+      "refs": null,
+      "isRead": true,
+      "tags": [],
+      "metadata": null,
+      "deleteStatus": null,
+      "fileScanResult": "NotApplicable",
+      "references": null,
+      "created": "2024-07-29T06:31:13.4397674Z",
+      "createdBy": "161488",
+      "lastChanged": "2024-07-29T06:31:13.439767Z",
+      "lastChangedBy": "161488"
+    }
+  ],
+  "presentationTexts": null,
+  "dataValues": {},
+  "created": "2024-07-29T06:31:13.2428807Z",
+  "createdBy": "161488",
+  "lastChanged": "2024-07-29T06:31:13.24288Z",
+  "lastChangedBy": "161488"
+}
 {{< /expandableCode >}}
 
 
