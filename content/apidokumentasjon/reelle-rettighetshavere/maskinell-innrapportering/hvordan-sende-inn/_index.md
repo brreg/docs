@@ -298,8 +298,7 @@ Første steg er å opprette en instans av vårt Altinn-skjema. Dette gjør du me
 `POST {{altinn-miljø}}/brg/rrh-innrapportering/instances?instanceOwnerPartyId={{partyId}}`
 * Her må du bruke `partyId` som du hentet i steg 3.
 
-I responsen får du UUID `skjema_instans_id` fra feltet `id` og `skjema_instans_data_id` fra feltet `data.id`, som du må bruke i de påfølgende kallene.
-Merk at id-feltet inneholder både partyId og skjema_instans_data_id. PartyId må fjernes for å få kun UUID-en.
+I responsen får du UUID `skjema_instans_id` fra feltet `data.instanceGuid` og `skjema_instans_data_id` fra feltet `data.id`, som du må bruke i de påfølgende kallene.
 
 {{< expandableCode title="Eksempel på respons" lang="json" >}}
 {
