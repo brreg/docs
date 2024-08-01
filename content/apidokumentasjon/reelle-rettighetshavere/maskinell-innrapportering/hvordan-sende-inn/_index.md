@@ -192,8 +192,9 @@ Vi forhåndsutfyller alle skjemainstanser med preutfylte data. Alle skjemainstan
 
 **Disse feltene og verdiene du henter her _MÅ_ være satt i steget når du setter skjemadataen**
 
-For å forenkle prosessen med å sende inn nye opplysninger om reelle rettighetshavere vil skjemainstansen være preutfylt med forrige innrapporterte data.
-Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på opplysningene, og sende disse inn.
+For å forenkle prosessen med å sende inn nye opplysninger om reelle rettighetshavere vil skjemainstansen være preutfylt 
+med forrige innrapporterte data. Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på 
+opplysningene, og sende disse inn.
 
 `GET {{altinn-miljø}}/brg/rrh-innrapportering/prefill/{partyId}`
 
@@ -275,19 +276,23 @@ samsvarer med feltet `versjon` i de preutfylte skjemadataene ([steg 4.](#4-hent-
 
 Se gjerne [siden med eksempler](../eksempler-paa-registrering) for å se eksempler på ferdigutfylte JSON-opplysninger. 
 
-For å teste hvordan ulike kombinasjoner av reelle rettighetshavere skal settes, kan du manuelt fylle disse ut i vårt Altinn-skjema på TT02. 
-Etterpå kan du maskinelt hente ut preutfylte skjemadata ([steg 4.](#4-hent-preutfylte-skjemadata)), og se hvordan opplysningene ser ut i JSON.
+For å teste hvordan ulike kombinasjoner av reelle rettighetshavere skal settes, kan du manuelt fylle disse ut i vårt 
+Altinn-skjema på TT02. Etterpå kan du maskinelt hente ut preutfylte skjemadata 
+([steg 4.](#4-hent-preutfylte-skjemadata)), og se hvordan opplysningene ser ut i JSON.
 
 {{< info >}}
-<strong>Selv om virksomheten ikke har innrapportert opplysninger om reelle rettighetshavere tidligere, må du alltid ta utgangspunkt i prefilldata når du skal rapportere inn reelle rettighetshavere i ditt sluttbrukersystem!</strong><br> 
-Feltene versjon og endret, samt innholdet i "metadata" som du rapporter inn <strong> må være identisk med innholdet du hentet ut i prefilldataen</strong>.
+<strong>Selv om virksomheten ikke har innrapportert opplysninger om reelle rettighetshavere tidligere, må du alltid ta 
+utgangspunkt i prefilldata når du skal rapportere inn reelle rettighetshavere i ditt sluttbrukersystem!</strong><br> 
+Feltene versjon og endret, samt innholdet i "metadata" som du rapporter inn <strong> må være identisk med innholdet du 
+hentet ut i prefilldataen</strong>.
 {{< /info >}}
 
 Når du har ferdigstilt opplysningene som JSON kan du gå videre til neste steg.
 
 ### 6. Opprett en instans av vårt Altinn-skjema
 {{< warning >}}
-Hvis det har tatt tid å fylle ut opplysninger kan det hende at Altinn-tokenet har gått ut. Da må du gjenta steg 1. og steg 2., slik at du får et gyldig Altinn-token.
+Hvis det har tatt tid å fylle ut opplysninger kan det hende at Altinn-tokenet har gått ut. Da må du gjenta steg 1. og 
+steg 2., slik at du får et gyldig Altinn-token.
 {{< /warning >}}
 
 Med en ferdigstilt registrering kan du sende denne inn til oss.
@@ -296,7 +301,8 @@ Første steg er å opprette en instans av vårt Altinn-skjema. Dette gjør du me
 `POST {{altinn-miljø}}/brg/rrh-innrapportering/instances?instanceOwnerPartyId={{partyId}}`
 * Her må du bruke `partyId` som du hentet i steg 3.
 
-I responsen får du UUID `skjema_instans_id` fra feltet `data.instanceGuid` og `skjema_instans_data_id` fra feltet `data.id`, som du må bruke i de påfølgende kallene.
+I responsen får du UUID `skjema_instans_id` fra feltet `data.instanceGuid` og `skjema_instans_data_id` fra 
+feltet `data.id`, som du må bruke i de påfølgende kallene.
 
 {{< expandableCode title="Eksempel på respons" lang="json" >}}
 {
@@ -386,13 +392,55 @@ Du må nå sette skjemadata som du opprettet i steg 5 på instansen. Dette gjør
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{partyId}}/{{skjema_instans_id}}/data/{{skjema_instans_data_id}}?dataType=Brønnøysundregistrene_ReelleRettighetshavere_M`
 * Her må du bruke `skjema_instans_id` og `skjema_instans_data_id` fra forrige API-kall.
 
+{{< expandableCode title="Eksempel på respons" lang="json" >}}
+{
+    "changedFields": {
+        "skjemainnhold.skjemadata.reellRettighetshaver[0].hfPosisjonsbeskrivelseTabellvisning": "Eierskap 75% - 100%"
+    },
+    "id": "31d4c79d-b121-478a-930e-4763b48194e6",
+    "instanceGuid": "2381cb22-fec3-402f-82d8-08b31af7e7ff",
+    "dataType": "Brønnøysundregistrene_ReelleRettighetshavere_M",
+    "filename": null,
+    "contentType": "application/xml",
+    "blobStoragePath": "brg/rrh-innrapportering/2381cb22-fec3-402f-82d8-08b31af7e7ff/data/31d4c79d-b121-478a-930e-4763b48194e6",
+    "selfLinks": {
+        "apps": "https://brg.apps.tt02.altinn.no/brg/rrh-innrapportering/instances/51543302/2381cb22-fec3-402f-82d8-08b31af7e7ff/data/31d4c79d-b121-478a-930e-4763b48194e6",
+        "platform": "https://platform.tt02.altinn.no/storage/api/v1/instances/51543302/2381cb22-fec3-402f-82d8-08b31af7e7ff/data/31d4c79d-b121-478a-930e-4763b48194e6"
+    },
+    "size": 2066,
+    "contentHash": null,
+    "locked": false,
+    "refs": null,
+    "isRead": true,
+    "tags": [],
+    "metadata": null,
+    "deleteStatus": null,
+    "fileScanResult": "NotApplicable",
+    "references": null,
+    "created": "2024-08-01T11:15:12.8774685Z",
+    "createdBy": "161488",
+    "lastChanged": "2024-08-01T11:15:19.851979Z",
+    "lastChangedBy": "161488"
+}
+{{< /expandableCode >}}
+
 ### 8. Du går videre til neste prosess (Validering av skjema)
 
-Du kan nå gå videre til neste prosess i Altinn. Dette fører til at skjemadataen du har satt blir validert, og at skjemaet blir klargjort for innsending.
+Du kan nå gå videre til neste prosess i Altinn. Dette fører til at skjemadataen du har satt blir validert, og at 
+skjemaet blir klargjort for innsending.
 Du kan gå til neste prosess ved å kalle endepunktet:
 
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next`
-* Om skjemaet inneholder feil, vil du få feilmelding.
+* Om skjemaet inneholder feil, vil du få feilmelding (se eksempel under).
+
+{{< expandableCode title="Eksempel på respons - validering OK" lang="json" >}}
+{ "eksempel": "kommer" }
+{{< /expandableCode >}}
+
+{{< expandableCode title="Eksempel på respons - validering feiler" lang="json" >}}
+{ "eksempel": "kommer" }
+{{< /expandableCode >}}
+
 
 ### 9. Du sender inn skjemaet til Brønnøysundregistrene
 
@@ -400,5 +448,26 @@ Om du ikke fikk noen feilmeldinger i forrige steg, kan du gå til neste prosess,
 Dette sender også inn skjemaet inn til oss. Dette gjør du ved å kalle endepunktet:
 
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next?elementId=BREnd`
+
+{{< expandableCode title="Eksempel på respons" lang="json" >}}
+{
+    "currentTask": null,
+    "processTasks": [
+        {
+            "altinnTaskType": "data",
+            "elementId": "TaskUtfylling"
+        },
+        {
+            "altinnTaskType": "confirmation",
+            "elementId": "TaskBekreftelse"
+        }
+    ],
+    "started": "2024-08-01T11:15:12.5342706Z",
+    "startEvent": "BRStart",
+    "ended": "2024-08-01T11:17:50.3604982Z",
+    "endEvent": "BREnd"
+}
+{{< /expandableCode >}}
+
 
 Du har nå sendt inn skjemaet til Brønnøysundregistrene!
