@@ -7,10 +7,10 @@ weight: 100
 Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere til oss ved å følge stegene på denne siden:
 <!-- TOC -->
   * [Sekvensdiagram](#sekvensdiagram)
-  * [ID-porten](#id-porten)
-    * [1. Sende sluttbruker til ID-porten](#1-sende-sluttbruker-til-id-porten)
+  * [ID-Porten](#id-porten)
+    * [1. Sende sluttbruker til ID-Porten](#1-sende-sluttbruker-til-id-porten)
   * [Veksle inn Altinn-token](#veksle-inn-altinn-token)
-    * [2. Veksle inn ID-porten-tokenet til et Altinn-token](#2-veksle-inn-id-porten-tokenet-til-et-altinn-token)
+    * [2. Veksle inn ID-Porten-tokenet til et Altinn-token](#2-veksle-inn-id-porten-tokenet-til-et-altinn-token)
   * [API-kall mot Altinn APP](#api-kall-mot-altinn-app)
     * [3. Hent partyId til virksomheten](#3-hent-partyid-til-virksomheten)
     * [4. Hent preutfylte skjemadata](#4-hent-preutfylte-skjemadata)
@@ -26,14 +26,14 @@ Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere t
 
 ![Sekvensdiagram](sekvensdiagram_minn.png)
 
-## ID-porten
+## ID-Porten
 
-### 1. Sende sluttbruker til ID-porten
+### 1. Sende sluttbruker til ID-Porten
 
 For at ditt system skal få lov til å sende inn registrering av reelle rettighetshavere inn til oss må din sluttbruker
-autentisere seg gjennom ID-porten.
+autentisere seg gjennom ID-Porten.
 Vi anbefaler at du
-følger [Digdirs integrasjonsguide for autentisering i ID-porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_idporten.html).
+følger [Digdirs integrasjonsguide for autentisering i ID-Porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_idporten.html).
 
 Når du følger guiden må du gjøre følgende steg:
 
@@ -43,15 +43,15 @@ Når du følger guiden må du gjøre følgende steg:
 2. Bruker autentiserer seg på sin foretrukkende måte, feks BankId. Sluttbruker må også godkjenne at ditt
    sluttbrukersystem får tilgang scope `altinn:instances.write` på vegne at sluttbruker.
 3. Bruker blir redirected tilbake til din tjeneste
-4. Du kaller token-endepunktet og utsteder et ID-porten-token.
+4. Du kaller token-endepunktet og utsteder et ID-Porten-token.
 
-{{< expandableCode title="Eksempel på et B64-encoded ID-porten-token" lang="text">}}
+{{< expandableCode title="Eksempel på et B64-encoded ID-Porten-token" lang="text">}}
 eyJraWQiOiJkaWdpdGFsaXNlcmluZ3NkaXJla3RvcmF0ZXQtLWNlcnQwIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIxOTg1NTQ5NzkyNCIsImFjciI6ImlkcG9ydGVuLWxvYS1zdWJzdGFudGlhbCIsInNjb3BlIjoiYWx0aW5uOmluc3RhbmNlcy53cml0ZSIsImlzcyI6Imh0dHBzOi8vdGVzdC5pZHBvcnRlbi5ubyIsImNsaWVudF9hbXIiOiJjbGllbnRfc2VjcmV0X3Bvc3QiLCJwaWQiOiIxOTg1NTQ5NzkyNCIsImV4cCI6MTcxODEwMzY4MywiaWF0IjoxNzE4MTAzMDgzLCJqdGkiOiIyMEszRHVaSWRrQSIsImNsaWVudF9pZCI6Ijk3YWMzMjg2LTU3ZWQtNDMzMy05ODU5LTdkMGE4NTIzZTdmZiIsImNvbnN1bWVyIjp7ImF1dGhvcml0eSI6ImlzbzY1MjMtYWN0b3JpZC11cGlzIiwiSUQiOiIwMTkyOjk3NDc2MDY3MyJ9fQ.Lvi--jq2GuM3VEb3K8aFFJZqzqSewHMmHqap6eV7Bibl3nZ9dTWTUhrkNIr4ZSHZkBvIk-A6DcnF8L47rvJVgmN0kczJDVXCv1E8W3yu5mA57k0uvZIxXW0paH6ldQZ2vJL_3iyhg9GLmiU-He5JTtwo_ULo0VX6DVt97lhVf_WHrLY9steIW82ujeMY3m-qUbgRTT9h1LAITpfpX8Mavk1B4gDwzYYx-6S2VNUOMo72b466mAM5-4JUejpPLwCpAr2LNT7pgEh8p8cxHGj0cKNpJ_nqbp7Awc2tJSpYS53YgMIwaYiZA5oKWvVc6RTTx0GgQrHL2IMnK2ObHIBmCPH2vKjwYpZQUBwkXCglxlxdTn9lMmYzA3fLCrQKt_SRDL9GoAjLjgz_h-E0N-hVpBsRJY_K_xgPbqdanhG6pTE352uwuaTVAUpAISRHA-So6yFm2A1Pq-sN5FBpjF6s6KFWmXz3Ro6YXEhWCiuJHkl-GdEnHGq026L3JpNddpmJ
 {{< /expandableCode >}}
 
 For å se innholdet til et slikt token kan du B64-decode det, eller bruke verktøy, feks https://jwt.io/.
 
-{{< expandableCode title="Eksempel på et ID-porten-token etter decoding" lang="json" >}}
+{{< expandableCode title="Eksempel på et ID-Porten-token etter decoding" lang="json" >}}
 {
   "sub": "19855497924",
   "acr": "idporten-loa-substantial",
@@ -76,10 +76,12 @@ For å se innholdet til et slikt token kan du B64-decode det, eller bruke verkt�
 
 For å veksle inn Altinn-tokenet må du sette følgende header:
 
+* `ApiKey` Du må legge inn ApiKey-en som du fikk når du bestilte tilgang til Altinns REST-APIer.
+* `Authorization`: Her må du legge til ID-Porten-tokenet du ustedte fra ID-Porten. Siden dette er et Bearer-token skal
 * `Authorization`: Her må du legge til ID-porten-tokenet du ustedte fra ID-porten. Siden dette er et Bearer-token skal
   verdien av tokenet være: `Bearer <<idporten access_token>>`
 
-ID-porten-tokenet kan veksles inn ved å kalle Altinns exchange-endepunkt:
+ID-Porten-tokenet kan veksles inn ved å kalle Altinns exchange-endepunkt:
 
 * `GET {{altinn-miljø}}/authentication/api/v1/exchange/id-porten`
 
@@ -433,11 +435,66 @@ Du kan gå til neste prosess ved å kalle endepunktet:
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next`
 * Om skjemaet inneholder feil, vil du få feilmelding (se eksempel under).
 
-{{< expandableCode title="Eksempel på respons - validering OK" lang="json" >}}
-{ "eksempel": "kommer" }
+{{< expandableCode title="Eksempel på respons som validerer" lang="json" >}}
+{
+    "currentTask": {
+        "actions": {
+            "read": true,
+            "write": false,
+            "confirm": true,
+            "reject": true
+        },
+        "userActions": [
+            {
+                "id": "read",
+                "authorized": true,
+                "type": "ProcessAction"
+            },
+            {
+                "id": "write",
+                "authorized": false,
+                "type": "ProcessAction"
+            },
+            {
+                "id": "confirm",
+                "authorized": true,
+                "type": "ProcessAction"
+            },
+            {
+                "id": "reject",
+                "authorized": true,
+                "type": "ProcessAction"
+            }
+        ],
+        "read": true,
+        "write": false,
+        "flow": 3,
+        "started": "2024-08-05T12:49:36.9688172Z",
+        "elementId": "TaskBekreftelse",
+        "name": "Bekreftelse",
+        "altinnTaskType": "confirmation",
+        "ended": null,
+        "validated": null,
+        "flowType": "CompleteCurrentMoveToNext"
+    },
+    "processTasks": [
+        {
+            "altinnTaskType": "data",
+            "elementId": "TaskUtfylling"
+        },
+        {
+            "altinnTaskType": "confirmation",
+            "elementId": "TaskBekreftelse"
+        }
+    ],
+    "started": "2024-08-05T12:48:19.5384915Z",
+    "startEvent": "BRStart",
+    "ended": null,
+    "endEvent": null
+}
 {{< /expandableCode >}}
 
-{{< expandableCode title="Eksempel på respons - validering feiler" lang="json" >}}
+{{< expandableCode title="Eksempel på respons som feiler" lang="json" >}}
 { "eksempel": "kommer" }
 {{< /expandableCode >}}
 
