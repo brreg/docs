@@ -7,10 +7,10 @@ weight: 100
 Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere til oss ved å følge stegene på denne siden:
 <!-- TOC -->
   * [Sekvensdiagram](#sekvensdiagram)
-  * [ID-porten](#id-porten)
-    * [1. Sende sluttbruker til ID-porten](#1-sende-sluttbruker-til-id-porten)
+  * [ID-Porten](#id-porten)
+    * [1. Sende sluttbruker til ID-Porten](#1-sende-sluttbruker-til-id-porten)
   * [Veksle inn Altinn-token](#veksle-inn-altinn-token)
-    * [2. Veksle inn ID-porten-tokenet til et Altinn-token](#2-veksle-inn-id-porten-tokenet-til-et-altinn-token)
+    * [2. Veksle inn ID-Porten-tokenet til et Altinn-token](#2-veksle-inn-id-porten-tokenet-til-et-altinn-token)
   * [API-kall mot Altinn APP](#api-kall-mot-altinn-app)
     * [3. Hent partyId til virksomheten](#3-hent-partyid-til-virksomheten)
     * [4. Hent preutfylte skjemadata](#4-hent-preutfylte-skjemadata)
@@ -26,14 +26,14 @@ Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere t
 
 ![Sekvensdiagram](sekvensdiagram_minn.png)
 
-## ID-porten
+## ID-Porten
 
-### 1. Sende sluttbruker til ID-porten
+### 1. Sende sluttbruker til ID-Porten
 
 For at ditt system skal få lov til å sende inn registrering av reelle rettighetshavere inn til oss må din sluttbruker
-autentisere seg gjennom ID-porten.
+autentisere seg gjennom ID-Porten.
 Vi anbefaler at du
-følger [Digdirs integrasjonsguide for autentisering i ID-porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_idporten.html).
+følger [Digdirs integrasjonsguide for autentisering i ID-Porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_idporten.html).
 
 Når du følger guiden må du gjøre følgende steg:
 
@@ -43,15 +43,15 @@ Når du følger guiden må du gjøre følgende steg:
 2. Bruker autentiserer seg på sin foretrukkende måte, feks BankId. Sluttbruker må også godkjenne at ditt
    sluttbrukersystem får tilgang scope `altinn:instances.write` på vegne at sluttbruker.
 3. Bruker blir redirected tilbake til din tjeneste
-4. Du kaller token-endepunktet og utsteder et ID-porten-token.
+4. Du kaller token-endepunktet og utsteder et ID-Porten-token.
 
-{{< expandableCode title="Eksempel på et B64-encoded ID-porten-token" lang="text">}}
+{{< expandableCode title="Eksempel på et B64-encoded ID-Porten-token" lang="text">}}
 eyJraWQiOiJkaWdpdGFsaXNlcmluZ3NkaXJla3RvcmF0ZXQtLWNlcnQwIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIxOTg1NTQ5NzkyNCIsImFjciI6ImlkcG9ydGVuLWxvYS1zdWJzdGFudGlhbCIsInNjb3BlIjoiYWx0aW5uOmluc3RhbmNlcy53cml0ZSIsImlzcyI6Imh0dHBzOi8vdGVzdC5pZHBvcnRlbi5ubyIsImNsaWVudF9hbXIiOiJjbGllbnRfc2VjcmV0X3Bvc3QiLCJwaWQiOiIxOTg1NTQ5NzkyNCIsImV4cCI6MTcxODEwMzY4MywiaWF0IjoxNzE4MTAzMDgzLCJqdGkiOiIyMEszRHVaSWRrQSIsImNsaWVudF9pZCI6Ijk3YWMzMjg2LTU3ZWQtNDMzMy05ODU5LTdkMGE4NTIzZTdmZiIsImNvbnN1bWVyIjp7ImF1dGhvcml0eSI6ImlzbzY1MjMtYWN0b3JpZC11cGlzIiwiSUQiOiIwMTkyOjk3NDc2MDY3MyJ9fQ.Lvi--jq2GuM3VEb3K8aFFJZqzqSewHMmHqap6eV7Bibl3nZ9dTWTUhrkNIr4ZSHZkBvIk-A6DcnF8L47rvJVgmN0kczJDVXCv1E8W3yu5mA57k0uvZIxXW0paH6ldQZ2vJL_3iyhg9GLmiU-He5JTtwo_ULo0VX6DVt97lhVf_WHrLY9steIW82ujeMY3m-qUbgRTT9h1LAITpfpX8Mavk1B4gDwzYYx-6S2VNUOMo72b466mAM5-4JUejpPLwCpAr2LNT7pgEh8p8cxHGj0cKNpJ_nqbp7Awc2tJSpYS53YgMIwaYiZA5oKWvVc6RTTx0GgQrHL2IMnK2ObHIBmCPH2vKjwYpZQUBwkXCglxlxdTn9lMmYzA3fLCrQKt_SRDL9GoAjLjgz_h-E0N-hVpBsRJY_K_xgPbqdanhG6pTE352uwuaTVAUpAISRHA-So6yFm2A1Pq-sN5FBpjF6s6KFWmXz3Ro6YXEhWCiuJHkl-GdEnHGq026L3JpNddpmJ
 {{< /expandableCode >}}
 
 For å se innholdet til et slikt token kan du B64-decode det, eller bruke verktøy, feks https://jwt.io/.
 
-{{< expandableCode title="Eksempel på et ID-porten-token etter decoding" lang="json" >}}
+{{< expandableCode title="Eksempel på et ID-Porten-token etter decoding" lang="json" >}}
 {
   "sub": "19855497924",
   "acr": "idporten-loa-substantial",
@@ -77,10 +77,10 @@ For å se innholdet til et slikt token kan du B64-decode det, eller bruke verkt�
 For å veksle inn Altinn-tokenet må du sette følgende headere:
 
 * `ApiKey` Du må legge inn ApiKey-en som du fikk når du bestilte tilgang til Altinns REST-APIer.
-* `Authorization`: Her må du legge til ID-porten-tokenet du ustedte fra ID-porten. Siden dette er et Bearer-token skal
+* `Authorization`: Her må du legge til ID-Porten-tokenet du ustedte fra ID-Porten. Siden dette er et Bearer-token skal
   verdien av tokenet være: `Bearer <<idporten access_token>>`
 
-ID-porten-tokenet kan veksles inn ved å kalle Altinns exchange-endepunkt:
+ID-Porten-tokenet kan veksles inn ved å kalle Altinns exchange-endepunkt:
 
 * `GET {{altinn-miljø}}/authentication/api/v1/exchange/id-porten`
 
@@ -194,8 +194,9 @@ Vi forhåndsutfyller alle skjemainstanser med preutfylte data. Alle skjemainstan
 
 **Disse feltene og verdiene du henter her _MÅ_ være satt i steget når du setter skjemadataen**
 
-For å forenkle prosessen med å sende inn nye opplysninger om reelle rettighetshavere vil skjemainstansen være preutfylt med forrige innrapporterte data.
-Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på opplysningene, og sende disse inn.
+For å forenkle prosessen med å sende inn nye opplysninger om reelle rettighetshavere vil skjemainstansen være preutfylt 
+med forrige innrapporterte data. Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på 
+opplysningene, og sende disse inn.
 
 `GET {{altinn-miljø}}/brg/rrh-innrapportering/prefill/{partyId}`
 
@@ -277,19 +278,23 @@ samsvarer med feltet `versjon` i de preutfylte skjemadataene ([steg 4.](#4-hent-
 
 Se gjerne [siden med eksempler](../eksempler-paa-registrering) for å se eksempler på ferdigutfylte JSON-opplysninger. 
 
-For å teste hvordan ulike kombinasjoner av reelle rettighetshavere skal settes, kan du manuelt fylle disse ut i vårt Altinn-skjema på TT02. 
-Etterpå kan du maskinelt hente ut preutfylte skjemadata ([steg 4.](#4-hent-preutfylte-skjemadata)), og se hvordan opplysningene ser ut i JSON.
+For å teste hvordan ulike kombinasjoner av reelle rettighetshavere skal settes, kan du manuelt fylle disse ut i vårt 
+Altinn-skjema på TT02. Etterpå kan du maskinelt hente ut preutfylte skjemadata 
+([steg 4.](#4-hent-preutfylte-skjemadata)), og se hvordan opplysningene ser ut i JSON.
 
 {{< info >}}
-<strong>Selv om virksomheten ikke har innrapportert opplysninger om reelle rettighetshavere tidligere, må du alltid ta utgangspunkt i prefilldata når du skal rapportere inn reelle rettighetshavere i ditt sluttbrukersystem!</strong><br> 
-Feltene versjon og endret, samt innholdet i "metadata" som du rapporter inn <strong> må være identisk med innholdet du hentet ut i prefilldataen</strong>.
+<strong>Selv om virksomheten ikke har innrapportert opplysninger om reelle rettighetshavere tidligere, må du alltid ta 
+utgangspunkt i prefilldata når du skal rapportere inn reelle rettighetshavere i ditt sluttbrukersystem!</strong><br> 
+Feltene versjon og endret, samt innholdet i "metadata" som du rapporter inn <strong> må være identisk med innholdet du 
+hentet ut i prefilldataen</strong>.
 {{< /info >}}
 
 Når du har ferdigstilt opplysningene som JSON kan du gå videre til neste steg.
 
 ### 6. Opprett en instans av vårt Altinn-skjema
 {{< warning >}}
-Hvis det har tatt tid å fylle ut opplysninger kan det hende at Altinn-tokenet har gått ut. Da må du gjenta steg 1. og steg 2., slik at du får et gyldig Altinn-token.
+Hvis det har tatt tid å fylle ut opplysninger kan det hende at Altinn-tokenet har gått ut. Da må du gjenta steg 1. og 
+steg 2., slik at du får et gyldig Altinn-token.
 {{< /warning >}}
 
 Med en ferdigstilt registrering kan du sende denne inn til oss.
@@ -298,7 +303,8 @@ Første steg er å opprette en instans av vårt Altinn-skjema. Dette gjør du me
 `POST {{altinn-miljø}}/brg/rrh-innrapportering/instances?instanceOwnerPartyId={{partyId}}`
 * Her må du bruke `partyId` som du hentet i steg 3.
 
-I responsen får du UUID `skjema_instans_id` fra feltet `data.instanceGuid` og `skjema_instans_data_id` fra feltet `data.id`, som du må bruke i de påfølgende kallene.
+I responsen får du UUID `skjema_instans_id` fra feltet `data.instanceGuid` og `skjema_instans_data_id` fra 
+feltet `data.id`, som du må bruke i de påfølgende kallene.
 
 {{< expandableCode title="Eksempel på respons" lang="json" >}}
 {
@@ -388,13 +394,110 @@ Du må nå sette skjemadata som du opprettet i steg 5 på instansen. Dette gjør
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{partyId}}/{{skjema_instans_id}}/data/{{skjema_instans_data_id}}?dataType=Brønnøysundregistrene_ReelleRettighetshavere_M`
 * Her må du bruke `skjema_instans_id` og `skjema_instans_data_id` fra forrige API-kall.
 
+{{< expandableCode title="Eksempel på respons" lang="json" >}}
+{
+    "changedFields": {
+        "skjemainnhold.skjemadata.reellRettighetshaver[0].hfPosisjonsbeskrivelseTabellvisning": "Eierskap 75% - 100%"
+    },
+    "id": "31d4c79d-b121-478a-930e-4763b48194e6",
+    "instanceGuid": "2381cb22-fec3-402f-82d8-08b31af7e7ff",
+    "dataType": "Brønnøysundregistrene_ReelleRettighetshavere_M",
+    "filename": null,
+    "contentType": "application/xml",
+    "blobStoragePath": "brg/rrh-innrapportering/2381cb22-fec3-402f-82d8-08b31af7e7ff/data/31d4c79d-b121-478a-930e-4763b48194e6",
+    "selfLinks": {
+        "apps": "https://brg.apps.tt02.altinn.no/brg/rrh-innrapportering/instances/51543302/2381cb22-fec3-402f-82d8-08b31af7e7ff/data/31d4c79d-b121-478a-930e-4763b48194e6",
+        "platform": "https://platform.tt02.altinn.no/storage/api/v1/instances/51543302/2381cb22-fec3-402f-82d8-08b31af7e7ff/data/31d4c79d-b121-478a-930e-4763b48194e6"
+    },
+    "size": 2066,
+    "contentHash": null,
+    "locked": false,
+    "refs": null,
+    "isRead": true,
+    "tags": [],
+    "metadata": null,
+    "deleteStatus": null,
+    "fileScanResult": "NotApplicable",
+    "references": null,
+    "created": "2024-08-01T11:15:12.8774685Z",
+    "createdBy": "161488",
+    "lastChanged": "2024-08-01T11:15:19.851979Z",
+    "lastChangedBy": "161488"
+}
+{{< /expandableCode >}}
+
 ### 8. Du går videre til neste prosess (Validering av skjema)
 
-Du kan nå gå videre til neste prosess i Altinn. Dette fører til at skjemadataen du har satt blir validert, og at skjemaet blir klargjort for innsending.
+Du kan nå gå videre til neste prosess i Altinn. Dette fører til at skjemadataen du har satt blir validert, og at 
+skjemaet blir klargjort for innsending.
 Du kan gå til neste prosess ved å kalle endepunktet:
 
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next`
-* Om skjemaet inneholder feil, vil du få feilmelding.
+* Om skjemaet inneholder feil, vil du få feilmelding (se eksempel under).
+
+{{< expandableCode title="Eksempel på respons som validerer" lang="json" >}}
+{
+    "currentTask": {
+        "actions": {
+            "read": true,
+            "write": false,
+            "confirm": true,
+            "reject": true
+        },
+        "userActions": [
+            {
+                "id": "read",
+                "authorized": true,
+                "type": "ProcessAction"
+            },
+            {
+                "id": "write",
+                "authorized": false,
+                "type": "ProcessAction"
+            },
+            {
+                "id": "confirm",
+                "authorized": true,
+                "type": "ProcessAction"
+            },
+            {
+                "id": "reject",
+                "authorized": true,
+                "type": "ProcessAction"
+            }
+        ],
+        "read": true,
+        "write": false,
+        "flow": 3,
+        "started": "2024-08-05T12:49:36.9688172Z",
+        "elementId": "TaskBekreftelse",
+        "name": "Bekreftelse",
+        "altinnTaskType": "confirmation",
+        "ended": null,
+        "validated": null,
+        "flowType": "CompleteCurrentMoveToNext"
+    },
+    "processTasks": [
+        {
+            "altinnTaskType": "data",
+            "elementId": "TaskUtfylling"
+        },
+        {
+            "altinnTaskType": "confirmation",
+            "elementId": "TaskBekreftelse"
+        }
+    ],
+    "started": "2024-08-05T12:48:19.5384915Z",
+    "startEvent": "BRStart",
+    "ended": null,
+    "endEvent": null
+}
+{{< /expandableCode >}}
+
+{{< expandableCode title="Eksempel på respons som feiler" lang="json" >}}
+{ "eksempel": "kommer" }
+{{< /expandableCode >}}
+
 
 ### 9. Du sender inn skjemaet til Brønnøysundregistrene
 
@@ -402,5 +505,26 @@ Om du ikke fikk noen feilmeldinger i forrige steg, kan du gå til neste prosess,
 Dette sender også inn skjemaet inn til oss. Dette gjør du ved å kalle endepunktet:
 
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next?elementId=BREnd`
+
+{{< expandableCode title="Eksempel på respons" lang="json" >}}
+{
+    "currentTask": null,
+    "processTasks": [
+        {
+            "altinnTaskType": "data",
+            "elementId": "TaskUtfylling"
+        },
+        {
+            "altinnTaskType": "confirmation",
+            "elementId": "TaskBekreftelse"
+        }
+    ],
+    "started": "2024-08-01T11:15:12.5342706Z",
+    "startEvent": "BRStart",
+    "ended": "2024-08-01T11:17:50.3604982Z",
+    "endEvent": "BREnd"
+}
+{{< /expandableCode >}}
+
 
 Du har nå sendt inn skjemaet til Brønnøysundregistrene!
