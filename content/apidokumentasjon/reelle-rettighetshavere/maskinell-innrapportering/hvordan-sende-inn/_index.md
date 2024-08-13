@@ -273,8 +273,10 @@ opplysningene, og sende disse inn.
 Vi jobber med en side som forklarer hvilke felter som skal settes når. <strong>"Lenke kommer"</strong>.
 {{< /info >}}
 
-JSON-skjema for å validere endringer er tilgjengelig her: **"Lenke kommer"**. Sjekk at versjonsnummeret på skjemaet 
-samsvarer med feltet `versjon` i de preutfylte skjemadataene ([steg 4.](#4-hent-preutfylte-skjemadata)).
+JSON-skjema for å validere dataene dine er tilgjengelig på 
+[https://schema.brreg.no/reelle/altinn/schema.json](https://schema.brreg.no/reelle/altinn/schema.json). 
+Sjekk at versjonsnummeret på skjemaet samsvarer med feltet `versjon` i de preutfylte skjemadataene 
+([steg 4.](#4-hent-preutfylte-skjemadata)).
 
 Se gjerne [siden med eksempler](../eksempler-paa-registrering) for å se eksempler på ferdigutfylte JSON-opplysninger. 
 
@@ -426,16 +428,14 @@ Du må nå sette skjemadata som du opprettet i steg 5 på instansen. Dette gjør
 }
 {{< /expandableCode >}}
 
-### 8. Du går videre til neste prosess (Validering av skjema)
+### 8. Du går videre til neste prosess 
 
-Du kan nå gå videre til neste prosess i Altinn. Dette fører til at skjemadataen du har satt blir validert, og at 
-skjemaet blir klargjort for innsending.
+Du kan nå gå videre til neste prosess i Altinn, det fører til at skjemadataene klargjøres for innsending.
 Du kan gå til neste prosess ved å kalle endepunktet:
 
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next`
-* Om skjemaet inneholder feil, vil du få feilmelding (se eksempel under).
 
-{{< expandableCode title="Eksempel på respons som validerer" lang="json" >}}
+{{< expandableCode title="Eksempel på respons" lang="json" >}}
 {
     "currentTask": {
         "actions": {
@@ -494,19 +494,14 @@ Du kan gå til neste prosess ved å kalle endepunktet:
 }
 {{< /expandableCode >}}
 
-{{< expandableCode title="Eksempel på respons som feiler" lang="json" >}}
-{ "eksempel": "kommer" }
-{{< /expandableCode >}}
+### 9. Du validerer dataene og sender inn skjemaet til Brønnøysundregistrene
 
-
-### 9. Du sender inn skjemaet til Brønnøysundregistrene
-
-Om du ikke fikk noen feilmeldinger i forrige steg, kan du gå til neste prosess, BrEnd, som avslutter instansen.
-Dette sender også inn skjemaet inn til oss. Dette gjør du ved å kalle endepunktet:
+Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved å kalle endepunktet:
 
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next?elementId=BREnd`
+* Om skjemaet inneholder feil, vil du få en eller flere feilmeldinger i responsen (se eksempel under).
 
-{{< expandableCode title="Eksempel på respons" lang="json" >}}
+{{< expandableCode title="Eksempel på respons som er sendt inn" lang="json" >}}
 {
     "currentTask": null,
     "processTasks": [
@@ -524,6 +519,11 @@ Dette sender også inn skjemaet inn til oss. Dette gjør du ved å kalle endepun
     "ended": "2024-08-01T11:17:50.3604982Z",
     "endEvent": "BREnd"
 }
+{{< /expandableCode >}}
+
+
+{{< expandableCode title="Eksempel på respons som feiler" lang="json" >}}
+{ "eksempel": "kommer" }
 {{< /expandableCode >}}
 
 
