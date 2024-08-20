@@ -140,26 +140,26 @@ organisasjonsnummeret du skal sende inn for. Du trenger partyId i alle resterend
 {{< expandableCode title="Eksempel på respons (Hent partyId)" lang="json" >}}
 [
     {
-        "partyId": 51460912,
-        "partyUuid": "ec919d0d-4fe6-436b-87d1-b036ba364df8",
+        "partyId": 51609308,
+        "partyUuid": "c74c96f1-494d-4600-866e-3c8de4748466",
         "partyTypeName": 2,
-        "orgNumber": "211089172",
+        "orgNumber": "310956643",
         "ssn": null,
         "unitType": "AS",
-        "name": "KORREKT ALLMEKTIG TIGER AS",
+        "name": "GEOMETRISK VEIK TIGER AS",
         "isDeleted": false,
         "onlyHierarchyElementWithNoAccess": false,
         "person": null,
         "organization": null,
         "childParties": [
             {
-                "partyId": 51938711,
-                "partyUuid": "8764e79c-53d3-4906-92c1-4901829a5026",
+                "partyId": 51977240,
+                "partyUuid": "17f4cdd0-c58b-49fd-8857-8485a944e881",
                 "partyTypeName": 2,
-                "orgNumber": "314796748",
+                "orgNumber": "315220521",
                 "ssn": null,
                 "unitType": "BEDR",
-                "name": "KORREKT ALLMEKTIG TIGER AS",
+                "name": "GEOMETRISK VEIK TIGER AS",
                 "isDeleted": false,
                 "onlyHierarchyElementWithNoAccess": false,
                 "person": null,
@@ -169,13 +169,13 @@ organisasjonsnummeret du skal sende inn for. Du trenger partyId i alle resterend
         ]
     },
     {
-        "partyId": 50714238,
-        "partyUuid": "c4cc127c-d26a-4cd7-a2a0-c1442b44e75d",
+        "partyId": 50555707,
+        "partyUuid": "da990f35-d8fa-416f-baf6-02935fc10f4c",
         "partyTypeName": 1,
         "orgNumber": "",
-        "ssn": "19855497924",
+        "ssn": "01812647772",
         "unitType": null,
-        "name": "TRAGEDIE MINST",
+        "name": "JULEPRESANG FALSK",
         "isDeleted": false,
         "onlyHierarchyElementWithNoAccess": false,
         "person": null,
@@ -200,10 +200,10 @@ opplysningene, og sende disse inn.
 
 `GET {{altinn-miljø}}/brg/rrh-innrapportering/prefill/{partyId}`
 
-{{< expandableCode title="Eksempel på prefilldata for en virksomhet som aldri har rapportert inn reelle rettighetshavere" lang="json" >}}
+{{< expandableCode title="Respons for en virksomhet som ikke har sendt inn registrering tidligere" lang="json" >}}
 {
-    "versjon": "0.0.7",
-    "endret": "2024-05-07",
+    "versjon": "1.0.0",
+    "endret": "2024-08-12",
     "skjemainnhold": {
         "metadata": {
             "tjeneste": "rrh.ktr.reelle",
@@ -220,50 +220,81 @@ opplysningene, og sende disse inn.
 {{< /expandableCode >}}
 
 
-{{< expandableCode title="Respons for en virksomhet som har sendt inn registrering fra før" lang="json" >}}
+{{< expandableCode title="Respons for en virksomhet som har sendt inn registrering tidligere" lang="json" >}}
 {
-  "versjon": "0.0.7",
-  "endret": "2024-05-07",
-  "skjemainnhold": {
-    "metadata": {
-      "tjeneste": "rrh.ktr.reelle",
-      "tjenestehandling": "endring",
-      "rettighetsinformasjonsid": "RRH202300000020",
-      "registreringsid": "cace0a64-cf41-4c33-af37-a6f16aa9e356"
-    },
-    "fagsystem": {
-      "organisasjonsnummer": "313496058",
-      "navn": "Sluttbrukersystem sitt navn"
-    },
-    "skjemadata": {
-      "registreringspliktigVirksomhet": {
-        "organisasjonsnummer": "311780352"
-      },
-      "reelleRettighetshavereidentifikasjon": "reellerettighetshavereidentifikasjon.harReelleRettighetshavere",
-      "reellRettighetshaver": [
-        {
-          "erRegistrertIFolkeregisteret": true,
-          "folkeregistrertPerson": {
-            "foedselsEllerDNummer": "05910298382"
-          },
-          "harPosisjonEierskap": true,
-          "posisjonEierskap": {
-            "stoerrelsesintervall": "stoerrelsesintervall.intervall3",
-            "grunnlag": "grunnlagstype.direkte",
-            "mellomliggendeVirksomhet": []
-          },
-          "harPosisjonKontrollOverStemmerettigheter": false,
-          "harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene": false,
-          "harPosisjonAvgittGrunnkapital": false,
-          "harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene": false,
-          "harPosisjonDestinatar": false,
-          "harPosisjonSaerligeRettigheter": false
+    "versjon": "1.0.0",
+    "endret": "2024-08-12",
+    "skjemainnhold": {
+        "metadata": {
+            "tjeneste": "rrh.ktr.reelle",
+            "tjenestehandling": "endring",
+            "rettighetsinformasjonsid": "RRH202400000182",
+            "registreringsid": "172ebaee-7eb2-491f-a140-d469430d3c98"
+        },
+        "fagsystem": {
+            "organisasjonsnummer": null,
+            "navn": null
+        },
+        "integrasjon": {
+            "hfHentPreutfyllingFeilet": false,
+            "hfHentRollerFeilet": null
+        },
+        "skjemadata": {
+            "registreringspliktigVirksomhet": {
+                "organisasjonsnummer": "310956643",
+                "hfSoekOrganisasjonsnummerFeilkode": null,
+                "hfNavn": "GEOMETRISK VEIK TIGER AS",
+                "hfOrganisasjonsform": "AS",
+                "hfForretningsadresse": null,
+                "hfNavnPaaHovedvirksomhetRegistrertIEoes": null,
+                "hfLandnavnForHovedvirksomhetRegistrertIEoes": null,
+                "hfSoekPaaOrganisasjonsnummer": null
+            },
+            "reelleRettighetshavereidentifikasjon": "reellerettighetshavereidentifikasjon.harReelleRettighetshavere",
+            "aarsakTilAtVirksomhetIkkeHarReelleRettighetshavere": null,
+            "finnesDetReelleRettighetshavereITilleggTilRolleinnehavereForStiftelse": null,
+            "reellRettighetshaver": [
+                {
+                    "erRegistrertIFolkeregisteret": true,
+                    "hfErPreutfylt": true,
+                    "folkeregistrertPerson": {
+                        "foedselsEllerDNummer": "41864000647",
+                        "hfFulltNavn": "HEVNGJERRIG SERVIETT",
+                        "hfBostedsland": "UKJENT",
+                        "hfStatsborgerskap": "Norge",
+                        "hfSoekPaaEtternavn": null,
+                        "hfSoekFeilkode": null,
+                        "hfSoekPaaFoedselsEllerDNummer": null
+                    },
+                    "utenlandskPerson": null,
+                    "hfFulltNavnTabellvisning": "HEVNGJERRIG SERVIETT",
+                    "harPosisjonEierskap": true,
+                    "posisjonEierskap": {
+                        "stoerrelsesintervall": "stoerrelsesintervall.intervall2",
+                        "grunnlag": "grunnlagstype.direkte",
+                        "mellomliggendeVirksomhet": []
+                    },
+                    "harPosisjonKontrollOverStemmerettigheter": false,
+                    "posisjonKontrollOverStemmerettigheter": null,
+                    "harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene": false,
+                    "grunnlagForPosisjonenRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene": null,
+                    "harPosisjonKontrollPaaAnnenMaate": null,
+                    "beskrivelseAvPosisjonenKontrollPaaAnnenMaate": null,
+                    "harPosisjonAvgittGrunnkapital": false,
+                    "harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene": false,
+                    "harPosisjonDestinatar": false,
+                    "harPosisjonSaerligeRettigheter": false,
+                    "hfPosisjonsbeskrivelseTabellvisning": "Eierskap 50% - 74,99%"
+                }
+            ],
+            "kanIkkeIdentifisereFlereReelleRettighetshavere": true,
+            "erVirksomhetRegistrertPaaRegulertMarked": null,
+            "regulertMarked": null,
+            "erReelleRettighetshavereRegistrertIUtenlandskRegister": null,
+            "utenlandskRegister": null,
+            "rolleinnehaver": null
         }
-      ],
-      "kanIkkeIdentifisereFlereReelleRettighetshavere": false,
-      "rolleinnehaver": []
     }
-  }
 }
 {{< /expandableCode >}}
 
@@ -523,7 +554,33 @@ Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved �
 
 
 {{< expandableCode title="Eksempel på respons som feiler" lang="json" >}}
-{ "eksempel": "kommer" }
+{
+    "title": "Validation failed for task",
+    "status": 409,
+    "detail": "2 validation errors found for task TaskBekreftelse",
+    "validationIssues": [
+        {
+            "severity": 1,
+            "dataElementId": null,
+            "field": "regelUtfall",
+            "code": "Det er angitt et indirekte grunnlag for reell rettighetshaver, men det er ikke angitt noen mellomliggende virksomheter",
+            "description": "Det er angitt et indirekte grunnlag for reell rettighetshaver, men det er ikke angitt noen mellomliggende virksomheter",
+            "source": "Altinn.App.AppLogic.Validation.TaskBekreftelseValidator-TaskBekreftelse",
+            "customTextKey": "Det er angitt et indirekte grunnlag for reell rettighetshaver, men det er ikke angitt noen mellomliggende virksomheter",
+            "customTextParams": null
+        },
+        {
+            "severity": 1,
+            "dataElementId": null,
+            "field": "regelUtfall",
+            "code": "Det er kun angitt en eierposisjon med et ugyldig eierskapsintervall",
+            "description": "Det er kun angitt en eierposisjon med et ugyldig eierskapsintervall",
+            "source": "Altinn.App.AppLogic.Validation.TaskBekreftelseValidator-TaskBekreftelse",
+            "customTextKey": "Det er kun angitt en eierposisjon med et ugyldig eierskapsintervall",
+            "customTextParams": null
+        }
+    ]
+}
 {{< /expandableCode >}}
 
 
