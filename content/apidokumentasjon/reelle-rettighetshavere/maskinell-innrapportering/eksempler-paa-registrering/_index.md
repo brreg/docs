@@ -5,9 +5,9 @@ weight: 200
 ---
 
 {{< warning >}}
-Eksemplene beskriver det vi anser som 5 ganske vanlige innrapporteringer, eksemplene er bygd opp med en tekstuell
-beskrivelse, en tabell som viser felter sluttbrukersystem må sette og et eksempel på en
-maskinell innrapportering i JSON-format.
+Eksemplene beskriver det vi anser som 5 ganske vanlige innrapporteringer. Eksemplene er bygd opp med en tekstlig 
+beskrivelse, en tabell som viser felter sluttbrukersystem må sette, og et eksempel på en maskinell innrapportering i 
+JSON-format.
 {{< /warning >}}
 
 <!-- TOC -->
@@ -23,9 +23,10 @@ maskinell innrapportering i JSON-format.
 ## Eksempel 1: Eneaksjonær i et AS
 
 Snekkeren AS har fått melding i Altinn fra Register over reelle rettighetshavere om at virksomheten må registrere sine
-reelle rettighetshavere. Virksomheten har et sluttbrukersystem som har implementert muligheter for maskinell
-innrapportering. Ole Olsen er eneaksjonær i Snekkeren AS, og logger seg inn på sitt sluttbrukersystem, sørger for at
-han rapporterer for Snekkeren AS, og finner innsending av reelle rettighetshavere.
+reelle rettighetshavere. Virksomheten benytter et sluttbrukersystem som tilbyr en løsning for maskinell
+innrapportering. Ole Olsen er eneaksjonær i Snekkeren AS. En av de som har tilgang logger seg inn på sitt 
+sluttbrukersystem, sørger for å rapportere for Snekkeren AS, og sender inn opplysninger om reelle 
+rettighetshavere.
 
 | Opplysninger som skal sendes inn         | JSON-sti                                                                                    | JSON-verdi                                                     |
 |------------------------------------------|---------------------------------------------------------------------------------------------|----------------------------------------------------------------|
@@ -374,11 +375,11 @@ av reelle rettighetshavere.
 Snekkeren AS har fått melding i Altinn fra Register over reelle rettighetshavere om at virksomheten må registrere sine
 reelle rettighetshavere. Virksomheten har et sluttbrukersystem som har implementert muligheter for maskinell
 innrapportering. Snekkeren AS har fire reelle rettighetshavere som har hver sin posisjon. Ole Olsen eier 26% av
-aksjene, Hans Hansen eier 20% av aksjene, men har 28% stemmerettighet fordi han eier 28% av Woods AS, Hilde Knutsen
-eier 10% av virksomheten, men har en intern avtale som gjør at hun har rett til å utpeke eller avsette mer enn
-halvparten av styremedlemmer, Bente Hansen er verge for en mindreårig aksjeeier som eier 40% av aksjene. En av de som
-har tilgang logger seg inn på sitt sluttbrukersystem, sørger for at de rapporterer for Snekkeren AS, og finner
-innsending av reelle rettighetshavere.
+aksjene, Hans Hansen eier 20% av aksjene, men har 28% stemmerettighet fordi han eier 28% av Woods AS. Woods AS eier 50% 
+av Snekkeren AS.  Hilde Knutsen eier 10% av virksomheten, men har en intern avtale som gjør at hun har rett til å utpeke 
+eller avsette mer enn halvparten av styremedlemmer, Bente Hansen er verge for en mindreårig aksjeeier som eier 40% av 
+aksjene. En av de som har tilgang logger seg inn på sitt sluttbrukersystem, sørger for at de rapporterer for 
+Snekkeren AS, og finner innsending av reelle rettighetshavere.
 
 | Opplysninger som skal sendes inn                        | JSON-sti                                                                                                                          | JSON-verdi                                                     |
 |---------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
