@@ -8,17 +8,17 @@ Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere t
 <!-- TOC -->
   * [Sekvensdiagram](#sekvensdiagram)
   * [ID-Porten](#id-porten)
-    * [1. Sende sluttbruker til ID-Porten](#1-sende-sluttbruker-til-id-porten)
+    * [1. Send sluttbruker til ID-Porten](#1-send-sluttbruker-til-id-porten)
   * [Veksle inn Altinn-token](#veksle-inn-altinn-token)
     * [2. Veksle inn ID-Porten-tokenet til et Altinn-token](#2-veksle-inn-id-porten-tokenet-til-et-altinn-token)
-  * [API-kall mot Altinn APP](#api-kall-mot-altinn-app)
+  * [API-kall mot Altinn App API](#api-kall-mot-altinn-app-api)
     * [3. Hent partyId til virksomheten](#3-hent-partyid-til-virksomheten)
     * [4. Hent preutfylte skjemadata](#4-hent-preutfylte-skjemadata)
-    * [5. Du bygger opp opplysninger om Reelle rettighetshavere som JSON i ditt system](#5-du-bygger-opp-opplysninger-om-reelle-rettighetshavere-som-json-i-ditt-system)
-    * [6. Opprett en instans av vårt Altinn-skjema](#6-opprett-en-instans-av-vårt-altinn-skjema)
-    * [7. Du setter opplysninger om Reelle rettighetshavere som skjemadata på instansen (som du bygget opp i steg 5.)](#7-du-setter-opplysninger-om-reelle-rettighetshavere-som-skjemadata-på-instansen-som-du-bygget-opp-i-steg-5)
-    * [8. Du går videre til neste prosessteg](#8-du-går-videre-til-neste-prosess-validering-av-skjema)
-    * [9. Du validerer dataene og sender inn skjemaet til Brønnøysundregistrene](#9-du-sender-inn-skjemaet-til-brønnøysundregistrene)
+    * [5. Bygg opplysninger om Reelle rettighetshavere som JSON i ditt system](#5-bygg-opplysninger-om-reelle-rettighetshavere-som-json-i-ditt-system)
+    * [6. Opprett en instans av våre skjemadata](#6-opprett-en-instans-av-våre-skjemadata)
+    * [7. Oppdater skjemadata med sluttbrukers endringer (som du bygget opp i steg 5.)](#7-oppdater-skjemadata-med-sluttbrukers-endringer-som-du-bygget-opp-i-steg-5)
+    * [8. Gå til neste prosessteg](#8-gå-til-neste-prosessteg)
+    * [9. Valider og send inn skjema](#9-valider-og-send-inn-skjema)
 <!-- TOC -->
 
 
@@ -28,7 +28,7 @@ Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere t
 
 ## ID-Porten
 
-### 1. Sende sluttbruker til ID-Porten
+### 1. Send sluttbruker til ID-Porten
 
 For at ditt system skal få lov til å sende inn registrering av reelle rettighetshavere inn til oss må din sluttbruker
 autentisere seg gjennom ID-Porten.
@@ -116,7 +116,7 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IjM4QUE3QTc5MjUzNDNCQjE0NjFCRUUwMURCNUQwOTRBM0VCOTgw
 }
 {{< /expandableCode >}}
 
-## API-kall mot Altinn APP
+## API-kall mot Altinn App API
 
 **I alle videre API-kall mot Altinn må du sette følgende header:**
 
@@ -187,9 +187,10 @@ organisasjonsnummeret du skal sende inn for. Du trenger partyId i alle resterend
 
 ### 4. Hent preutfylte skjemadata
 
-For å forenkle prosessen med å sende inn nye opplysninger om reelle rettighetshavere vil skjemainstansen være preutfylt 
-med forrige innrapporterte data. Du kan da ta utgangspunkt i de preufylte skjemadataene, gjøre endringer på 
-opplysningene, og sende disse inn.
+For å forenkle prosessen med å sende inn opplysninger om reelle rettighetshavere vil skjemainstansen være preutfylt med 
+data fra registeret. Hvis du tidligere har sendt inn opplysninger vil disse komme som en del av preutfyllingen. Hvis du 
+ikke har sendt inn opplysninger tidligere vil du likevel få en begrenset preutfylling tilbake som stort sett bare 
+består av noen metadata-felter.
 
 `GET {{altinn-miljø}}/brg/rrh-innrapportering/prefill/{partyId}`
 
@@ -291,11 +292,11 @@ opplysningene, og sende disse inn.
 }
 {{< /expandableCode >}}
 
-### 5. Du bygger opp opplysninger om Reelle rettighetshavere som JSON i ditt system
+### 5. Bygg opplysninger om Reelle rettighetshavere som JSON i ditt system
 
 JSON-skjema for å validere dataene dine er tilgjengelig på 
 [https://schema.brreg.no/reelle/altinn/schema.json](https://schema.brreg.no/reelle/altinn/schema.json). Skjemaet kan benyttes til å validere endringer du gjør på
-på de prutfylte datene ([steg 4.](#4-hent-preutfylte-skjemadata)).
+på de preutfylte datene ([steg 4.](#4-hent-preutfylte-skjemadata)).
 
 Du kan finne JSON-eksempler sammen med en beskrivelse av hva som må fylles ut på denne [siden](../eksempler-paa-registrering).
 
@@ -312,7 +313,7 @@ hentet fra de preutfylte dataene</strong>.
 
 Når du har ferdigstilt opplysningene som JSON kan du gå videre til neste steg.
 
-### 6. Opprett en instans av vårt Altinn-skjema
+### 6. Opprett en instans av våre skjemadata
 {{< warning >}}
 Hvis det har tatt tid å fylle ut opplysninger kan det hende at Altinn-tokenet har gått ut. Da må du gjenta steg 1. og 
 steg 2., slik at du får et gyldig Altinn-token.
@@ -409,7 +410,7 @@ feltet `data.id`, som du må bruke i de påfølgende kallene.
 {{< /expandableCode >}}
 
 
-### 7. Du setter opplysninger om Reelle rettighetshavere som skjemadata på instansen (som du bygget opp i steg 5.)
+### 7. Oppdater skjemadata med sluttbrukers endringer (som du bygget opp i steg 5.)
 
 Du må nå sette skjemadata som du opprettet i steg 5 på instansen. Dette gjør du ved å kalle dette endepunktet:
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{partyId}}/{{skjema_instans_id}}/data/{{skjema_instans_data_id}}?dataType=Brønnøysundregistrene_ReelleRettighetshavere_M`
@@ -447,7 +448,7 @@ Du må nå sette skjemadata som du opprettet i steg 5 på instansen. Dette gjør
 }
 {{< /expandableCode >}}
 
-### 8. Du går videre til neste prosessteg 
+### 8. Gå til neste prosessteg 
 
 Du kan nå gå videre til neste prosessteg i Altinn, det fører til at skjemadataene klargjøres for innsending.
 Du kan gå til neste prosessteg ved å kalle endepunktet:
@@ -513,7 +514,7 @@ Du kan gå til neste prosessteg ved å kalle endepunktet:
 }
 {{< /expandableCode >}}
 
-### 9. Du validerer dataene og sender inn skjemaet til Brønnøysundregistrene
+### 9. Valider og send inn skjema
 
 Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved å kalle endepunktet:
 
