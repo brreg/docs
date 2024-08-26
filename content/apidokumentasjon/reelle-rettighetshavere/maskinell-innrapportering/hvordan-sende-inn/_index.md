@@ -17,14 +17,14 @@ Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere t
     * [5. Du bygger opp opplysninger om Reelle rettighetshavere som JSON i ditt system](#5-du-bygger-opp-opplysninger-om-reelle-rettighetshavere-som-json-i-ditt-system)
     * [6. Opprett en instans av vårt Altinn-skjema](#6-opprett-en-instans-av-vårt-altinn-skjema)
     * [7. Du setter opplysninger om Reelle rettighetshavere som skjemadata på instansen (som du bygget opp i steg 5.)](#7-du-setter-opplysninger-om-reelle-rettighetshavere-som-skjemadata-på-instansen-som-du-bygget-opp-i-steg-5)
-    * [8. Du går videre til neste prosess (Validering av skjema)](#8-du-går-videre-til-neste-prosess-validering-av-skjema)
-    * [9. Du sender inn skjemaet til Brønnøysundregistrene](#9-du-sender-inn-skjemaet-til-brønnøysundregistrene)
+    * [8. Du går videre til neste prosessteg](#8-du-går-videre-til-neste-prosess-validering-av-skjema)
+    * [9. Du validerer dataene og sender inn skjemaet til Brønnøysundregistrene](#9-du-sender-inn-skjemaet-til-brønnøysundregistrene)
 <!-- TOC -->
 
 
 ## Sekvensdiagram
 
-![Sekvensdiagram](sekvensdiagram_minn.png)
+![Sekvensdiagram - Innsending av Altinn-skjema til Register over reelle rettighetshavere](sekvensdiagram_minn.png)
 
 ## ID-Porten
 
@@ -187,15 +187,8 @@ organisasjonsnummeret du skal sende inn for. Du trenger partyId i alle resterend
 
 ### 4. Hent preutfylte skjemadata
 
-Vi forhåndsutfyller alle skjemainstanser med preutfylte data. Alle skjemainstanser blir preutfylt med:
-
-* rettighetsinformasjonsid
-* registreringsid
-
-**Disse feltene og verdiene du henter her _MÅ_ være satt i steget når du setter skjemadataen**
-
 For å forenkle prosessen med å sende inn nye opplysninger om reelle rettighetshavere vil skjemainstansen være preutfylt 
-med forrige innrapporterte data. Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på 
+med forrige innrapporterte data. Du kan da ta utgangspunkt i de preufylte skjemadataene, gjøre endringer på 
 opplysningene, og sende disse inn.
 
 `GET {{altinn-miljø}}/brg/rrh-innrapportering/prefill/{partyId}`
@@ -300,26 +293,21 @@ opplysningene, og sende disse inn.
 
 ### 5. Du bygger opp opplysninger om Reelle rettighetshavere som JSON i ditt system
 
-{{< info >}}
-Vi jobber med en side som forklarer hvilke felter som skal settes når. <strong>"Lenke kommer"</strong>.
-{{< /info >}}
-
 JSON-skjema for å validere dataene dine er tilgjengelig på 
-[https://schema.brreg.no/reelle/altinn/schema.json](https://schema.brreg.no/reelle/altinn/schema.json). 
-Sjekk at versjonsnummeret på skjemaet samsvarer med feltet `versjon` i de preutfylte skjemadataene 
-([steg 4.](#4-hent-preutfylte-skjemadata)).
+[https://schema.brreg.no/reelle/altinn/schema.json](https://schema.brreg.no/reelle/altinn/schema.json). Skjemaet kan benyttes til å validere endringer du gjør på
+på de prutfylte datene ([steg 4.](#4-hent-preutfylte-skjemadata)).
 
-Se gjerne [siden med eksempler](../eksempler-paa-registrering) for å se eksempler på ferdigutfylte JSON-opplysninger. 
+Du kan finne JSON-eksempler sammen med en beskrivelse av hva som må fylles ut på denne [siden](../eksempler-paa-registrering).
 
-For å teste hvordan ulike kombinasjoner av reelle rettighetshavere skal settes, kan du manuelt fylle disse ut i vårt 
-Altinn-skjema på TT02. Etterpå kan du maskinelt hente ut preutfylte skjemadata 
-([steg 4.](#4-hent-preutfylte-skjemadata)), og se hvordan opplysningene ser ut i JSON.
+For å teste hvordan ulike kombinasjoner av reelle rettighetshavere bygges opp, kan du også manuelt fylle disse ut i 
+vårt Altinn-skjema på TT02. Etterpå kan du maskinelt hente ut preutfylte skjemadata ([steg 4.](#4-hent-preutfylte-skjemadata)), og se hvordan 
+opplysningene ser ut i JSON. 
 
 {{< info >}}
 <strong>Selv om virksomheten ikke har innrapportert opplysninger om reelle rettighetshavere tidligere, må du alltid ta 
-utgangspunkt i prefilldata når du skal rapportere inn reelle rettighetshavere i ditt sluttbrukersystem!</strong><br> 
+utgangspunkt i preutfylte data når du skal rapportere inn reelle rettighetshavere i ditt sluttbrukersystem!</strong><br> 
 Feltene versjon og endret, samt innholdet i "metadata" som du rapporter inn <strong> må være identisk med innholdet du 
-hentet ut i prefilldataen</strong>.
+hentet fra de preutfylte dataene</strong>.
 {{< /info >}}
 
 Når du har ferdigstilt opplysningene som JSON kan du gå videre til neste steg.
@@ -459,10 +447,10 @@ Du må nå sette skjemadata som du opprettet i steg 5 på instansen. Dette gjør
 }
 {{< /expandableCode >}}
 
-### 8. Du går videre til neste prosess 
+### 8. Du går videre til neste prosessteg 
 
-Du kan nå gå videre til neste prosess i Altinn, det fører til at skjemadataene klargjøres for innsending.
-Du kan gå til neste prosess ved å kalle endepunktet:
+Du kan nå gå videre til neste prosessteg i Altinn, det fører til at skjemadataene klargjøres for innsending.
+Du kan gå til neste prosessteg ved å kalle endepunktet:
 
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next`
 
