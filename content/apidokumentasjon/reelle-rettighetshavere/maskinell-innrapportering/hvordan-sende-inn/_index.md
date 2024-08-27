@@ -122,7 +122,7 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IjM4QUE3QTc5MjUzNDNCQjE0NjFCRUUwMURCNUQwOTRBM0VCOTgw
   tokenet være: `Bearer <<altinn-token>>`
 
 {{< warning >}}
-Husk at du må sette begge denne headeren i alle kallene nedenfor.
+Husk at du må sette denne headeren i alle kallene nedenfor.
 {{< /warning >}}
 
 ### 3. Hent partyId til virksomheten
