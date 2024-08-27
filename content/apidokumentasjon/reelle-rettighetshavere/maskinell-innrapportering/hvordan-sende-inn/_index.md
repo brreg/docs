@@ -76,8 +76,6 @@ For å se innholdet til et slikt token kan du B64-decode det, eller bruke verkt�
 
 For å veksle inn Altinn-tokenet må du sette følgende header:
 
-* `ApiKey` Du må legge inn ApiKey-en som du fikk når du bestilte tilgang til Altinns REST-APIer.
-* `Authorization`: Her må du legge til ID-Porten-tokenet du ustedte fra ID-Porten. Siden dette er et Bearer-token skal
 * `Authorization`: Her må du legge til ID-porten-tokenet du ustedte fra ID-porten. Siden dette er et Bearer-token skal
   verdien av tokenet være: `Bearer <<idporten access_token>>`
 
