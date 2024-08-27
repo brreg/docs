@@ -28,16 +28,24 @@ innrapportering. Ole Olsen er eneaksjonær i Snekkeren AS. En av de som har tilg
 sluttbrukersystem, sørger for å rapportere for Snekkeren AS, og sender inn opplysninger om reelle 
 rettighetshavere.
 
-| Opplysninger som skal sendes inn         | JSON-sti                                                                                    | JSON-verdi                                                     |
-|------------------------------------------|---------------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| Virksomhetens organisasjonsnummer        | skjemainnhold.skjemadata.registreringspliktigVirksomhet.organisasjonsnummer                 | 310956643                                                      |
-| Har virksomheten reelle rettighetshavere | skjemainnhold.skjemadata.reelleRettighetsregistreringspliktigVirksomhethavereidentifikasjon | reellerettighetshavereidentifikasjon.harReelleRettighetshavere |
-| *Ole Olsen*                              |                                                                                             |                                                                |
-| Er personen registrert i folkeregisteret | skjemainnhold.skjemadata.reellRettighetshaver[0].erRegistrertIFolkeregisteret               | true                                                           |
-| Fødselsnummer                            | skjemainnhold.skjemadata.reellRettighetshaver[0].folkeregistrertPerson.foedselsEllerDNummer | 41864000647                                                    |
-| Har posisjon eierskap                    | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonEierskap                        | true                                                           |
-| Eierskap størrelsesintervall 75% - 100%  | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.stoerrelsesintervall      | stoerrelsesintervall.intervall3                                |
-| Grunnlag for eierskap                    | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.grunnlag                  | grunnlagstype.direkte                                          |
+| Opplysninger som skal sendes inn                                                 | JSON-sti                                                                                                                  | JSON-verdi                                                     |
+|----------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| Virksomhetens organisasjonsnummer                                                | skjemainnhold.skjemadata.registreringspliktigVirksomhet.organisasjonsnummer                                               | 310956643                                                      |
+| Har virksomheten reelle rettighetshavere                                         | skjemainnhold.skjemadata.reelleRettighetsregistreringspliktigVirksomhethavereidentifikasjon                               | reellerettighetshavereidentifikasjon.harReelleRettighetshavere |
+| Rettighetshavere som ikke kan identifiseres                                      | skjemainnhold.skjemadata.kanIkkeIdentifisereFlereReelleRettighetshavere                                                   | false                                                          |
+| *Ole Olsen*                                                                      |                                                                                                                           |                                                                |
+| Er personen registrert i folkeregisteret                                         | skjemainnhold.skjemadata.reellRettighetshaver[0].erRegistrertIFolkeregisteret                                             | true                                                           |
+| Fødselsnummer                                                                    | skjemainnhold.skjemadata.reellRettighetshaver[0].folkeregistrertPerson.foedselsEllerDNummer                               | 41864000647                                                    |
+| Har posisjon eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonEierskap                                                      | true                                                           |
+| Har posisjon kontroll over stemmerettigheter                                     | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonKontrollOverStemmerettigheter                                 | false                                                          |
+| Har posisjon kontroll på annen måte                                              | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonKontrollPaaAnnenMaate                                         | false                                                          |
+| Har posisjon rett til å utpeke eller avsette minst halvparten av styremedlemmene | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene   | false                                                          |
+| Har posisjon avgitt grunnkapital                                                 | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonAvgittGrunnkapital                                            | false                                                          |
+| Har posisjon rett til å utpeke et flertall av styremedlemmene                    | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene                    | false                                                          |
+| Har posisjon destinatar                                                          | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonDestinatar                                                    | false                                                          |
+| Har posisjon særlige rettigheter                                                 | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonSaerligeRettigheter                                           | false                                                          |
+| Eierskap størrelsesintervall 75% - 100%                                          | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.stoerrelsesintervall                                    | stoerrelsesintervall.intervall3                                |
+| Grunnlag for eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.grunnlag                                                | grunnlagstype.direkte                                          |
 
 {{< expandableCode title="JSON-eksempel" lang="json" >}}
 {
@@ -46,7 +54,7 @@ rettighetshavere.
     "skjemainnhold": {
         "metadata": {
             "tjeneste": "rrh.ktr.reelle",
-            "tjenestehandling": "endring",
+            "tjenestehandling": "nyregistrering",
             "rettighetsinformasjonsid": "RRH202400000182",
             "registreringsid": "daa79643-f763-4be6-8a8b-5ef93e2c5bec"
         },
@@ -120,30 +128,45 @@ rettighetshavere.
 ## Eksempel 2: To reelle rettighetshavere i et AS, en norsk og en utenlandsk
 
 Snekkeren AS har fått melding i Altinn fra Register over reelle rettighetshavere om at virksomheten må registrere sine
-reelle rettighetshavere. Virksomheten har et sluttbrukersystem som har implementert muligheter for maskinell
+reelle rettighetshavere. Virksomheten benytter et sluttbrukersystem som tilbyr en løsning for maskinell
 innrapportering. Ole Olsen og Svante Turesson (er svensk, men har både svensk og amerikansk statsborgerskap) eier 50%
-hver i Snekkeren AS. Ole Olsen eller Svante Turesson logger seg inn på sitt sluttbrukersystem, sørger for at de
-rapporterer for Snekkeren AS, og finner innsending av reelle rettighetshavere.
+hver i Snekkeren AS. En av de som har tilgang logger seg inn på sitt sluttbrukersystem, sørger for å rapportere for 
+Snekkeren AS, og sender inn opplysninger om reelle rettighetshavere.
 
-| Opplysninger som skal sendes inn           | JSON-sti                                                                                    | JSON-verdi                                                     |
-|--------------------------------------------|---------------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| Virksomhetens organisasjonsnummer          | skjemainnhold.skjemadata.registreringspliktigVirksomhet.organisasjonsnummer                 | 310956643                                                      |
-| Har virksomheten reelle rettighetshavere   | skjemainnhold.skjemadata.reelleRettighetsregistreringspliktigVirksomhethavereidentifikasjon | reellerettighetshavereidentifikasjon.harReelleRettighetshavere |
-| *Ole Olsen*                                |                                                                                             |                                                                |
-| Er personen registrert i folkeregisteret   | skjemainnhold.skjemadata.reellRettighetshaver[0].erRegistrertIFolkeregisteret               | true                                                           |
-| Fødselsnummer                              | skjemainnhold.skjemadata.reellRettighetshaver[0].folkeregistrertPerson.foedselsEllerDNummer | 41864000647                                                    |
-| Har posisjon eierskap                      | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonEierskap                        | true                                                           |
-| Eierskap størrelsesintervall  50% - 74,99% | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.stoerrelsesintervall      | stoerrelsesintervall.intervall2                                |
-| Grunnlag for eierskap                      | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.grunnlag                  | grunnlagstype.direkte                                          |
-| *Svante Turesson*                          |                                                                                             |                                                                |
-| Er personen registrert i folkeregisteret   | skjemainnhold.skjemadata.reellRettighetshaver[1].erRegistrertIFolkeregisteret               | false                                                          |
-| Fødselsdato for                            | skjemainnhold.skjemadata.reellRettighetshaver[1].utenlandskPerson.foedselsdato              | 1982-01-01                                                     |
-| Fullt navn                                 | skjemainnhold.skjemadata.reellRettighetshaver[1].utenlandskPerson.fulltNavn                 | Svante Turesson                                                |
-| Bostedsland: Servige                       | skjemainnhold.skjemadata.reellRettighetshaver[1].utenlandskPerson.bostedsland               | SWE                                                            |
-| Statsborgerskap: Sverige og USA            | skjemainnhold.skjemadata.reellRettighetshaver[1].utenlandskPerson.statsborgerskap           | SWE,USA                                                        |
-| Har posisjon eierskap                      | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonEierskap                        | true                                                           |
-| Eierskap størrelsesintervall  50% - 74,99% | skjemainnhold.skjemadata.reellRettighetshaver[1].posisjonEierskap.stoerrelsesintervall      | stoerrelsesintervall.intervall2                                |
-| Grunnlag for eierskap                      | skjemainnhold.skjemadata.reellRettighetshaver[1].posisjonEierskap.grunnlag                  | grunnlagstype.direkte                                          |
+| Opplysninger som skal sendes inn                                                 | JSON-sti                                                                                                                | JSON-verdi                                                     |
+|----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| Virksomhetens organisasjonsnummer                                                | skjemainnhold.skjemadata.registreringspliktigVirksomhet.organisasjonsnummer                                             | 310956643                                                      |
+| Har virksomheten reelle rettighetshavere                                         | skjemainnhold.skjemadata.reelleRettighetsregistreringspliktigVirksomhethavereidentifikasjon                             | reellerettighetshavereidentifikasjon.harReelleRettighetshavere |
+| Rettighetshavere som ikke kan identifiseres                                      | skjemainnhold.skjemadata.kanIkkeIdentifisereFlereReelleRettighetshavere                                                 | false                                                          |
+| *Ole Olsen*                                                                      |                                                                                                                         |                                                                |
+| Er personen registrert i folkeregisteret                                         | skjemainnhold.skjemadata.reellRettighetshaver[0].erRegistrertIFolkeregisteret                                           | true                                                           |
+| Fødselsnummer                                                                    | skjemainnhold.skjemadata.reellRettighetshaver[0].folkeregistrertPerson.foedselsEllerDNummer                             | 41864000647                                                    |
+| Har posisjon eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonEierskap                                                    | true                                                           |
+| Har posisjon kontroll over stemmerettigheter                                     | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonKontrollOverStemmerettigheter                               | false                                                          |
+| Har posisjon kontroll på annen måte                                              | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonKontrollPaaAnnenMaate                                       | false                                                          |
+| Har posisjon rett til å utpeke eller avsette minst halvparten av styremedlemmene | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene | false                                                          |
+| Har posisjon avgitt grunnkapital                                                 | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonAvgittGrunnkapital                                          | false                                                          |
+| Har posisjon rett til å utpeke et flertall av styremedlemmene                    | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene                  | false                                                          |
+| Har posisjon destinatar                                                          | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonDestinatar                                                  | false                                                          |
+| Har posisjon særlige rettigheter                                                 | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonSaerligeRettigheter                                         | false                                                          |
+| Eierskap størrelsesintervall  50% - 74,99%                                       | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.stoerrelsesintervall                                  | stoerrelsesintervall.intervall2                                |
+| Grunnlag for eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.grunnlag                                              | grunnlagstype.direkte                                          |
+| *Svante Turesson*                                                                |                                                                                                                         |                                                                |
+| Er personen registrert i folkeregisteret                                         | skjemainnhold.skjemadata.reellRettighetshaver[1].erRegistrertIFolkeregisteret                                           | false                                                          |
+| Fødselsdato for                                                                  | skjemainnhold.skjemadata.reellRettighetshaver[1].utenlandskPerson.foedselsdato                                          | 1982-01-01                                                     |
+| Fullt navn                                                                       | skjemainnhold.skjemadata.reellRettighetshaver[1].utenlandskPerson.fulltNavn                                             | Svante Turesson                                                |
+| Bostedsland: Sverige                                                             | skjemainnhold.skjemadata.reellRettighetshaver[1].utenlandskPerson.bostedsland                                           | SWE                                                            |
+| Statsborgerskap: Sverige og USA                                                  | skjemainnhold.skjemadata.reellRettighetshaver[1].utenlandskPerson.statsborgerskap                                       | SWE,USA                                                        |
+| Har posisjon eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonEierskap                                                    | true                                                           |
+| Har posisjon kontroll over stemmerettigheter                                     | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonKontrollOverStemmerettigheter                               | false                                                          |
+| Har posisjon kontroll på annen måte                                              | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonKontrollPaaAnnenMaate                                       | false                                                          |
+| Har posisjon rett til å utpeke eller avsette minst halvparten av styremedlemmene | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene | false                                                          |
+| Har posisjon avgitt grunnkapital                                                 | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonAvgittGrunnkapital                                          | false                                                          |
+| Har posisjon rett til å utpeke et flertall av styremedlemmene                    | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene                  | false                                                          |
+| Har posisjon destinatar                                                          | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonDestinatar                                                  | false                                                          |
+| Har posisjon særlige rettigheter                                                 | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonSaerligeRettigheter                                         | false                                                          |
+| Eierskap størrelsesintervall  50% - 74,99%                                       | skjemainnhold.skjemadata.reellRettighetshaver[1].posisjonEierskap.stoerrelsesintervall                                  | stoerrelsesintervall.intervall2                                |
+| Grunnlag for eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[1].posisjonEierskap.grunnlag                                              | grunnlagstype.direkte                                          |
 
 {{< expandableCode title="JSON-eksempel" lang="json" >}}
 {
@@ -152,7 +175,7 @@ rapporterer for Snekkeren AS, og finner innsending av reelle rettighetshavere.
     "skjemainnhold": {
         "metadata": {
             "tjeneste": "rrh.ktr.reelle",
-            "tjenestehandling": "endring",
+            "tjenestehandling": "nyregistrering",
             "rettighetsinformasjonsid": "RRH202400000182",
             "registreringsid": "9da10db1-15bd-4067-82eb-33f347ba9c2f"
         },
@@ -255,24 +278,33 @@ rapporterer for Snekkeren AS, og finner innsending av reelle rettighetshavere.
 ## Eksempel 3: En reell rettighetshaver med en mellomliggende virksomhet
 
 Snekkeren AS har fått melding i Altinn fra Register over reelle rettighetshavere om at virksomheten må registrere sine
-reelle rettighetshavere. Virksomheten har et sluttbrukersystem som har implementert muligheter for maskinell
+reelle rettighetshavere. Virksomheten benytter et sluttbrukersystem som tilbyr en løsning for maskinell
 innrapportering. Ole Olsen er indirekte eier i Snekkeren AS fordi han eier 100% av aksjene i Trelast AS, som igjen eier
 60% av aksjene i Snekkeren AS. Resterende 40 % av aksjene i Snekkeren AS er eid av ansatte som har under 25 % hver.
-Ole Olsen logger seg inn på sitt sluttbrukersystem, sørger for han rapporterer for Snekkeren AS, og finner innsending
-av reelle rettighetshavere.
+En av de som har tilgang logger seg inn på sitt sluttbrukersystem, sørger for å rapportere for Snekkeren AS, og sender 
+inn opplysninger om reelle rettighetshavere.
 
-| Opplysninger som skal sendes inn           | JSON-sti                                                                                                                          | JSON-verdi                                                     |
-|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| Virksomhetens organisasjonsnummer          | skjemainnhold.skjemadata.registreringspliktigVirksomhet.organisasjonsnummer                                                       | 310956643                                                      |
-| Har virksomheten reelle rettighetshavere   | skjemainnhold.skjemadata.reelleRettighetsregistreringspliktigVirksomhethavereidentifikasjon                                       | reellerettighetshavereidentifikasjon.harReelleRettighetshavere |
-| *Ole Olsen*                                |                                                                                                                                   |                                                                |
-| Er personen registrert i folkeregisteret   | skjemainnhold.skjemadata.reellRettighetshaver[0].erRegistrertIFolkeregisteret                                                     | true                                                           |
-| Fødselsnummer                              | skjemainnhold.skjemadata.reellRettighetshaver[0].folkeregistrertPerson.foedselsEllerDNummer                                       | 41864000647                                                    |
-| Har posisjon eierskap                      | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonEierskap                                                              | true                                                           |
-| Eierskap størrelsesintervall  50% - 74,99% | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.stoerrelsesintervall                                            | stoerrelsesintervall.intervall2                                |
-| Grunnlag for eierskap                      | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.grunnlag                                                        | grunnlagstype.indirekte                                        |
-| Mellomliggende virksomhet                  | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.mellomliggendeVirksomhet[0].erUtenlandskVirksomhet              | false                                                          |
-| Organisasjonsnummer til Trelast AS         | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.mellomliggendeVirksomhet[0].norskVirksomhet.organisasjonsnummer | 310219622                                                      |
+
+| Opplysninger som skal sendes inn                                                 | JSON-sti                                                                                                                          | JSON-verdi                                                     |
+|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| Virksomhetens organisasjonsnummer                                                | skjemainnhold.skjemadata.registreringspliktigVirksomhet.organisasjonsnummer                                                       | 310956643                                                      |
+| Har virksomheten reelle rettighetshavere                                         | skjemainnhold.skjemadata.reelleRettighetsregistreringspliktigVirksomhethavereidentifikasjon                                       | reellerettighetshavereidentifikasjon.harReelleRettighetshavere |
+| Rettighetshavere som ikke kan identifiseres                                      | skjemainnhold.skjemadata.kanIkkeIdentifisereFlereReelleRettighetshavere                                                           | false                                                          |
+| *Ole Olsen*                                                                      |                                                                                                                                   |                                                                |
+| Er personen registrert i folkeregisteret                                         | skjemainnhold.skjemadata.reellRettighetshaver[0].erRegistrertIFolkeregisteret                                                     | true                                                           |
+| Fødselsnummer                                                                    | skjemainnhold.skjemadata.reellRettighetshaver[0].folkeregistrertPerson.foedselsEllerDNummer                                       | 41864000647                                                    |
+| Har posisjon eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonEierskap                                                              | true                                                           |
+| Har posisjon kontroll over stemmerettigheter                                     | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonKontrollOverStemmerettigheter                                         | false                                                          |
+| Har posisjon kontroll på annen måte                                              | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonKontrollPaaAnnenMaate                                                 | false                                                          |
+| Har posisjon rett til å utpeke eller avsette minst halvparten av styremedlemmene | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene           | false                                                          |
+| Har posisjon avgitt grunnkapital                                                 | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonAvgittGrunnkapital                                                    | false                                                          |
+| Har posisjon rett til å utpeke et flertall av styremedlemmene                    | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene                            | false                                                          |
+| Har posisjon destinatar                                                          | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonDestinatar                                                            | false                                                          |
+| Har posisjon særlige rettigheter                                                 | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonSaerligeRettigheter                                                   | false                                                          |
+| Eierskap størrelsesintervall  50% - 74,99%                                       | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.stoerrelsesintervall                                            | stoerrelsesintervall.intervall2                                |
+| Grunnlag for eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.grunnlag                                                        | grunnlagstype.indirekte                                        |
+| Mellomliggende virksomhet                                                        | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.mellomliggendeVirksomhet[0].erUtenlandskVirksomhet              | false                                                          |
+| Organisasjonsnummer til Trelast AS                                               | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.mellomliggendeVirksomhet[0].norskVirksomhet.organisasjonsnummer | 310219622                                                      |
 
 {{< expandableCode title="JSON-eksempel" lang="json" >}}
 {
@@ -281,7 +313,7 @@ av reelle rettighetshavere.
     "skjemainnhold": {
         "metadata": {
             "tjeneste": "rrh.ktr.reelle",
-            "tjenestehandling": "endring",
+            "tjenestehandling": "nyregistrering",
             "rettighetsinformasjonsid": "RRH202400000182",
             "registreringsid": "95fd1d9a-e335-4787-92ad-fb4951657777"
         },
@@ -373,43 +405,71 @@ av reelle rettighetshavere.
 ## Eksempel 4: Fire reelle rettighetshavere med hver sin posisjon
 
 Snekkeren AS har fått melding i Altinn fra Register over reelle rettighetshavere om at virksomheten må registrere sine
-reelle rettighetshavere. Virksomheten har et sluttbrukersystem som har implementert muligheter for maskinell
+reelle rettighetshavere. Virksomheten benytter et sluttbrukersystem som tilbyr en løsning for maskinell
 innrapportering. Snekkeren AS har fire reelle rettighetshavere som har hver sin posisjon. Ole Olsen eier 26% av
 aksjene, Hans Hansen eier 20% av aksjene, men har 28% stemmerettighet fordi han eier 28% av Woods AS. Woods AS eier 50% 
-av Snekkeren AS.  Hilde Knutsen eier 10% av virksomheten, men har en intern avtale som gjør at hun har rett til å utpeke 
-eller avsette mer enn halvparten av styremedlemmer, Bente Hansen er verge for en mindreårig aksjeeier som eier 40% av 
-aksjene. En av de som har tilgang logger seg inn på sitt sluttbrukersystem, sørger for at de rapporterer for 
-Snekkeren AS, og finner innsending av reelle rettighetshavere.
+av Snekkeren AS.  Hilde Knutsen eier 10% av virksomheten, men har en intern avtale som gjør at hun har rett til å 
+utpeke eller avsette mer enn halvparten av styremedlemmer, Bente Hansen er verge for en mindreårig aksjeeier som eier 
+40% av aksjene. En av de som har tilgang logger seg inn på sitt sluttbrukersystem, sørger for å rapportere for 
+Snekkeren AS, og sender inn opplysninger om reelle rettighetshavere.
 
-| Opplysninger som skal sendes inn                        | JSON-sti                                                                                                                          | JSON-verdi                                                     |
-|---------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| Virksomhetens organisasjonsnummer                       | skjemainnhold.skjemadata.registreringspliktigVirksomhet.organisasjonsnummer                                                       | 310956643                                                      |
-| Har virksomheten reelle rettighetshavere                | skjemainnhold.skjemadata.reelleRettighetsregistreringspliktigVirksomhethavereidentifikasjon                                       | reellerettighetshavereidentifikasjon.harReelleRettighetshavere |
-| *Ole Olsen*                                             |                                                                                                                                   |                                                                |
-| Er personen registrert i folkeregisteret                | skjemainnhold.skjemadata.reellRettighetshaver[0].erRegistrertIFolkeregisteret                                                     | true                                                           |
-| Fødselsnummer for Ole Olsen                             | skjemainnhold.skjemadata.reellRettighetshaver[0].folkeregistrertPerson.foedselsEllerDNummer                                       | 26920296504                                                    |
-| Har posisjon eierskap                                   | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonEierskap                                                              | true                                                           |
-| Eierskap størrelsesintervall 25,01% - 49,99%            | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.stoerrelsesintervall                                            | stoerrelsesintervall.intervall1                                |
-| Grunnlag for eierskap                                   | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.grunnlag                                                        | grunnlagstype.direkte                                          |
-| *Hans Hansen*                                           |                                                                                                                                   |                                                                |
-| Er personen registrert i folkeregisteret                | skjemainnhold.skjemadata.reellRettighetshaver[1].erRegistrertIFolkeregisteret                                                     | true                                                           |
-| Fødselsnummer                                           | skjemainnhold.skjemadata.reellRettighetshaver[1].folkeregistrertPerson.foedselsEllerDNummer                                       | 27899995479                                                    |
-| Har posisjon eierskap                                   | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonEierskap                                                              | true                                                           |
-| Stemmerettighet størrelsesintervall 25,01% - 49,99%     | skjemainnhold.skjemadata.reellRettighetshaver[1].posisjonEierskap.stoerrelsesintervall                                            | stoerrelsesintervall.intervall1                                |
-| Grunnlag for eierskap                                   | skjemainnhold.skjemadata.reellRettighetshaver[1].posisjonEierskap.grunnlag                                                        | grunnlagstype.indirekte                                        |
-| Mellomliggende virksomhet                               | skjemainnhold.skjemadata.reellRettighetshaver[1].posisjonEierskap.mellomliggendeVirksomhet[0].erUtenlandskVirksomhet              | false                                                          |
-| Organisasjonsnummer til Woods AS                        | skjemainnhold.skjemadata.reellRettighetshaver[1].posisjonEierskap.mellomliggendeVirksomhet[0].norskVirksomhet.organisasjonsnummer | 310274682                                                      |
-| *Hilde Knutsen*                                         |                                                                                                                                   |                                                                |
-| Er personen registrert i folkeregisteret                | skjemainnhold.skjemadata.reellRettighetshaver[2].erRegistrertIFolkeregisteret                                                     | true                                                           |
-| Fødselsnummer                                           | skjemainnhold.skjemadata.reellRettighetshaver[2].folkeregistrertPerson.foedselsEllerDNummer                                       | 06909997850                                                    |
-| Posisjon rett til å utpeke eller avsette styremedlemmer | skjemainnhold.skjemadata.reellRettighetshaver[2].harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene           | true                                                           |
-| Grunnlag for posisjon                                   | skjemainnhold.skjemadata.reellRettighetshaver[2].grunnlagForPosisjonenRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene | grunnlagstype.enighetEllerAvtale                               |
-| *Bente Hansen*                                          |                                                                                                                                   |                                                                |
-| Er personen registrert i folkeregisteret                | skjemainnhold.skjemadata.reellRettighetshaver[3].erRegistrertIFolkeregisteret                                                     | true                                                           |
-| Fødselsnummer                                           | skjemainnhold.skjemadata.reellRettighetshaver[3].folkeregistrertPerson.foedselsEllerDNummer                                       | 13853448138                                                    |
-| Har posisjon eierskap                                   | skjemainnhold.skjemadata.reellRettighetshaver[3].harPosisjonEierskap                                                              | false                                                          |
-| Har posisjon kontroll på en annen måte                  | skjemainnhold.skjemadata.reellRettighetshaver[3].harPosisjonKontrollPaaAnnenMaate                                                 | true                                                           |
-| Posisjon kontroll på en annen måte beskrivelse          | skjemainnhold.skjemadata.reellRettighetshaver[3].beskrivelseAvPosisjonenKontrollPaaAnnenMaate                                     | Verge for en mindreårig aksjeeier som eier 40% av aksjene      |
+| Opplysninger som skal sendes inn                                                 | JSON-sti                                                                                                                          | JSON-verdi                                                     |
+|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| Virksomhetens organisasjonsnummer                                                | skjemainnhold.skjemadata.registreringspliktigVirksomhet.organisasjonsnummer                                                       | 310956643                                                      |
+| Har virksomheten reelle rettighetshavere                                         | skjemainnhold.skjemadata.reelleRettighetsregistreringspliktigVirksomhethavereidentifikasjon                                       | reellerettighetshavereidentifikasjon.harReelleRettighetshavere |
+| Rettighetshavere som ikke kan identifiseres                                      | skjemainnhold.skjemadata.kanIkkeIdentifisereFlereReelleRettighetshavere                                                           | false                                                          |
+| *Ole Olsen*                                                                      |                                                                                                                                   |                                                                |
+| Er personen registrert i folkeregisteret                                         | skjemainnhold.skjemadata.reellRettighetshaver[0].erRegistrertIFolkeregisteret                                                     | true                                                           |
+| Fødselsnummer for Ole Olsen                                                      | skjemainnhold.skjemadata.reellRettighetshaver[0].folkeregistrertPerson.foedselsEllerDNummer                                       | 26920296504                                                    |
+| Har posisjon eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonEierskap                                                              | true                                                           |
+| Har posisjon kontroll over stemmerettigheter                                     | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonKontrollOverStemmerettigheter                                         | false                                                          |
+| Har posisjon kontroll på annen måte                                              | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonKontrollPaaAnnenMaate                                                 | false                                                          |
+| Har posisjon rett til å utpeke eller avsette minst halvparten av styremedlemmene | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene           | false                                                          |
+| Har posisjon avgitt grunnkapital                                                 | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonAvgittGrunnkapital                                                    | false                                                          |
+| Har posisjon rett til å utpeke et flertall av styremedlemmene                    | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene                            | false                                                          |
+| Har posisjon destinatar                                                          | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonDestinatar                                                            | false                                                          |
+| Har posisjon særlige rettigheter                                                 | skjemainnhold.skjemadata.reellRettighetshaver[0].harPosisjonSaerligeRettigheter                                                   | false                                                          |
+| Eierskap størrelsesintervall 25,01% - 49,99%                                     | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.stoerrelsesintervall                                            | stoerrelsesintervall.intervall1                                |
+| Grunnlag for eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[0].posisjonEierskap.grunnlag                                                        | grunnlagstype.direkte                                          |
+| *Hans Hansen*                                                                    |                                                                                                                                   |                                                                |
+| Er personen registrert i folkeregisteret                                         | skjemainnhold.skjemadata.reellRettighetshaver[1].erRegistrertIFolkeregisteret                                                     | true                                                           |
+| Fødselsnummer                                                                    | skjemainnhold.skjemadata.reellRettighetshaver[1].folkeregistrertPerson.foedselsEllerDNummer                                       | 27899995479                                                    |
+| Har posisjon eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonEierskap                                                              | true                                                           |
+| Har posisjon kontroll over stemmerettigheter                                     | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonKontrollOverStemmerettigheter                                         | false                                                          |
+| Har posisjon kontroll på annen måte                                              | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonKontrollPaaAnnenMaate                                                 | false                                                          |
+| Har posisjon rett til å utpeke eller avsette minst halvparten av styremedlemmene | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene           | false                                                          |
+| Har posisjon avgitt grunnkapital                                                 | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonAvgittGrunnkapital                                                    | false                                                          |
+| Har posisjon rett til å utpeke et flertall av styremedlemmene                    | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene                            | false                                                          |
+| Har posisjon destinatar                                                          | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonDestinatar                                                            | false                                                          |
+| Har posisjon særlige rettigheter                                                 | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonSaerligeRettigheter                                                   | false                                                          |
+| Stemmerettighet størrelsesintervall 25,01% - 49,99%                              | skjemainnhold.skjemadata.reellRettighetshaver[1].posisjonEierskap.stoerrelsesintervall                                            | stoerrelsesintervall.intervall1                                |
+| Grunnlag for eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[1].posisjonEierskap.grunnlag                                                        | grunnlagstype.indirekte                                        |
+| Mellomliggende virksomhet                                                        | skjemainnhold.skjemadata.reellRettighetshaver[1].posisjonEierskap.mellomliggendeVirksomhet[0].erUtenlandskVirksomhet              | false                                                          |
+| Organisasjonsnummer til Woods AS                                                 | skjemainnhold.skjemadata.reellRettighetshaver[1].posisjonEierskap.mellomliggendeVirksomhet[0].norskVirksomhet.organisasjonsnummer | 310274682                                                      |
+| *Hilde Knutsen*                                                                  |                                                                                                                                   |                                                                |
+| Er personen registrert i folkeregisteret                                         | skjemainnhold.skjemadata.reellRettighetshaver[2].erRegistrertIFolkeregisteret                                                     | true                                                           |
+| Fødselsnummer                                                                    | skjemainnhold.skjemadata.reellRettighetshaver[2].folkeregistrertPerson.foedselsEllerDNummer                                       | 06909997850                                                    |
+| Har posisjon eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[2].harPosisjonEierskap                                                              | false                                                          |
+| Har posisjon kontroll over stemmerettigheter                                     | skjemainnhold.skjemadata.reellRettighetshaver[2].harPosisjonKontrollOverStemmerettigheter                                         | false                                                          |
+| Har posisjon kontroll på annen måte                                              | skjemainnhold.skjemadata.reellRettighetshaver[2].harPosisjonKontrollPaaAnnenMaate                                                 | false                                                          |
+| Har posisjon rett til å utpeke eller avsette minst halvparten av styremedlemmene | skjemainnhold.skjemadata.reellRettighetshaver[2].harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene           | true                                                           |
+| Har posisjon avgitt grunnkapital                                                 | skjemainnhold.skjemadata.reellRettighetshaver[2].harPosisjonAvgittGrunnkapital                                                    | false                                                          |
+| Har posisjon rett til å utpeke et flertall av styremedlemmene                    | skjemainnhold.skjemadata.reellRettighetshaver[2].harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene                            | false                                                          |
+| Har posisjon destinatar                                                          | skjemainnhold.skjemadata.reellRettighetshaver[2].harPosisjonDestinatar                                                            | false                                                          |
+| Har posisjon særlige rettigheter                                                 | skjemainnhold.skjemadata.reellRettighetshaver[2].harPosisjonSaerligeRettigheter                                                   | false                                                          |
+| Grunnlag for posisjon                                                            | skjemainnhold.skjemadata.reellRettighetshaver[2].grunnlagForPosisjonenRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene | grunnlagstype.enighetEllerAvtale                               |
+| *Bente Hansen*                                                                   |                                                                                                                                   |                                                                |
+| Er personen registrert i folkeregisteret                                         | skjemainnhold.skjemadata.reellRettighetshaver[3].erRegistrertIFolkeregisteret                                                     | true                                                           |
+| Fødselsnummer                                                                    | skjemainnhold.skjemadata.reellRettighetshaver[3].folkeregistrertPerson.foedselsEllerDNummer                                       | 13853448138                                                    |
+| Har posisjon eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonEierskap                                                              | false                                                          |
+| Har posisjon kontroll over stemmerettigheter                                     | skjemainnhold.skjemadata.reellRettighetshaver[3].harPosisjonKontrollOverStemmerettigheter                                         | false                                                          |
+| Har posisjon kontroll på annen måte                                              | skjemainnhold.skjemadata.reellRettighetshaver[3].harPosisjonKontrollPaaAnnenMaate                                                 | true                                                           |
+| Har posisjon rett til å utpeke eller avsette minst halvparten av styremedlemmene | skjemainnhold.skjemadata.reellRettighetshaver[3].harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene           | false                                                          |
+| Har posisjon avgitt grunnkapital                                                 | skjemainnhold.skjemadata.reellRettighetshaver[3].harPosisjonAvgittGrunnkapital                                                    | false                                                          |
+| Har posisjon rett til å utpeke et flertall av styremedlemmene                    | skjemainnhold.skjemadata.reellRettighetshaver[3].harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene                            | false                                                          |
+| Har posisjon destinatar                                                          | skjemainnhold.skjemadata.reellRettighetshaver[3].harPosisjonDestinatar                                                            | false                                                          |
+| Har posisjon særlige rettigheter                                                 | skjemainnhold.skjemadata.reellRettighetshaver[3].harPosisjonSaerligeRettigheter                                                   | false                                                          |
+| Posisjon kontroll på en annen måte beskrivelse                                   | skjemainnhold.skjemadata.reellRettighetshaver[3].beskrivelseAvPosisjonenKontrollPaaAnnenMaate                                     | Verge for en mindreårig aksjeeier som eier 40% av aksjene      |
 
 {{< expandableCode title="JSON-eksempel" lang="json" >}}
 {
@@ -418,7 +478,7 @@ Snekkeren AS, og finner innsending av reelle rettighetshavere.
     "skjemainnhold": {
         "metadata": {
             "tjeneste": "rrh.ktr.reelle",
-            "tjenestehandling": "endring",
+            "tjenestehandling": "nyregistrering",
             "rettighetsinformasjonsid": "RRH202400000190",
             "registreringsid": "ff9de949-ecc5-4765-b98f-2eaf03c3467d"
         },
@@ -598,16 +658,18 @@ Snekkeren AS, og finner innsending av reelle rettighetshavere.
 ## Eksempel 5: Fem reelle rettighetshavere som eier 20% hver
 
 Snekkeren AS har fått melding i Altinn fra Register over reelle rettighetshavere om at virksomheten må registrere sine
-reelle rettighetshavere. Virksomheten har et sluttbrukersystem som har implementert muligheter for maskinell
+reelle rettighetshavere. Virksomheten benytter et sluttbrukersystem som tilbyr en løsning for maskinell
 innrapportering. Ole Olsen, Svante Sturesson, Bente Hansen, Hilde Knutsen og Sølvi Person eier 20% hver av aksjene i
 Snekkeren AS, og det foreligger ingen interne avtaler som gjør at noen har større stemmerett enn andre aksjeeiere.
-En av de som har tilgang logger seg inn på sitt sluttbrukersystem, sørger for at de rapporterer for Snekkeren AS, og
-finner innsending av reelle rettighetshavere.
+En av de som har tilgang logger seg inn på sitt sluttbrukersystem, sørger for å rapportere for Snekkeren AS, og sender
+inn opplysninger om reelle rettighetshavere.
 
-| Opplysninger som skal sendes inn         | JSON-sti                                                                                    | JSON-verdi                                                         |
-|------------------------------------------|---------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
-| Virksomhetens organisasjonsnummer        | skjemainnhold.skjemadata.registreringspliktigVirksomhet.organisasjonsnummer                 | 313848981                                                          |
-| Har virksomheten reelle rettighetshavere | skjemainnhold.skjemadata.reelleRettighetsregistreringspliktigVirksomhethavereidentifikasjon | reellerettighetshavereidentifikasjon.harIkkeReelleRettighetshavere |
+| Opplysninger som skal sendes inn                 | JSON-sti                                                                                                               | JSON-verdi                                                         |
+|--------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| Virksomhetens organisasjonsnummer                | skjemainnhold.skjemadata.registreringspliktigVirksomhet.organisasjonsnummer                                            | 313848981                                                          |
+| Rettighetshavere som ikke kan identifiseres      | skjemainnhold.skjemadata.kanIkkeIdentifisereFlereReelleRettighetshavere                                                | false                                                              |
+| Har virksomheten reelle rettighetshavere         | skjemainnhold.skjemadata.reelleRettighetsregistreringspliktigVirksomhethavereidentifikasjon                            | reellerettighetshavereidentifikasjon.harIkkeReelleRettighetshavere |
+| Er eid eller kontrollert av offentlig virksomhet | skjemainnhold.skjemadata.aarsakTilAtVirksomhetIkkeHarReelleRettighetshavere.erEidEllerKontrollertAvOffentligVirksomhet | false                                                              |
 
 {{< expandableCode title="JSON-eksempel" lang="json" >}}
 {
@@ -616,7 +678,7 @@ finner innsending av reelle rettighetshavere.
     "skjemainnhold": {
         "metadata": {
             "tjeneste": "rrh.ktr.reelle",
-            "tjenestehandling": "endring",
+            "tjenestehandling": "nyregistrering",
             "rettighetsinformasjonsid": "RRH202400000190",
             "registreringsid": "2a0fac7d-c8b9-4279-866d-b717c464195c"
         },
