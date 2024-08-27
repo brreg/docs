@@ -13,7 +13,9 @@ For å kunne rapportere inn opplysninger om Reelle rettighetshavere på vegne av
   * [Jeg har problemer](#jeg-har-problemer)
 <!-- TOC -->
 
-> **_NB!_** Hvis du som sluttbrukersystem har gjort dette tidligere i forbindelse med en annen integrasjon mot ID-porten og Altinn så trenger du **_ikke_** å gjøre det på nytt. Du kan da gjenbruke API-nøkkelen du fikk fra Altinn, og `api_klient`-en du opprettet hos ID-porten. API-klienten må ha tilgang til scopene `altinn:instances.read` og `altinn:instances.write`.  
+> **_NB!_** Hvis du som sluttbrukersystem har gjort dette tidligere i forbindelse med en annen integrasjon mot 
+> ID-porten og Altinn så trenger du **_ikke_** å gjøre det på nytt. Du kan da gjenbruke `api_klient`-en du opprettet 
+> hos ID-porten. API-klienten må ha tilgang til scopene `altinn:instances.read` og `altinn:instances.write`.  
 
 
 ## 1. Sette opp api_klient hos ID-porten
@@ -48,7 +50,6 @@ Som du også kan lese i [Digdirs guide](https://altinn.github.io/docs/api/datasy
 * [**Se denne PDFen**](Bestill%20tilgang%20til%20REST%20API%20-%20Digitaliseringsdirektoratet.pdf) for å se et eksempel på hva du trenger å fylle ut. 
 
 Når du har fått tilgang til Altinns REST API skal du:
-   * Motta en API-nøkkel. Denne må legges ved alle REST-kall mot Altinn APPen
    * Få lov til å gi `api_klient`-en du opprettet hos ID-porten tilgang til scopene `altinn:instances.read` og `altinn:instances.write`.
       * Dette kan du gjøre ved å logge på [Samarbeidsportalen](https://minside-samarbeid.digdir.no/my-organisation/integrations/admin), velg `api_klient`-en du opprettet i listen over integrasjoner, og legg til scopene til klienten.
 
