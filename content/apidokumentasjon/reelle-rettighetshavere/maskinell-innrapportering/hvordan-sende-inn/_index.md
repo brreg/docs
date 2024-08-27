@@ -7,33 +7,33 @@ weight: 100
 Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere til oss ved å følge stegene på denne siden:
 <!-- TOC -->
   * [Sekvensdiagram](#sekvensdiagram)
-  * [ID-porten](#id-porten)
-    * [1. Sende sluttbruker til ID-porten](#1-sende-sluttbruker-til-id-porten)
+  * [ID-Porten](#id-porten)
+    * [1. Send sluttbruker til ID-Porten](#1-send-sluttbruker-til-id-porten)
   * [Veksle inn Altinn-token](#veksle-inn-altinn-token)
-    * [2. Veksle inn ID-porten-tokenet til et Altinn-token](#2-veksle-inn-id-porten-tokenet-til-et-altinn-token)
-  * [API-kall mot Altinn APP](#api-kall-mot-altinn-app)
+    * [2. Veksle inn ID-Porten-tokenet til et Altinn-token](#2-veksle-inn-id-porten-tokenet-til-et-altinn-token)
+  * [API-kall mot Altinn App API](#api-kall-mot-altinn-app-api)
     * [3. Hent partyId til virksomheten](#3-hent-partyid-til-virksomheten)
     * [4. Hent preutfylte skjemadata](#4-hent-preutfylte-skjemadata)
-    * [5. Du bygger opp opplysninger om Reelle rettighetshavere som JSON i ditt system](#5-du-bygger-opp-opplysninger-om-reelle-rettighetshavere-som-json-i-ditt-system)
-    * [6. Opprett en instans av vårt Altinn-skjema](#6-opprett-en-instans-av-vårt-altinn-skjema)
-    * [7. Du setter opplysninger om Reelle rettighetshavere som skjemadata på instansen (som du bygget opp i steg 5.)](#7-du-setter-opplysninger-om-reelle-rettighetshavere-som-skjemadata-på-instansen-som-du-bygget-opp-i-steg-5)
-    * [8. Du går videre til neste prosess (Validering av skjema)](#8-du-går-videre-til-neste-prosess-validering-av-skjema)
-    * [9. Du sender inn skjemaet til Brønnøysundregistrene](#9-du-sender-inn-skjemaet-til-brønnøysundregistrene)
+    * [5. Sluttbruker fyller ut skjemadata i sluttbrukersystem](#5-sluttbruker-fyller-ut-skjemadata-i-sluttbrukersystem)
+    * [6. Opprett en instans av våre skjemadata](#6-opprett-en-instans-av-våre-skjemadata)
+    * [7. Oppdater skjemadata med sluttbrukers endringer (som du bygget opp i steg 5.)](#7-oppdater-skjemadata-med-sluttbrukers-endringer-som-du-bygget-opp-i-steg-5)
+    * [8. Gå til neste prosessteg](#8-gå-til-neste-prosessteg)
+    * [9. Valider og send inn skjema](#9-valider-og-send-inn-skjema)
 <!-- TOC -->
 
 
 ## Sekvensdiagram
 
-![Sekvensdiagram](sekvensdiagram_minn.png)
+![Sekvensdiagram - Innsending av Altinn-skjema til Register over reelle rettighetshavere](sekvensdiagram_minn.png)
 
-## ID-porten
+## ID-Porten
 
-### 1. Sende sluttbruker til ID-porten
+### 1. Send sluttbruker til ID-Porten
 
 For at ditt system skal få lov til å sende inn registrering av reelle rettighetshavere inn til oss må din sluttbruker
-autentisere seg gjennom ID-porten.
+autentisere seg gjennom ID-Porten.
 Vi anbefaler at du
-følger [Digdirs integrasjonsguide for autentisering i ID-porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_idporten.html).
+følger [Digdirs integrasjonsguide for autentisering i ID-Porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_idporten.html).
 
 Når du følger guiden må du gjøre følgende steg:
 
@@ -43,15 +43,15 @@ Når du følger guiden må du gjøre følgende steg:
 2. Bruker autentiserer seg på sin foretrukkende måte, feks BankId. Sluttbruker må også godkjenne at ditt
    sluttbrukersystem får tilgang scope `altinn:instances.write` på vegne at sluttbruker.
 3. Bruker blir redirected tilbake til din tjeneste
-4. Du kaller token-endepunktet og utsteder et ID-porten-token.
+4. Du kaller token-endepunktet og utsteder et ID-Porten-token.
 
-{{< expandableCode title="Eksempel på et B64-encoded ID-porten-token" lang="text">}}
+{{< expandableCode title="Eksempel på et B64-encoded ID-Porten-token" lang="text">}}
 eyJraWQiOiJkaWdpdGFsaXNlcmluZ3NkaXJla3RvcmF0ZXQtLWNlcnQwIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIxOTg1NTQ5NzkyNCIsImFjciI6ImlkcG9ydGVuLWxvYS1zdWJzdGFudGlhbCIsInNjb3BlIjoiYWx0aW5uOmluc3RhbmNlcy53cml0ZSIsImlzcyI6Imh0dHBzOi8vdGVzdC5pZHBvcnRlbi5ubyIsImNsaWVudF9hbXIiOiJjbGllbnRfc2VjcmV0X3Bvc3QiLCJwaWQiOiIxOTg1NTQ5NzkyNCIsImV4cCI6MTcxODEwMzY4MywiaWF0IjoxNzE4MTAzMDgzLCJqdGkiOiIyMEszRHVaSWRrQSIsImNsaWVudF9pZCI6Ijk3YWMzMjg2LTU3ZWQtNDMzMy05ODU5LTdkMGE4NTIzZTdmZiIsImNvbnN1bWVyIjp7ImF1dGhvcml0eSI6ImlzbzY1MjMtYWN0b3JpZC11cGlzIiwiSUQiOiIwMTkyOjk3NDc2MDY3MyJ9fQ.Lvi--jq2GuM3VEb3K8aFFJZqzqSewHMmHqap6eV7Bibl3nZ9dTWTUhrkNIr4ZSHZkBvIk-A6DcnF8L47rvJVgmN0kczJDVXCv1E8W3yu5mA57k0uvZIxXW0paH6ldQZ2vJL_3iyhg9GLmiU-He5JTtwo_ULo0VX6DVt97lhVf_WHrLY9steIW82ujeMY3m-qUbgRTT9h1LAITpfpX8Mavk1B4gDwzYYx-6S2VNUOMo72b466mAM5-4JUejpPLwCpAr2LNT7pgEh8p8cxHGj0cKNpJ_nqbp7Awc2tJSpYS53YgMIwaYiZA5oKWvVc6RTTx0GgQrHL2IMnK2ObHIBmCPH2vKjwYpZQUBwkXCglxlxdTn9lMmYzA3fLCrQKt_SRDL9GoAjLjgz_h-E0N-hVpBsRJY_K_xgPbqdanhG6pTE352uwuaTVAUpAISRHA-So6yFm2A1Pq-sN5FBpjF6s6KFWmXz3Ro6YXEhWCiuJHkl-GdEnHGq026L3JpNddpmJ
 {{< /expandableCode >}}
 
 For å se innholdet til et slikt token kan du B64-decode det, eller bruke verktøy, feks https://jwt.io/.
 
-{{< expandableCode title="Eksempel på et ID-porten-token etter decoding" lang="json" >}}
+{{< expandableCode title="Eksempel på et ID-Porten-token etter decoding" lang="json" >}}
 {
   "sub": "19855497924",
   "acr": "idporten-loa-substantial",
@@ -79,7 +79,7 @@ For å veksle inn Altinn-tokenet må du sette følgende header:
 * `Authorization`: Her må du legge til ID-porten-tokenet du ustedte fra ID-porten. Siden dette er et Bearer-token skal
   verdien av tokenet være: `Bearer <<idporten access_token>>`
 
-ID-porten-tokenet kan veksles inn ved å kalle Altinns exchange-endepunkt:
+ID-Porten-tokenet kan veksles inn ved å kalle Altinns exchange-endepunkt:
 
 * `GET {{altinn-miljø}}/authentication/api/v1/exchange/id-porten`
 
@@ -114,7 +114,7 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IjM4QUE3QTc5MjUzNDNCQjE0NjFCRUUwMURCNUQwOTRBM0VCOTgw
 }
 {{< /expandableCode >}}
 
-## API-kall mot Altinn APP
+## API-kall mot Altinn App API
 
 **I alle videre API-kall mot Altinn må du sette følgende header:**
 
@@ -138,26 +138,26 @@ organisasjonsnummeret du skal sende inn for. Du trenger partyId i alle resterend
 {{< expandableCode title="Eksempel på respons (Hent partyId)" lang="json" >}}
 [
     {
-        "partyId": 51460912,
-        "partyUuid": "ec919d0d-4fe6-436b-87d1-b036ba364df8",
+        "partyId": 51609308,
+        "partyUuid": "c74c96f1-494d-4600-866e-3c8de4748466",
         "partyTypeName": 2,
-        "orgNumber": "211089172",
+        "orgNumber": "310956643",
         "ssn": null,
         "unitType": "AS",
-        "name": "KORREKT ALLMEKTIG TIGER AS",
+        "name": "GEOMETRISK VEIK TIGER AS",
         "isDeleted": false,
         "onlyHierarchyElementWithNoAccess": false,
         "person": null,
         "organization": null,
         "childParties": [
             {
-                "partyId": 51938711,
-                "partyUuid": "8764e79c-53d3-4906-92c1-4901829a5026",
+                "partyId": 51977240,
+                "partyUuid": "17f4cdd0-c58b-49fd-8857-8485a944e881",
                 "partyTypeName": 2,
-                "orgNumber": "314796748",
+                "orgNumber": "315220521",
                 "ssn": null,
                 "unitType": "BEDR",
-                "name": "KORREKT ALLMEKTIG TIGER AS",
+                "name": "GEOMETRISK VEIK TIGER AS",
                 "isDeleted": false,
                 "onlyHierarchyElementWithNoAccess": false,
                 "person": null,
@@ -167,13 +167,13 @@ organisasjonsnummeret du skal sende inn for. Du trenger partyId i alle resterend
         ]
     },
     {
-        "partyId": 50714238,
-        "partyUuid": "c4cc127c-d26a-4cd7-a2a0-c1442b44e75d",
+        "partyId": 50555707,
+        "partyUuid": "da990f35-d8fa-416f-baf6-02935fc10f4c",
         "partyTypeName": 1,
         "orgNumber": "",
-        "ssn": "19855497924",
+        "ssn": "01812647772",
         "unitType": null,
-        "name": "TRAGEDIE MINST",
+        "name": "JULEPRESANG FALSK",
         "isDeleted": false,
         "onlyHierarchyElementWithNoAccess": false,
         "person": null,
@@ -185,22 +185,17 @@ organisasjonsnummeret du skal sende inn for. Du trenger partyId i alle resterend
 
 ### 4. Hent preutfylte skjemadata
 
-Vi forhåndsutfyller alle skjemainstanser med preutfylte data. Alle skjemainstanser blir preutfylt med:
-
-* rettighetsinformasjonsid
-* registreringsid
-
-**Disse feltene og verdiene du henter her _MÅ_ være satt i steget når du setter skjemadataen**
-
-For å forenkle prosessen med å sende inn nye opplysninger om reelle rettighetshavere vil skjemainstansen være preutfylt med forrige innrapporterte data.
-Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på opplysningene, og sende disse inn.
+For å forenkle prosessen med å sende inn opplysninger om reelle rettighetshavere vil skjemainstansen være preutfylt med 
+data fra registeret. Hvis du tidligere har sendt inn opplysninger vil disse komme som en del av preutfyllingen. Hvis du 
+ikke har sendt inn opplysninger tidligere vil du likevel få en begrenset preutfylling tilbake som stort sett bare 
+består av noen metadata-felter.
 
 `GET {{altinn-miljø}}/brg/rrh-innrapportering/prefill/{partyId}`
 
-{{< expandableCode title="Eksempel på prefilldata for en virksomhet som aldri har rapportert inn reelle rettighetshavere" lang="json" >}}
+{{< expandableCode title="Respons for en virksomhet som ikke har sendt inn registrering tidligere" lang="json" >}}
 {
-    "versjon": "0.0.7",
-    "endret": "2024-05-07",
+    "versjon": "1.0.0",
+    "endret": "2024-08-12",
     "skjemainnhold": {
         "metadata": {
             "tjeneste": "rrh.ktr.reelle",
@@ -217,77 +212,108 @@ Du kan da ta utgangspunkt i den preufylte skjemadataen, gjøre endringer på opp
 {{< /expandableCode >}}
 
 
-{{< expandableCode title="Respons for en virksomhet som har sendt inn registrering fra før" lang="json" >}}
+{{< expandableCode title="Respons for en virksomhet som har sendt inn registrering tidligere" lang="json" >}}
 {
-  "versjon": "0.0.7",
-  "endret": "2024-05-07",
-  "skjemainnhold": {
-    "metadata": {
-      "tjeneste": "rrh.ktr.reelle",
-      "tjenestehandling": "endring",
-      "rettighetsinformasjonsid": "RRH202300000020",
-      "registreringsid": "cace0a64-cf41-4c33-af37-a6f16aa9e356"
-    },
-    "fagsystem": {
-      "organisasjonsnummer": "313496058",
-      "navn": "Sluttbrukersystem sitt navn"
-    },
-    "skjemadata": {
-      "registreringspliktigVirksomhet": {
-        "organisasjonsnummer": "311780352"
-      },
-      "reelleRettighetshavereidentifikasjon": "reellerettighetshavereidentifikasjon.harReelleRettighetshavere",
-      "reellRettighetshaver": [
-        {
-          "erRegistrertIFolkeregisteret": true,
-          "folkeregistrertPerson": {
-            "foedselsEllerDNummer": "05910298382"
-          },
-          "harPosisjonEierskap": true,
-          "posisjonEierskap": {
-            "stoerrelsesintervall": "stoerrelsesintervall.intervall3",
-            "grunnlag": "grunnlagstype.direkte",
-            "mellomliggendeVirksomhet": []
-          },
-          "harPosisjonKontrollOverStemmerettigheter": false,
-          "harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene": false,
-          "harPosisjonAvgittGrunnkapital": false,
-          "harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene": false,
-          "harPosisjonDestinatar": false,
-          "harPosisjonSaerligeRettigheter": false
+    "versjon": "1.0.0",
+    "endret": "2024-08-12",
+    "skjemainnhold": {
+        "metadata": {
+            "tjeneste": "rrh.ktr.reelle",
+            "tjenestehandling": "endring",
+            "rettighetsinformasjonsid": "RRH202400000182",
+            "registreringsid": "172ebaee-7eb2-491f-a140-d469430d3c98"
+        },
+        "fagsystem": {
+            "organisasjonsnummer": null,
+            "navn": null
+        },
+        "integrasjon": {
+            "hfHentPreutfyllingFeilet": false,
+            "hfHentRollerFeilet": null
+        },
+        "skjemadata": {
+            "registreringspliktigVirksomhet": {
+                "organisasjonsnummer": "310956643",
+                "hfSoekOrganisasjonsnummerFeilkode": null,
+                "hfNavn": "GEOMETRISK VEIK TIGER AS",
+                "hfOrganisasjonsform": "AS",
+                "hfForretningsadresse": null,
+                "hfNavnPaaHovedvirksomhetRegistrertIEoes": null,
+                "hfLandnavnForHovedvirksomhetRegistrertIEoes": null,
+                "hfSoekPaaOrganisasjonsnummer": null
+            },
+            "reelleRettighetshavereidentifikasjon": "reellerettighetshavereidentifikasjon.harReelleRettighetshavere",
+            "aarsakTilAtVirksomhetIkkeHarReelleRettighetshavere": null,
+            "finnesDetReelleRettighetshavereITilleggTilRolleinnehavereForStiftelse": null,
+            "reellRettighetshaver": [
+                {
+                    "erRegistrertIFolkeregisteret": true,
+                    "hfErPreutfylt": true,
+                    "folkeregistrertPerson": {
+                        "foedselsEllerDNummer": "41864000647",
+                        "hfFulltNavn": "HEVNGJERRIG SERVIETT",
+                        "hfBostedsland": "UKJENT",
+                        "hfStatsborgerskap": "Norge",
+                        "hfSoekPaaEtternavn": null,
+                        "hfSoekFeilkode": null,
+                        "hfSoekPaaFoedselsEllerDNummer": null
+                    },
+                    "utenlandskPerson": null,
+                    "hfFulltNavnTabellvisning": "HEVNGJERRIG SERVIETT",
+                    "harPosisjonEierskap": true,
+                    "posisjonEierskap": {
+                        "stoerrelsesintervall": "stoerrelsesintervall.intervall2",
+                        "grunnlag": "grunnlagstype.direkte",
+                        "mellomliggendeVirksomhet": []
+                    },
+                    "harPosisjonKontrollOverStemmerettigheter": false,
+                    "posisjonKontrollOverStemmerettigheter": null,
+                    "harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene": false,
+                    "grunnlagForPosisjonenRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene": null,
+                    "harPosisjonKontrollPaaAnnenMaate": null,
+                    "beskrivelseAvPosisjonenKontrollPaaAnnenMaate": null,
+                    "harPosisjonAvgittGrunnkapital": false,
+                    "harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene": false,
+                    "harPosisjonDestinatar": false,
+                    "harPosisjonSaerligeRettigheter": false,
+                    "hfPosisjonsbeskrivelseTabellvisning": "Eierskap 50% - 74,99%"
+                }
+            ],
+            "kanIkkeIdentifisereFlereReelleRettighetshavere": true,
+            "erVirksomhetRegistrertPaaRegulertMarked": null,
+            "regulertMarked": null,
+            "erReelleRettighetshavereRegistrertIUtenlandskRegister": null,
+            "utenlandskRegister": null,
+            "rolleinnehaver": null
         }
-      ],
-      "kanIkkeIdentifisereFlereReelleRettighetshavere": false,
-      "rolleinnehaver": []
     }
-  }
 }
 {{< /expandableCode >}}
 
-### 5. Du bygger opp opplysninger om Reelle rettighetshavere som JSON i ditt system
+### 5. Sluttbruker fyller ut skjemadata i sluttbrukersystem
+
+Sluttbrukersystemet må bygge en JSON basert på de preutfylte skjemadataene, samt opplysninger sluttbruker fyller ut. 
+JSON kan valideres mot et JSON-skjema som er tilgjengelig på [https://schema.brreg.no/reelle/altinn/schema.json](https://schema.brreg.no/reelle/altinn/schema.json).
+
+Du kan finne JSON-eksempler sammen med en beskrivelse av hva som må fylles ut på denne [siden](../eksempler-paa-registrering).
+
+For å teste hvordan ulike kombinasjoner av reelle rettighetshavere bygges opp, kan du også manuelt fylle disse ut i 
+vårt Altinn-skjema på TT02. Etterpå kan du maskinelt hente ut preutfylte skjemadata ([steg 4.](#4-hent-preutfylte-skjemadata)), og se hvordan 
+opplysningene ser ut i JSON. 
 
 {{< info >}}
-Vi jobber med en side som forklarer hvilke felter som skal settes når. <strong>"Lenke kommer"</strong>.
-{{< /info >}}
-
-JSON-skjema for å validere endringer er tilgjengelig her: **"Lenke kommer"**. Sjekk at versjonsnummeret på skjemaet 
-samsvarer med feltet `versjon` i de preutfylte skjemadataene ([steg 4.](#4-hent-preutfylte-skjemadata)).
-
-Se gjerne [siden med eksempler](../eksempler-paa-registrering) for å se eksempler på ferdigutfylte JSON-opplysninger. 
-
-For å teste hvordan ulike kombinasjoner av reelle rettighetshavere skal settes, kan du manuelt fylle disse ut i vårt Altinn-skjema på TT02. 
-Etterpå kan du maskinelt hente ut preutfylte skjemadata ([steg 4.](#4-hent-preutfylte-skjemadata)), og se hvordan opplysningene ser ut i JSON.
-
-{{< info >}}
-<strong>Selv om virksomheten ikke har innrapportert opplysninger om reelle rettighetshavere tidligere, må du alltid ta utgangspunkt i prefilldata når du skal rapportere inn reelle rettighetshavere i ditt sluttbrukersystem!</strong><br> 
-Feltene versjon og endret, samt innholdet i "metadata" som du rapporter inn <strong> må være identisk med innholdet du hentet ut i prefilldataen</strong>.
+<strong>Selv om virksomheten ikke har innrapportert opplysninger om reelle rettighetshavere tidligere, må du alltid ta 
+utgangspunkt i preutfylte data når du skal rapportere inn reelle rettighetshavere i ditt sluttbrukersystem!</strong><br> 
+Feltene versjon og endret, samt innholdet i "metadata" som du rapporter inn <strong> må være identisk med innholdet du 
+hentet fra de preutfylte dataene</strong>.
 {{< /info >}}
 
 Når du har ferdigstilt opplysningene som JSON kan du gå videre til neste steg.
 
-### 6. Opprett en instans av vårt Altinn-skjema
+### 6. Opprett en instans av våre skjemadata
 {{< warning >}}
-Hvis det har tatt tid å fylle ut opplysninger kan det hende at Altinn-tokenet har gått ut. Da må du gjenta steg 1. og steg 2., slik at du får et gyldig Altinn-token.
+Hvis det har tatt tid å fylle ut opplysninger kan det hende at Altinn-tokenet har gått ut. Da må du gjenta steg 1. og 
+steg 2., slik at du får et gyldig Altinn-token.
 {{< /warning >}}
 
 Med en ferdigstilt registrering kan du sende denne inn til oss.
@@ -296,7 +322,8 @@ Første steg er å opprette en instans av vårt Altinn-skjema. Dette gjør du me
 `POST {{altinn-miljø}}/brg/rrh-innrapportering/instances?instanceOwnerPartyId={{partyId}}`
 * Her må du bruke `partyId` som du hentet i steg 3.
 
-I responsen får du UUID `skjema_instans_id` fra feltet `data.instanceGuid` og `skjema_instans_data_id` fra feltet `data.id`, som du må bruke i de påfølgende kallene.
+I responsen får du UUID `skjema_instans_id` fra feltet `data.instanceGuid` og `skjema_instans_data_id` fra 
+feltet `data.id`, som du må bruke i de påfølgende kallene.
 
 {{< expandableCode title="Eksempel på respons" lang="json" >}}
 {
@@ -380,25 +407,167 @@ I responsen får du UUID `skjema_instans_id` fra feltet `data.instanceGuid` og `
 {{< /expandableCode >}}
 
 
-### 7. Du setter opplysninger om Reelle rettighetshavere som skjemadata på instansen (som du bygget opp i steg 5.)
+### 7. Oppdater skjemadata med sluttbrukers endringer (som du bygget opp i steg 5.)
 
 Du må nå sette skjemadata som du opprettet i steg 5 på instansen. Dette gjør du ved å kalle dette endepunktet:
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{partyId}}/{{skjema_instans_id}}/data/{{skjema_instans_data_id}}?dataType=Brønnøysundregistrene_ReelleRettighetshavere_M`
 * Her må du bruke `skjema_instans_id` og `skjema_instans_data_id` fra forrige API-kall.
 
-### 8. Du går videre til neste prosess (Validering av skjema)
+{{< expandableCode title="Eksempel på respons" lang="json" >}}
+{
+    "changedFields": {
+        "skjemainnhold.skjemadata.reellRettighetshaver[0].hfPosisjonsbeskrivelseTabellvisning": "Eierskap 75% - 100%"
+    },
+    "id": "31d4c79d-b121-478a-930e-4763b48194e6",
+    "instanceGuid": "2381cb22-fec3-402f-82d8-08b31af7e7ff",
+    "dataType": "Brønnøysundregistrene_ReelleRettighetshavere_M",
+    "filename": null,
+    "contentType": "application/xml",
+    "blobStoragePath": "brg/rrh-innrapportering/2381cb22-fec3-402f-82d8-08b31af7e7ff/data/31d4c79d-b121-478a-930e-4763b48194e6",
+    "selfLinks": {
+        "apps": "https://brg.apps.tt02.altinn.no/brg/rrh-innrapportering/instances/51543302/2381cb22-fec3-402f-82d8-08b31af7e7ff/data/31d4c79d-b121-478a-930e-4763b48194e6",
+        "platform": "https://platform.tt02.altinn.no/storage/api/v1/instances/51543302/2381cb22-fec3-402f-82d8-08b31af7e7ff/data/31d4c79d-b121-478a-930e-4763b48194e6"
+    },
+    "size": 2066,
+    "contentHash": null,
+    "locked": false,
+    "refs": null,
+    "isRead": true,
+    "tags": [],
+    "metadata": null,
+    "deleteStatus": null,
+    "fileScanResult": "NotApplicable",
+    "references": null,
+    "created": "2024-08-01T11:15:12.8774685Z",
+    "createdBy": "161488",
+    "lastChanged": "2024-08-01T11:15:19.851979Z",
+    "lastChangedBy": "161488"
+}
+{{< /expandableCode >}}
 
-Du kan nå gå videre til neste prosess i Altinn. Dette fører til at skjemadataen du har satt blir validert, og at skjemaet blir klargjort for innsending.
-Du kan gå til neste prosess ved å kalle endepunktet:
+### 8. Gå til neste prosessteg 
+
+Du kan nå gå videre til neste prosessteg i Altinn, det fører til at skjemadataene klargjøres for innsending.
+Du kan gå til neste prosessteg ved å kalle endepunktet:
 
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next`
-* Om skjemaet inneholder feil, vil du få feilmelding.
 
-### 9. Du sender inn skjemaet til Brønnøysundregistrene
+{{< expandableCode title="Eksempel på respons" lang="json" >}}
+{
+    "currentTask": {
+        "actions": {
+            "read": true,
+            "write": false,
+            "confirm": true,
+            "reject": true
+        },
+        "userActions": [
+            {
+                "id": "read",
+                "authorized": true,
+                "type": "ProcessAction"
+            },
+            {
+                "id": "write",
+                "authorized": false,
+                "type": "ProcessAction"
+            },
+            {
+                "id": "confirm",
+                "authorized": true,
+                "type": "ProcessAction"
+            },
+            {
+                "id": "reject",
+                "authorized": true,
+                "type": "ProcessAction"
+            }
+        ],
+        "read": true,
+        "write": false,
+        "flow": 3,
+        "started": "2024-08-05T12:49:36.9688172Z",
+        "elementId": "TaskBekreftelse",
+        "name": "Bekreftelse",
+        "altinnTaskType": "confirmation",
+        "ended": null,
+        "validated": null,
+        "flowType": "CompleteCurrentMoveToNext"
+    },
+    "processTasks": [
+        {
+            "altinnTaskType": "data",
+            "elementId": "TaskUtfylling"
+        },
+        {
+            "altinnTaskType": "confirmation",
+            "elementId": "TaskBekreftelse"
+        }
+    ],
+    "started": "2024-08-05T12:48:19.5384915Z",
+    "startEvent": "BRStart",
+    "ended": null,
+    "endEvent": null
+}
+{{< /expandableCode >}}
 
-Om du ikke fikk noen feilmeldinger i forrige steg, kan du gå til neste prosess, BrEnd, som avslutter instansen.
-Dette sender også inn skjemaet inn til oss. Dette gjør du ved å kalle endepunktet:
+### 9. Valider og send inn skjema
+
+Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved å kalle endepunktet:
 
 `PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next?elementId=BREnd`
+* Om skjemaet inneholder feil, vil du få en eller flere feilmeldinger i responsen (se eksempel under).
+
+{{< expandableCode title="Eksempel på respons som er sendt inn" lang="json" >}}
+{
+    "currentTask": null,
+    "processTasks": [
+        {
+            "altinnTaskType": "data",
+            "elementId": "TaskUtfylling"
+        },
+        {
+            "altinnTaskType": "confirmation",
+            "elementId": "TaskBekreftelse"
+        }
+    ],
+    "started": "2024-08-01T11:15:12.5342706Z",
+    "startEvent": "BRStart",
+    "ended": "2024-08-01T11:17:50.3604982Z",
+    "endEvent": "BREnd"
+}
+{{< /expandableCode >}}
+
+
+{{< expandableCode title="Eksempel på respons som feiler" lang="json" >}}
+{
+    "title": "Validation failed for task",
+    "status": 409,
+    "detail": "2 validation errors found for task TaskBekreftelse",
+    "validationIssues": [
+        {
+            "severity": 1,
+            "dataElementId": null,
+            "field": "regelUtfall",
+            "code": "Det er angitt et indirekte grunnlag for reell rettighetshaver, men det er ikke angitt noen mellomliggende virksomheter",
+            "description": "Det er angitt et indirekte grunnlag for reell rettighetshaver, men det er ikke angitt noen mellomliggende virksomheter",
+            "source": "Altinn.App.AppLogic.Validation.TaskBekreftelseValidator-TaskBekreftelse",
+            "customTextKey": "Det er angitt et indirekte grunnlag for reell rettighetshaver, men det er ikke angitt noen mellomliggende virksomheter",
+            "customTextParams": null
+        },
+        {
+            "severity": 1,
+            "dataElementId": null,
+            "field": "regelUtfall",
+            "code": "Det er kun angitt en eierposisjon med et ugyldig eierskapsintervall",
+            "description": "Det er kun angitt en eierposisjon med et ugyldig eierskapsintervall",
+            "source": "Altinn.App.AppLogic.Validation.TaskBekreftelseValidator-TaskBekreftelse",
+            "customTextKey": "Det er kun angitt en eierposisjon med et ugyldig eierskapsintervall",
+            "customTextParams": null
+        }
+    ]
+}
+{{< /expandableCode >}}
+
 
 Du har nå sendt inn skjemaet til Brønnøysundregistrene!
