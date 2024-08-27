@@ -74,9 +74,8 @@ For å se innholdet til et slikt token kan du B64-decode det, eller bruke verkt�
 
 ### 2. Veksle inn ID-porten-tokenet til et Altinn-token
 
-For å veksle inn Altinn-tokenet må du sette følgende headere:
+For å veksle inn Altinn-tokenet må du sette følgende header:
 
-* `ApiKey` Du må legge inn ApiKey-en som du fikk når du bestilte tilgang til Altinns REST-APIer.
 * `Authorization`: Her må du legge til ID-porten-tokenet du ustedte fra ID-porten. Siden dette er et Bearer-token skal
   verdien av tokenet være: `Bearer <<idporten access_token>>`
 
@@ -117,14 +116,13 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IjM4QUE3QTc5MjUzNDNCQjE0NjFCRUUwMURCNUQwOTRBM0VCOTgw
 
 ## API-kall mot Altinn APP
 
-**I alle videre API-kall mot Altinn må du sette følgende headere:**
+**I alle videre API-kall mot Altinn må du sette følgende header:**
 
-* `ApiKey` Du må legge inn ApiKey-en som du fikk når du bestilte tilgang til Altinns REST-APIer.
 * `Authorization`: Her må du legge til **Altinn-tokenet** vekslet inn. Siden dette er et Bearer-token skal verdien av
   tokenet være: `Bearer <<altinn-token>>`
 
 {{< warning >}}
-Husk at du må sette begge disse headerne i alle kallene nedenfor.
+Husk at du må sette begge denne headeren i alle kallene nedenfor.
 {{< /warning >}}
 
 ### 3. Hent partyId til virksomheten
