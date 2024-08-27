@@ -14,7 +14,7 @@ Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere t
   * [API-kall mot Altinn App API](#api-kall-mot-altinn-app-api)
     * [3. Hent partyId til virksomheten](#3-hent-partyid-til-virksomheten)
     * [4. Hent preutfylte skjemadata](#4-hent-preutfylte-skjemadata)
-    * [5. Bygg opplysninger om Reelle rettighetshavere som JSON i ditt system](#5-bygg-opplysninger-om-reelle-rettighetshavere-som-json-i-ditt-system)
+    * [5. Sluttbruker fyller ut skjemadata i sluttbrukersystem](#5-sluttbruker-fyller-ut-skjemadata-i-sluttbrukersystem)
     * [6. Opprett en instans av våre skjemadata](#6-opprett-en-instans-av-våre-skjemadata)
     * [7. Oppdater skjemadata med sluttbrukers endringer (som du bygget opp i steg 5.)](#7-oppdater-skjemadata-med-sluttbrukers-endringer-som-du-bygget-opp-i-steg-5)
     * [8. Gå til neste prosessteg](#8-gå-til-neste-prosessteg)
@@ -292,11 +292,10 @@ består av noen metadata-felter.
 }
 {{< /expandableCode >}}
 
-### 5. Bygg opplysninger om Reelle rettighetshavere som JSON i ditt system
+### 5. Sluttbruker fyller ut skjemadata i sluttbrukersystem
 
-JSON-skjema for å validere dataene dine er tilgjengelig på 
-[https://schema.brreg.no/reelle/altinn/schema.json](https://schema.brreg.no/reelle/altinn/schema.json). Skjemaet kan benyttes til å validere endringer du gjør på
-på de preutfylte datene ([steg 4.](#4-hent-preutfylte-skjemadata)).
+Sluttbrukersystemet må bygge en JSON basert på de preutfylte skjemadataene, samt opplysninger sluttbruker fyller ut. 
+JSON kan valideres mot et JSON-skjema som er tilgjengelig på [https://schema.brreg.no/reelle/altinn/schema.json](https://schema.brreg.no/reelle/altinn/schema.json).
 
 Du kan finne JSON-eksempler sammen med en beskrivelse av hva som må fylles ut på denne [siden](../eksempler-paa-registrering).
 
