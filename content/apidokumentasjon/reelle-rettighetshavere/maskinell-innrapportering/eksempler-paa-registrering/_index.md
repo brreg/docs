@@ -434,8 +434,8 @@ Snekkeren AS, og sender inn opplysninger om reelle rettighetshavere.
 | *Hans Hansen*                                                                    |                                                                                                                                   |                                                                |
 | Er personen registrert i folkeregisteret                                         | skjemainnhold.skjemadata.reellRettighetshaver[1].erRegistrertIFolkeregisteret                                                     | true                                                           |
 | Fødselsnummer                                                                    | skjemainnhold.skjemadata.reellRettighetshaver[1].folkeregistrertPerson.foedselsEllerDNummer                                       | 27899995479                                                    |
-| Har posisjon eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonEierskap                                                              | true                                                           |
-| Har posisjon kontroll over stemmerettigheter                                     | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonKontrollOverStemmerettigheter                                         | false                                                          |
+| Har posisjon eierskap                                                            | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonEierskap                                                              | false                                                          |
+| Har posisjon kontroll over stemmerettigheter                                     | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonKontrollOverStemmerettigheter                                         | true                                                           |
 | Har posisjon kontroll på annen måte                                              | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonKontrollPaaAnnenMaate                                                 | false                                                          |
 | Har posisjon rett til å utpeke eller avsette minst halvparten av styremedlemmene | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene           | false                                                          |
 | Har posisjon avgitt grunnkapital                                                 | skjemainnhold.skjemadata.reellRettighetshaver[1].harPosisjonAvgittGrunnkapital                                                    | false                                                          |
@@ -551,7 +551,7 @@ Snekkeren AS, og sender inn opplysninger om reelle rettighetshavere.
                     },
                     "utenlandskPerson": null,
                     "hfFulltNavnTabellvisning": "Hans Hansen",
-                    "harPosisjonEierskap": true,
+                    "harPosisjonEierskap": false,
                     "posisjonEierskap": {
                         "stoerrelsesintervall": "stoerrelsesintervall.intervall1",
                         "grunnlag": "grunnlagstype.indirekte",
@@ -575,7 +575,7 @@ Snekkeren AS, og sender inn opplysninger om reelle rettighetshavere.
                             }
                         ]
                     },
-                    "harPosisjonKontrollOverStemmerettigheter": false,
+                    "harPosisjonKontrollOverStemmerettigheter": true,
                     "posisjonKontrollOverStemmerettigheter": null,
                     "harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene": false,
                     "grunnlagForPosisjonenRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene": null,
