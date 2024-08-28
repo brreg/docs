@@ -1,5 +1,5 @@
 ---
-title: Innsending av Altinn-skjema
+title: Innsending
 description: Beskrivelse av hvordan man sender inn registreringer som tredjeleverandør.
 weight: 100
 ---
