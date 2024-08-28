@@ -16,6 +16,6 @@ rettighetshavere på vegne av en virksomhet.
 
 ## Eksempler
 Opplysninger om Reelle rettighetshavere kan sendes inn på JSON-format, som man setter i et Altinn-skjema. 
+* [Eksempler på 5 ganske vanlige innrapporteringer kan du se her](./eksempler-paa-registrering)
+* [Se også tekstlig beskrivelse av feltene i JSON-skjemaet](./beskrivelse-av-felter)
 * JSON kan valideres mot [https://schema.brreg.no/reelle/altinn/schema.json](https://schema.brreg.no/reelle/altinn/schema.json).
-* [Eksempler på 5 ganske vanlige innrapporteringer](./eksempler-paa-registrering)
-* [Tekstlige beskrivelse av feltene i JSON-skjemaet](./beskrivelse-av-felter)
