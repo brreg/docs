@@ -1,7 +1,7 @@
 ---
 title: Eksempler
 description: Eksempler på hvordan en registrering kan se ut
-weight: 200
+weight: 3
 ---
 
 <!-- TOC -->
