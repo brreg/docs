@@ -293,7 +293,7 @@ inn opplysninger om reelle rettighetshavere.
       "registreringspliktigVirksomhet": {
         "organisasjonsnummer": "310496081",
         "hfSoekOrganisasjonsnummerFeilkode": null,
-        "hfNavn": "VENSTRE ERFAREN TIGER AS",
+        "hfNavn": "Snekkeren AS",
         "hfOrganisasjonsform": "AS",
         "hfForretningsadresse": null,
         "hfNavnPaaHovedvirksomhetRegistrertIEoes": null,
