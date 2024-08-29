@@ -347,10 +347,10 @@ inn opplysninger om reelle rettighetshavere.
 Snekkeren AS har fått melding i Altinn fra Register over reelle rettighetshavere om at virksomheten må registrere sine
 reelle rettighetshavere. Virksomheten benytter et sluttbrukersystem som tilbyr en løsning for maskinell
 innrapportering. Snekkeren AS har fire reelle rettighetshavere som har hver sin posisjon. Ole Olsen eier 26% av
-aksjene, Hans Hansen eier 20% av aksjene, men har 28% stemmerettighet fordi han eier 28% av Woods AS. Woods AS eier 50% 
-av Snekkeren AS.  Hilde Knutsen eier 10% av virksomheten, men har en intern avtale som gjør at hun har rett til å 
-utpeke eller avsette mer enn halvparten av styremedlemmer, Bente Hansen er verge for en mindreårig aksjeeier som eier 
-40% av aksjene. En av de som har tilgang logger seg inn på sitt sluttbrukersystem, sørger for å rapportere for 
+aksjene. Hans Hansen eier 50% i Woods AS, som igjen eier 50% av Snekkeren AS, Han har en intern avtale om 28% 
+stemmerettigheter i Snekkeren AS. Hilde Knutsen eier 10% av virksomheten, men har en intern avtale som gjør at hun har 
+rett til å utpeke eller avsette mer enn halvparten av styremedlemmer. Bente Hansen er verge for en mindreårig aksjeeier 
+som eier 40% av aksjene. En av de som har tilgang logger seg inn på sitt sluttbrukersystem, sørger for å rapportere for 
 Snekkeren AS, og sender inn opplysninger om reelle rettighetshavere.
 
 | Opplysninger som skal sendes inn                                                 | JSON-sti                                                                                                                                               | JSON-verdi                                                     |
