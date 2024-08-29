@@ -1,7 +1,7 @@
 ---
 title: Tilgang
 description: Beskrivelse av hvordan man får tilgang til å sende inn registreringer som tredjeleverandør.
-weight: 10
+weight: 1
 ---
 
 For å kunne rapportere inn opplysninger om Reelle rettighetshavere på vegne av dine kunder kan du følge guiden på denne siden:

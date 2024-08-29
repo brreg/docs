@@ -1,7 +1,7 @@
 ---
-title: Innsending av Altinn-skjema
+title: Innsending
 description: Beskrivelse av hvordan man sender inn registreringer som tredjeleverandør.
-weight: 100
+weight: 2
 ---
 
 Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere til oss ved å følge stegene på denne siden:
