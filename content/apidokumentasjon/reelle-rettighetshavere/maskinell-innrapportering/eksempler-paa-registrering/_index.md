@@ -502,11 +502,7 @@ Snekkeren AS, og sender inn opplysninger om reelle rettighetshavere.
           "harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene": false,
           "harPosisjonDestinatar": false,
           "harPosisjonSaerligeRettigheter": false,
-          "grunnlagForPosisjonenRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene": "grunnlagstype.enighetEllerAvtale",
-          "posisjonEierskap": {
-            "stoerrelsesintervall": "stoerrelsesintervall.intervall1",
-            "grunnlag": "grunnlagstype.indirekte"
-          }
+          "grunnlagForPosisjonenRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene": "grunnlagstype.enighetEllerAvtale"
         },
         {
           "erRegistrertIFolkeregisteret": true,
