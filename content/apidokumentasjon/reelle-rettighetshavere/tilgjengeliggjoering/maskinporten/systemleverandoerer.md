@@ -50,7 +50,7 @@ Kall til APIene må inkludere et gyldig _token_ fra Maskinporten for å få tilg
      samt [Maskinportens guide til hvordan du bruker Maskinporten som API-konsument](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument)
 2. Hent token fra maskinporten med klienten fra punkt 2.
    * Når du som systemleverandør skal hente et access-token fra maskinporten må du angi virksomhetens/konsumentens orgnr
-     som consumer_org i JWT-grantet. Dette er orgnr på virksomheten som delegerte tilgangen. Maskinporten vil da sjekke i
+     som **consumer_org** i JWT-grantet. Dette er orgnr på virksomheten som delegerte tilgangen. Maskinporten vil da sjekke i
      Altinn om et gyldig delegeringsforhold finnes mellom konsument og systemleverandør for aktuelt scope
    * Se [Digdirs dokumentasjon](https://docs.digdir.no/docs/Maskinporten/maskinporten_protocol_token)
    * Se [denne guiden for hvordan du kan hente ut et maskinporten-token](https://docs.digdir.no/docs/idporten/oidc/oidc_sample_jwtgrant_postman)
