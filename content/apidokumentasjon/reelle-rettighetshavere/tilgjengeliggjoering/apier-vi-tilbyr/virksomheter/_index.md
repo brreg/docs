@@ -6,7 +6,7 @@ weight: 100
 
 - [API-spesifikasjon](#api-spesifikasjon)
 - [Løsningsmodell](#løsningsmodell) 
-- [Endringer i APIet](#endringslogg) 
+- [Endringer i APIet](#endringer-i-apiet) 
 
 
 `Virksomheter` er et API for oppslag/søk i Register over reelle rettighetshavere.
