@@ -5,17 +5,15 @@ weight: 100
 ---
 
 ## Tilgang
-For å rapportere inn opplysninger om reelle rettighetshavere trenger du en api_klient hos ID-porten, og tilgang til 
-Altinns REST API-er.
+For at ditt sluttbrukersystem skal kunne rapportere inn opplysninger om reelle rettighetshavere på vegne av en bruker trenger du en `api_klient` registert via Samarbeidsportalen/selvbetjening i DigDir.
 * [Mer informasjon om tilgang finner du her](./hvordan-faa-tilgang)
 
-## Innsending av opplysninger gjennom Altinn-skjema
-Ved å bruke Altinn  sitt App API til å sende inn et Altinn-skjema, kan du sende inn opplysninger om reelle 
-rettighetshavere på vegne av en virksomhet.
-* [Se hvordan på siden om innsending av Altinn-skjema](./hvordan-sende-inn)
+## Innsending av opplysninger om reelle rettighetshavere
+Ved å bruke APIet på vår Altinn 3-app kan et sluttbrukersystem sende inn opplysninger om reelle rettighetshavere på vegne av en bruker.
+* [Mer informasjon om innsending av opplysninger finner du her](./hvordan-sende-inn)
 
 ## Eksempler
 Opplysninger om Reelle rettighetshavere kan sendes inn på JSON-format. 
 * [Eksempler på vanlige innrapporteringer kan du se her](./eksempler-paa-registrering)
 * [Se også tekstlig beskrivelse av feltene i JSON-skjemaet](./beskrivelse-av-felter)
-* JSON kan valideres mot [https://schema.brreg.no/reelle/altinn/schema.json](https://schema.brreg.no/reelle/altinn/schema.json).
+* JSON kan valideres mot [https://schema.brreg.no/reelle/altinn/schema.json](https://schema.brreg.no/reelle/altinn/schema.json)

@@ -4,60 +4,37 @@ description: Beskrivelse av hvordan man får tilgang til å sende inn registreri
 weight: 1
 ---
 
-For å kunne rapportere inn opplysninger om Reelle rettighetshavere på vegne av dine kunder kan du følge guiden på denne siden:
-<!-- TOC -->
-  * [1. Sette opp api_klient hos ID-porten](#1-sette-opp-api_klient-hos-id-porten)
-    * [Sette opp api_klient via Selvbetjening på Samarbeidsportalen](#sette-opp-api_klient-via-selvbetjening-på-samarbeidsportalen)
-  * [2. Registrere datasystem og signere egenerklæring hos Altinn](#2-registrere-datasystem-og-signere-egenerklæring-hos-altinn)
-  * [3. Bestille tilgang til Altinns REST API](#3-bestille-tilgang-til-altinns-rest-api)
-  * [Jeg har problemer](#jeg-har-problemer)
-<!-- TOC -->
+For å kunne rapportere inn opplysninger om Reelle rettighetshavere på vegne av dine kunder gjennom APIet til vår Altinn 3-app kan du følge guiden på denne siden.
 
-> **_NB!_** Hvis du som sluttbrukersystem har gjort dette tidligere i forbindelse med en annen integrasjon mot 
-> ID-porten og Altinn så trenger du **_ikke_** å gjøre det på nytt. Du kan da gjenbruke `api_klient`-en du opprettet 
-> hos ID-porten. API-klienten må ha tilgang til scopene `altinn:instances.read` og `altinn:instances.write`.  
+> **_NB!_** Hvis du som systemleverandør har gjort dette tidligere i forbindelse med en annen integrasjon mot 
+> Altinn 3-apper trenger du sannsynligvis ikke å gjøre det på nytt. Du kan da gjenbruke API-klienten du tidligere har opprettet, 
+> forutsatt at API-klienten har tilgang til scopene `altinn:instances.read` og `altinn:instances.write`.  
 
+## 1. Generell informasjon om hvordan sluttbrukersystem kan autentisere brukere via ID-porten
+Se [denne dokumentasjonen](https://docs.altinn.studio/nb/api/authentication/id-porten/) for å få en grunnleggende forståelse av hvordan sluttbrukersystem kan autentisere brukere via ID-porten, og dermed kunne benytte API for vår Altinn 3-app.
 
-## 1. Sette opp api_klient hos ID-porten
+## 2. Registrere systemleverandør som API-konsument i maskinporten
+Hvis du er en systemleverandør som tidligere ikke har integrert deg mot Altinn 3-apper kan du følge [DigDirs guide for å registrere deg som API-konsument i maskinporten](https://samarbeid.digdir.no/maskinporten/konsument/119).\
+Dette vil gi deg tilgang til Samarbeidsportalen, noe som igjen gir deg tilgang til å opprette API-klienter gjennom Selvbetjeningsløsningen.
 
-For å lage en integrasjon av typen `api_klient` hos ID-porten anbefaler vi at du gjør det gjennom Digdirs Selvbetjening eller Selvbetjenings-API.
-For mer informasjon, [se Digdirs guide: Registrering av klienter](https://docs.digdir.no/docs/idporten/oidc/oidc_func_clientreg), eller se neste kapittel.
-
-### Sette opp api_klient via Selvbetjening på Samarbeidsportalen
-
-For å sette opp en `api_klient` gjennom Selvbetjeningsløsningen hos Digdir kan du gjøre følgende:
+## 3. Opprette en API-klient
+En API-klient opprettes ved å sette opp en integrasjon av typen `api_klient`. Vi anbefaler at du gjør det gjennom Digdirs Selvbetjeningsløsning eller Selvbetjenings-API.\
+For mer informasjon, [se Digdirs guide: Registrering av klienter](https://docs.digdir.no/docs/idporten/oidc/oidc_func_clientreg), eller se nedenfor hvordan du gjør det gjennom DigDirs Selvbetjeningsløsning:
 
 1. Logg på [Samarbeidsportalen](https://minside-samarbeid.digdir.no/my-organisation/integrations/admin)
    1. Opprett ny Integrasjon
-2. Fyll ut integrasjonsdata.
-   * [**Se denne PDFen**](Sette%20opp%20api_client%20i%20ID-porten.pdf) for et eksempel på en `api_klient` i test-miljø.
+2. Fyll ut integrasjonsdata:
+   * [**Se denne PDFen**](opprett_api_klient.pdf) for et eksempel på en `api_klient` i test-miljø. Her er noen tips til utfylling:
+     * Pass på å velge følgende scopes: `altinn:instances.read` og `altinn:instances.write`
+     * Den verdien du setter i "Navn på integrasjonen" vil vises i innloggingsvinduet for sluttbruker. Angi derfor et navn som godt beskriver hva API-klienten skal brukes til. Feks: "DittFagsystem - Innrapportering til Register over reelle rettighetshavere" 
      * Når sluttbruker har logget inn gjennom ID-porten, må sluttbruker sendes tilbake til en gyldig `redirect-uri`. Denne eksempel-klienten har konfigurert følgende gyldige `redirect uri`-er for å forenkle testing:
-       * https://test.superbrasluttbrukersystem.no/reelle/innrapportering - For å kunne sende brukere tilbake til tjeneste i testmiljø.
-       * https://oauth.pstmn.io/v1/callback - For å teste innlogging og innsending gjennom Postman må man kunne sendes tilbake til Postman.
+       * https://test.superbrasluttbrukersystem.no/reelle/innrapportering - For å kunne sende brukere tilbake til tjeneste i testmiljø
+       * https://oauth.pstmn.io/v1/callback - For å teste innlogging og innsending gjennom Postman må man kunne sendes tilbake til Postman
        * http://localhost:8080/reelle/innrapportering - For at utviklere skal skal kunne teste lokalt må man kunne sendes tilbake til localhost
-   * `api_klient` må ha tilgang til scopene `altinn:instances.read` og `altinn:instances.write`
-     * **_NB_** Hvis du ikke kan gi deg selv disse scopene må du først registrere ditt datasystem hos Altinn og bestille tilgang til Altinns REST API. Se hvordan i neste kapittel.
 
-## 2. Registrere datasystem og signere egenerklæring hos Altinn
-
-For å få lov til å integrere et datasystem mot Altinn må du registrere ditt system hos Altinn.
-Dette gjør du ved å:
-1. Gjøre som beskrevet i Steg 1. i [Digdirs guide.](https://altinn.github.io/docs/api/datasystem/)
-
-## 3. Bestille tilgang til Altinns REST API
-Innrapportering gjøres ved API-kall mot vår Altinn APP. For å få lov til dette trenger du tilgang til Altinns REST API.
-Som du også kan lese i [Digdirs guide](https://altinn.github.io/docs/api/datasystem/) kan dette gjøres på [denne lenken.](https://digdir.apps.altinn.no/digdir/be-om-api-nokkel/)
-* [**Se denne PDFen**](Bestill%20tilgang%20til%20REST%20API%20-%20Digitaliseringsdirektoratet.pdf) for å se et eksempel på hva du trenger å fylle ut. 
-
-Når du har fått tilgang til Altinns REST API skal du:
-   * Få lov til å gi `api_klient`-en du opprettet hos ID-porten tilgang til scopene `altinn:instances.read` og `altinn:instances.write`.
-      * Dette kan du gjøre ved å logge på [Samarbeidsportalen](https://minside-samarbeid.digdir.no/my-organisation/integrations/admin), velg `api_klient`-en du opprettet i listen over integrasjoner, og legg til scopene til klienten.
+Når API-klienten er opprettet er forutsetningene på plass for at du kan sende inn skjema på vegne av en bruker. [Se detaljer om innsendingsprosessen her.](../hvordan-sende-inn)
 
 
-## Jeg har problemer
-Hvis du har problemer med å registrere en `api_klient` hos ID-porten skal henvendelser i utgangspunktet gå til Digdir.
+## Jeg trenger hjelp
+Hvis du har problemer med å registrere en `api_klient` via Selvbetjeningsløsningen skal henvendelser i utgangspunktet gå til Digdir.
 Kontakt servicedesk@digdir.no oppgi client_id og miljø og forklar problemet.
-
-Hvis du har problemer med å registrere ditt datasystem hos Altinn eller problemer med å bestille tilgang til Altinns REST API-portalen skal henvendelser gå til Altinn-servicedesk.
-Kontakt servicedesk@altinn.no, og forklar problemet.
-
