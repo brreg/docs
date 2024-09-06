@@ -5,7 +5,7 @@ weight: 100
 ---
 
 ## Tilgang
-Som sluttbrukersystem, for å rapportere inn opplysninger om reelle rettighetshavere på vegne av en bruker trenger du en `api_klient` registert via Samarbeidsportalen/selvbetjening i DigDir.
+For at ditt sluttbrukersystem skal kunne rapportere inn opplysninger om reelle rettighetshavere på vegne av en bruker trenger du en `api_klient` registert via Samarbeidsportalen/selvbetjening i DigDir.
 * [Mer informasjon om tilgang finner du her](./hvordan-faa-tilgang)
 
 ## Innsending av opplysninger om reelle rettighetshavere
