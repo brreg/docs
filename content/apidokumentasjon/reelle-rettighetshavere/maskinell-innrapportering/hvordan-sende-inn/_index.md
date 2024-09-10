@@ -576,7 +576,7 @@ Du har nå sendt inn skjemaet til Brønnøysundregistrene!
 # Laste ned Postman collection
 
 Vi har laget en egen Postman Collection som inneholder stegene beskrevet på denne siden, den kan 
-[lastes ned ](rrh-maskinell-innrapportering-postman-collection.zip) og importeres i Postman. 
+[lastes ned her](rrh-maskinell-innrapportering-postman-collection.zip) og importeres i Postman. 
 
 For å ta den i bruk må du konfigurere det medfølgende Postman-miljøet med din egen ID-Porten client_id og 
 client_secret. Autentisering i ID-porten må deretter utføres fra `Authorization-fanen` i steget 
