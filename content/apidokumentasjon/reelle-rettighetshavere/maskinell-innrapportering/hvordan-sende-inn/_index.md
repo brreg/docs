@@ -7,6 +7,9 @@ weight: 2
 Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere til oss ved å følge stegene på denne siden:
 <!-- TOC -->
   * [Sekvensdiagram](#sekvensdiagram)
+  * [Miljøinformasjon](#miljøinformasjon)
+    * [Testmiljø](#testmiljø)
+    * [Produksjonsmiljø](#produksjonsmiljø)
   * [ID-Porten](#id-porten)
     * [1. Send sluttbruker til ID-Porten](#1-send-sluttbruker-til-id-porten)
   * [Veksle inn Altinn-token](#veksle-inn-altinn-token)
@@ -25,6 +28,18 @@ Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere t
 ## Sekvensdiagram
 
 ![Sekvensdiagram - Innsending av Altinn-skjema til Register over reelle rettighetshavere](sekvensdiagram_minn.png)
+
+## Miljøinformasjon
+I den detaljerte beskrivelsen av sekvensdiagrammet refererer vi til url'er som systemleverandører skal benytte.
+I url'ene peker vi på "app-url" og "platform-url". Disse vil listes opp her for henholdsvis testmiljø (TT02) og produksjonsmiljø.
+
+### Testmiljø
+App-url: https://brg.apps.tt02.altinn.no\
+Platform-url: https://platform.tt02.altinn.no
+
+### Produksjonsmiljø
+App-url: https://brg.apps.altinn.no\
+Platform-url: https://platform.altinn.no
 
 ## ID-Porten
 
@@ -81,7 +96,7 @@ For å veksle inn Altinn-tokenet må du sette følgende header:
 
 ID-Porten-tokenet kan veksles inn ved å kalle Altinns exchange-endepunkt:
 
-* `GET {{altinn-miljø}}/authentication/api/v1/exchange/id-porten`
+* `GET {{platform-url}}/authentication/api/v1/exchange/id-porten`
 
 Du får nå et Altinn-token som du skal bruke i alle resterende kall.
 
@@ -130,7 +145,7 @@ Husk at du må sette denne headeren i alle kallene nedenfor.
 Sluttbruker kan opptre på vegne av en til mange Parties i Altinn. Du må hente ut partyId til virksomheten du skal sende
 inn registrering for.
 
-* `GET {{altinn-miljø}}/brg/rrh-innrapportering/api/v1/parties`
+* `GET {{app-url}}/brg/rrh-innrapportering/api/v1/parties`
 
 Du får en liste med Parties som bruker kan opptre på vegne av. Her kan du sjekke at feltet "orgNumber" samsvarer med
 organisasjonsnummeret du skal sende inn for. Du trenger partyId i alle resterende kall.
@@ -190,7 +205,7 @@ data fra registeret. Hvis du tidligere har sendt inn opplysninger vil disse komm
 ikke har sendt inn opplysninger tidligere vil du likevel få en begrenset preutfylling tilbake som stort sett bare 
 består av noen metadata-felter.
 
-`GET {{altinn-miljø}}/brg/rrh-innrapportering/prefill/{partyId}`
+`GET {{app-url}}/brg/rrh-innrapportering/prefill/{partyId}`
 
 {{< expandableCode title="Respons for en virksomhet som ikke har sendt inn registrering tidligere" lang="json" >}}
 {
@@ -319,7 +334,7 @@ steg 2., slik at du får et gyldig Altinn-token.
 Med en ferdigstilt registrering kan du sende denne inn til oss.
 Første steg er å opprette en instans av vårt Altinn-skjema. Dette gjør du med følgende API-kall:
 
-`POST {{altinn-miljø}}/brg/rrh-innrapportering/instances?instanceOwnerPartyId={{partyId}}`
+`POST {{app-url}}/brg/rrh-innrapportering/instances?instanceOwnerPartyId={{partyId}}`
 * Her må du bruke `partyId` som du hentet i steg 3.
 
 I responsen får du UUID `skjema_instans_id` fra feltet `data.instanceGuid` og `skjema_instans_data_id` fra 
@@ -410,7 +425,7 @@ feltet `data.id`, som du må bruke i de påfølgende kallene.
 ### 7. Oppdater skjemadata med sluttbrukers endringer (som du bygget opp i steg 5.)
 
 Du må nå sette skjemadata som du opprettet i steg 5 på instansen. Dette gjør du ved å kalle dette endepunktet:
-`PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{partyId}}/{{skjema_instans_id}}/data/{{skjema_instans_data_id}}?dataType=Brønnøysundregistrene_ReelleRettighetshavere_M`
+`PUT {{app-url}}/brg/rrh-innrapportering/instances/{{partyId}}/{{skjema_instans_id}}/data/{{skjema_instans_data_id}}?dataType=Brønnøysundregistrene_ReelleRettighetshavere_M`
 * Her må du bruke `skjema_instans_id` og `skjema_instans_data_id` fra forrige API-kall.
 
 {{< expandableCode title="Eksempel på respons" lang="json" >}}
@@ -450,7 +465,7 @@ Du må nå sette skjemadata som du opprettet i steg 5 på instansen. Dette gjør
 Du kan nå gå videre til neste prosessteg i Altinn, det fører til at skjemadataene klargjøres for innsending.
 Du kan gå til neste prosessteg ved å kalle endepunktet:
 
-`PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next`
+`PUT {{app-url}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next`
 
 {{< expandableCode title="Eksempel på respons" lang="json" >}}
 {
@@ -515,7 +530,7 @@ Du kan gå til neste prosessteg ved å kalle endepunktet:
 
 Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved å kalle endepunktet:
 
-`PUT {{altinn-miljø}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next?elementId=BREnd`
+`PUT {{app-url}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next?elementId=BREnd`
 * Om skjemaet inneholder feil, vil du få en eller flere feilmeldinger i responsen (se eksempel under).
 
 {{< expandableCode title="Eksempel på respons som er sendt inn" lang="json" >}}

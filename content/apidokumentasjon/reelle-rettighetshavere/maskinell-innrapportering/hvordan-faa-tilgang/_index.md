@@ -8,7 +8,7 @@ For å kunne rapportere inn opplysninger om reelle rettighetshavere på vegne av
 
 > **_NB!_** Hvis du som systemleverandør har gjort dette tidligere i forbindelse med en annen integrasjon mot 
 > Maskinporten og/eller ID-Porten trenger du sannsynligvis ikke å gjøre det på nytt. Du kan da gjenbruke API-klienten du tidligere har opprettet, 
-> forutsatt at API-klienten har tilgang til scopene `altinn:instances.read` og `altinn:instances.write`.  
+> forutsatt at API-klienten har tilgang til scopene `openid`, `altinn:instances.read` og `altinn:instances.write`.  
 
 ## 1. Generell informasjon om hvordan sluttbrukersystem kan autentisere brukere via ID-porten
 Se [denne dokumentasjonen](https://docs.altinn.studio/nb/api/authentication/id-porten/) for å få en grunnleggende forståelse av hvordan sluttbrukersystem kan autentisere brukere via ID-porten, og dermed kunne benytte API for vår Altinn 3-app.
@@ -26,7 +26,7 @@ For mer informasjon, [se Digdirs guide: Registrering av klienter](https://docs.d
    1. Opprett ny Integrasjon
 2. Fyll ut integrasjonsdata:
    * [**Se denne PDFen**](opprett_api_klient.pdf) for et eksempel på en `api_klient` i test-miljø. Her er noen tips til utfylling:
-     * Pass på å velge følgende scopes: `altinn:instances.read` og `altinn:instances.write`
+     * Pass på å velge følgende scopes: `openid`, `altinn:instances.read` og `altinn:instances.write`
      * Den verdien du setter i "Navn på integrasjonen" vil vises i innloggingsvinduet for sluttbruker. Angi derfor et navn som godt beskriver hva API-klienten skal brukes til. Feks: "DittFagsystem - Innrapportering til Register over reelle rettighetshavere" 
      * Når sluttbruker har logget inn gjennom ID-porten, må sluttbruker sendes tilbake til en gyldig `redirect-uri`. Denne eksempel-klienten har konfigurert følgende gyldige `redirect uri`-er for å forenkle testing:
        * https://test.superbrasluttbrukersystem.no/reelle/innrapportering - For å kunne sende brukere tilbake til tjeneste i testmiljø
