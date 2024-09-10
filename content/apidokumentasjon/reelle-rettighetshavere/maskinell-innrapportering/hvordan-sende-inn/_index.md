@@ -19,6 +19,7 @@ Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere t
     * [7. Oppdater skjemadata med sluttbrukers endringer (som du bygget opp i steg 5.)](#7-oppdater-skjemadata-med-sluttbrukers-endringer-som-du-bygget-opp-i-steg-5)
     * [8. Gå til neste prosessteg](#8-gå-til-neste-prosessteg)
     * [9. Valider og send inn skjema](#9-valider-og-send-inn-skjema)
+* [Laste ned Postman collection](#laste-ned-postman-collection)
 <!-- TOC -->
 
 
@@ -564,10 +565,22 @@ Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved �
             "source": "Altinn.App.AppLogic.Validation.TaskBekreftelseValidator-TaskBekreftelse",
             "customTextKey": "Det er kun angitt en eierposisjon med et ugyldig eierskapsintervall",
             "customTextParams": null
-        }
+        }0
     ]
 }
 {{< /expandableCode >}}
 
 
 Du har nå sendt inn skjemaet til Brønnøysundregistrene!
+
+# Laste ned Postman collection
+
+Vi har laget en egen Postman Collection som inneholder stegene beskrevet på denne siden, den kan 
+[lastes ned ](rrh-maskinell-innrapportering-postman-collection.zip) og importeres i Postman. 
+
+For å ta den i bruk må du konfigurere det medfølgende Postman-miljøet med din egen ID-Porten client_id og 
+client_secret. Autentisering i ID-porten må deretter utføres fra `Authorization-fanen` i steget 
+`Autentiser med0 ID-Porten og veksle inn til Altinn-token`, før du kan veksle ID-porten-tokenet mot et Altinn-token, 
+og utføre resterende kall.
+
+
