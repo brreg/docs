@@ -580,7 +580,7 @@ Vi har laget en egen Postman Collection som inneholder stegene beskrevet på den
 
 For å ta den i bruk må du konfigurere det medfølgende Postman-miljøet med din egen ID-Porten client_id og 
 client_secret. Autentisering i ID-porten må deretter utføres fra `Authorization-fanen` i steget 
-`Autentiser med0 ID-Porten og veksle inn til Altinn-token`, før du kan veksle ID-porten-tokenet mot et Altinn-token, 
+`Autentiser med ID-Porten og veksle inn til Altinn-token`, før du kan veksle ID-porten-tokenet mot et Altinn-token, 
 og utføre resterende kall.
 
 
