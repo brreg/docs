@@ -9,61 +9,461 @@ Denne siden gir en komplett beskrivelse av feltene du finner i [JSON-skjema](htt
 
 ## Feltbeskrivelse
 
-
-| Klasse                                                                 | Egenskap                                                                                                                                            | Beskrivelse                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Kan endres? | Påkrevd  | Betingelser ved utfylling                                                                                                                                                                                                                                         |
-|------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **JSON-schema rotnivå**                                                |                                                                                                                                                     | Feltene på rotnivå blir preutfylt automatisk, og skal aldri endres av fagsystem                                                                                                                                                                                                                                                                                                                                                                                                                                                             |             |          |                                                                                                                                                                                                                                                                   |
-|                                                                        | versjon                                                                                                                                             | Indikerer versjon på skjemaet som skal sendes inn fra fagsystemet                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Nei         | Ja       |                                                                                                                                                                                                                                                                   |
-|                                                                        | endret                                                                                                                                              | Indikerer dato for når denne versjonen av skjemaet ble produksjonssatt i Altinn                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Nei         | Ja       |                                                                                                                                                                                                                                                                   |
-| **skjemainnhold.metadata**                                             |                                                                                                                                                     | Alle feltene under metadata blir preutfylt automatisk, og skal aldri endres av fagsystem                                                                                                                                                                                                                                                                                                                                                                                                                                                    |             |          |                                                                                                                                                                                                                                                                   |
-|                                                                        | tjeneste                                                                                                                                            | Indikerer hvilket skjema det er. Brukes til å rute skjemaet til riktig register i mottaket hos BR                                                                                                                                                                                                                                                                                                                                                                                                                                           | Nei         | Ja       |                                                                                                                                                                                                                                                                   |
-|                                                                        | tjenestehandling                                                                                                                                    | Indikerer hvilken type registrering det er snakk om, feks. "nyregistrering" eller "endring"                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Nei         | Ja       |                                                                                                                                                                                                                                                                   |
-|                                                                        | rettighetsinformasjonsid                                                                                                                            | Unik identifikator som identifiserer rettighetsinformasjon i register over reelle rettighetshavere                                                                                                                                                                                                                                                                                                                                                                                                                                          | Nei         | Ja       |                                                                                                                                                                                                                                                                   |
-|                                                                        | registreringsid                                                                                                                                     | Unik identifikator for en bestemt registrering av reelle rettighetshavere                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Nei         | Ja       |                                                                                                                                                                                                                                                                   |
-| **skjemainnhold.fagsystem**                                            |                                                                                                                                                     | Alle feltene under fagsystem blir satt automatisk ved innsending. Dvs at fagsystemet ikke skal sette dette selv                                                                                                                                                                                                                                                                                                                                                                                                                             |             |          |                                                                                                                                                                                                                                                                   |
-|                                                                        | organisasjonsnummer                                                                                                                                 | Organisasjonsnummer for fagsystemleverandør                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Nei         | Ja       |                                                                                                                                                                                                                                                                   |
-|                                                                        | navn                                                                                                                                                | Navn for fagsystemleverandør                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nei         | Ja       |                                                                                                                                                                                                                                                                   |
-| **skjemainnhold.skjemadata**                                           |                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |             |          |                                                                                                                                                                                                                                                                   |
-|                                                                        | registreringspliktigVirksomhet.organisasjonsnummer                                                                                                  | Organisasjonsnummer for den registreringspliktige virksomheten.  Dette vil være den virksomheten som sluttbruker rapporterer for. Feltet blir preutfylt automatisk, og skal aldri endres av fagsystem                                                                                                                                                                                                                                                                                                                                       | Nei         | Ja       |                                                                                                                                                                                                                                                                   |
-|                                                                        | reelleRettighetshavereidentifikasjon                                                                                                                | Kodeverdi (fra kodelista reelleRettighetshavereidentifikasjon) som angir om virksomheten har / kan identifisere reelle rettighetshavere. Angi en av 3 følgende verdier:  1. Har reelle rettighetshavere `reelleRettighetshavereidentifikasjon.harReelleRettighetshavere`  2. Har reelle rettighetshavere, men ingen av disse kan identifiseres `reelleRettighetshavereidentifikasjon.ingenReelleRettighetshavereKanIdentifiseres`  3. Har ikke reelle rettighetshavere `reelleRettighetshavereidentifikasjon.harIkkeReelleRettighetshavere` | Ja          | Ja       |                                                                                                                                                                                                                                                                   |
-|                                                                        | aarsakTilAtVirksomhetenIkkeHarReelleRettighetshavere.erEidEllerKontrollertAvOffentligVirksomhet                                                     | Boolsk verdi som angir om årsaken til at virksomheten ikke har reelle rettighetshavere er at den er kontrollert av en offentlig myndighet                                                                                                                                                                                                                                                                                                                                                                                                   | Ja          | Betinget | Må angis hvis reelleRettighetshavereidentifikasjon er satt til:  "reelleRettighetshavereidentifikasjon.harIkkeReelleRettighetshavere"                                                                                                                              |
-|                                                                        | aarsakTilAtVirksomhetenIkkeHarReelleRettighetshavere.erOffentligVirksomhetUtenlandsk                                                                | Boolsk verdi som angir om den offentlige virksomheten er en utenlandsk virksomhet                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Ja          | Betinget | Må angis hvis man har svart true på erEidEllerKontrollertAvOffentligVirksomhet                                                                                                                                                                                    |
-|                                                                        | finnesDetReelleRettighetshavereITilleggTilRolleinnehavereForStiftelse                                                                               | Boolsk verdi som angir om stiftelsen har reelle rettighetshavere i tillegg til rolleinnehaverne som fra før er registrert i Foretaksregisteret                                                                                                                                                                                                                                                                                                                                                                                              | Ja          | Betinget | Angis kun hvis registreringspliktig virksomhet er en stiftelse (organisasjonsform STI)                                                                                                                                                                            |
-|                                                                        | reellRettighetshaver (se detaljert feltbeskrivelse for property: reellRettighetshaver nedenfor)                                                     | Array som kan inneholde 0..* reelle rettighetshavere. Reell rettighetshaver er en fysisk person som i siste instans eier eller kontrollerer en registreringspliktig virksomhet                                                                                                                                                                                                                                                                                                                                                              | Ja          | Betinget | Må legge inn 1..* reelle rettighetshavere hvis reelleRettighetshavereidentifikasjon er satt til: "reelleRettighetshavereidentifikasjon.harReelleRettighetshavere"                                                                                                 |
-|                                                                        | kanIkkeIdentifisereFlereReelleRettighetshavere                                                                                                      | Boolsk verdi som angir om virksomheten har kjente reelle rettighetshavere, men også har en eller flere som ikke kan identifiseres                                                                                                                                                                                                                                                                                                                                                                                                           | Ja          | Betinget | Må angis hvis reelleRettighetshavereidentifikasjon er satt til: "reelleRettighetshavereidentifikasjon.harReelleRettighetshavere"                                                                                                                                  |
-|                                                                        | erVirksomhetRegistrertPaaRegulertMarked                                                                                                             | Boolsk verdi som angir om virksomhet er registrert på et regulert marked (børs)                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Ja          | Betinget | Angis kun hvis registreringspliktig virksomhet har organisasjonsform allmennaksjeselskap (ASA), europeisk selskap (SE) eller sparebank (SPA)                                                                                                                      |
-|                                                                        | regulertMarked.markedstype                                                                                                                          | Kodeverdi (fra kodelista markedstype) som angir hvilket marked virksomheten er registrert på                                                                                                                                                                                                                                                                                                                                                                                                                                                | Ja          | Betinget | Angis kun hvis man først har svart true på erVirksomhetRegistrertPaaRegulertMarked                                                                                                                                                                                |
-|                                                                        | erReelleRettighetshavereRegistrertIUtenlandskRegister                                                                                               | Boolsk verdi som angir om en norsk avdeling av et utenlandsk foretak (organisasjonsform: NUF) er registrert i et utenlandsk register over reelle rettighetshavere                                                                                                                                                                                                                                                                                                                                                                           | Ja          | Betinget | Angis kun hvis registreringspliktig virksomhet har organisasjonsform norsk avdeling av et utenlandsk foretak (NUF)                                                                                                                                                |
-|                                                                        | utenlandskRegister.registertype                                                                                                                     | Kodeverdi (fra kodelista registertype) som angir hvilket utenlandsk register en norsk avdeling av et utenlandsk foretak (organisasjonsform: NUF) er registrert i                                                                                                                                                                                                                                                                                                                                                                            | Ja          | Betinget | Angis kun hvis registreringspliktig virksomhet har organisasjonsform norsk avdeling av et utenlandsk foretak (NUF)                                                                                                                                                |
-|                                                                        | rolleinnehaver                                                                                                                                      | Liste over rolleinnehavere som er registrert på virksomheten i Enhetsregisteret                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Nei         | Betinget | Hvis registreringspliktig virksomhet har organisasjonsformen stiftelse (STI) vil eksisterende rolleinnehavere i Enhetsregisteret automatisk være reelle rettighetshavere. Disse vil hentes inn og fylles ut automatisk. Fagsystemet trenger ikke sette dette selv |
-| **Property: reellRettighetshaver**                                     |                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |             |          |                                                                                                                                                                                                                                                                   |
-|                                                                        | erRegistrertIFolkeregisteret                                                                                                                        | Boolsk verdi som angir om den reelle rettighetshaveren er en person som er registrert i folkeregisteret                                                                                                                                                                                                                                                                                                                                                                                                                                     | Ja          | Ja       |                                                                                                                                                                                                                                                                   |
-|                                                                        | folkeregistrertPerson.foedselsEllerDNummer                                                                                                          | Fødsels- eller D-nummer for person registrert i folkeregisteret                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Ja          | Betinget | Angis hvis man har svar true på erRegistrertIFolkeregisteret                                                                                                                                                                                                      |
-|                                                                        | utenlandskPerson.foedselsdato                                                                                                                       | Fødselsdato for utenlandsk person                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Ja          | Betinget | Angis hvis man har svart false på erRegistrertIFolkeregisteret                                                                                                                                                                                                    |
-|                                                                        | utenlandskPerson.fulltNavn                                                                                                                          | Fullt navn for utenlandsk person                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Ja          | Betinget | Angis hvis man har svart false på erRegistrertIFolkeregisteret                                                                                                                                                                                                    |
-|                                                                        | utenlandskPerson.bostedsland                                                                                                                        | Bostedsland for utenlandsk person (landkode på ISO 3166-1 alpha-3 format)                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Ja          | Betinget | Angis hvis man har svart false på erRegistrertIFolkeregisteret                                                                                                                                                                                                    |
-|                                                                        | utenlandskPerson.statsborgerskap                                                                                                                    | Statsborgerskap for utenlandsk person (landkode(r) på ISO 3166-1 alpha-3 format).  Dette er en string array der man kan legge inn flere statsborgerskap hvis det er snakk om at personen har flere statsborgerskap (eksempel: AUT,SWE)                                                                                                                                                                                                                                                                                                      | Ja          | Betinget | Angis hvis man har svart false på erRegistrertIFolkeregisteret                                                                                                                                                                                                    |
-|                                                                        | harPosisjonEierskap                                                                                                                                 | Boolsk verdi som angir om reell rettighetshaver innehar posisjon eierskap                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Ja          | Ja       | Kan kombineres med "harPosisjonKontrollOverStemmerettigheter"                                                                                                                                                                                                     |
-|                                                                        | posisjonEierskap (se detaljert feltbeskrivelse for property:  posisjonEierskap/posisjonKontrollOverStemmerettigheter nedenfor)                      | Type kontroll eller eierskap den reelle rettighetshaveren utøver overfor den registreringspliktige virksomheten i siste instans                                                                                                                                                                                                                                                                                                                                                                                                             | Ja          | Betinget | Må angis hvis harPosisjonEierskap er satt til true                                                                                                                                                                                                                |
-|                                                                        | harPosisjonKontrollOverStemmerettigheter                                                                                                            | Boolsk verdi som angir om reell rettighetshaver innehar posisjon kontroll over stemmerettigheter                                                                                                                                                                                                                                                                                                                                                                                                                                            | Ja          | Ja       | Kan kombineres med "harPosisjonEierskap"                                                                                                                                                                                                                          |
-|                                                                        | posisjonKontrollOverStemmerettigheter (se detaljert feltbeskrivelse for property:  posisjonEierskap/posisjonKontrollOverStemmerettigheter nedenfor) | Type kontroll eller eierskap den reelle rettighetshaveren utøver overfor den registreringspliktige virksomheten i siste instans                                                                                                                                                                                                                                                                                                                                                                                                             | Ja          | Betinget | Må angis hvis harPosisjonKontrollOverStemmerettigheter er satt til true                                                                                                                                                                                           |
-|                                                                        | harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene                                                                              | Boolsk verdi som angir om reell rettighetshaver innehar posisjon rett til å utpeke eller avsette minst halvparten av styremedlemmene                                                                                                                                                                                                                                                                                                                                                                                                        | Ja          | Ja       | Kan IKKE kombineres med andre posisjoner. Hvis denne settes til true må de andre settes til false                                                                                                                                                                 |
-|                                                                        | grunnlagForPosisjonenRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene                                                                    | Kodeverdi (fra kodelista grunnlagstype)  som angir grunnlag for posisjonen til den reelle rettighetshaveren. Når den skal settes skal den alltid ha verdien:  grunnlagstype.enighetEllerAvtale                                                                                                                                                                                                                                                                                                                                              | Ja          | Betinget | MÅ angis hvis reell rettighetshaver har posisjon "harPosisjonRettTilÅUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene"                                                                                                                                          |
-|                                                                        | harPosisjonKontrollPaaAnnenMaate                                                                                                                    | Boolsk verdi som angir om reell rettighetshaver innehar posisjon kontroll på annen måte                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Ja          | Ja       | Kan IKKE kombineres med andre posisjoner. Hvis denne settes til true må de andre settes til false                                                                                                                                                                 |
-|                                                                        | beskrivelseAvPosisjonenKontrollPaaAnnenMaate                                                                                                        | Fritekst som beskriver hva som gjør at den reelle rettighetshaveren har posisjonen kontroll på annen måte                                                                                                                                                                                                                                                                                                                                                                                                                                   | Ja          | Betinget | MÅ angis hvis reell rettighetshaver har posisjon "harPosisjonKontrollPaaAnnenMaate"                                                                                                                                                                               |
-|                                                                        | harPosisjonAvgittGrunnkapital                                                                                                                       | Boolsk verdi som angir om reell rettighetshaver innehar posisjon avgitt grunnkapital                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Ja          | Ja       | Denne kan bare settes til true hvis virksomheten har organisasjonsform stiftelse (STI). I alle andre sammenhenger skal den ha verdien false                                                                                                                       |
-|                                                                        | harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene                                                                                               | Boolsk verdi som angir om reell rettighetshaver innehar posisjon rett til å utpeke et flertall av styremedlemmene                                                                                                                                                                                                                                                                                                                                                                                                                           | Ja          | Ja       | Denne kan bare settes til true hvis virksomheten har organisasjonsform stiftelse (STI). I alle andre sammenhenger skal den ha verdien false                                                                                                                       |
-|                                                                        | harPosisjonDestinatar                                                                                                                               | Boolsk verdi som angir om reell rettighetshaver innehar posisjon destinatar                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Ja          | Ja       | Denne kan bare settes til true hvis virksomheten har organisasjonsform stiftelse (STI). I alle andre sammenhenger skal den ha verdien false                                                                                                                       |
-|                                                                        | harPosisjonSaerligeRettigheter                                                                                                                      | Boolsk verdi som angir om reell rettighetshaver særlige rettigheter                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Ja          | Ja       | Denne kan bare settes til true hvis virksomheten har organisasjonsform stiftelse (STI). I alle andre sammenhenger skal den ha verdien false                                                                                                                       |
-| **Property: posisjonEierskap / posisjonKontrollOverStemmerettigheter** |                                                                                                                                                     | Type kontroll eller eierskap den reelle rettighetshaveren utøver overfor den registreringspliktige virksomheten i siste instans                                                                                                                                                                                                                                                                                                                                                                                                             |             |          |                                                                                                                                                                                                                                                                   |
-|                                                                        | stoerrelsesintervall                                                                                                                                | Kodeverdi (fra kodelista stoerrelsesintervall) som angir hvor stor prosentandel reell rettighetshaver har av posisjon "eierskap" eller posisjon "kontroll over stemmerettigheter"                                                                                                                                                                                                                                                                                                                                                           | Ja          | Ja       |                                                                                                                                                                                                                                                                   |
-|                                                                        | grunnlag                                                                                                                                            | Kodeverdi(er) (fra kodelista grunnlagstype) som angir grunnlag for posisjonen til den reelle rettighetshaveren. NB! Det er mulig å angi flere grunnlag for posisjonen i dette feltet. Kodeverdiene separeres med komma (eks: "grunnlagstype.direkte,grunnlagstype.indirekte")                                                                                                                                                                                                                                                               | Ja          | Ja       |                                                                                                                                                                                                                                                                   |
-|                                                                        | mellomliggendeVirksomhet                                                                                                                            | Array som kan inneholde 0..* mellomliggende virksomheter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Ja          | Betinget | Angis KUN hvis man først har angitt grunnlag "grunnlagstype.indirekte"                                                                                                                                                                                            |
-|                                                                        | mellomliggendeVirksomhet.erUtenlandskVirksomhet                                                                                                     | Boolsk verdi som angir om angitt mellomliggende virksomhet er utenlandsk                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Ja          | Ja       |                                                                                                                                                                                                                                                                   |
-|                                                                        | mellomliggendeVirksomhet.norskVirksomhet.organisasjonsnummer                                                                                        | Organisasjonsnummer for en norsk mellomliggende virksomhet                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Ja          | Betinget | Angis hvis man har angitt false på erUtenlandskVirksomhet                                                                                                                                                                                                         |
-|                                                                        | mellomliggendeVirksomhet.utenlandskVirksomhet.registreringsnummerIHjemlandet                                                                        | Registreringsnummer i hjemlandet for den utenlandske mellomliggende virksomheten                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Ja          | Betinget | Angis hvis man har angitt true på erUtenlandskVirksomhet                                                                                                                                                                                                          |
-|                                                                        | mellomliggendeVirksomhet.utenlandskVirksomhet.navn                                                                                                  | Virksomhetsnavn for den utenlandske mellomliggende virksomheten                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Ja          | Betinget | Angis hvis man har angitt true på erUtenlandskVirksomhet                                                                                                                                                                                                          |
-|                                                                        | mellomliggendeVirksomhet.utenlandskVirksomhet.adresse.friAdressetekst1                                                                              | Adresselinje for den utenlandske mellomliggende virksomheten                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Ja          | Betinget | Angis hvis man har angitt true på erUtenlandskVirksomhet                                                                                                                                                                                                          |
-|                                                                        | mellomliggendeVirksomhet.utenlandskVirksomhet.adresse.friAdressetekst2                                                                              | Adresselinje for den utenlandske mellomliggende virksomheten                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Ja          | Betinget | Kan angis hvis man har angitt true på erUtenlandskVirksomhet                                                                                                                                                                                                      |
-|                                                                        | mellomliggendeVirksomhet.utenlandskVirksomhet.adresse.friAdressetekst3                                                                              | Adresselinje for den utenlandske mellomliggende virksomheten                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Ja          | Betinget | Kan angis hvis man har angitt true på erUtenlandskVirksomhet                                                                                                                                                                                                      |
-|                                                                        | mellomliggendeVirksomhet.utenlandskVirksomhet.adresse.landkode                                                                                      | Landkode til hjemlandet for den utenlandske mellomliggende virksomheten (ISO 3166-1 alpha-2 format)                                                                                                                                                                                                                                                                                                                                                                                                                                         | Ja          | Betinget | Kan angis hvis man har angitt true på erUtenlandskVirksomhet                                                                                                                                                                                                      |
+{{< table class="spesial-tabell" >}}
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Egenskap</th>
+      <th>Beskrivelse</th>
+      <th>Kan endres?</th>
+      <th>Påkrevd</th>
+      <th>Betingelser ved utfylling</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>JSON-schema rotnivå</strong></td>
+      <td></td>
+      <td>Feltene på rotnivå blir preutfylt automatisk, og skal aldri endres av fagsystem</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>versjon</td>
+      <td>Indikerer versjon på skjemaet som skal sendes inn fra fagsystemet</td>
+      <td>Nei</td>
+      <td>Ja</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>endret</td>
+      <td>Indikerer dato for når denne versjonen av skjemaet ble produksjonssatt i Altinn</td>
+      <td>Nei</td>
+      <td>Ja</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong>skjemainnhold.metadata</strong></td>
+      <td></td>
+      <td>Alle feltene under metadata blir preutfylt automatisk, og skal aldri endres av fagsystem</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>tjeneste</td>
+      <td>Indikerer hvilket skjema det er. Brukes til å rute skjemaet til riktig register i mottaket hos BR</td>
+      <td>Nei</td>
+      <td>Ja</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>tjenestehandling</td>
+      <td>Indikerer hvilken type registrering det er snakk om, feks. "nyregistrering" eller "endring"</td>
+      <td>Nei</td>
+      <td>Ja</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>rettighetsinformasjonsid</td>
+      <td>Unik identifikator som identifiserer rettighetsinformasjon i register over reelle rettighetshavere</td>
+      <td>Nei</td>
+      <td>Ja</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>registreringsid</td>
+      <td>Unik identifikator for en bestemt registrering av reelle rettighetshavere</td>
+      <td>Nei</td>
+      <td>Ja</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong>skjemainnhold.fagsystem</strong></td>
+      <td></td>
+      <td>Alle feltene under fagsystem blir satt automatisk ved innsending. Dvs at fagsystemet ikke skal sette dette selv</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>organisasjonsnummer</td>
+      <td>Organisasjonsnummer for fagsystemleverandør</td>
+      <td>Nei</td>
+      <td>Ja</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>navn</td>
+      <td>Navn for fagsystemleverandør</td>
+      <td>Nei</td>
+      <td>Ja</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong>skjemainnhold.skjemadata</strong></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>registreringspliktigVirksomhet.organisasjonsnummer</td>
+      <td>Organisasjonsnummer for den registreringspliktige virksomheten. Dette vil være den virksomheten som sluttbruker rapporterer for. Feltet blir preutfylt automatisk, og skal aldri endres av fagsystem</td>
+      <td>Nei</td>
+      <td>Ja</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>reelleRettighetshavereidentifikasjon</td>
+      <td>Kodeverdi (fra kodelista reelleRettighetshavereidentifikasjon) som angir om virksomheten har / kan identifisere reelle rettighetshavere. Angi en av 3 følgende verdier:<br><br>
+          1. Har reelle rettighetshavere: reelleRettighetshavereidentifikasjon.harReelleRettighetshavere<br>
+          2. Har reelle rettighetshavere, men ingen av disse kan identifiseres: reelleRettighetshavereidentifikasjon.ingenReelleRettighetshavereKanIdentifiseres<br>  
+          3. Har ikke reelle rettighetshavere: reelleRettighetshavereidentifikasjon.harIkkeReelleRettighetshavere
+      </td>
+      <td>Ja</td>
+      <td>Ja</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>aarsakTilAtVirksomhetenIkkeHarReelleRettighetshavere.erEidEllerKontrollertAvOffentligVirksomhet</td>
+      <td>Boolsk verdi som angir om årsaken til at virksomheten ikke har reelle rettighetshavere er at den er kontrollert av en offentlig myndighet</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Må angis hvis reelleRettighetshavereidentifikasjon er satt til: "reelleRettighetshavereidentifikasjon.harIkkeReelleRettighetshavere"</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>aarsakTilAtVirksomhetenIkkeHarReelleRettighetshavere.erOffentligVirksomhetUtenlandsk</td>
+      <td>Boolsk verdi som angir om den offentlige virksomheten er en utenlandsk virksomhet</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Må angis hvis man har svart true på erEidEllerKontrollertAvOffentligVirksomhet</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>finnesDetReelleRettighetshavereITilleggTilRolleinnehavereForStiftelse</td>
+      <td>Boolsk verdi som angir om stiftelsen har reelle rettighetshavere i tillegg til rolleinnehaverne som fra før er registrert i Foretaksregisteret</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis kun hvis registreringspliktig virksomhet er en stiftelse (organisasjonsform STI)</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>reellRettighetshaver (se detaljert feltbeskrivelse for property: reellRettighetshaver nedenfor)</td>
+      <td>Array som kan inneholde 0..* reelle rettighetshavere. Reell rettighetshaver er en fysisk person som i siste instans eier eller kontrollerer en registreringspliktig virksomhet</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Må legge inn 1..* reelle rettighetshavere hvis reelleRettighetshavereidentifikasjon er satt til: "reelleRettighetshavereidentifikasjon.harReelleRettighetshavere"</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>kanIkkeIdentifisereFlereReelleRettighetshavere</td>
+      <td>Boolsk verdi som angir om virksomheten har kjente reelle rettighetshavere, men også har en eller flere som ikke kan identifiseres</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Må angis hvis reelleRettighetshavereidentifikasjon er satt til: "reelleRettighetshavereidentifikasjon.harReelleRettighetshavere"</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>erVirksomhetRegistrertPaaRegulertMarked</td>
+      <td>Boolsk verdi som angir om virksomhet er registrert på et regulert marked (børs)</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis kun hvis registreringspliktig virksomhet har organisasjonsform allmennaksjeselskap (ASA), europeisk selskap (SE) eller sparebank (SPA)</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>regulertMarked.markedstype</td>
+      <td>Kodeverdi (fra kodelista markedstype) som angir hvilket marked virksomheten er registrert på</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis kun hvis man først har svart true på erVirksomhetRegistrertPaaRegulertMarked</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>erReelleRettighetshavereRegistrertIUtenlandskRegister</td>
+      <td>Boolsk verdi som angir om en norsk avdeling av et utenlandsk foretak (organisasjonsform: NUF) er registrert i et utenlandsk register over reelle rettighetshavere</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis kun hvis registreringspliktig virksomhet har organisasjonsform norsk avdeling av et utenlandsk foretak (NUF)</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>utenlandskRegister.registertype</td>
+      <td>Kodeverdi (fra kodelista registertype) som angir hvilket utenlandsk register en norsk avdeling av et utenlandsk foretak (organisasjonsform: NUF) er registrert i</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis kun hvis registreringspliktig virksomhet har organisasjonsform norsk avdeling av et utenlandsk foretak (NUF)</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>rolleinnehaver</td>
+      <td>Liste over rolleinnehavere som er registrert på virksomheten i Enhetsregisteret</td>
+      <td>Nei</td>
+      <td>Betinget</td>
+      <td>Hvis registreringspliktig virksomhet har organisasjonsformen stiftelse (STI) vil eksisterende rolleinnehavere i Enhetsregisteret automatisk være reelle rettighetshavere. Disse vil hentes inn og fylles ut automatisk. Fagsystemet trenger ikke sette dette selv</td>
+    </tr>
+    <tr>
+      <td><strong>Sub-property: reellRettighetshaver</strong></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>erRegistrertIFolkeregisteret</td>
+      <td>Boolsk verdi som angir om den reelle rettighetshaveren er en person som er registrert i folkeregisteret</td>
+      <td>Ja</td>
+      <td>Ja</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>folkeregistrertPerson.foedselsEllerDNummer</td>
+      <td>Fødsels- eller D-nummer for person registrert i folkeregisteret</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis hvis man har svar true på erRegistrertIFolkeregisteret</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>utenlandskPerson.foedselsdato</td>
+      <td>Fødselsdato for utenlandsk person</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis hvis man har svart false på erRegistrertIFolkeregisteret</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>utenlandskPerson.fulltNavn</td>
+      <td>Fullt navn for utenlandsk person</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis hvis man har svart false på erRegistrertIFolkeregisteret</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>utenlandskPerson.bostedsland</td>
+      <td>Bostedsland for utenlandsk person (landkode på ISO 3166-1 alpha-3 format)</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis hvis man har svart false på erRegistrertIFolkeregisteret</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>utenlandskPerson.statsborgerskap</td>
+      <td>Statsborgerskap for utenlandsk person (landkode(r) på ISO 3166-1 alpha-3 format). Dette er en string array der man kan legge inn flere statsborgerskap hvis det er snakk om at personen har flere statsborgerskap (eksempel: AUT,SWE)</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis hvis man har svart false på erRegistrertIFolkeregisteret</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>harPosisjonEierskap</td>
+      <td>Boolsk verdi som angir om reell rettighetshaver innehar posisjon eierskap</td>
+      <td>Ja</td>
+      <td>Ja</td>
+      <td>Kan kombineres med "harPosisjonKontrollOverStemmerettigheter"</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>posisjonEierskap (se detaljert feltbeskrivelse for property: posisjonEierskap/posisjonKontrollOverStemmerettigheter nedenfor)</td>
+      <td>Type kontroll eller eierskap den reelle rettighetshaveren utøver overfor den registreringspliktige virksomheten i siste instans</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Må angis hvis harPosisjonEierskap er satt til true</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>harPosisjonKontrollOverStemmerettigheter</td>
+      <td>Boolsk verdi som angir om reell rettighetshaver innehar posisjon kontroll over stemmerettigheter</td>
+      <td>Ja</td>
+      <td>Ja</td>
+      <td>Kan kombineres med "harPosisjonEierskap"</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>posisjonKontrollOverStemmerettigheter (se detaljert feltbeskrivelse for property: posisjonEierskap/posisjonKontrollOverStemmerettigheter nedenfor)</td>
+      <td>Type kontroll eller eierskap den reelle rettighetshaveren utøver overfor den registreringspliktige virksomheten i siste instans</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Må angis hvis harPosisjonKontrollOverStemmerettigheter er satt til true</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene</td>
+      <td>Boolsk verdi som angir om reell rettighetshaver innehar posisjon rett til å utpeke eller avsette minst halvparten av styremedlemmene</td>
+      <td>Ja</td>
+      <td>Ja</td>
+      <td>Kan IKKE kombineres med andre posisjoner. Hvis denne settes til true må de andre settes til false</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>grunnlagForPosisjonenRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene</td>
+      <td>Kodeverdi (fra kodelista grunnlagstype) som angir grunnlag for posisjonen til den reelle rettighetshaveren. Når den skal settes skal den alltid ha verdien: grunnlagstype.enighetEllerAvtale</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>MÅ angis hvis reell rettighetshaver har posisjon "harPosisjonRettTilAaUtpekeEllerAvsetteMinstHalvpartenAvStyremedlemmene"</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>harPosisjonKontrollPaaAnnenMaate</td>
+      <td>Boolsk verdi som angir om reell rettighetshaver innehar posisjon kontroll på annen måte</td>
+      <td>Ja</td>
+      <td>Ja</td>
+      <td>Kan IKKE kombineres med andre posisjoner. Hvis denne settes til true må de andre settes til false</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>beskrivelseAvPosisjonenKontrollPaaAnnenMaate</td>
+      <td>Fritekst som beskriver hva som gjør at den reelle rettighetshaveren har posisjonen kontroll på annen måte</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>MÅ angis hvis reell rettighetshaver har posisjon "harPosisjonKontrollPaaAnnenMaate"</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>harPosisjonAvgittGrunnkapital</td>
+      <td>Boolsk verdi som angir om reell rettighetshaver innehar posisjon avgitt grunnkapital</td>
+      <td>Ja</td>
+      <td>Ja</td>
+      <td>Denne kan bare settes til true hvis virksomheten har organisasjonsform stiftelse (STI). I alle andre sammenhenger skal den ha verdien false</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>harPosisjonRettTilAaUtpekeEtFlertallAvStyremedlemmene</td>
+      <td>Boolsk verdi som angir om reell rettighetshaver innehar posisjon rett til å utpeke et flertall av styremedlemmene</td>
+      <td>Ja</td>
+      <td>Ja</td>
+      <td>Denne kan bare settes til true hvis virksomheten har organisasjonsform stiftelse (STI). I alle andre sammenhenger skal den ha verdien false</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>harPosisjonDestinatar</td>
+      <td>Boolsk verdi som angir om reell rettighetshaver innehar posisjon destinatar</td>
+      <td>Ja</td>
+      <td>Ja</td>
+      <td>Denne kan bare settes til true hvis virksomheten har organisasjonsform stiftelse (STI). I alle andre sammenhenger skal den ha verdien false</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>harPosisjonSaerligeRettigheter</td>
+      <td>Boolsk verdi som angir om reell rettighetshaver særlige rettigheter</td>
+      <td>Ja</td>
+      <td>Ja</td>
+      <td>Denne kan bare settes til true hvis virksomheten har organisasjonsform stiftelse (STI). I alle andre sammenhenger skal den ha verdien false</td>
+    </tr>
+    <tr>
+      <td><strong>Sub-property: posisjonEierskap / posisjonKontrollOverStemmerettigheter</strong></td>
+      <td></td>
+      <td>Type kontroll eller eierskap den reelle rettighetshaveren utøver overfor den registreringspliktige virksomheten i siste instans</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>stoerrelsesintervall</td>
+      <td>Kodeverdi (fra kodelista stoerrelsesintervall) som angir hvor stor prosentandel reell rettighetshaver har av posisjon "eierskap" eller posisjon "kontroll over stemmerettigheter"</td>
+      <td>Ja</td>
+      <td>Ja</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>grunnlag</td>
+      <td>Kodeverdi(er) (fra kodelista grunnlagstype) som angir grunnlag for posisjonen til den reelle rettighetshaveren. NB! Det er mulig å angi flere grunnlag for posisjonen i dette feltet. Kodeverdiene separeres med komma (eks: "grunnlagstype.direkte,grunnlagstype.indirekte")</td>
+      <td>Ja</td>
+      <td>Ja</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>mellomliggendeVirksomhet</td>
+      <td>Array som kan inneholde 0..* mellomliggende virksomheter</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis KUN hvis man først har angitt grunnlag "grunnlagstype.indirekte"</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>mellomliggendeVirksomhet.erUtenlandskVirksomhet</td>
+      <td>Boolsk verdi som angir om angitt mellomliggende virksomhet er utenlandsk</td>
+      <td>Ja</td>
+      <td>Ja</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>mellomliggendeVirksomhet.norskVirksomhet.organisasjonsnummer</td>
+      <td>Organisasjonsnummer for en norsk mellomliggende virksomhet</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis hvis man har angitt false på erUtenlandskVirksomhet</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>mellomliggendeVirksomhet.utenlandskVirksomhet.registreringsnummerIHjemlandet</td>
+      <td>Registreringsnummer i hjemlandet for den utenlandske mellomliggende virksomheten</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis hvis man har angitt true på erUtenlandskVirksomhet</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>mellomliggendeVirksomhet.utenlandskVirksomhet.navn</td>
+      <td>Virksomhetsnavn for den utenlandske mellomliggende virksomheten</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis hvis man har angitt true på erUtenlandskVirksomhet</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>mellomliggendeVirksomhet.utenlandskVirksomhet.adresse.friAdressetekst1</td>
+      <td>Adresselinje for den utenlandske mellomliggende virksomheten</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Angis hvis man har angitt true på erUtenlandskVirksomhet</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>mellomliggendeVirksomhet.utenlandskVirksomhet.adresse.friAdressetekst2</td>
+      <td>Adresselinje for den utenlandske mellomliggende virksomheten</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Kan angis hvis man har angitt true på erUtenlandskVirksomhet</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>mellomliggendeVirksomhet.utenlandskVirksomhet.adresse.friAdressetekst3</td>
+      <td>Adresselinje for den utenlandske mellomliggende virksomheten</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Kan angis hvis man har angitt true på erUtenlandskVirksomhet</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>mellomliggendeVirksomhet.utenlandskVirksomhet.adresse.landkode</td>
+      <td>Landkode til hjemlandet for den utenlandske mellomliggende virksomheten (ISO 3166-1 alpha-2 format)</td>
+      <td>Ja</td>
+      <td>Betinget</td>
+      <td>Kan angis hvis man har angitt true på erUtenlandskVirksomhet</td>
+    </tr>
+  </tbody>
+{{< /table >}}

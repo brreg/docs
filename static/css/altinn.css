@@ -97,3 +97,44 @@ li > label {
     font-weight: normal;
 }
 
+.spesial-tabell {
+    font-size: 0.85rem;
+    margin: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.spesial-tabell th,
+.spesial-tabell td {
+    white-space: normal;
+    word-break: break-all;
+}
+
+.spesial-tabell th:nth-child(1),
+.spesial-tabell td:nth-child(1) {
+    min-width: 180px;
+}
+
+.spesial-tabell th:nth-child(2),
+.spesial-tabell td:nth-child(2) {
+    min-width: 250px;
+}
+
+.spesial-tabell th:nth-child(3),
+.spesial-tabell td:nth-child(3) {
+    min-width: 350px;
+}
+
+.spesial-tabell th:nth-child(4),
+.spesial-tabell td:nth-child(4),
+.spesial-tabell th:nth-child(5),
+.spesial-tabell td:nth-child(5) {
+    min-width: 100px;
+}
+
+.spesial-tabell th:nth-child(6),
+.spesial-tabell td:nth-child(6) {
+    min-width: 250px;
+}

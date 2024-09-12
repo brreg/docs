@@ -18,5 +18,5 @@ Opplysninger om Reelle rettighetshavere kan sendes inn på JSON-format.
 * [Se også tekstlig beskrivelse av feltene i JSON-skjemaet](./beskrivelse-av-felter)
 * JSON kan valideres mot [https://schema.brreg.no/reelle/altinn/schema.json](https://schema.brreg.no/reelle/altinn/schema.json)
 
-### Test og produksjon
+## Test og produksjon
 En detaljert beskrivelse av kravene til testing og oppstart i produksjon, finner du på [denne siden](./test-og-produksjon)
