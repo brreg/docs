@@ -13,7 +13,7 @@ Denne siden gir en komplett beskrivelse av feltene du finner i [JSON-skjema](htt
   <thead>
     <tr>
       <th>Property</th>
-      <th>Egenskap</th>
+      <th>Sub-property</th>
       <th>Beskrivelse</th>
       <th>Kan endres?</th>
       <th>Påkrevd</th>
