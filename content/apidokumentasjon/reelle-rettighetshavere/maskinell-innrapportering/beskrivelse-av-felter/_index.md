@@ -56,7 +56,7 @@ Denne siden gir en komplett beskrivelse av feltene du finner i [JSON-skjema](htt
     <tr>
       <td></td>
       <td>tjeneste</td>
-      <td>Indikerer hvilket skjema det er. Brukes til å rute skjemaet til riktig register i mottaket hos BR</td>
+      <td>Indikerer hvilket skjema det er</td>
       <td>Nei</td>
       <td>Ja</td>
       <td></td>
