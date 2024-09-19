@@ -18,7 +18,7 @@ Slik kan du bruke Tenor Testdatasøk for å finne testdata:
 * Logg deg inn i [Tenor Testdatasøk](https://www.skatteetaten.no/skjema/testdata/). Denne krever innlogging med ID-porten, så her må du logge deg inn med din personlige bruker.
 * Klikk på "Virksomhet". Når du går inn på en virksomhet kan du klikke på "Kildedata". Her kan du feks finne fødselsnummer for daglig leder (DAGL) eller styreleder (LEDE) som dere kan benytte til pålogging via ID-porten i sluttbrukersystemet.
 * Når du finner en virksomhet du ønsker å teste med er det viktig å verifisere at virksomheten har en organisasjonsform som er registreringsplitkig i registeret. I tillegg må du finne en rolleinnehaver for virksomheten som har en rolle som gjør at vedkommende har lov til å fylle ut og sende inn skjemaet.
-  * Følgende organisasjonsformer er registreringspliktige: AS, ASA, SE, ESEK, ANS, DA, BA, PRE, EOFG, KS, SA, BBL, BRL, SPA, PK, GFS, NUF, STI, FLI
+  * Følgende organisasjonsformer er registreringspliktige: AS, ASA, SE, ANS, DA, BA, PRE, EOFG, KS, SA, BBL, BRL, SPA, PK, GFS, NUF, STI, FLI
   * Følgende roller for virksomheten har lov til å fylle ut og sende inn skjema: INNH, MEDL, LEDE, NEST, DAGL, DTPR, DTSO, KOMP, FFØR, REPR, KONT, KNUF. I sluttbrukersystemet må du altså logge på via ID-Porten med en person som har en av disse rollene.
 
 ## Oppsummering av test og oppstart i produksjon
