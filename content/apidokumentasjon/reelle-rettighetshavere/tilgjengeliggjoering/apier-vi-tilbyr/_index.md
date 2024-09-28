@@ -12,10 +12,10 @@ APIene følger Semantic Versioning (SemVer) standarden, der major/hovedversjonen
 URLer er tilgjengelig på følgende format: `https://rrh.brreg.no/api/{domene}/v{hovedversjon}/{tjeneste}`.
 
 * Eventuelle inkompatible endringer vil medføre en ny hovedversjon, og dermed en ny URL
-* Ved publisering av en ny hovedversjon vil også den forrige hovedversjonen være operativ i en overgangsperiode
+* Ved publisering av en ny hovedversjon vil også den forrige hovedversjonen være tilgjengelig i en overgangsperiode
 * Eksempel på endring som medfører ny hovedversjon:
     * Fjerne eller endre navn på et attributt i en HTTP-respons
-    * Fjerne eller endre navn på et REST-endepunkt eller dets parameter
+    * Fjerne eller endre navn på et REST-endepunkt eller dets parametre
 * Eksempel på endringen som _ikke_ medfører ny hovedversjon
     * Legge til et attributt i en HTTP-respons
     * Legge til et endepunkt eller legge til et frivilig parameter på eksisterende endepunkt

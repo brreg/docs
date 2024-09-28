@@ -5,16 +5,18 @@ weight: 100
 ---
 
 - [API-spesifikasjon](#api-spesifikasjon)
-- [Kodeliste](#kodeliste)
 - [Løsningsmodell](#løsningsmodell) 
-- [Endringslogg](#endringslogg) 
+- [Endringer i APIet](#endringer-i-apiet) 
 
 
 `Virksomheter` er et API for oppslag/søk i Register over reelle rettighetshavere.
 
-* APIet tilbyr opplysninger om registrerte virksomheter og deres reelle rettighetshavere ved oppslag med ulike
-  parametere, samt nedlasting av registerets totalbestand
-* APIet er tilgangsstyrt, se siden [Tilgang til APIer](../../tilgang-til-apier)
+* APIet tilbyr 
+  * Opplysninger om registrerte virksomheter og deres reelle rettighetshavere
+  * Nedlasting av totalbestand på json-format
+  * Endringslogg: Dette brukes typisk for å fange opp at det har skjedd endringer på registreringer om reelle rettighetshavere i registeret
+  * Kodelister: Kan brukes til visning i eventuelle brukergrensesnitt, dynamisk oppdatering av kodelister, validering og lignende. Endepunktet er åpent, og krever ikke maskinporten-autentisering
+* Alle endepunktene i APIet med unntak av Kodelister er tilgangsstyrt, se siden [Tilgang til APIer](../../tilgang-til-apier)
 * Opplysningene om reelle rettighetshavere inkluderer fullt fødsels- eller D-nummer fra Folkeregisteret.
   APIet skjermer ikke opplysninger om mindreårige og andre som er unntatt fra innsyn
 
@@ -26,18 +28,15 @@ mer utfyllende informasjon om hva APIet tilbyr.
 | Miljø      | Swagger-UI                           | OpenAPI-spesifikasjon                                    |
 |------------|--------------------------------------|----------------------------------------------------------|
 | Test       | https://rrh.ppe.brreg.no/api/oppslag | https://rrh.ppe.brreg.no/api/oppslag/openapi/openapi.zip |
-
-## Kodeliste
-Ved kall til våre API'er vil enkelte felter i responsene være kodeverdier.  
-En kodeliste som inneholder alle relevante koder med beskrivelser kan du [laste ned her](rrh_kodeliste_virksomheter.xlsx).
+| Produksjon | https://rrh.brreg.no/api/oppslag     | https://rrh.brreg.no/api/oppslag/openapi/openapi.zip     |
 
 ## Løsningsmodell
 
 Se løsningsmodell under informasjonsmodeller for [Virksomhet](../../../../../informasjonsmodeller/reelle-rettighetshavere/loesningsmodeller/virksomhet/rrh_loesningsmodell_virksomhet)
 
-## Endringslogg
+## Endringer i APIet
 
-Endringsloggen dokumenterer alle endringer som er gjort på Virksomhet APIet for Reelle Rettighetshavere.  
+Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Rettighetshavere.  
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
 

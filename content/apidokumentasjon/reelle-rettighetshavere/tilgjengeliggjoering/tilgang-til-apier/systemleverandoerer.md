@@ -4,10 +4,6 @@ description: Informasjon om hvordan en systemleverandør kan søke om tilgang ti
 weight: 3
 ---
 
-{{< warning >}}
-For øyeblikket er det kun mulig å søke om tilgang til våre APIer i testmiljøet. Tilgang til produksjonsmiljøet er foreløpig ikke åpent for eksterne brukere. Så snart dette er klart, vil vi gi informasjon om prosessen for å søke tilgang til produksjonsmiljøet.
-{{< /warning >}}
-
 Hvis du er systemleverandør kan du få tilgang til vårt testmiljø.
 
 **Hvis du har rett på direkte tilgang, [se egen side for direkte tilgang.](../vanlig-direkte-tilgang)**
@@ -23,10 +19,11 @@ Vi kan etter forespørsel opprette en fiktiv virksomhet som simulerer en kunde i
 1. Du som systemleverandør sender en epost til `opendata@brreg.no` hvor du opplyser om følgende:
    * Systemleverandørs organisasjonsnummer
    * Systemleverandørs navn
-   * Navn på kontaktperson (som er involvert i testen)
-   * Epost-adresse til kontaktperson (som er involvert i testen)
-   * Telefonnummer til kontaktperson (som er involvert i testen)
-   * **Si at dere ønsker å delegere tilgang selv via en fiktiv virksomhet**
+   * Kontaktinformasjon til deres kontaktperson for test (testansvarlig)
+     * Navn til testansvarlig
+     * Epost-adresse til testansvarlig
+     * Telefonnummer til testansvarlig
+   * **Skriv at dere ønsker å delegere tilgang selv via en fiktiv virksomhet**
 2. Vi mottar bestillingen og gjør følgende:
    * Leser inn din virksomhets organisasjonsnummer i Altinns testmiljø (TT02). Vær oppmerksom på at vi her leser inn produksjonsdata om din virksomhet i et testmiljø
    * Oppretter en fiktiv virksomhet som dere kan logge på med et fiktivt fødselsnummer
@@ -47,25 +44,29 @@ Alternativt kan dere be en av dine eksisterende kunder om å bestille tilgang i 
 3. Du som systemleverandør sender en epost til `opendata@brreg.no` hvor du opplyser om følgende:
     * Systemleverandørs organisasjonsnummer
     * Systemleverandørs navn
-    * Navn på kontaktperson (som er involvert i testen)
-    * Epost-adresse til kontaktperson (som er involvert i testen)
-    * Telefonnummer til kontaktperson (som er involvert i testen
+    * Kontaktinformasjon til systemleverandørs kontaktperson for test (testansvarlig)
+      * Navn til testansvarlig
+      * Epost-adresse til testansvarlig
+      * Telefonnummer til testansvarlig
     * Kundens organisasjonsnummer
     * Kundens navn
-    * Navn på kundens kontaktperson (som er involvert i testen)
-    * Epost-adresse til kundens kontaktperson (som er involvert i testen)
-    * Telefonnummer til kundens kontaktperson (som er involvert i testen)
+    * Kontaktinformasjon til kunden sin kontaktperson for test (testansvarlig)
+      * Navn til testansvarlig
+      * Epost-adresse til testansvarlig
+      * Telefonnummer til testansvarlig
 4. Vi mottar bestillingen og gjør følgende:
-   * Leser inn din virksomhets organisasjonsnummer i Altinns testmiljø (TT02). Vær oppmerksom på at vi her leser inn produksjonsdata om din virksomhet i et testmiljø
-    * Oppretter en fiktiv person med et fiktivt fødselsnummer for deres kunde sin virksomhet
+    * Leser inn systemleverandørs organisasjonsnummer i Altinns testmiljø (TT02)
+    * Leser inn kundens organisasjonsnummer i Altinns testmiljø (TT02)
+    * **NB! Vær oppmerksom på at vi her leser inn produksjonsdata om virksomhetene i et testmiljø**
+    * Oppretter en fiktiv person med et fiktivt fødselsnummer for kunden sin virksomhet i TT02
     * Sender mail til dere med informasjonen over
-5. Når dere har mottatt bekreftelse fra oss om at alt er klart kan du:
-    * Be din kunde om å delegere tilgang fra sin virksomhet til deres virksomhet i Altinn
+5. Når dere har mottatt bekreftelse fra oss om at alt er klart kan du som systemleverandør:
+    * Be din kunde om å logge på med den fiktive personen i Altinn TT02, og delegere tilgang fra sin virksomhet til deres virksomhet i Altinn
     * Be din kunde om å oppgi hvilket scope de har fått tildelt da du som systemleverandør må vite dette når du skal hente maskinporten-token
     * Se mer om dette på [side om Maskinporten for systemleverandører](../../maskinporten/systemleverandoerer)
 
 ## Jeg har fått tilgang, hva gjør jeg nå?
 
-Når du har fått tilgang til våre tjenester i testmiljøet vil neste steg
+Når du har fått tilgang til våre tjenester vil neste steg
 være å integrere seg mot Maskinporten. Vi har laget en [veiledning for
 integrasjon mot maskinporten](../../maskinporten/systemleverandoerer).
