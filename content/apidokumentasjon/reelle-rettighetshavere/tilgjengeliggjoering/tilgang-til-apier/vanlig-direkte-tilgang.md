@@ -14,7 +14,7 @@ Hvis du har [rett på tilgang til våre tjenester](../hvem-kan-faa-tilgang) kan 
 > **_NB!_** Systemleverandører vil i utgangspunktet ikke ha direkte tilgang til våre tjenester, men kan få delegert tilgang fra en aktør som har fått tilgang. [Se egen side for detaljer om hvordan du får tilgang som systemleverandør.](../systemleverandoerer)
 
 ## Hvordan bestiller jeg tilgang til tjenestene i test?
-Dersom du mener din virksomhet oppfyller kriteriene sender du en epost til `opendata.rrh@brreg.no` hvor du
+Dersom du mener din virksomhet oppfyller kriteriene sender du en epost til `opendata@brreg.no` hvor du
 opplyser om følgende:
 
 * Virksomhetens organisasjonsnummer
