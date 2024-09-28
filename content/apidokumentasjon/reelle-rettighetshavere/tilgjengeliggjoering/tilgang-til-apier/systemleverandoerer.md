@@ -20,7 +20,7 @@ Systemleverandører må få delegert tilgang i Maskinporten for å få tilgang i
 Vi kan etter forespørsel opprette en fiktiv virksomhet som simulerer en kunde i vårt testmiljø, og tildele et maskinporten-scope til denne. Dette gir deg som systemleverandør muligheten til selv å delegere denne tilgangen videre til deg selv. Denne metoden er ideell for å teste funksjonaliteten uten å involvere en faktisk kunde.
 
 **Prosessen for å bestille tilgang og få opprettet en fiktiv virksomhet er:**
-1. Du som systemleverandør sender en epost til `opendata.rrh@brreg.no` hvor du opplyser om følgende:
+1. Du som systemleverandør sender en epost til `opendata@brreg.no` hvor du opplyser om følgende:
    * Systemleverandørs organisasjonsnummer
    * Systemleverandørs navn
    * Navn på kontaktperson (som er involvert i testen)
@@ -44,7 +44,7 @@ Alternativt kan dere be en av dine eksisterende kunder om å bestille tilgang i 
 1. Kunden som skal delegere tilgang til din virksomhet bestiller direkte tilgang:
    * Se hvordan dette gjøres på [side for å bestille vanlig (direkte) tilgang](../vanlig-direkte-tilgang)
 2. Kunden får bekreftelse om at de har fått tilgang
-3. Du som systemleverandør sender en epost til `opendata.rrh@brreg.no` hvor du opplyser om følgende:
+3. Du som systemleverandør sender en epost til `opendata@brreg.no` hvor du opplyser om følgende:
     * Systemleverandørs organisasjonsnummer
     * Systemleverandørs navn
     * Navn på kontaktperson (som er involvert i testen)
