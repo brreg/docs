@@ -40,6 +40,21 @@ Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Ret
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
 
+### 1.1.0 - 2024-10-22
+
+#### Lagt til
+
+- Det er introdusert et nytt parmeter som muliggjør uthenting av responser med kodelisteverdier også på nynorsk og engelsk
+  - Funksjonaliteten er implementert på endepunkt med operationId: `hentRegistreringspliktigVirksomhet`, `finnRegistreringspliktigeVirksomheter` og `hentRelevanteKodelister`
+  - Funksjonaliteten er implementert i form av en frivillig HTTP-header: `Accept-Language`
+  - Mulige verdier er bokmål, nynorsk og engelsk som angis henholdsvis med verdiene `nob`, `nyn` og `eng`
+
+#### Endret
+
+- Funksjonalitet for oppslag på virksomhet er endret til å inkludere opplysninger om både nåværende og tidligere registrerte reelle rettighetshavere.
+- Søk på fødselsnummer er oppdatert til å gi en liste over virksomheter hvor personen, identifisert ved det angitte fødsels- eller D-nummeret, er eller har vært registrert som reell rettighetshaver.
+
+
 ### 1.0.0-beta2 - 2024-02-28
 
 #### Lagt til
