@@ -40,6 +40,18 @@ Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Ret
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
 
+### 1.1.0 - 2024-10-24
+
+#### Lagt til
+* Språkstøtte for kodelisteverdier
+  * Det er introdusert et nytt parameter som muliggjør uthenting av responser med kodelisteverdier også på nynorsk og engelsk.
+  * Funksjonaliteten er implementert på følgende endepunkter: `hentRegistreringspliktigVirksomhet`, `finnRegistreringspliktigeVirksomheter`, `hentRelevanteKodelister`
+  * Funksjonaliteten er implementert i form av en frivillig HTTP-header: `Accept-Language`. Mulige verdier for headeren: `nob` (bokmål), `nno` (nynorsk) og `eng` (engelsk)
+  * Hvis `Accept-Language`-headeren ikke er spesifisert eller er spesifisert med en ugyldig verdi, vil responsen returnere verdier på Bokmål som standard.
+
+### 1.0.0 - 2024-09-28
+API-ene er ikke lenger i beta-fasen og kan nå anses som stabile.
+
 ### 1.0.0-beta2 - 2024-02-28
 
 #### Lagt til
