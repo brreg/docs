@@ -40,7 +40,7 @@ Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Ret
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
 
-### 1.1.0 - 2024-10-22
+### 1.1.0 - 2024-10-24
 
 #### Lagt til
 * Språkstøtte for kodelisteverdier
