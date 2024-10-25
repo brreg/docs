@@ -9,16 +9,7 @@ weight: 100
 - [Endringer i APIet](#endringer-i-apiet) 
 
 
-`Virksomheter` er et API for oppslag/søk i Register over reelle rettighetshavere.
-
-* APIet tilbyr 
-  * Opplysninger om registrerte virksomheter og deres reelle rettighetshavere
-  * Nedlasting av totalbestand på json-format
-  * Endringslogg: Dette brukes typisk for å fange opp at det har skjedd endringer på registreringer om reelle rettighetshavere i registeret
-  * Kodelister: Kan brukes til visning i eventuelle brukergrensesnitt, dynamisk oppdatering av kodelister, validering og lignende. Endepunktet er åpent, og krever ikke maskinporten-autentisering
-* Alle endepunktene i APIet med unntak av Kodelister er tilgangsstyrt, se siden [Tilgang til APIer](../../tilgang-til-apier)
-* Opplysningene om reelle rettighetshavere inkluderer fullt fødsels- eller D-nummer fra Folkeregisteret.
-  APIet skjermer ikke opplysninger om mindreårige og andre som er unntatt fra innsyn
+`Virksomheter` er et API for oppslag/søk i Register over reelle rettighetshavere. Hvilke endepunkt og informasjon du kan få tilgang til kan du lese mer om på [denne siden](../../tilgang-til-apier/hvem-kan-faa-tilgang-til-hva).
 
 ## API-spesifikasjon
 

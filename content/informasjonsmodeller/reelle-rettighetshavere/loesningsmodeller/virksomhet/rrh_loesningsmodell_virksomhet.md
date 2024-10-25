@@ -6,7 +6,6 @@ weight: 10
 
 {{% children description="true" /%}}
 
-
 ![Tilgangsstyrt API løsningsmodell](https://github.com/brreg/informasjonsmodeller/blob/main/registeroverreellerettighetshavere/loesningsmodeller/løsningsmodell_api_virksomheter.png?raw=true)
 
 | **Klasse**                         | Egenskap                                           | Beskrivelse                                                                                                                                                    |
@@ -37,27 +36,37 @@ weight: 10
 |                                    | posisjonstype                                      | En type kontroll eller eierskap over registreringspliktig virksomhet i siste instans                                                                           |
 |                                    | størrelsesintervall                                | Hvor stor prosentandel reell rettighetshaver har av posisjon eierskap eller posisjon stemmerettigheter                                                         |
 |                                    | beskrivelseAvPosisjonenKontrollPåAnnenMåte         | Tekstlig beskrivelse av posisjonen "kontroll på annen måte"                                                                                                    |
-|                                    | grunnlagstype                                      | Grunnlag for posisjonen til den reelle rettighetshaveren                                                                                                       |
+|                                    | grunnlagstype                                      | Grunnlag for posisjonen til den reelle rettighetshaveren (se [særregler for personer unntatt innsyn](#særregler-for-personer-unntatt-innsyn))                  |
 | **Person**                         |                                                    | Folkeregistrert person                                                                                                                                         |
-|                                    | fødselsEllerDNummer                                | Fødselsnummer eller d-nummer for folkeregistrert person                                                                                                        |
-|                                    | fødselsdato                                        | Fødselsdato for folkeregistrert person                                                                                                                         |
+|                                    | fødselsEllerDNummer                                | Fødselsnummer eller d-nummer for folkeregistrert person (se [særregler for personer unntatt innsyn](#særregler-for-personer-unntatt-innsyn))                   |
+|                                    | fødselsdato                                        | Fødselsdato for folkeregistrert person (se [særregler for personer unntatt innsyn](#særregler-for-personer-unntatt-innsyn))                                    |
 |                                    | fødselsår                                          | Fødselsår for folkeregistrert person                                                                                                                           |
-|                                    | navn                                               | Fullt navn for folkeregistrert person                                                                                                                          |
+|                                    | navn                                               | Fullt navn for folkeregistrert person (se [særregler for personer unntatt innsyn](#særregler-for-personer-unntatt-innsyn))                                     |
 |                                    | erDød                                              | Boolsk verdi som indikerer om folkeregistrert person er død                                                                                                    |
 |                                    | bostedsland                                        | Bostedsland for folkeregistrert person                                                                                                                         |
 |                                    | statsborgerskap                                    | Statsborgerskap for folkeregistrert person                                                                                                                     |
 | **UtenlandskPerson**               |                                                    | Utenlandsk person uten fødselsnummer eller d-nummer                                                                                                            |
-|                                    | fødselsdato                                        | Fødselsdato for utenlandsk person                                                                                                                              |
+|                                    | fødselsdato                                        | Fødselsdato for utenlandsk person (se [særregler for personer unntatt innsyn](#særregler-for-personer-unntatt-innsyn))                                         |
 |                                    | fødselsår                                          | Fødselsår for utenlandsk person                                                                                                                                |
-|                                    | fulltNavn                                          | Fullt navn for utenlandsk person                                                                                                                               |
+|                                    | fulltNavn                                          | Fullt navn for utenlandsk person (se [særregler for personer unntatt innsyn](#særregler-for-personer-unntatt-innsyn))                                          |
 |                                    | bostedsland                                        | Bostedsland for utenlandsk person                                                                                                                              |
 |                                    | statsborgerskap                                    | Statsborgerskap for utenlandsk person                                                                                                                          |
 | **MellomliggendeVirksomhet**       |                                                    | En eller flere juridiske personer som danner "lenken" mellom registreringspliktig virksomhet og reell rettighetshaver                                          |
-| **NorskVirksomhet**                |                                                    | Norsk mellomliggende virksomhet                                                                                                                                |
+| **NorskVirksomhet**                |                                                    | Norsk mellomliggende virksomhet (se [særregler for personer unntatt innsyn](#særregler-for-personer-unntatt-innsyn))                                           |
 |                                    | organisasjonsnummer                                | Organisasjonsnummer for den norske mellomliggende virksomheten                                                                                                 |
-| **UtenlandskVirksomhet**           |                                                    | Utenlandsk mellomliggende virksomhet                                                                                                                           |
+| **UtenlandskVirksomhet**           |                                                    | Utenlandsk mellomliggende virksomhet (se [særregler for personer unntatt innsyn](#særregler-for-personer-unntatt-innsyn))                                      |
 |                                    | registreringsnummerIHjemlandet                     | Registreringsnummer i hjemlandet for den utenlandske mellomliggende virksomheten                                                                               |
 |                                    | navn                                               | Virksomhetsnavn for den utenlandske mellomliggende virksomheten                                                                                                |
 | **InternasjonalAdresse**           |                                                    | Adresse for utenlandsk mellomliggende virksomhet                                                                                                               |
 |                                    | friAdressetekst                                    | Adresse for den utenlandske mellomliggende virksomheten. Kan bestå av flere adresselinjer                                                                      |
-|                                    | land                                               | Landkode og navn på hjemlandet til den utenlandske mellomliggende virksomheten                                                                                 |
+|                                    | land                                               | Landkode og navn på hjemlandet til den utenlandske mellomliggende virksomheten                                                                                |
+
+## Særregler for personer unntatt innsyn
+
+For personer unntatt innsyn, fjernes følgende data på reell rettighetshaver:
+
+* Navn
+* Fødselsdato
+* Fødselsnummer/D-nummer
+* Grunnlagstype
+* Mellomliggende virksomhet

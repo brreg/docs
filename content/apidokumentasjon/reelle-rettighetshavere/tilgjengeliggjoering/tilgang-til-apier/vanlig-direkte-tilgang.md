@@ -1,7 +1,7 @@
 ---
 title: Vanlig (direkte) tilgang
 description: Informasjon om å søke om direkte tilgang til test
-weight: 2
+weight: 3
 ---
 
 # Innledning
