@@ -15,7 +15,7 @@ weight: 100
   * Nedlasting av totalbestand på json-format
   * Endringslogg: Dette brukes typisk for å fange opp at det har skjedd endringer på registreringer om reelle rettighetshavere i registeret
   * Kodelister: Kan brukes til visning i eventuelle brukergrensesnitt, dynamisk oppdatering av kodelister, validering og lignende. Endepunktet er åpent, og krever ikke maskinporten-autentisering
-* Alle endepunktene i APIet med unntak av Kodelister er tilgangsstyrt, se [API-tilgang for de ulike aktørene](#api-tilgang-for-de-ulike-aktørene)
+* Alle endepunktene i APIet med unntak av Kodelister er tilgangsstyrt, se [Tilgang til endepunkter](#tilgang-til-endepunkter)
 
 ## API-spesifikasjon
 
