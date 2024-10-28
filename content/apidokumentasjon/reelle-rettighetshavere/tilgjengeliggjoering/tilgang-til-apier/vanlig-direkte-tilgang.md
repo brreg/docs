@@ -1,6 +1,6 @@
 ---
 title: Vanlig (direkte) tilgang
-description: Informasjon om å søke om direkte tilgang til test
+description: Informasjon om å søke om direkte tilgang
 weight: 3
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Systemleverandører
-description: Informasjon om hvordan en systemleverandør kan søke om tilgang til test
+description: Informasjon om hvordan en systemleverandør kan søke om tilgang
 weight: 4
 ---
 

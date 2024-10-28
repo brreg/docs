@@ -20,7 +20,7 @@ Kall til APIene må inkludere et gyldig _token_ fra Maskinporten for å få tilg
         * `brreg:reelle/offentlig`
         * `brreg:reelle/rapporteringspliktig`
         * `brreg:reelle/rapporteringspliktig.begrenset`
-        * `brreg:reelle/rapporteringspliktig.media`
+        * `brreg:reelle/media`
         * `brreg:reelle/sivilsamfunnsorganisasjon`
         * `brreg:reelle/hoeyereutdanningsinstitusjon`
 2. Opprett en Maskinporten-integrasjon/klient

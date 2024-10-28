@@ -36,6 +36,18 @@ Delegeringsskjema: "Register over reelle rettighetshavere - Offentlig myndighet 
 Scope: `brreg:reelle/rapporteringspliktig`  
 Delegeringsskjema: "Register over reelle rettighetshavere - Rapporteringspliktig virksomhet - På vegne av"
 
+Scope: `brreg:reelle/rapporteringspliktig.begrenset`  
+Delegeringsskjema: "Register over reelle rettighetshavere - Rapporteringspliktig virksomhet begrenset - På vegne av"
+
+Scope: `brreg:reelle/media`  
+Delegeringsskjema: "Register over reelle rettighetshavere - Media - På vegne av"
+
+Scope: `brreg:reelle/sivilsamfunnsorganisasjon`  
+Delegeringsskjema: "Register over reelle rettighetshavere - Sivilsamfunnsorganisasjon - På vegne av"
+
+Scope: `brreg:reelle/hoeyereutdanningsinstitusjon`  
+Delegeringsskjema: "Register over reelle rettighetshavere - Høyere utdanningsinstitusjon - På vegne av"
+
 Systemleverandør som skal bruke delegert tilgang kan
 følge [denne guiden](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html#bruke-delegering-som-leverand%C3%B8r).
 
