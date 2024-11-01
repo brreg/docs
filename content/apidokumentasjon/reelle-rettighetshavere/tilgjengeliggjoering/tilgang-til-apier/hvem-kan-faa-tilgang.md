@@ -6,9 +6,6 @@ weight: 1
 Nedenfor ser du hvilke aktører som i følge forskrift til lov om register over reelle rettighetshavere eller
 hvitvaskingsloven vil være berettiget til å få tilgang til våre tjenester.
 
-{{< warning >}}
-Det vil komme nærmere kriterier for hvilke aktører som skal få tilgang, og hvilke opplysninger aktørene får tilgang til i nye forskriftsbestemmelser. Vi avventer svar fra Finansdepartementet.
-{{</ warning >}}
 > **_NB!_** Systemleverandører vil i utgangspunktet ikke ha direkte tilgang til våre tjenester, men kan få delegert tilgang fra en aktør som har fått tilgang. [Se egen side for detaljer om hvordan du får tilgang som systemleverandør.](../systemleverandoerer)
 
 * Rapporteringspliktige etter hvitvaskingsloven § 2 bokstav c i forbindelse med deres kundetiltak og løpende oppfølging etter hvitvaskingsloven
