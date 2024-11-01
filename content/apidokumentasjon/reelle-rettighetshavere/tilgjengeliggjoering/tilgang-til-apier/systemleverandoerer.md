@@ -1,7 +1,7 @@
 ---
 title: Systemleverandører
-description: Informasjon om hvordan en systemleverandør kan søke om tilgang til test
-weight: 3
+description: Informasjon om hvordan en systemleverandør kan søke om tilgang
+weight: 4
 ---
 
 Hvis du er systemleverandør kan du få tilgang til vårt testmiljø.

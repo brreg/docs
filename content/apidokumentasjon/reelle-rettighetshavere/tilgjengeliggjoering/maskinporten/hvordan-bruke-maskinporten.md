@@ -19,6 +19,10 @@ Kall til APIene må inkludere et gyldig _token_ fra Maskinporten for å få tilg
       mulige scope:
         * `brreg:reelle/offentlig`
         * `brreg:reelle/rapporteringspliktig`
+        * `brreg:reelle/rapporteringspliktig.begrenset`
+        * `brreg:reelle/media`
+        * `brreg:reelle/sivilsamfunnsorganisasjon`
+        * `brreg:reelle/hoeyereutdanningsinstitusjon`
 2. Opprett en Maskinporten-integrasjon/klient
     * Dette innebærer at du har registrert en klient hos maskinporten som knyttes opp mot det scopet du
       har fått tildelt (se punkt 1).
