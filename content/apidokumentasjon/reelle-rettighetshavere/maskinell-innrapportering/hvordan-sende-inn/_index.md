@@ -599,7 +599,7 @@ maskinelle innsendingen.
 
 {{< expandableCode title="Eksempel på respons" lang="json" >}}
 {
-    "skjemainstanceid": "18581c8c-7346-44a9-8f7c-f9cecefa6873",
+    "skjemainstansid": "18581c8c-7346-44a9-8f7c-f9cecefa6873",
     "saksnummer": "RRH/2021/124",
     "organisasjonsnummer": "310467189",
     "behandlingsstatus": "GODKJENT"
