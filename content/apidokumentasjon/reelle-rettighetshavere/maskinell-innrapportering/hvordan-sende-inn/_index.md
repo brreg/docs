@@ -597,6 +597,11 @@ Du kan nå hente ut behandlingsstatus på skjemaet du har sendt inn. Dette gjør
 * Behandlingsstatus kan være `GODKJENT`, `NEKTET` eller `UNDER_BEHANDLING`, og viser status på saksbehandling av den 
 maskinelle innsendingen.
 
+{{< warning >}}
+Hvis du spør om behandlingsstatus rett etter innsending av skjema, kan du få en HTTP 404 hvis behandlingen ennå ikke 
+har startet. Vent da litt og prøv igjen.
+{{< /warning >}}
+
 {{< expandableCode title="Eksempel på respons" lang="json" >}}
 {
     "skjemainstansid": "18581c8c-7346-44a9-8f7c-f9cecefa6873",
