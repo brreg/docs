@@ -591,17 +591,18 @@ Du har nå sendt inn skjemaet til Brønnøysundregistrene!
 
 ### 10. Hent behandlingsstatus
 
-Dersom du ønsker å hente ut behandlingsstatus på skjemaet du har sendt inn. Kan du kalle dette endepunktet:
+Du kan nå hente ut behandlingsstatus på skjemaet du har sendt inn. Dette gjør du ved å kalle endepunktet::
 
 `PUT {{app-url}}/brg/rrh-innrapportering/behandlingsstatus/{{party_id}}/{{skjema_instans_id}}`
-* Behandlingstatus kan være `GODKJENT`, `NEKTET` eller `UNDER_BEHANDLING`.
+* Behandlingsstatus kan være `GODKJENT`, `NEKTET` eller `UNDER_BEHANDLING`, og viser status på saksbehandling av den 
+maskinelle innsendingen.
 
 {{< expandableCode title="Eksempel på respons" lang="json" >}}
 {
-    "skjemainstanceid": "2381cb22-fec3-402f-82d8-08b31af7e7ff",
-    "behandlingsstatus" "GODKJENT",
+    "skjemainstanceid": "18581c8c-7346-44a9-8f7c-f9cecefa6873",
     "saksnummer": "RRH/2021/124",
-    "organisasjonsnummer": "310956643"
+    "organisasjonsnummer": "310467189",
+    "behandlingsstatus": "GODKJENT"
 }
 {{< /expandableCode >}}
 
