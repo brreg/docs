@@ -22,6 +22,7 @@ Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere t
     * [7. Oppdater skjemadata med sluttbrukers endringer (som du bygget opp i steg 5.)](#7-oppdater-skjemadata-med-sluttbrukers-endringer-som-du-bygget-opp-i-steg-5)
     * [8. Gå til neste prosessteg](#8-gå-til-neste-prosessteg)
     * [9. Valider og send inn skjema](#9-valider-og-send-inn-skjema)
+    * [10. Hent behandlingsstatus](#10-hent-behandlingsstatus)
 * [Laste ned Postman collection](#laste-ned-postman-collection)
 <!-- TOC -->
 
@@ -587,6 +588,29 @@ Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved �
 
 
 Du har nå sendt inn skjemaet til Brønnøysundregistrene!
+
+### 10. Hent behandlingsstatus
+
+Du kan nå hente ut behandlingsstatus på skjemaet du har sendt inn. Dette gjør du ved å kalle endepunktet::
+
+`GET {{app-url}}/brg/rrh-innrapportering/behandlingsstatus/{{party_id}}/{{skjema_instans_id}}`
+* Behandlingsstatus kan være `GODKJENT`, `NEKTET` eller `UNDER_BEHANDLING`, og viser status på saksbehandling av den 
+maskinelle innsendingen.
+
+{{< warning >}}
+Hvis du spør om behandlingsstatus rett etter innsending av skjema, kan du få en HTTP 404 hvis behandlingen ennå ikke 
+har startet. Vent da litt og prøv igjen.
+{{< /warning >}}
+
+{{< expandableCode title="Eksempel på respons" lang="json" >}}
+{
+    "skjemainstansid": "18581c8c-7346-44a9-8f7c-f9cecefa6873",
+    "saksnummer": "RRH/2021/124",
+    "organisasjonsnummer": "310467189",
+    "behandlingsstatus": "GODKJENT"
+}
+{{< /expandableCode >}}
+
 
 # Laste ned Postman collection
 
