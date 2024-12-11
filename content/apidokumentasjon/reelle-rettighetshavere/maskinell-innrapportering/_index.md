@@ -20,3 +20,14 @@ Opplysninger om Reelle rettighetshavere kan sendes inn på JSON-format.
 
 ## Test og produksjon
 En detaljert beskrivelse av kravene til testing og oppstart i produksjon, finner du på [denne siden](./test-og-produksjon)
+
+
+## Endringer i APIet
+Her dokumenteres endringer som er gjort på API for maskinell innrapportering.
+Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
+
+### 2024-12-11
+
+#### Lagt til
+* Nytt endepunkt for å hente ut behandlingsstatus for maskinell innrapportering. Mer info finner du på [denne siden](./hvordan-sende-inn/#10-hent-behandlingsstatus).
+
