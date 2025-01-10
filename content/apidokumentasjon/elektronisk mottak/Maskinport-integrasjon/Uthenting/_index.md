@@ -5,45 +5,36 @@ weight: 100
 ---
 
 ## Innledning
-Brønnøysundregistrenes elektroniske mottak har et REST-grensesnitt som kan benyttes av eksterne parter for innsending av meldinger til Brønnøysundregistrene.
 
-APIet er utviklet i Java og Spring Boot, men dette skal ikke legge føringer for klienter som tar APIet i bruk.
+Brønnøysundregistrenes elektroniske mottak har et REST-grensesnitt som kan benyttes av eksterne parter for innsending av meldinger.
 
 ## Sikkerhetsmekanismer
 
 Siden dette er begrensede API så skal kallende parter autentiseres gjennom [Maskinporten](https://docs.digdir.no/maskinporten_overordnet.html).
 
-For å kunne få tilgang til våre begrensede API er det tre forutsetninger.
+For å kunne få tilgang til våre begrensede APIer må man bruke et JWT-token fra Maskinporten med scopet `brreg:mottak`
 
-1. Virksomhetssertifikat
-2. Registrert klient hos Maskinporten.
-3. JWT-token fra Maskinporten mot scopet `brreg:mottak`
+Access-tokenet oppgis i headeren `Authorization`. Husk `Bearer` før tokenet.
 
-Tokenet som hentes fra Maskinporten må bli sendt som autorisasjonstoken (Bearer token) når et kall mot Løsøreregisteret blir utført.
-
-Access-tokenet oppgis i headeren `Authorization`.
-Husk `Bearer` før tokenet.
-
-|Header        | Verdi                                                                              |
-|--------------|------------------------------------------------------------------------------------|
-|Authorization | Bearer eyJraWQiOiJjWmswME1rbTVIQzRnN3Z0NmNwUDVGSFpMS0pzdzhmQkFJdUZi... (forkortet) |
+| Header        | Verdi                       |
+|---------------|-----------------------------|
+| Authorization | Bearer <maskinporten-token> |
 
 ## Grensesnittbeskrivelse
 
+[Swagger](https://mottak.brreg.no/outbound/swagger-ui/index.html)
+
 Tjenesten benytter seg av standard HTTP GET og POST.
-Følgende funksjonalitet tilbys for eksterne systemer/brukere:
 
+| HTTP-metode | URL                                                           | Content-type             | Beskrivelse                                                                                    | Sikret med jwt |
+|:------------|:--------------------------------------------------------------|:-------------------------|:-----------------------------------------------------------------------------------------------|:---------------|
+| GET         | https://mottak.brreg.no/outbound/available                    | application/json         | Lister ut tilgjengelige meldinger (med mottakId) for organisasjonsnummer oppgitt i JWT tokenet | JA             |
+| GET         | https://mottak.brreg.no/outbound/download?mottakId={mottakId} | application/octet-stream | Laster ned forsendelse med oppgitt mottakId                                                    | JA             |
+| PUT         | https://mottak.brreg.no/outbound/confirm?mottakId={mottakId}  | application/json         | Bekrefter at forsendelse med oppgitt mottakId er lastet ned av klient                          | JA             |
 
-| HTTP-metode    | URL                                                           |Content-type                | Beskrivelse                                                                                   | Sikret med jwt |
-|:-------------- |:--------------------------------------------------------------|:---------------------------|:--------------------------------------------------------------------------------------------- |:-------------- |
-| GET           | https://mottak.brreg.no/outbound/available                     | application/json           | Lister ut tilgjengelige meldinger (med mottakId) for organisasjonsnummer oppgitt i JWT tokenet | JA             |
-| GET           | https://mottak.brreg.no/outbound/download?mottakId={mottakId}  | application/octet-stream   | Laster ned forsendelse med oppgitt mottakId                                                   | JA             |
-| PUT           | https://mottak.brreg.no/outbound/confirm?mottakId={mottakId}   | application/json           | Bekrefter at forsendelse med oppgitt mottakId er lastet ned av klient                         | JA             |
-| GET           | https://mottak.brreg.no/outbound/swagger-ui.html#/             |                            | Swagger dokumentasjon                                                                         | NEI            |
+### /available
 
-### AVAILABLE
-
-Endepunktet `/available`*` returnerer tilgjengelige forsendelser for organisasjonsnummer som er oppgitt i JWT tokenet.
+Endepunktet returnerer tilgjengelige forsendelser for organisasjonsnummer som er oppgitt i JWT-tokenet.
 
 #### Response
 
@@ -62,17 +53,19 @@ Ved 200 OK:
 ]
 ```
 
-### DOWNLOAD
+### /download?mottakId={mottakId}
 
-Endepunktet `/download` returnerer fil med angitt mottakId. Responsen er en zipfil med melding. MottakId er en UUID.
+Endepunktet returnerer ZIP-fil med Melding for angitt mottakId. MottakId er en UUID.
 
 #### Response
 
 Bytestream som APPLICATION_OCTET_STREAM
 
-### CONFIRM
+### /confirm?mottakId={mottakId}
 
-Endepunktet `/confirm` bekrefter forsendelsen med angitt mottakId som nedlastet. Denne forsendelsen vil da ikke lenger fremkomme ved kall til `/available`. MottakId er en UUID.
+Endepunktet bekrefter forsendelsen med angitt mottakId som nedlastet. MottakId er en UUID. 
+
+Denne forsendelsen vil da ikke lenger fremkomme ved kall til `/available`. 
 
 #### Response
 
@@ -80,9 +73,9 @@ Endepunktet `/confirm` bekrefter forsendelsen med angitt mottakId som nedlastet.
 
 ## Feilmeldinger
 
-| HTTP-kode                         | Applikasjonsfeilkode | Feilmelding                                                                                                                                                                                                   |
-|:----------------------------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 500 Internal Server Error         | ERROR-00005          |  Optimistic lock exception. Hvis samme forsendelseinfo blir forsøkt confirmed nedlastet samtidig kan dette skje. <br> I utgangspunktet kan man se bort i fra denne, men å forhindre dette er klientens ansvar.     |
+| HTTP-kode                 | Applikasjonsfeilkode | Feilmelding                                                                                                                                                                                                   |
+|:--------------------------|:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 500 Internal Server Error | ERROR-00005          | Optimistic lock exception. Hvis samme forsendelseinfo blir forsøkt confirmed nedlastet samtidig kan dette skje. <br> I utgangspunktet kan man se bort i fra denne, men å forhindre dette er klientens ansvar. |
 
 Disse kommer på JSON-formatet:
 
@@ -98,8 +91,8 @@ Disse kommer på JSON-formatet:
 
 **I tillegg kommer 401 - Unauthorized ved mangler på Bearer token.**
 
-| HTTP-kode           | header           | Header-value                                                                                                                 | Forklaring                                                                                                                      |
-|:--------------------|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|
-| 401 - Unauthorized  | WWW-Authenticate |Bearer realm="unspecified", error="unauthorized", error_description="Full authentication is required to access this resource" | JWT access token ikke oppgitt i Authorization header i request.                                                                 |
-| 401 - Unauthorized  | WWW-Authenticate |Bearer realm="unspecified", error="invalid_token", error_description="invalid bearer token or wrong scope for bearer token"  | JWT access token er oppgitt, men det er enten ugyldig (utgått, korrupt eller gjeldende for et annet scope en tjenesten krever). |
+| HTTP-kode           | header           | Header-value                                                                                                                   | Forklaring                                                                                                                      |
+|:--------------------|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|
+| 401 - Unauthorized  | WWW-Authenticate | Bearer realm="unspecified", error="unauthorized", error_description="Full authentication is required to access this resource"  | JWT access token ikke oppgitt i Authorization header i request.                                                                 |
+| 401 - Unauthorized  | WWW-Authenticate | Bearer realm="unspecified", error="invalid_token", error_description="invalid bearer token or wrong scope for bearer token"    | JWT access token er oppgitt, men det er enten ugyldig (utgått, korrupt eller gjeldende for et annet scope en tjenesten krever). |
 
