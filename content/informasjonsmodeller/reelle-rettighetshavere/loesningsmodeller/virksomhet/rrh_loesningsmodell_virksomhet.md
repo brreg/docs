@@ -28,7 +28,7 @@ weight: 10
 |                                    | land                                               | Landkode for det regulerte markedet                                                                                                                            |
 |                                    | internettadresse                                   | Internettadresse for det regulerte markedet                                                                                                                    |
 | **ReellRettighetshaver**           |                                                    | Fysisk person som i siste instans eier eller kontrollerer en registreringspliktig virksomhet                                                                   |
-|                                    | erUnntattFraInnsyn                                 | Boolsk verdi som indikerer om reell rettighetshaver er mindreårig og dermed unntatt fra innsyn                                                                 |
+|                                    | erUnntattFraInnsyn                                 | Boolsk verdi som indikerer om reell rettighetshaver er [unntatt fra innsyn](#særregler-for-personer-unntatt-innsyn) på bakgrunn av søknad eller at den er mindreårig                                                                 |
 |                                    | førstRegistrert                                    | Dato for når reell rettighetshaver ble registrert i Register over reelle rettighetshavere første gaang                                                         |
 |                                    | endret                                             | Dato for når reell rettighetshaver sist ble endret i Register over reelle rettighetshavere                                                                     |
 |                                    | slettet                                            | Dato for når reell rettighetshaver ble slettet i Register over reelle rettighetshavere                                                                         |
@@ -70,3 +70,5 @@ For personer unntatt innsyn, fjernes følgende data på reell rettighetshaver:
 * Fødselsnummer/D-nummer
 * Grunnlagstype
 * Mellomliggende virksomhet
+
+Se mer info i [forskrift til lov om register over reelle rettighetshavere](https://lovdata.no/forskrift/2021-06-21-2056/§3-9).
