@@ -464,7 +464,7 @@ Du må nå sette skjemadata som du opprettet i steg 5 på instansen. Dette gjør
 
 ### 8. Gå til neste prosessteg 
 
-Du kan nå gå videre til neste prosessteg i Altinn, det fører til at skjemadataene klargjøres for innsending.
+Du kan nå gå videre til neste prosessteg i Altinn, det fører til at skjemadataene låses og klargjøres for innsending.
 Du kan gå til neste prosessteg ved å kalle endepunktet:
 
 `PUT {{app-url}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next`
@@ -533,28 +533,33 @@ Du kan gå til neste prosessteg ved å kalle endepunktet:
 Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved å kalle endepunktet:
 
 `PUT {{app-url}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next?elementId=BREnd`
-* Om skjemaet inneholder feil, vil du få en eller flere feilmeldinger i responsen (se eksempel under).
+
+#### Validering gjennomført uten feil
+Hvis valideringen gjennomføres uten feil, kan du gå videre til steg 10.
 
 {{< expandableCode title="Eksempel på respons som er sendt inn" lang="json" >}}
 {
-    "currentTask": null,
-    "processTasks": [
-        {
-            "altinnTaskType": "data",
-            "elementId": "TaskUtfylling"
-        },
-        {
-            "altinnTaskType": "confirmation",
-            "elementId": "TaskBekreftelse"
-        }
-    ],
-    "started": "2024-08-01T11:15:12.5342706Z",
-    "startEvent": "BRStart",
-    "ended": "2024-08-01T11:17:50.3604982Z",
-    "endEvent": "BREnd"
+"currentTask": null,
+"processTasks": [
+{
+"altinnTaskType": "data",
+"elementId": "TaskUtfylling"
+},
+{
+"altinnTaskType": "confirmation",
+"elementId": "TaskBekreftelse"
 }
-{{< /expandableCode >}}
+],
+"started": "2024-08-01T11:15:12.5342706Z",
+"startEvent": "BRStart",
+"ended": "2024-08-01T11:17:50.3604982Z",
+"endEvent": "BREnd"
+}
+{{< /expandableCode >}} 
 
+#### Validering feiler
+
+Hvis valideringen inneholder feil, vil du få en eller flere feilmeldinger i responsen (se eksempel under).
 
 {{< expandableCode title="Eksempel på respons som feiler" lang="json" >}}
 {
@@ -586,8 +591,70 @@ Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved �
 }
 {{< /expandableCode >}}
 
+Hvis valideringen inneholder feil og du ønsker å låse opp skjemaet igjen, må du gå tilbake til oppdater skjemadata
+([steg 7](#7-oppdater-skjemadata-med-sluttbrukers-endringer-som-du-bygget-opp-i-steg-5)). Dette gjør du ved å kalle endepunktet:
 
-Du har nå sendt inn skjemaet til Brønnøysundregistrene!
+`PUT {{app-url}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next`
+
+I body på kallet legg inn: 
+`{"action":"reject"}`
+
+{{< expandableCode title="Eksempel på respons" lang="json" >}}
+{
+    "currentTask": {
+        "actions": {
+            "read": true,
+            "write": true
+        },
+        "userActions": [
+            {
+                "id": "read",
+                "authorized": true,
+                "type": "ProcessAction"
+            },
+            {
+                "id": "write",
+                "authorized": true,
+                "type": "ProcessAction"
+            },
+            {
+                "id": "fnrSearchAction",
+                "authorized": true,
+                "type": "ServerAction"
+            },
+            {
+                "id": "orgnrSearchAction",
+                "authorized": true,
+                "type": "ServerAction"
+            }
+        ],
+        "read": true,
+        "write": true,
+        "flow": 4,
+        "started": "2025-01-14T12:27:55.0018466Z",
+        "elementId": "TaskUtfylling",
+        "name": "Utfylling",
+        "altinnTaskType": "data",
+        "ended": null,
+        "validated": null,
+        "flowType": "AbandonCurrentMoveToNext"
+    },
+    "processTasks": [
+        {
+            "altinnTaskType": "data",
+            "elementId": "TaskUtfylling"
+        },
+        {
+            "altinnTaskType": "confirmation",
+            "elementId": "TaskBekreftelse"
+        }
+    ],
+    "started": "2025-01-14T12:27:09.1482041Z",
+    "startEvent": "BRStart",
+    "ended": null,
+    "endEvent": null
+}
+{{< /expandableCode >}}
 
 ### 10. Hent behandlingsstatus
 
