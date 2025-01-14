@@ -353,7 +353,7 @@ feltet <code>data.id</code>, som du må bruke i de påfølgende kallene.</p><div
 </span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;lastChanged&#34;</span>: <span style=color:#e6db74>&#34;2024-08-01T11:15:19.851979Z&#34;</span>,
 </span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;lastChangedBy&#34;</span>: <span style=color:#e6db74>&#34;161488&#34;</span>
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div></div></div><h3 id=8-gå-til-neste-prosessteg>8. Gå til neste prosessteg</h3><p>Du kan nå gå videre til neste prosessteg i Altinn, det fører til at skjemadataene klargjøres for innsending.
+</span></span></code></pre></div></div></div><h3 id=8-gå-til-neste-prosessteg>8. Gå til neste prosessteg</h3><p>Du kan nå gå videre til neste prosessteg i Altinn, det fører til at skjemadataene låses og klargjøres for innsending.
 Du kan gå til neste prosessteg ved å kalle endepunktet:</p><p><code>PUT {{app-url}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next</code></p><div class=expandable-code style=margin-bottom:20px><div onclick='this.nextElementSibling.style.display=this.nextElementSibling.style.display==="none"?"block":"none",this.children[0].textContent=this.children[0].textContent==="+"?"-":"+"' style=cursor:pointer;font-weight:700;color:#333><span style=display:inline-block;width:20px;text-align:center>+</span>Eksempel på respons</div><div style="display:none;overflow-x:auto;background-color:#f8f9fa;border:1px solid #ccc;padding:10px"><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>
 </span></span><span style=display:flex><span>{
 </span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;currentTask&#34;</span>: {
@@ -411,25 +411,25 @@ Du kan gå til neste prosessteg ved å kalle endepunktet:</p><p><code>PUT {{app-
 </span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;ended&#34;</span>: <span style=color:#66d9ef>null</span>,
 </span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;endEvent&#34;</span>: <span style=color:#66d9ef>null</span>
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div></div></div><h3 id=9-valider-og-send-inn-skjema>9. Valider og send inn skjema</h3><p>Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved å kalle endepunktet:</p><p><code>PUT {{app-url}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next?elementId=BREnd</code></p><ul><li>Om skjemaet inneholder feil, vil du få en eller flere feilmeldinger i responsen (se eksempel under).</li></ul><div class=expandable-code style=margin-bottom:20px><div onclick='this.nextElementSibling.style.display=this.nextElementSibling.style.display==="none"?"block":"none",this.children[0].textContent=this.children[0].textContent==="+"?"-":"+"' style=cursor:pointer;font-weight:700;color:#333><span style=display:inline-block;width:20px;text-align:center>+</span>Eksempel på respons som er sendt inn</div><div style="display:none;overflow-x:auto;background-color:#f8f9fa;border:1px solid #ccc;padding:10px"><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>
+</span></span></code></pre></div></div></div><h3 id=9-valider-og-send-inn-skjema>9. Valider og send inn skjema</h3><p>Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved å kalle endepunktet:</p><p><code>PUT {{app-url}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next?elementId=BREnd</code></p><h4 id=validering-gjennomført-uten-feil>Validering gjennomført uten feil</h4><p>Hvis valideringen gjennomføres uten feil, kan du gå videre til steg 10.</p><div class=expandable-code style=margin-bottom:20px><div onclick='this.nextElementSibling.style.display=this.nextElementSibling.style.display==="none"?"block":"none",this.children[0].textContent=this.children[0].textContent==="+"?"-":"+"' style=cursor:pointer;font-weight:700;color:#333><span style=display:inline-block;width:20px;text-align:center>+</span>Eksempel på respons som er sendt inn</div><div style="display:none;overflow-x:auto;background-color:#f8f9fa;border:1px solid #ccc;padding:10px"><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>
 </span></span><span style=display:flex><span>{
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;currentTask&#34;</span>: <span style=color:#66d9ef>null</span>,
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;processTasks&#34;</span>: [
-</span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;altinnTaskType&#34;</span>: <span style=color:#e6db74>&#34;data&#34;</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;elementId&#34;</span>: <span style=color:#e6db74>&#34;TaskUtfylling&#34;</span>
-</span></span><span style=display:flex><span>        },
-</span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;altinnTaskType&#34;</span>: <span style=color:#e6db74>&#34;confirmation&#34;</span>,
-</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;elementId&#34;</span>: <span style=color:#e6db74>&#34;TaskBekreftelse&#34;</span>
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    ],
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;started&#34;</span>: <span style=color:#e6db74>&#34;2024-08-01T11:15:12.5342706Z&#34;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;startEvent&#34;</span>: <span style=color:#e6db74>&#34;BRStart&#34;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;ended&#34;</span>: <span style=color:#e6db74>&#34;2024-08-01T11:17:50.3604982Z&#34;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;endEvent&#34;</span>: <span style=color:#e6db74>&#34;BREnd&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&#34;currentTask&#34;</span>: <span style=color:#66d9ef>null</span>,
+</span></span><span style=display:flex><span><span style=color:#f92672>&#34;processTasks&#34;</span>: [
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span><span style=color:#f92672>&#34;altinnTaskType&#34;</span>: <span style=color:#e6db74>&#34;data&#34;</span>,
+</span></span><span style=display:flex><span><span style=color:#f92672>&#34;elementId&#34;</span>: <span style=color:#e6db74>&#34;TaskUtfylling&#34;</span>
+</span></span><span style=display:flex><span>},
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span><span style=color:#f92672>&#34;altinnTaskType&#34;</span>: <span style=color:#e6db74>&#34;confirmation&#34;</span>,
+</span></span><span style=display:flex><span><span style=color:#f92672>&#34;elementId&#34;</span>: <span style=color:#e6db74>&#34;TaskBekreftelse&#34;</span>
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div></div></div><div class=expandable-code style=margin-bottom:20px><div onclick='this.nextElementSibling.style.display=this.nextElementSibling.style.display==="none"?"block":"none",this.children[0].textContent=this.children[0].textContent==="+"?"-":"+"' style=cursor:pointer;font-weight:700;color:#333><span style=display:inline-block;width:20px;text-align:center>+</span>Eksempel på respons som feiler</div><div style="display:none;overflow-x:auto;background-color:#f8f9fa;border:1px solid #ccc;padding:10px"><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>
+</span></span><span style=display:flex><span>],
+</span></span><span style=display:flex><span><span style=color:#f92672>&#34;started&#34;</span>: <span style=color:#e6db74>&#34;2024-08-01T11:15:12.5342706Z&#34;</span>,
+</span></span><span style=display:flex><span><span style=color:#f92672>&#34;startEvent&#34;</span>: <span style=color:#e6db74>&#34;BRStart&#34;</span>,
+</span></span><span style=display:flex><span><span style=color:#f92672>&#34;ended&#34;</span>: <span style=color:#e6db74>&#34;2024-08-01T11:17:50.3604982Z&#34;</span>,
+</span></span><span style=display:flex><span><span style=color:#f92672>&#34;endEvent&#34;</span>: <span style=color:#e6db74>&#34;BREnd&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></div><h4 id=validering-feiler>Validering feiler</h4><p>Hvis valideringen inneholder feil, vil du få en eller flere feilmeldinger i responsen (se eksempel under).</p><div class=expandable-code style=margin-bottom:20px><div onclick='this.nextElementSibling.style.display=this.nextElementSibling.style.display==="none"?"block":"none",this.children[0].textContent=this.children[0].textContent==="+"?"-":"+"' style=cursor:pointer;font-weight:700;color:#333><span style=display:inline-block;width:20px;text-align:center>+</span>Eksempel på respons som feiler</div><div style="display:none;overflow-x:auto;background-color:#f8f9fa;border:1px solid #ccc;padding:10px"><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>
 </span></span><span style=display:flex><span>{
 </span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;Validation failed for task&#34;</span>,
 </span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;status&#34;</span>: <span style=color:#ae81ff>409</span>,
@@ -457,7 +457,64 @@ Du kan gå til neste prosessteg ved å kalle endepunktet:</p><p><code>PUT {{app-
 </span></span><span style=display:flex><span>        }<span style=color:#ae81ff>0</span>
 </span></span><span style=display:flex><span>    ]
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div></div></div><p>Du har nå sendt inn skjemaet til Brønnøysundregistrene!</p><h3 id=10-hent-behandlingsstatus>10. Hent behandlingsstatus</h3><p>Du kan nå hente ut behandlingsstatus på skjemaet du har sendt inn. Dette gjør du ved å kalle endepunktet::</p><p><code>GET {{app-url}}/brg/rrh-innrapportering/behandlingsstatus/{{party_id}}/{{skjema_instans_id}}</code></p><ul><li>Behandlingsstatus kan være <code>GODKJENT</code>, <code>NEKTET</code> eller <code>UNDER_BEHANDLING</code>, og viser status på saksbehandling av den
+</span></span></code></pre></div></div></div><p>Hvis valideringen inneholder feil og du ønsker å låse opp skjemaet igjen, må du gå tilbake til oppdater skjemadata
+(<a href=#7-oppdater-skjemadata-med-sluttbrukers-endringer-som-du-bygget-opp-i-steg-5>steg 7</a>). Dette gjør du ved å kalle endepunktet:</p><p><code>PUT {{app-url}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next</code></p><p>I body på kallet legg inn:
+<code>{"action":"reject"}</code></p><div class=expandable-code style=margin-bottom:20px><div onclick='this.nextElementSibling.style.display=this.nextElementSibling.style.display==="none"?"block":"none",this.children[0].textContent=this.children[0].textContent==="+"?"-":"+"' style=cursor:pointer;font-weight:700;color:#333><span style=display:inline-block;width:20px;text-align:center>+</span>Eksempel på respons</div><div style="display:none;overflow-x:auto;background-color:#f8f9fa;border:1px solid #ccc;padding:10px"><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;currentTask&#34;</span>: {
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;actions&#34;</span>: {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;read&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;write&#34;</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;userActions&#34;</span>: [
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;id&#34;</span>: <span style=color:#e6db74>&#34;read&#34;</span>,
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;authorized&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;ProcessAction&#34;</span>
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;id&#34;</span>: <span style=color:#e6db74>&#34;write&#34;</span>,
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;authorized&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;ProcessAction&#34;</span>
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;id&#34;</span>: <span style=color:#e6db74>&#34;fnrSearchAction&#34;</span>,
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;authorized&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;ServerAction&#34;</span>
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;id&#34;</span>: <span style=color:#e6db74>&#34;orgnrSearchAction&#34;</span>,
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;authorized&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;ServerAction&#34;</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        ],
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;read&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;write&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;flow&#34;</span>: <span style=color:#ae81ff>4</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;started&#34;</span>: <span style=color:#e6db74>&#34;2025-01-14T12:27:55.0018466Z&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;elementId&#34;</span>: <span style=color:#e6db74>&#34;TaskUtfylling&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;Utfylling&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;altinnTaskType&#34;</span>: <span style=color:#e6db74>&#34;data&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;ended&#34;</span>: <span style=color:#66d9ef>null</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;validated&#34;</span>: <span style=color:#66d9ef>null</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;flowType&#34;</span>: <span style=color:#e6db74>&#34;AbandonCurrentMoveToNext&#34;</span>
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;processTasks&#34;</span>: [
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;altinnTaskType&#34;</span>: <span style=color:#e6db74>&#34;data&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;elementId&#34;</span>: <span style=color:#e6db74>&#34;TaskUtfylling&#34;</span>
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;altinnTaskType&#34;</span>: <span style=color:#e6db74>&#34;confirmation&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;elementId&#34;</span>: <span style=color:#e6db74>&#34;TaskBekreftelse&#34;</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    ],
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;started&#34;</span>: <span style=color:#e6db74>&#34;2025-01-14T12:27:09.1482041Z&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;startEvent&#34;</span>: <span style=color:#e6db74>&#34;BRStart&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;ended&#34;</span>: <span style=color:#66d9ef>null</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;endEvent&#34;</span>: <span style=color:#66d9ef>null</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></div><h3 id=10-hent-behandlingsstatus>10. Hent behandlingsstatus</h3><p>Du kan nå hente ut behandlingsstatus på skjemaet du har sendt inn. Dette gjør du ved å kalle endepunktet::</p><p><code>GET {{app-url}}/brg/rrh-innrapportering/behandlingsstatus/{{party_id}}/{{skjema_instans_id}}</code></p><ul><li>Behandlingsstatus kan være <code>GODKJENT</code>, <code>NEKTET</code> eller <code>UNDER_BEHANDLING</code>, og viser status på saksbehandling av den
 maskinelle innsendingen.</li></ul><div class="alert alert-warning" role=alert>Hvis du spør om behandlingsstatus rett etter innsending av skjema, kan du få en HTTP 404 hvis behandlingen ennå ikke
 har startet. Vent da litt og prøv igjen.</div><div class=expandable-code style=margin-bottom:20px><div onclick='this.nextElementSibling.style.display=this.nextElementSibling.style.display==="none"?"block":"none",this.children[0].textContent=this.children[0].textContent==="+"?"-":"+"' style=cursor:pointer;font-weight:700;color:#333><span style=display:inline-block;width:20px;text-align:center>+</span>Eksempel på respons</div><div style="display:none;overflow-x:auto;background-color:#f8f9fa;border:1px solid #ccc;padding:10px"><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>
 </span></span><span style=display:flex><span>{
