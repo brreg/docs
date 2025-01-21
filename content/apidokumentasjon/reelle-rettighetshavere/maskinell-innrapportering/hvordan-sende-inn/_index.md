@@ -23,6 +23,7 @@ Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere t
     * [8. Gå til neste prosessteg](#8-gå-til-neste-prosessteg)
     * [9. Valider og send inn skjema](#9-valider-og-send-inn-skjema)
     * [10. Hent behandlingsstatus](#10-hent-behandlingsstatus)
+    * [Gå tilbake til skjemautfylling](#gå-tilbake-til-skjemautfylling)
 * [Laste ned Postman collection](#laste-ned-postman-collection)
 <!-- TOC -->
 
@@ -528,16 +529,17 @@ Du kan gå til neste prosessteg ved å kalle endepunktet:
 }
 {{< /expandableCode >}}
 
+Hvis du ønsker å låse opp skjemaet for redigering igjen må du gå tilbake til skjemautfylling
+([se "Gå tilbake til skjemautfylling"](#gå-tilbake-til-skjemautfylling)).
+
 ### 9. Valider og send inn skjema
 
 Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved å kalle endepunktet:
 
 `PUT {{app-url}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next?elementId=BREnd`
 
-#### Validering gjennomført uten feil
-Hvis valideringen gjennomføres uten feil, kan du gå videre til steg 10.
 
-{{< expandableCode title="Eksempel på respons som er sendt inn" lang="json" >}}
+{{< expandableCode title="Eksempel på respons hvis validering er vellykket" lang="json" >}}
 {
 "currentTask": null,
 "processTasks": [
@@ -555,13 +557,12 @@ Hvis valideringen gjennomføres uten feil, kan du gå videre til steg 10.
 "ended": "2024-08-01T11:17:50.3604982Z",
 "endEvent": "BREnd"
 }
-{{< /expandableCode >}} 
+{{< /expandableCode >}}
 
-#### Validering feiler
+Hvis valideringen feiler og du ønsker å låse opp skjemaet for redigering igjen må du gå tilbake til skjemautfylling
+([se "Gå tilbake til skjemautfylling"](#gå-tilbake-til-skjemautfylling)).
 
-Hvis valideringen inneholder feil, vil du få en eller flere feilmeldinger i responsen (se eksempel under).
-
-{{< expandableCode title="Eksempel på respons som feiler" lang="json" >}}
+{{< expandableCode title="Eksempel på respons hvis validering feiler" lang="json" >}}
 {
     "title": "Validation failed for task",
     "status": 409,
@@ -591,8 +592,34 @@ Hvis valideringen inneholder feil, vil du få en eller flere feilmeldinger i res
 }
 {{< /expandableCode >}}
 
-Hvis valideringen inneholder feil og du ønsker å låse opp skjemaet igjen, må du gå tilbake til oppdater skjemadata
-([steg 7](#7-oppdater-skjemadata-med-sluttbrukers-endringer-som-du-bygget-opp-i-steg-5)). Dette gjør du ved å kalle endepunktet:
+
+### 10. Hent behandlingsstatus
+
+Du kan nå hente ut behandlingsstatus på skjemaet du har sendt inn. Dette gjør du ved å kalle endepunktet::
+
+`GET {{app-url}}/brg/rrh-innrapportering/behandlingsstatus/{{party_id}}/{{skjema_instans_id}}`
+* Behandlingsstatus kan være `GODKJENT`, `NEKTET` eller `UNDER_BEHANDLING`, og viser status på saksbehandling av den 
+maskinelle innsendingen. 
+
+{{< warning >}}
+Hvis du spør om behandlingsstatus rett etter innsending av skjema, kan du få en HTTP 404 hvis behandlingen ennå ikke 
+har startet. Vent da litt og prøv igjen.
+{{< /warning >}}
+
+{{< expandableCode title="Eksempel på respons" lang="json" >}}
+{
+    "skjemainstansid": "18581c8c-7346-44a9-8f7c-f9cecefa6873",
+    "saksnummer": "RRH/2021/124",
+    "organisasjonsnummer": "310467189",
+    "behandlingsstatus": "GODKJENT"
+}
+{{< /expandableCode >}}
+
+### Gå tilbake til skjemautfylling
+
+Etter [steg 8](#8-gå-til-neste-prosessteg) er skjemaet ditt låst for redigering. For å låse opp og redigere skjemaet 
+igjen kan man gå tilbake til skjemautfylling 
+([steg 7](#7-oppdater-skjemadata-med-sluttbrukers-endringer-som-du-bygget-opp-i-steg-5)) ved å kalle endepunktet:
 
 `PUT {{app-url}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next`
 
@@ -655,29 +682,6 @@ I body på kallet legg inn:
     "endEvent": null
 }
 {{< /expandableCode >}}
-
-### 10. Hent behandlingsstatus
-
-Du kan nå hente ut behandlingsstatus på skjemaet du har sendt inn. Dette gjør du ved å kalle endepunktet::
-
-`GET {{app-url}}/brg/rrh-innrapportering/behandlingsstatus/{{party_id}}/{{skjema_instans_id}}`
-* Behandlingsstatus kan være `GODKJENT`, `NEKTET` eller `UNDER_BEHANDLING`, og viser status på saksbehandling av den 
-maskinelle innsendingen.
-
-{{< warning >}}
-Hvis du spør om behandlingsstatus rett etter innsending av skjema, kan du få en HTTP 404 hvis behandlingen ennå ikke 
-har startet. Vent da litt og prøv igjen.
-{{< /warning >}}
-
-{{< expandableCode title="Eksempel på respons" lang="json" >}}
-{
-    "skjemainstansid": "18581c8c-7346-44a9-8f7c-f9cecefa6873",
-    "saksnummer": "RRH/2021/124",
-    "organisasjonsnummer": "310467189",
-    "behandlingsstatus": "GODKJENT"
-}
-{{< /expandableCode >}}
-
 
 # Laste ned Postman collection
 
