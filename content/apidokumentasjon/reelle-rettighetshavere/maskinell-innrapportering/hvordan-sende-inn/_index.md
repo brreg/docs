@@ -23,7 +23,7 @@ Som sluttbrukersystem kan du sende inn opplysninger om Reelle rettighetshavere t
     * [8. Gå til neste prosessteg](#8-gå-til-neste-prosessteg)
     * [9. Valider og send inn skjema](#9-valider-og-send-inn-skjema)
     * [10. Hent behandlingsstatus](#10-hent-behandlingsstatus)
-    * [11. Gå tilbake til skjemautfylling](#11-gå-tilbake-til-skjemautfylling)
+    * [Gå tilbake til skjemautfylling](#gå-tilbake-til-skjemautfylling)
 * [Laste ned Postman collection](#laste-ned-postman-collection)
 <!-- TOC -->
 
@@ -529,9 +529,8 @@ Du kan gå til neste prosessteg ved å kalle endepunktet:
 }
 {{< /expandableCode >}}
 
-Hvis du ønsker å låse opp skjemaet for redigering igjen, må du gå tilbake til skjemautfylling 
-([steg 11](#11-gå-tilbake-til-skjemautfylling)). Etter det kan du oppdatere skjemadataene igjen
-([steg 7](#7-oppdater-skjemadata-med-sluttbrukers-endringer-som-du-bygget-opp-i-steg-5)).
+Hvis du ønsker å låse opp skjemaet for redigering igjen må du gå tilbake til skjemautfylling
+([se "Gå tilbake til skjemautfylling"](#gå-tilbake-til-skjemautfylling)).
 
 ### 9. Valider og send inn skjema
 
@@ -540,7 +539,7 @@ Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved �
 `PUT {{app-url}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next?elementId=BREnd`
 
 
-{{< expandableCode title="Eksempel på respons som er sendt inn" lang="json" >}}
+{{< expandableCode title="Eksempel på respons hvis validering er vellykket" lang="json" >}}
 {
 "currentTask": null,
 "processTasks": [
@@ -559,7 +558,11 @@ Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved �
 "endEvent": "BREnd"
 }
 {{< /expandableCode >}}
-{{< expandableCode title="Eksempel på respons som feiler" lang="json" >}}
+
+Hvis valideringen feiler og du ønsker å låse opp skjemaet for redigering igjen må du gå tilbake til skjemautfylling
+([se "Gå tilbake til skjemautfylling"](#gå-tilbake-til-skjemautfylling)).
+
+{{< expandableCode title="Eksempel på respons hvis validering feiler" lang="json" >}}
 {
     "title": "Validation failed for task",
     "status": 409,
@@ -590,17 +593,13 @@ Du kan nå validere og sende inn skjemadataene du har satt. Dette gjør du ved �
 {{< /expandableCode >}}
 
 
-Hvis valideringen feiler og du ønsker å låse opp skjemaet for redigering igjen,  må du gå tilbake til skjemautfylling 
-([steg 11](#11-gå-tilbake-til-skjemautfylling)). Etter det kan du oppdatere skjemadataene igjen 
-([steg 7](#7-oppdater-skjemadata-med-sluttbrukers-endringer-som-du-bygget-opp-i-steg-5)).
-
 ### 10. Hent behandlingsstatus
 
 Du kan nå hente ut behandlingsstatus på skjemaet du har sendt inn. Dette gjør du ved å kalle endepunktet::
 
 `GET {{app-url}}/brg/rrh-innrapportering/behandlingsstatus/{{party_id}}/{{skjema_instans_id}}`
 * Behandlingsstatus kan være `GODKJENT`, `NEKTET` eller `UNDER_BEHANDLING`, og viser status på saksbehandling av den 
-maskinelle innsendingen.
+maskinelle innsendingen. 
 
 {{< warning >}}
 Hvis du spør om behandlingsstatus rett etter innsending av skjema, kan du få en HTTP 404 hvis behandlingen ennå ikke 
@@ -616,10 +615,11 @@ har startet. Vent da litt og prøv igjen.
 }
 {{< /expandableCode >}}
 
-### 11. Gå tilbake til skjemautfylling
+### Gå tilbake til skjemautfylling
 
-Etter [steg 8](#8-gå-til-neste-prosessteg) er skjemaet ditt låst og kan ikke oppdateres lenger. Dersom du ønsker å 
-oppdatere skjemaet igjen, må du låse det opp ved gå tilbake til skjemautfylling. Dette gjør du ved å kalle endepunktet:
+Etter [steg 8](#8-gå-til-neste-prosessteg) er skjemaet ditt låst for redigering. For å låse opp og redigere skjemaet 
+igjen kan man gå tilbake til skjemautfylling 
+([steg 7](#7-oppdater-skjemadata-med-sluttbrukers-endringer-som-du-bygget-opp-i-steg-5)) ved å kalle endepunktet:
 
 `PUT {{app-url}}/brg/rrh-innrapportering/instances/{{party_id}}/{{skjema_instans_id}}/process/next`
 
@@ -682,7 +682,6 @@ I body på kallet legg inn:
     "endEvent": null
 }
 {{< /expandableCode >}}
-
 
 # Laste ned Postman collection
 
