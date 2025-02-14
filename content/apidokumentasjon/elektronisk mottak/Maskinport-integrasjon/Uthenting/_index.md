@@ -120,3 +120,6 @@ Disse kommer på JSON-formatet:
 | 401 - Unauthorized  | WWW-Authenticate | Bearer realm="unspecified", error="unauthorized", error_description="Full authentication is required to access this resource"  | JWT access token ikke oppgitt i Authorization header i request.                                                                 |
 | 401 - Unauthorized  | WWW-Authenticate | Bearer realm="unspecified", error="invalid_token", error_description="invalid bearer token or wrong scope for bearer token"    | JWT access token er oppgitt, men det er enten ugyldig (utgått, korrupt eller gjeldende for et annet scope en tjenesten krever). |
 
+## Testmiljø
+
+URL mot PPE-testmiljø er `https://mottak.ppe.brreg.no/outbound`

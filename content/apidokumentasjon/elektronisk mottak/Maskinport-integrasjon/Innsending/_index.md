@@ -113,3 +113,7 @@ HttpEntity<MultiValueMap<String, Object>> requestEntity = HttpEntity<>(body, hea
 ```java
 ResponseEntity<String> objectResponseEntity = restTemplate.exchange("https://mottak.brreg.no/inbound/upload", HttpMethod.POST, requestEntity, String.class);
 ```
+
+## Testmiljø
+
+URL mot PPE-testmiljø er `https://mottak.ppe.brreg.no/inbound`
