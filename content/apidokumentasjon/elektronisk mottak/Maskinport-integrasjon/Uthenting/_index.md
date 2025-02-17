@@ -26,15 +26,25 @@ Access-tokenet oppgis i headeren `Authorization`. Husk `Bearer` før tokenet.
 
 Tjenesten benytter seg av standard HTTP GET og POST.
 
-| HTTP-metode | URL                                                           | Content-type             | Beskrivelse                                                                                    | Sikret med jwt |
-|:------------|:--------------------------------------------------------------|:-------------------------|:-----------------------------------------------------------------------------------------------|:---------------|
-| GET         | https://mottak.brreg.no/outbound/available                    | application/json         | Lister ut tilgjengelige meldinger (med mottakId) for organisasjonsnummer oppgitt i JWT tokenet | JA             |
-| GET         | https://mottak.brreg.no/outbound/download?mottakId={mottakId} | application/octet-stream | Laster ned forsendelse med oppgitt mottakId                                                    | JA             |
-| PUT         | https://mottak.brreg.no/outbound/confirm?mottakId={mottakId}  | application/json         | Bekrefter at forsendelse med oppgitt mottakId er lastet ned av klient                          | JA             |
+| HTTP-metode | URL                                        | Content-type             | Beskrivelse                                                                                                                       | 
+|:------------|:-------------------------------------------|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
+| GET         | https://mottak.brreg.no/outbound/available | application/json         | Lister ut tilgjengelige meldinger (med mottakId) for organisasjonsnummer oppgitt i JWT tokenet. Kan filtreres på tjeneste og dato |
+| GET         | https://mottak.brreg.no/outbound/download  | application/octet-stream | Laster ned forsendelse med oppgitt mottakId                                                                                       |
+| PUT         | https://mottak.brreg.no/outbound/confirm   | application/json         | Bekrefter at forsendelse med oppgitt mottakId er lastet ned av klient                                                             |
 
-### /available
+### available
+
+Eksempel `/available?tjeneste={tjeneste}&fraDato={fraDato}&tilDato={tilDato}`
 
 Endepunktet returnerer tilgjengelige forsendelser for organisasjonsnummer som er oppgitt i JWT-tokenet.
+
+Man kan filtrere resultatene på disse parametrene hvis man ønsker
+
+| parameter | type      | påkrevd |
+|:----------|:----------|:--------|
+| tjeneste  | string    | nei     |
+| fraDato   | LocalDate | nei     |
+| tilDato   | LocalDate | nei     |
 
 #### Response
 
@@ -53,19 +63,33 @@ Ved 200 OK:
 ]
 ```
 
-### /download?mottakId={mottakId}
+### download
 
-Endepunktet returnerer ZIP-fil med Melding for angitt mottakId. MottakId er en UUID.
+Eksempel `/download?mottakId={mottakId}`
+
+Endepunktet returnerer ZIP-fil med Melding for angitt mottakId
+
+#### Parametre
+
+| parameter | type | påkrevd | 
+|:----------|:-----|:--------|
+| mottakId  | UUID | ja      |
 
 #### Response
 
 Bytestream som APPLICATION_OCTET_STREAM
 
-### /confirm?mottakId={mottakId}
+### confirm
 
-Endepunktet bekrefter forsendelsen med angitt mottakId som nedlastet. MottakId er en UUID. 
+Eksempel `/confirm?mottakId={mottakId}`
 
-Denne forsendelsen vil da ikke lenger fremkomme ved kall til `/available`. 
+Endepunktet bekrefter forsendelsen med angitt mottakId som nedlastet. Denne forsendelsen vil da ikke lenger fremkomme ved kall til `/available`-endepunktet.
+
+#### Parametre
+
+| parameter | type | påkrevd | 
+|:----------|:-----|:--------|
+| mottakId  | UUID | ja      |
 
 #### Response
 
@@ -96,3 +120,6 @@ Disse kommer på JSON-formatet:
 | 401 - Unauthorized  | WWW-Authenticate | Bearer realm="unspecified", error="unauthorized", error_description="Full authentication is required to access this resource"  | JWT access token ikke oppgitt i Authorization header i request.                                                                 |
 | 401 - Unauthorized  | WWW-Authenticate | Bearer realm="unspecified", error="invalid_token", error_description="invalid bearer token or wrong scope for bearer token"    | JWT access token er oppgitt, men det er enten ugyldig (utgått, korrupt eller gjeldende for et annet scope en tjenesten krever). |
 
+## Testmiljø
+
+URL mot PPE-testmiljø er `https://mottak.ppe.brreg.no/outbound`
