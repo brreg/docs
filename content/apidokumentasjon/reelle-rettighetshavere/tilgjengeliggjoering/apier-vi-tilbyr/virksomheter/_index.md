@@ -61,6 +61,12 @@ Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Ret
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
 
+### 1.2.0 - 2025-03-06
+
+#### Lagt til
+* Registreringer kan nå inneholde opplysninger om `uoverensstemmelse`
+  * Se løsningsmodellen for mer informasjon.
+
 ### 1.1.0 - 2024-10-24
 
 #### Lagt til
