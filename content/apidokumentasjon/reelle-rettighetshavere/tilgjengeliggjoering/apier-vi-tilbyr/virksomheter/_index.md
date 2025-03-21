@@ -29,7 +29,7 @@ mer utfyllende informasjon om hva APIet tilbyr.
 
 ## Løsningsmodell
 
-Se løsningsmodell under informasjonsmodeller for [Virksomhet](../../../../../informasjonsmodeller/reelle-rettighetshavere/loesningsmodeller/virksomhet/rrh_loesningsmodell_virksomhet)
+Se løsningsmodell under informasjonsmodeller for [Virksomhet](../../../../../informasjonsmodeller/reelle-rettighetshavere/loesningsmodeller/rrh_loesningsmodell_virksomhet.md)
 
 ## Tilgang til endepunkter
 Vi tilbyr ulike [maskinporten-scopes](../../maskinporten/hvordan-bruke-maskinporten) til forskjellige aktører. Tabellen under beskriver hvilke endepunkter maskinporten-scopene har tilgang til. Alle endepunktene i APIet med unntak av Kodelister er tilgangsstyrt, se tabellen under for å finne ut hva ditt
@@ -46,7 +46,7 @@ maskinporten-scope har tilgang til.
 ## Tilgang til informasjon som er begrenset
 
 Se tabellen under for å finne ut om ditt maskinporten-scope har tilgang til å se fødselsnummer og D-Nummer. Full oversikt over alle tilgjengelige
-felter og særregler kan ses i løsningsmodell for [virksomhet](../../../../../informasjonsmodeller/reelle-rettighetshavere/loesningsmodeller/virksomhet/rrh_loesningsmodell_virksomhet).
+felter og særregler kan ses i løsningsmodell for [virksomhet](../../../../../informasjonsmodeller/reelle-rettighetshavere/loesningsmodeller/rrh_loesningsmodell_virksomhet.md).
 
 | Aktør                                                                                                | Maskinporten-scope                                                                                                | Fødselsnummer og D-nummer |  
 |------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|---------------------------|
