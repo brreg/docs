@@ -70,6 +70,16 @@ Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Ret
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
 
+### 1.3.0 - 2025-03-21
+
+#### Lagt til
+
+* Vi tilgjengeliggjør nå en registrering med registreringsstatus `registreringsstatus.rettighetsinformasjonErIkkeMeldt` for alle registreringspliktige virksomheter i Register over reelle rettighetsavere.
+  * Denne typen registrering er opprettet av Brønnøysundregistrene, og indikerer at virksomheten er registeringspliktig i registeret.
+  * **Merk:** Hvis oppslag på opplysninger om reelle rettighetshavere returnerer `404 - NOT FOUND` indikerer det at virksomheten ikke er registreringspliktig og kan dermed ikke registrere seg i registeret.
+* Ny type `no.brreg.rrh.rettighetsinformasjon.klargjortForRegistrering` i responsen til endringsloggen for registreringer med registreringsstatus `registreringsstatus.rettighetsinformasjonErIkkeMeldt` 
+
+
 ### 1.2.1 - 2025-03-21
 
 #### Lagt til
