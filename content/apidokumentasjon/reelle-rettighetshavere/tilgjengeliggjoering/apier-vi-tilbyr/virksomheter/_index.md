@@ -57,12 +57,12 @@ felter og særregler kan ses i løsningsmodell for [virksomhet](../../../../../i
 
 Se tabellen under for hvilke data ditt maskinporten-scope har tilgang til å se om uoverensstemmelser.
 
-| Aktør                                                                                                | Maskinporten-scope                                                                                                | Innhold i uoverensstemmelse | uoverensstemmelseDato | Historikk | Opplysning om varslingspliktigVirksomhet |
-|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-----------------------------|-----------------------|-----------|------------------------------------------|
-| Offentlig myndighet i § 3-11 (1)                                                                     | **brreg:reelle/offentlig**                                                                                        | X                           | X                     | X         | X                                        
-| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav a, b, c, e, g, h til k, n og o | **brreg:reelle/rapporteringspliktig**                                                                             | X                           | X                     |           |
-| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav d, f, l og m                   | **brreg:reelle/rapporteringspliktig.begrenset**                                                                   | X                           | X                     |           |
-| Medier, sivilsamfunnsorganisasjoner og høyere utdanningsinstitusjoner i § 3-11 (2), (3) og (4) ledd. | **brreg:reelle/media**, **brreg:reelle/sivilsamfunnsorganisasjon**, **brreg:reelle/hoeyereutdanningsinstitusjon** | X                           | X                     |           |
+| Aktør                                                                                                | Maskinporten-scope                                                                                                | Innhold i uoverensstemmelse og uoverensstemmelseDato | Historikk | Opplysning om varslingspliktigVirksomhet |
+|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|-----------|------------------------------------------|
+| Offentlig myndighet i § 3-11 (1)                                                                     | **brreg:reelle/offentlig**                                                                                        | X                                                    | X         | X                                        |
+| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav a, b, c, e, g, h til k, n og o | **brreg:reelle/rapporteringspliktig**                                                                             | X                                                    |           |                                          |
+| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav d, f, l og m                   | **brreg:reelle/rapporteringspliktig.begrenset**                                                                   | X                                                    |           |                                          |
+| Medier, sivilsamfunnsorganisasjoner og høyere utdanningsinstitusjoner i § 3-11 (2), (3) og (4) ledd. | **brreg:reelle/media**, **brreg:reelle/sivilsamfunnsorganisasjon**, **brreg:reelle/hoeyereutdanningsinstitusjon** | X                                                    |           |                                          |
 
 ## Endringer i APIet
 
@@ -70,7 +70,7 @@ Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Ret
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
 
-### 1.2.0 - 2025-03-20
+### 1.2.1 - 2025-03-21
 
 #### Lagt til
 
