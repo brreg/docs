@@ -55,21 +55,38 @@ felter og særregler kan ses i løsningsmodell for [virksomhet](../../../../../i
 | Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav d, f, l og m                   | **brreg:reelle/rapporteringspliktig.begrenset**                                                                   | X                         
 | Medier, sivilsamfunnsorganisasjoner og høyere utdanningsinstitusjoner i § 3-11 (2), (3) og (4) ledd. | **brreg:reelle/media**, **brreg:reelle/sivilsamfunnsorganisasjon**, **brreg:reelle/hoeyereutdanningsinstitusjon** |                           |
 
+Se tabellen under for hvilke data ditt maskinporten-scope har tilgang til å se om uoverensstemmelser.
+
+| Aktør                                                                                                | Maskinporten-scope                                                                                                | Innhold i uoverensstemmelse og uoverensstemmelseDato | Historikk | Opplysning om varslingspliktigVirksomhet |
+|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|-----------|------------------------------------------|
+| Offentlig myndighet i § 3-11 (1)                                                                     | **brreg:reelle/offentlig**                                                                                        | X                                                    | X         | X                                        |
+| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav a, b, c, e, g, h til k, n og o | **brreg:reelle/rapporteringspliktig**                                                                             | X                                                    |           |                                          |
+| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav d, f, l og m                   | **brreg:reelle/rapporteringspliktig.begrenset**                                                                   | X                                                    |           |                                          |
+| Medier, sivilsamfunnsorganisasjoner og høyere utdanningsinstitusjoner i § 3-11 (2), (3) og (4) ledd. | **brreg:reelle/media**, **brreg:reelle/sivilsamfunnsorganisasjon**, **brreg:reelle/hoeyereutdanningsinstitusjon** | X                                                    |           |                                          |
+
 ## Endringer i APIet
 
 Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Rettighetshavere.  
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
 
+### 1.2.1 - 2025-03-21
+
+#### Lagt til
+
+* Tabell over tilgang til data om `uoverensstemmelse`
+
 ### 1.2.0 - 2025-03-06
 
 #### Lagt til
+
 * Registreringer kan nå inneholde opplysninger om `uoverensstemmelse`
-  * Se løsningsmodellen for mer informasjon.
+    * Se løsningsmodellen for mer informasjon.
 
 ### 1.1.0 - 2024-10-24
 
 #### Lagt til
+
 * Språkstøtte for kodelisteverdier
   * Det er introdusert et nytt parameter som muliggjør uthenting av responser med kodelisteverdier også på nynorsk og engelsk.
   * Funksjonaliteten er implementert på følgende endepunkter: `hentRegistreringspliktigVirksomhet`, `finnRegistreringspliktigeVirksomheter`, `hentRelevanteKodelister`
@@ -77,6 +94,7 @@ og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.
   * Hvis `Accept-Language`-headeren ikke er spesifisert eller er spesifisert med en ugyldig verdi, vil responsen returnere verdier på Bokmål som standard.
 
 ### 1.0.0 - 2024-09-28
+
 API-ene er ikke lenger i beta-fasen og kan nå anses som stabile.
 
 ### 1.0.0-beta2 - 2024-02-28
