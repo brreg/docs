@@ -15,6 +15,7 @@ weight: 100
   * Nedlasting av totalbestand på json-format
   * Endringslogg: Dette brukes typisk for å fange opp at det har skjedd endringer på registreringer om reelle rettighetshavere i registeret
   * Kodelister: Kan brukes til visning i eventuelle brukergrensesnitt, dynamisk oppdatering av kodelister, validering og lignende. Endepunktet er åpent, og krever ikke maskinporten-autentisering
+  * Se [vår Swagger-dokumentasjon](https://rrh.brreg.no/api/oppslag) for mer mer informasjon om de forskjellige endepunktene, samt eksempler på forespørsler og responser
 * Alle endepunktene i APIet med unntak av Kodelister er tilgangsstyrt, se [Tilgang til endepunkter](#tilgang-til-endepunkter)
 
 ## API-spesifikasjon
@@ -36,12 +37,12 @@ Vi tilbyr ulike [maskinporten-scopes](../../maskinporten/hvordan-bruke-maskinpor
 maskinporten-scope har tilgang til.
 
 | Aktør                                                                                                | Maskinporten-scope                                                                                                | Kodelister | Oppslag på virksomhetens organisasjonsnummer | Oppslag på fødselsnummer eller D-nummer | Nedlasting av totalbestand | Endringslogg |
-|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|------------|----------------------------------------------|-----------------------------------------|----------------------------|--------------|
-| Offentlig myndighet i § 3-11 (1)                                                                     | **brreg:reelle/offentlig**                                                                                        | X          | X                                            | X                                       | X                          | X            |
-| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav a, b, c, e, g, h til k, n og o | **brreg:reelle/rapporteringspliktig**                                                                             | X          | X                                            |                                         |                            |              |
-| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav d, f, l og m                   | **brreg:reelle/rapporteringspliktig.begrenset**                                                                   | X          | X                                            |                                         |                            |              |
-| Medier, sivilsamfunnsorganisasjoner og høyere utdanningsinstitusjoner i § 3-11 (2), (3) og (4) ledd. | **brreg:reelle/media**, **brreg:reelle/sivilsamfunnsorganisasjon**, **brreg:reelle/hoeyereutdanningsinstitusjon** | X          | X                                            |                                         |                            |              |                          
-| Alle andre                                                                                           | **Krever ikke maskinporten-scope**                                                                                | X          |                                              |                                         |                            |              |
+|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|------------|----------------------------------------------|-----------------------------------------|----------------------------|-------------|
+| Offentlig myndighet i § 3-11 (1)                                                                     | **brreg:reelle/offentlig**                                                                                        | X          | X                                            | X                                       | X                          | X           |
+| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav a, b, c, e, g, h til k, n og o | **brreg:reelle/rapporteringspliktig**                                                                             | X          | X                                            |                                         |                            | X           |
+| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav d, f, l og m                   | **brreg:reelle/rapporteringspliktig.begrenset**                                                                   | X          | X                                            |                                         |                            | X           |
+| Medier, sivilsamfunnsorganisasjoner og høyere utdanningsinstitusjoner i § 3-11 (2), (3) og (4) ledd. | **brreg:reelle/media**, **brreg:reelle/sivilsamfunnsorganisasjon**, **brreg:reelle/hoeyereutdanningsinstitusjon** | X          | X                                            |                                         |                            | X           |                          
+| Alle andre                                                                                           | **Krever ikke maskinporten-scope**                                                                                | X          |                                              |                                         |                            |             |
 
 ## Tilgang til informasjon som er begrenset
 
@@ -69,6 +70,18 @@ Se tabellen under for hvilke data ditt maskinporten-scope har tilgang til å se 
 Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Rettighetshavere.  
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
+
+### 1.4.0 - 2025-03-28
+
+### Lagt til
+
+* Gitt tilgang til endepunkt for å hente endringslogg til følgende Maskinporten-scope:
+  * brreg:reelle/offentlig (Hadde tilgang fra før)
+  * brreg:reelle/rapporteringspliktig
+  * brreg:reelle/rapporteringspliktig.begrenset
+  * brreg:reelle/media
+  * brreg:reelle/sivilsamfunnsorganisasjon
+  * brreg:reelle/hoeyereutdanningsinstitusjon 
 
 ### 1.3.0 - 2025-03-21
 

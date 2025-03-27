@@ -17,7 +17,7 @@ weight: 100
 * [Informasjon om hvordan du får tilgang til APIene](./tilgang-til-apier)
   * [Veiledning til Maskinporten](./maskinporten)
 * [Testdata](./testdata)
-* [Nyheter og driftsmeldinger](./nyheter-og-driftsmeldinger)
+* [Nyheter og driftsmeldinger](../nyheter-og-driftsmeldinger)
 
 ## Informasjonsmodeller ##
 

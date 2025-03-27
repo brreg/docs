@@ -26,4 +26,4 @@ Ved utgivelse av en ny hovedversjon vil brukere bli varslet. Dette varselet vil 
 kommende endringen, en overgangsperiode og relevant dokumentasjon for å hjelpe brukere med å tilpasse seg endringene.
 
 Vi vil legge ut varsel/driftsmeldinger i god tid på brreg.no.
-Se her for flere detaljer om hvilke [kanaler vi bruker for å informere våre brukere](../nyheter-og-driftsmeldinger).
+Se her for flere detaljer om hvilke [kanaler vi bruker for å informere våre brukere](../../nyheter-og-driftsmeldinger).
