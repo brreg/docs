@@ -15,7 +15,7 @@ om maskinporten](https://samarbeid.digdir.no/maskinporten/maskinporten/25).**
 Kall til APIene må inkludere et gyldig _token_ fra Maskinporten for å få tilgang. For å hente ut et gyldig token kan du følge disse stegene:
 
 1. Bestill og få tilgang til vår tjeneste i henhold til [bestillingsprosedyren for tilgang](../../tilgang-til-apier/vanlig-direkte-tilgang).
-    * Du vil motta et maskinporten-scope, og informasjon om hva det gir tilgang til. Det finnes to
+    * Du vil motta et maskinporten-scope, og informasjon om hva det gir tilgang til. Det finnes flere
       mulige scope:
         * `brreg:reelle/offentlig`
         * `brreg:reelle/rapporteringspliktig`
