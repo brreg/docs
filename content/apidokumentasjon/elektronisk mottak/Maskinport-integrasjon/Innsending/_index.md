@@ -52,14 +52,21 @@ Ved 200 OK:
   "antallVedlegg": 2
 }
 ```
+#### Filtyper som støttes:
+XML, PDF, DOC, DOCX, XLS, XLSX, RTF, JPEG, PNG, ODT, ODS, TIFF, TXT, JSON, CSV, ZIP og GZIP.
+
+#### Maks request-størrelse:
+35 MB 
 
 #### Feilmeldinger
 
-| HTTP-kode                 | Applikasjonsfeilkode | Feilmelding                                                                   |
-|:--------------------------|:---------------------|:------------------------------------------------------------------------------|
-| 500 Internal Server Error | ERROR-00000          | Generisk feilhåndterer. Forsøk igjen senere. Hvis vedvarende, kontakt support |
-| 400 Bad Request           | CLIENTERROR-10001    | Melding kunne ikke behandles, feilet i XML-validering                         |
-| 400 Bad Request           | CLIENTERROR-10002    | Mangler med request (f.eks. manglende payload)                                |
+| HTTP-kode                   | Applikasjonsfeilkode | Feilmelding                                                                   |
+|:----------------------------|:---------------------|:------------------------------------------------------------------------------|
+| 500 Internal Server Error   | ERROR-00000          | Generisk feilhåndterer. Forsøk igjen senere. Hvis vedvarende, kontakt support |
+| 400 Bad Request             | CLIENTERROR-10001    | Melding kunne ikke behandles, feilet i XML-validering                         |
+| 400 Bad Request             | CLIENTERROR-10002    | Mangler med request (f.eks. manglende payload)                                |
+| 413 Request Entity Too Large| CLIENTERROR-10003    | Request is too large to upload                                                |
+| 415 unsupported media type  |                      | Unsupported file type(s):                                                     |
 
 Disse kommer på JSON-formatet:
 
