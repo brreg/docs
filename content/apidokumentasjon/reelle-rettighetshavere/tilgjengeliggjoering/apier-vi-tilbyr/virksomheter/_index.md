@@ -30,7 +30,7 @@ mer utfyllende informasjon om hva APIet tilbyr.
 
 ## Løsningsmodell
 
-Se løsningsmodell under informasjonsmodeller for [Virksomhet](../../../../../informasjonsmodeller/reelle-rettighetshavere/loesningsmodeller/rrh_loesningsmodell_virksomhet.md)
+Se løsningsmodell under informasjonsmodeller for [Virksomhet](../../../../../informasjonsmodeller/reelle-rettighetshavere/loesningsmodeller/rrh_loesningsmodell_virksomhet)
 
 ## Tilgang til endepunkter
 Vi tilbyr ulike [maskinporten-scopes](../../maskinporten/hvordan-bruke-maskinporten) til forskjellige aktører. Tabellen under beskriver hvilke endepunkter maskinporten-scopene har tilgang til. Alle endepunktene i APIet med unntak av Kodelister er tilgangsstyrt, se tabellen under for å finne ut hva ditt
