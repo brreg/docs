@@ -39,10 +39,6 @@ Totalbestanden oppdateres normalt ved midnatt hver dag, men det er ingen garanti
 Vi anbefaler derfor å kalle `/sekvensnummer` med et et tidspunkt minst noen dager før du tok ut totalbestanden for å være sikker på at du ikke går glipp av noen endringer.
 
 
-
-
-
-
 ## API-spesifikasjon
 
 APIet er tilgjengelig for konsumering gjennom Swagger-UI og som en nedlastbar OpenAPI-spesifikasjon. Her finner du
