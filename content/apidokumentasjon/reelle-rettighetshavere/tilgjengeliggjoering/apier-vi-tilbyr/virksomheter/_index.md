@@ -30,7 +30,7 @@ For hvert punkt, referer gjerne til Swagger-UI dokumentasjonen for et overblikk 
 **For å holde din lokale kopi oppdatert med nye endringer, gjør du følgende:**
 1. Kall endepunktet `/sekvensnummer` med et tidspunkt fra før du tok ut totalbestanden. Endepunktet vil returnere et sekvensnummer, som vil være utgangspunktet ditt for å fange opp endringer fra `/endringslogg` i neste steg.
 2. Sett opp en maskinell jobb der du jevnlig kaller endepunktet `/endringslogg`. 
-   1. Send med sekvensnummeret du fikk i det forrige steget. Dette vil returnere en logg over alle endringene som har skjedd i registeret fra sekvensnummeret du fikk. Hver av disse endringene inneholder et organisasjonsnummer, som brukes i det neste steget.
+   1. Kall `/endringslogg` med sekvensnummeret du fikk i det forrige steget. Dette vil returnere en logg over alle endringene som har skjedd i registeret fra sekvensnummeret du fikk. Hver av disse endringene inneholder et organisasjonsnummer, som brukes i det neste steget.
    2. Fra hver endring, hent ut organisasjonsnummeret og gjør et kall mot `/virksomhet/{organisasjonsnummer}`. Dette vil returnere organisasjonens registreringer. Da kan du sammenligne dine lokale registreringer for organisasjonen, med de i Register over reelle rettighetshavere. Oppdater din lokale kopi dersom registreringene dine forskjellige.
    3. Oppdater sekvensnummeret ditt til den siste endringens `id`. Da har du det nyeste sekvensnummeret, som du så kan bruke til å kalle `/endringslogg` igjen til å lytte på videre endringer.
 
