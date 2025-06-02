@@ -22,20 +22,20 @@ weight: 100
 
 Noen maskinporten scopes har tilgang til å laste ned totalbestanden over Register over reelle rettighetshavere.
 Følgende er en veiledning for hvordan totalbestanden kan brukes sammen med endringsloggen for å opprettholde en oppdatert, lokal kopi av registeret.
+For hvert punkt, referer gjerne til Swagger-UI dokumentasjonen for et overblikk over hvordan responsene til endepunktene ser ut.
 
 **For å bygge opp en lokal kopi av Register over reelle rettighetshavere, gjør du følgende:**
-1. Hent ut totalbestanden fra `/endringslogg` og lagre den i en lokal database.
+1. Hent ut totalbestanden fra `/virksomheter/totalbestand` og lagre den i din lokale database.
 
 **For å holde din lokale kopi oppdatert med nye endringer, gjør du følgende:**
 1. Kall endepunktet `/sekvensnummer` med et tidspunkt fra før du tok ut totalbestanden. Endepunktet vil returnere et sekvensnummer, som vil være utgangspunktet ditt for å fange opp endringer fra `/endringslogg` i neste steg.
 2. Sett opp en maskinell jobb der du jevnlig kaller endepunktet `/endringslogg`. 
-   1. Send med sekvensnummeret du fikk i det forrige steget. Dette vil returnere en logg over alle endringene som har skjedd i registeret fra (og IKKE med) sekvensnummeret du fikk. Hver av disse endringene inneholder et organisasjonsnummer, som kan brukes i det neste steget.
-   2. For hver endring, gjør et kall mot `/virksomhet/{organisasjonsnummer}` for å hente organisasjonens registreringer. Da kan du sammenligne dine lokale registreringer for organisasjonen, med de i Register over reelle rettighetshavere. Oppdater din lokale kopi dersom registreringene dine forskjellige.
+   1. Send med sekvensnummeret du fikk i det forrige steget. Dette vil returnere en logg over alle endringene som har skjedd i registeret fra sekvensnummeret du fikk. Hver av disse endringene inneholder et organisasjonsnummer, som brukes i det neste steget.
+   2. Fra hver endring, hent ut organisasjonsnummeret og gjør et kall mot `/virksomhet/{organisasjonsnummer}`. Dette vil returnere organisasjonens registreringer. Da kan du sammenligne dine lokale registreringer for organisasjonen, med de i Register over reelle rettighetshavere. Oppdater din lokale kopi dersom registreringene dine forskjellige.
    3. Oppdater sekvensnummeret ditt til den siste endringens `id`. Da har du det nyeste sekvensnummeret, som du så kan bruke til å kalle `/endringslogg` igjen til å lytte på videre endringer.
 
 Hvis det har vært veldig lenge siden du har oppdatert kopien din, kan det lønne seg å heller hente ut totalbestanden på nytt så du slipper å gå igjennom hele endringsloggen.
-Totalbestanden oppdateres normalt ved midnatt hver dag, men det er ingen garanti.
-Vi anbefaler derfor å kalle `/sekvensnummer` med et et tidspunkt minst noen dager før du tok ut totalbestanden for å være sikker på at du ikke går glipp av noen endringer.
+Totalbestanden oppdateres normalt ved midnatt hver dag, men det er ingen garanti. Vi anbefaler derfor å kalle `/sekvensnummer` med et et tidspunkt minst noen dager før du tok ut totalbestanden for å være sikker på at du ikke går glipp av noen endringer.
 
 
 ## API-spesifikasjon
