@@ -35,7 +35,7 @@ For hvert punkt, referer gjerne til Swagger-UI dokumentasjonen for et overblikk 
    3. Oppdater sekvensnummeret ditt til den siste endringens `id`. Da har du det nyeste sekvensnummeret, som du så kan bruke til å kalle `/endringslogg` igjen til å lytte på videre endringer.
 
 Hvis det har vært veldig lenge siden du har oppdatert kopien din, kan det lønne seg å heller hente ut totalbestanden på nytt så du slipper å gå igjennom hele endringsloggen.
-Totalbestanden oppdateres normalt ved midnatt hver dag, men det er ingen garanti. Vi anbefaler derfor å kalle `/sekvensnummer` med et et tidspunkt minst noen dager før du tok ut totalbestanden for å være sikker på at du ikke går glipp av noen endringer.
+Totalbestanden oppdateres normalt ved midnatt hver dag, men dette er ikke garantert. For å være trygg på at du får med deg alle endringer, anbefaler vi å bruke `/sekvensnummer` med et tidspunkt noen dager før uttaket av totalbestanden.
 
 
 ## API-spesifikasjon
