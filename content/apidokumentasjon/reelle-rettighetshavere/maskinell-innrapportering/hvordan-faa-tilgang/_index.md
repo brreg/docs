@@ -4,7 +4,7 @@ description: Beskrivelse av hvordan man får tilgang til å sende inn registreri
 weight: 1
 ---
 
-For å kunne rapportere inn opplysninger om reelle rettighetshavere på vegne av dine kunder gjennom APIet til vår Altinn 3-app, kan du følge guiden på denne siden.
+For å kunne rapportere inn opplysninger om reelle rettighetshavere på vegne av dine kunder gjennom APIet til vår Altinn 3-app kan du følge guiden på denne siden.
 
 > **_NB!_** Hvis du som systemleverandør har gjort dette tidligere i forbindelse med en annen integrasjon mot 
 > Maskinporten og/eller ID-Porten trenger du sannsynligvis ikke å gjøre det på nytt. Du kan da gjenbruke API-klienten du tidligere har opprettet, 
@@ -27,7 +27,7 @@ For mer informasjon, [se Digdirs guide: Registrering av klienter](https://docs.d
 2. Fyll ut integrasjonsdata:
    * [**Se denne PDFen**](opprett_api_klient.pdf) for et eksempel på en `api_klient` i test-miljø. Her er noen tips til utfylling:
      * Pass på å velge følgende scopes: `openid`, `altinn:instances.read` og `altinn:instances.write`
-     * Den verdien du setter i "Navn på integrasjonen" vil vises i innloggingsvinduet for sluttbruker. Angi derfor et navn som godt beskriver hva API-klienten skal brukes til. F.eks.: "DittFagsystem - Innrapportering til Register over reelle rettighetshavere" 
+     * Den verdien du setter i "Navn på integrasjonen" vil vises i innloggingsvinduet for sluttbruker. Angi derfor et navn som godt beskriver hva API-klienten skal brukes til. Feks: "DittFagsystem - Innrapportering til Register over reelle rettighetshavere" 
      * Når sluttbruker har logget inn gjennom ID-porten, må sluttbruker sendes tilbake til en gyldig `redirect-uri`. Denne eksempel-klienten har konfigurert følgende gyldige `redirect uri`-er for å forenkle testing:
        * https://test.superbrasluttbrukersystem.no/reelle/innrapportering - For å kunne sende brukere tilbake til tjeneste i testmiljø
        * https://oauth.pstmn.io/v1/callback - For å teste innlogging og innsending gjennom Postman må man kunne sendes tilbake til Postman
@@ -38,4 +38,4 @@ Når API-klienten er opprettet er forutsetningene på plass for at du kan sende 
 
 ## Jeg trenger hjelp
 Hvis du har problemer med å registrere en `api_klient` via Selvbetjeningsløsningen skal henvendelser i utgangspunktet gå til Digdir.
-Kontakt `servicedesk@digdir.no`. Oppgi client_id og miljø, og forklar problemet.
+Kontakt servicedesk@digdir.no oppgi client_id og miljø og forklar problemet.

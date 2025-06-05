@@ -64,7 +64,7 @@ Denne siden gir en komplett beskrivelse av feltene du finner i [JSON-skjema](htt
     <tr>
       <td></td>
       <td>tjenestehandling</td>
-      <td>Indikerer hvilken type registrering det er snakk om, f.eks. "nyregistrering" eller "endring"</td>
+      <td>Indikerer hvilken type registrering det er snakk om, feks. "nyregistrering" eller "endring"</td>
       <td>Nei</td>
       <td>Ja</td>
       <td></td>
