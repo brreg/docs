@@ -23,7 +23,7 @@ Hvis du er systemleverandør, se [Hvordan bruke Maskinporten som systemleverand�
 ## Jeg har problemer med maskinport-integrasjonen eller delegering i Altinn
 
 Hvis du har problemer med å ta i bruk maskinporten skal henvendelser i utgangspunktet gå til Digdir.  
-Kontakt `servicedesk@digdir.no` oppgi client_id og miljø og forklar problemet.
+Kontakt `servicedesk@digdir.no`. Oppgi client_id og miljø, og forklar problemet.
 
 Hvis du har problemer med å gjennomføre delegering av tilganger i Altinn-portalen skal henvendelser gå til
 Altinn-servicedesk.  
