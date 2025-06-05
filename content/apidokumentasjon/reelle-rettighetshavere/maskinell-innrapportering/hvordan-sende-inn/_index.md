@@ -53,7 +53,8 @@ må din sluttbruker autentisere seg gjennom ID-Porten.
 Vi anbefaler at du følger [Digdirs integrasjonsguide for autentisering i ID-Porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_idporten.html).
 
 > **_NB!_** Maskinell innrapportering for Reelle rettighetshavere krever at sluttbrukeren er logget inn via ID-Porten.
-> Dette betyr at [Altinn 2 Virksomhetsbrukere](https://altinn.github.io/docs/api/rest/kom-i-gang/virksomhetsbrukere/) og [Altinn 3 Systembruker](https://docs.altinn.studio/nb/authentication/what-do-you-get/systemuser/) IKKE støttes.
+> Dette betyr at [Altinn 2 Virksomhetsbrukere](https://altinn.github.io/docs/api/rest/kom-i-gang/virksomhetsbrukere/)
+> og [Altinn 3 Systembruker](https://docs.altinn.studio/nb/authentication/what-do-you-get/systemuser/) IKKE støttes.
 
 Når du følger integrasjonsguiden, må du gjøre følgende steg:
 
