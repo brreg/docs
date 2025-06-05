@@ -38,4 +38,4 @@ Når API-klienten er opprettet er forutsetningene på plass for at du kan sende 
 
 ## Jeg trenger hjelp
 Hvis du har problemer med å registrere en `api_klient` via Selvbetjeningsløsningen skal henvendelser i utgangspunktet gå til Digdir.
-Kontakt servicedesk@digdir.no. Oppgi client_id og miljø, og forklar problemet.
+Kontakt `servicedesk@digdir.no`. Oppgi client_id og miljø, og forklar problemet.
