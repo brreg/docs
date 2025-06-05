@@ -4,7 +4,7 @@ description: Beskrivelse av hvordan man får tilgang til å sende inn registreri
 weight: 1
 ---
 
-For å kunne rapportere inn opplysninger om reelle rettighetshavere på vegne av dine kunder gjennom APIet til vår Altinn 3-app kan du følge guiden på denne siden.
+For å kunne rapportere inn opplysninger om reelle rettighetshavere på vegne av dine kunder gjennom APIet til vår Altinn 3-app, kan du følge guiden på denne siden.
 
 > **_NB!_** Hvis du som systemleverandør har gjort dette tidligere i forbindelse med en annen integrasjon mot 
 > Maskinporten og/eller ID-Porten trenger du sannsynligvis ikke å gjøre det på nytt. Du kan da gjenbruke API-klienten du tidligere har opprettet, 
