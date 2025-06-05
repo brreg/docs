@@ -27,7 +27,7 @@ For mer informasjon, [se Digdirs guide: Registrering av klienter](https://docs.d
 2. Fyll ut integrasjonsdata:
    * [**Se denne PDFen**](opprett_api_klient.pdf) for et eksempel på en `api_klient` i test-miljø. Her er noen tips til utfylling:
      * Pass på å velge følgende scopes: `openid`, `altinn:instances.read` og `altinn:instances.write`
-     * Den verdien du setter i "Navn på integrasjonen" vil vises i innloggingsvinduet for sluttbruker. Angi derfor et navn som godt beskriver hva API-klienten skal brukes til. Feks: "DittFagsystem - Innrapportering til Register over reelle rettighetshavere" 
+     * Den verdien du setter i "Navn på integrasjonen" vil vises i innloggingsvinduet for sluttbruker. Angi derfor et navn som godt beskriver hva API-klienten skal brukes til. F.eks.: "DittFagsystem - Innrapportering til Register over reelle rettighetshavere" 
      * Når sluttbruker har logget inn gjennom ID-porten, må sluttbruker sendes tilbake til en gyldig `redirect-uri`. Denne eksempel-klienten har konfigurert følgende gyldige `redirect uri`-er for å forenkle testing:
        * https://test.superbrasluttbrukersystem.no/reelle/innrapportering - For å kunne sende brukere tilbake til tjeneste i testmiljø
        * https://oauth.pstmn.io/v1/callback - For å teste innlogging og innsending gjennom Postman må man kunne sendes tilbake til Postman

@@ -48,28 +48,28 @@ Platform-url: https://platform.altinn.no
 
 ### 1. Send sluttbruker til ID-Porten
 
-For at ditt system skal få lov til å sende inn registrering av reelle rettighetshavere inn til oss, må din sluttbruker
-autentisere seg gjennom ID-Porten.
+For at ditt system skal få lov til å sende inn opplysninger om Reelle rettighetshavere til oss,
+må din sluttbruker autentisere seg gjennom ID-Porten.
 Vi anbefaler at du følger [Digdirs integrasjonsguide for autentisering i ID-Porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_idporten.html).
 
 > **_NB!_** Maskinell innrapportering for Reelle rettighetshavere krever at sluttbrukeren er logget inn via ID-Porten.
 > Dette betyr at [Altinn 2 Virksomhetsbrukere](https://altinn.github.io/docs/api/rest/kom-i-gang/virksomhetsbrukere/) og [Altinn 3 Systembruker](https://docs.altinn.studio/nb/authentication/what-do-you-get/systemuser/) IKKE støttes.
 
-Når du følger guiden må du gjøre følgende steg:
+Når du følger integrasjonsguiden, må du gjøre følgende steg:
 
-1. Sende en autentiseringsforespørsel til autorisasjons-endepunktet
+1. Du må sende en autentiseringsforespørsel til autorisasjons-endepunktet
     * **Her må du også legge til et query-param `scope` med verdi `altinn:instances.write`**. Denne trenger du for å få
       lov til å gjøre CRUD-forespørsler mot Altinns APP API.
-2. Bruker autentiserer seg på sin foretrukkende måte, feks BankId. Sluttbruker må også godkjenne at ditt
+2. Sluttbruker autentiserer seg på sin foretrukkende måte, f.eks. BankID. Sluttbruker må også godkjenne at ditt
    sluttbrukersystem får tilgang scope `altinn:instances.write` på vegne at sluttbruker.
-3. Bruker blir redirected tilbake til din tjeneste
+3. Sluttbruker blir redirected tilbake til din tjeneste.
 4. Du kaller token-endepunktet og utsteder et ID-Porten-token.
 
 {{< expandableCode title="Eksempel på et B64-encoded ID-Porten-token" lang="text">}}
 eyJraWQiOiJkaWdpdGFsaXNlcmluZ3NkaXJla3RvcmF0ZXQtLWNlcnQwIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIxOTg1NTQ5NzkyNCIsImFjciI6ImlkcG9ydGVuLWxvYS1zdWJzdGFudGlhbCIsInNjb3BlIjoiYWx0aW5uOmluc3RhbmNlcy53cml0ZSIsImlzcyI6Imh0dHBzOi8vdGVzdC5pZHBvcnRlbi5ubyIsImNsaWVudF9hbXIiOiJjbGllbnRfc2VjcmV0X3Bvc3QiLCJwaWQiOiIxOTg1NTQ5NzkyNCIsImV4cCI6MTcxODEwMzY4MywiaWF0IjoxNzE4MTAzMDgzLCJqdGkiOiIyMEszRHVaSWRrQSIsImNsaWVudF9pZCI6Ijk3YWMzMjg2LTU3ZWQtNDMzMy05ODU5LTdkMGE4NTIzZTdmZiIsImNvbnN1bWVyIjp7ImF1dGhvcml0eSI6ImlzbzY1MjMtYWN0b3JpZC11cGlzIiwiSUQiOiIwMTkyOjk3NDc2MDY3MyJ9fQ.Lvi--jq2GuM3VEb3K8aFFJZqzqSewHMmHqap6eV7Bibl3nZ9dTWTUhrkNIr4ZSHZkBvIk-A6DcnF8L47rvJVgmN0kczJDVXCv1E8W3yu5mA57k0uvZIxXW0paH6ldQZ2vJL_3iyhg9GLmiU-He5JTtwo_ULo0VX6DVt97lhVf_WHrLY9steIW82ujeMY3m-qUbgRTT9h1LAITpfpX8Mavk1B4gDwzYYx-6S2VNUOMo72b466mAM5-4JUejpPLwCpAr2LNT7pgEh8p8cxHGj0cKNpJ_nqbp7Awc2tJSpYS53YgMIwaYiZA5oKWvVc6RTTx0GgQrHL2IMnK2ObHIBmCPH2vKjwYpZQUBwkXCglxlxdTn9lMmYzA3fLCrQKt_SRDL9GoAjLjgz_h-E0N-hVpBsRJY_K_xgPbqdanhG6pTE352uwuaTVAUpAISRHA-So6yFm2A1Pq-sN5FBpjF6s6KFWmXz3Ro6YXEhWCiuJHkl-GdEnHGq026L3JpNddpmJ
 {{< /expandableCode >}}
 
-For å se innholdet til et slikt token kan du B64-decode det, eller bruke verktøy, feks https://jwt.io/.
+For å se innholdet til et slikt token kan du B64-decode det, eller bruke verktøy som f.eks. https://jwt.io/.
 
 {{< expandableCode title="Eksempel på et ID-Porten-token etter decoding" lang="json" >}}
 {
