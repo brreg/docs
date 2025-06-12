@@ -10,6 +10,10 @@ For å kunne rapportere inn opplysninger om reelle rettighetshavere på vegne av
 > Maskinporten og/eller ID-Porten trenger du sannsynligvis ikke å gjøre det på nytt. Du kan da gjenbruke API-klienten du tidligere har opprettet, 
 > forutsatt at API-klienten har tilgang til scopene `openid`, `altinn:instances.read` og `altinn:instances.write`.  
 
+> **_NB!_** Maskinell innrapportering for Reelle rettighetshavere krever at sluttbrukeren er logget inn via ID-Porten.
+> Dette betyr at [Altinn 2 Virksomhetsbrukere](https://altinn.github.io/docs/api/rest/kom-i-gang/virksomhetsbrukere/)
+> og [Altinn 3 Systembruker](https://docs.altinn.studio/nb/authentication/what-do-you-get/systemuser/) IKKE støttes.
+
 ## 1. Generell informasjon om hvordan sluttbrukersystem kan autentisere brukere via ID-porten
 Se [denne dokumentasjonen](https://docs.altinn.studio/nb/api/authentication/id-porten/) for å få en grunnleggende forståelse av hvordan sluttbrukersystem kan autentisere brukere via ID-porten, og dermed kunne benytte API for vår Altinn 3-app.
 
