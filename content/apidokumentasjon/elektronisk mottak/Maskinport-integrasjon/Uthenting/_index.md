@@ -20,6 +20,17 @@ Access-tokenet oppgis i headeren `Authorization`. Husk `Bearer` før tokenet.
 |---------------|-----------------------------|
 | Authorization | Bearer <maskinporten-token> |
 
+## Bruksanvisning
+
+For å kunne hente ut meldinger så skal man ta til bruk alle tre av endepunktene beskrevet på denne siden. Flyten er beskrevet under:
+
+1. Se tilgjengelig filer via `outbound/available`
+   - Her ser man alle filene knyttet til bedriften. Dette finner vi gjennom orgnummer i tokenet som blir brukt.
+2. Last ned filene via `outbound/download`
+   - Her bruker man opplysninger fra filene man fikk i responsen fra kallet mot `outbound/available` for å laste ned riktig.
+3. Godkjenn at filene er nedlastet via `outbound/confirm` når man har lastet ned filen.
+   - Dette fjerner filen fra å dukke opp i `outbound/available` kallet.
+
 ## Grensesnittbeskrivelse
 
 [Swagger](https://mottak.brreg.no/outbound/swagger-ui/index.html)
