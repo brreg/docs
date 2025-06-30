@@ -94,6 +94,16 @@ Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Ret
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
 
+### 1.5.0 - 2025-06-30
+
+### Lagt til
+
+* Endringer på klassen Uoverensstemmelse i [løsningsmodellen](../../../../../informasjonsmodeller/reelle-rettighetshavere/loesningsmodeller/rrh_loesningsmodell_virksomhet/)
+  * Nytt felt innsender på uoverensstemmelse. En innsender kan være:
+    * En utenlandsk person
+    * En folkeregistrert person 
+    * Eller en norsk virksomhet
+
 ### 1.4.0 - 2025-03-28
 
 ### Lagt til
