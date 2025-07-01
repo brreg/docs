@@ -60,12 +60,12 @@ felter og særregler kan ses i løsningsmodell for [virksomhet](../../../../../i
 
 Se tabellen under for hvilke data ditt maskinporten-scope har tilgang til å se om uoverensstemmelser.
 
-| Aktør                                                                                                | Maskinporten-scope                                                                                                | Innhold i uoverensstemmelse og uoverensstemmelseDato | Historikk | Opplysning om varslingspliktigVirksomhet |
-|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|-----------|------------------------------------------|
-| Offentlig myndighet i § 3-11 (1)                                                                     | **brreg:reelle/offentlig**                                                                                        | X                                                    | X         | X                                        |
-| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav a, b, c, e, g, h til k, n og o | **brreg:reelle/rapporteringspliktig**                                                                             | X                                                    |           |                                          |
-| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav d, f, l og m                   | **brreg:reelle/rapporteringspliktig.begrenset**                                                                   | X                                                    |           |                                          |
-| Medier, sivilsamfunnsorganisasjoner og høyere utdanningsinstitusjoner i § 3-11 (2), (3) og (4) ledd. | **brreg:reelle/media**, **brreg:reelle/sivilsamfunnsorganisasjon**, **brreg:reelle/hoeyereutdanningsinstitusjon** | X                                                    |           |                                          |
+| Aktør                                                                                                | Maskinporten-scope                                                                                                | Innhold i uoverensstemmelse og uoverensstemmelsesdato | Historikk | Opplysninger om innsender |
+|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|-----------|---------------------------|
+| Offentlig myndighet i § 3-11 (1)                                                                     | **brreg:reelle/offentlig**                                                                                        | X                                                     | X         | X                         |
+| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav a, b, c, e, g, h til k, n og o | **brreg:reelle/rapporteringspliktig**                                                                             | X                                                     |           |                           |
+| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav d, f, l og m                   | **brreg:reelle/rapporteringspliktig.begrenset**                                                                   | X                                                     |           |                           |
+| Medier, sivilsamfunnsorganisasjoner og høyere utdanningsinstitusjoner i § 3-11 (2), (3) og (4) ledd. | **brreg:reelle/media**, **brreg:reelle/sivilsamfunnsorganisasjon**, **brreg:reelle/hoeyereutdanningsinstitusjon** | X                                                     |           |                           |
 
 
 ## Hvordan bruke totalbestanden med endringsloggen
@@ -93,6 +93,16 @@ Totalbestanden oppdateres normalt ved midnatt hver dag, men dette er ikke garant
 Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Rettighetshavere.  
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
+
+### 1.5.0 - 2025-06-30
+
+### Lagt til
+
+* Endringer på klassen Uoverensstemmelse i [løsningsmodellen](../../../../../informasjonsmodeller/reelle-rettighetshavere/loesningsmodeller/rrh_loesningsmodell_virksomhet/)
+  * Nytt felt innsender på uoverensstemmelse. En innsender kan være:
+    * En utenlandsk person
+    * En folkeregistrert person 
+    * Eller en norsk virksomhet
 
 ### 1.4.0 - 2025-03-28
 

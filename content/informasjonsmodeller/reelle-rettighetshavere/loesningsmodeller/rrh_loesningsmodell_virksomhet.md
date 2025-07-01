@@ -63,6 +63,13 @@ weight: 10
 | **InternasjonalAdresse**           |                                                    | Adresse for utenlandsk virksomhet                                                                                                                                                                               |
 |                                    | friAdressetekst                                    | Adresse for den utenlandske virksomheten. Kan bestå av flere adresselinjer                                                                                                                                      |
 |                                    | land                                               | Landkode og navn på hjemlandet til den utenlandske virksomheten                                                                                                                                                 |
+| **Innsender**                      |                                                    |                                                                                                                                                                                                                 |
+|                                    | varslingspliktigVirksomhet                         | Innsender av uoverensstemmelse dersom innsender er en virksomhet                                                                                                                                                |
+|                                    | folkeregistrertPerson                              | Innsender av uoverensstemmelse dersom innsender er en folkeregistrert person                                                                                                                                          |
+|                                    | utenlandskPerson                                   | Innsender av uoverensstemmelse dersom innsender er en utenlandsk person                                                                                                                                               |
+| **UtenlandskPersonInnsender**      |                                                    |                                                                                                                                                                                                                 |
+|                                    | foedselsdato                                       | Fødselsdato for utenlandsk innsender (se [særregler for personer unntatt innsyn](#særregler-for-personer-unntatt-innsyn))                                                                                       |
+|                                    | fulltNavn                                          | Fullt navn for utenlandsk innsender (se [særregler for personer unntatt innsyn](#særregler-for-personer-unntatt-innsyn))                                                                                        |
 
 ## Særregler for personer unntatt innsyn
 
@@ -74,4 +81,5 @@ For personer unntatt innsyn, fjernes følgende data på reell rettighetshaver:
 * Grunnlagstype
 * Mellomliggende virksomhet
 
-Se mer info i [forskrift til lov om register over reelle rettighetshavere](https://lovdata.no/forskrift/2021-06-21-2056/§3-9).
+Se mer info
+i [forskrift til lov om register over reelle rettighetshavere](https://lovdata.no/forskrift/2021-06-21-2056/§3-9).
