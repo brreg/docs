@@ -43,7 +43,7 @@ Under er et BPMN-diagram for prosessen for å sette skjemaet i ønsket tilstand.
 handlingene gjøres via API-kall, eller ved å trykke på synlige knapper i skjemaet i
 nettleseren.
 
-![](docs/static/images/guides/aarsregnskap/aarsregnskap-innsending-modell.png)
+![BPMN diagram](aarsregnskap-innsending-modell.png)
 
 Som vist på diagrammet, må skjemaet alltid gjennom alle tre tilstandene for å bli sendt inn.
 Alle skjemaer starter som ukomplett innsending. Deretter må skjemaet låses (komplett
