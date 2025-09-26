@@ -65,9 +65,6 @@ Ved 200 OK:
 [
   {
   "mottakId":"be935814-c7a3-4a9f-8bbc-ac278cbe41d5",
-  "version":0,
-  "orgnr":910514350,
-  "dokumentId":"be935814-c7a3-4a9f-8bbc-ac278cbe41d5",
   "status":"ready",
   "oppdatert":"2019-09-05T09:43:51.691"
   }
