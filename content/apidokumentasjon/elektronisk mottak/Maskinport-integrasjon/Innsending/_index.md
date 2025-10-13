@@ -33,13 +33,15 @@ Husk `Bearer` før tokenet.
 
 Denne forespørselen laster opp en melding med ingen eller flere vedlegg/attachments.
 
+Her er det viktig at man også setter header for content-type på hver av filene som blir sendt inn gjennom multipart/form-data requestet. Vi vil gjerne at det blir oppgitt hvilken filtype som da blir lastet opp.
+
 Endepunktet tar i mot **POST** multipart-requester med følgende deler:
 
 | Felt          | Type           | Innhold                                                                                   | Påkrevd |
 |---------------|----------------|-------------------------------------------------------------------------------------------|---------|
 | Authorization | Header         | JWT access token                                                                          | Ja      |
 | payload       | form-data      | XML i henhold til Melding ([Link til XSD](http://schema.brreg.no/postmottak/melding.xsd)) | Ja      |
-| attachments   | multipart-file | fil/bytestream                                                                            | Nei     |
+| attachments   | multipart-file | fil                                                                                       | Nei     |
 
 #### Response
 
