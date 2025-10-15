@@ -1,7 +1,7 @@
 ---
 title: Test og produksjon
 description: Beskrivelse av hvordan systemleverandørene skal gjennomføre testing før de tar i bruk løsningen i produksjon
-weight: 3
+weight: 4
 ---
 
 Vi forventer at systemleverandørene setter seg grundig inn i vår implementasjonsguide før de tar i bruk løsningen i test og etter hvert i produksjon.

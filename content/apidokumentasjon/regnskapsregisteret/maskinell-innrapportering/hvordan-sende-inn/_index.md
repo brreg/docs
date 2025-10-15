@@ -1,7 +1,7 @@
 ---
 title: Hvordan gjøre systeminnsending i årsregnskap
 description: Beskrivelse av hvordan man sender inn registreringer som tredjeleverandør.
-weight: 1
+weight: 2
 ---
 
 Dette er ment som dokumentasjon for utviklere hos sluttbrukersystemer som skal etablere innsending av årsregnskap i Altinn3.

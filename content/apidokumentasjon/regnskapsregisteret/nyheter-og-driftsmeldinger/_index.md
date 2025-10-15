@@ -1,7 +1,7 @@
 ---
 title: Nyheter og driftsmeldinger
 description: Nyheter om viktige endringer og driftsmeldinger for tjenestene
-weight: 101
+weight: 5
 ---
 
 Vi vil gi beskjed om viktige nyheter og driftsmeldinger relatert til Register over reelle rettighetshavere på brreg.no samt via RSS-feed.

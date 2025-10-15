@@ -1,6 +1,6 @@
 ---
-title: Register over reelle rettighetshavere
-description: Beskrivelser av API innen domene Reelle rettighetshavere
+title: Regnskapsregisteret
+description: Beskrivelser av API innen domene Regnskapsregisteret
 weight: 100
 ---
 
@@ -12,4 +12,4 @@ Innsendingspliktige virksomheter skal hvert år sende inn årsregnskap, noter, �
 Mer informasjon om Regnskapsregisteret finner du på [Om Regnskapsregisteret](https://www.brreg.no/om-oss/registrene-vare/om-regnskapsregisteret/).
 
 ## Maskinell innrapportering
-Dersom du ønsker å  sende inn årsregnskap maskinelt kan du finne mer informasjon på siden [Maskinell innrapportering](./maskinell-innrapportering).
+Dersom du ønsker å  sende inn årsregnskap maskinelt kan du finne mer informasjon på siden [Hvordan gjøre systeminnsending i årsregnskap](./maskinell-innrapportering/hvordan-sende-inn).
