@@ -1,18 +1,41 @@
 ---
 title: Dokumentasjon
-description: Dokumentasjon på datamodeller og designmaer for maskinell innsendelse av årsregnskap
+description: Dokumentasjon på datamodeller og designmaler for maskinell innsendelse av årsregnskap
 weight: 1
 ---
 
-## Årsregnskap
-- [Last ned RR0002 (.zip)](static/documents/aarsregnskap/RR-0002.zip)
-- [Last ned RR0003 (.zip)](static/documents/aarsregnskap/RR-0003.zip)
-- [Last ned RR0004 (.zip)](static/documents/aarsregnskap/RR-0004.zip)
-- [Last ned RR0005 (.zip)](static/documents/aarsregnskap/RR-0005.zip)
-- [Last ned RR0006 (.zip)](static/documents/aarsregnskap/RR-0006.zip)
-- [Last ned RR0007 (.zip)](static/documents/aarsregnskap/RR-0007.zip)
-- [Last ned RR0008 (.zip)](static/documents/aarsregnskap/RR-0008.zip)
-- [Last ned RR0009 (.zip)](static/documents/aarsregnskap/RR-0009.zip)
-- [Last ned RR0010 (.zip)](static/documents/aarsregnskap/RR-0010.zip)
-- [Last ned RR0011 (.zip)](static/documents/aarsregnskap/RR-0011.zip)
-- [Last ned RR0200 (.zip)](static/documents/aarsregnskap/RR-0200.zip)
+## Tjenester
+
+### Årsregnskap
+[Last ned RR-0002 (.zip)](RR-0002.zip)
+
+### Årsregnskap for bank og finans
+[Last ned RR-0003 (.zip)](RR-0003.zip)
+
+### Årsregnskap for skadeforsikring
+[Last ned RR-0004 (.zip)](RR-0004.zip)
+
+### Årsregnskap for livsforsikring
+[Last ned RR-0005 (.zip)](RR-0005.zip)
+
+### Årsregnskap for pensjonsforetak
+[Last ned RR-0006 (.zip)](RR-0006.zip)
+
+### Årsregnskap for verdipapirfond
+[Last ned RR-0007 (.zip)](RR-0007.zip)
+
+### Årsregnskap satt opp etter funksjon
+[Last ned RR-0008 (.zip)](RR-0008.zip)
+
+### Årsregnskap for frivillig virksomhet - foreninger
+[Last ned RR-0009 (.zip)](RR-0009.zip)
+
+### Årsregnskap for ideelle organisasjoner med aktivitetsregnskap
+[Last ned RR-0010 (.zip)](RR-0010.zip)
+
+### Årsregnskap etter regel om begrenset regnskapsplikt
+[Last ned RR-0011 (.zip)](RR-0011.zip)
+
+### Mellombalanse
+[Last ned RR-0200 (.zip)](RR-0200.zip)
+
