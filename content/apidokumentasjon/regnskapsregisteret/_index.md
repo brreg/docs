@@ -4,7 +4,7 @@ description: Beskrivelser av API innen domene Regnskapsregisteret
 weight: 100
 ---
 
-# Om registeret
+## Om registeret
 
 Regnskapsregisteret er den viktigste datakilden for alle som vil skaffe seg innsikt i den økonomiske tilstanden i norsk næringsliv.
 
