@@ -4,7 +4,7 @@ description: Nyheter om viktige endringer og driftsmeldinger for tjenestene
 weight: 5
 ---
 
-Vi vil gi beskjed om viktige nyheter og driftsmeldinger relatert til Register over reelle rettighetshavere på brreg.no samt via RSS-feed.
+Vi vil gi beskjed om viktige nyheter og driftsmeldinger relatert til Regnskapsregisteret på brreg.no samt via RSS-feed.
 
 ### Nyheter
 
