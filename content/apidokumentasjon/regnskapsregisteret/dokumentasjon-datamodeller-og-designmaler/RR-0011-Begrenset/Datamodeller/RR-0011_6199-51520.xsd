@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://schema.brreg.no/regnsys/aarsregnskap_begr" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schema.brreg.no/regnsys/aarsregnskap_begr" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+			<xs:attribute name="domenenavn" fixed="Regnskapsregisteret"/>
+			<xs:attribute name="modellnavn" fixed="RR0011H_M"/>
+		</xs:documentation>
+	</xs:annotation>
+	<xs:element name="melding" type="RR0011H_M"/>
+	<xs:complexType name="RR0011H_M">
+		<xs:sequence>
+			<xs:element name="Innsender" type="Innsender"/>
+			<xs:element name="Skjemainnhold" type="Skjemainnhold"/>
+		</xs:sequence>
+		<xs:attribute name="dataFormatId" type="xs:string" use="required" fixed="6199"/>
+		<xs:attribute name="dataFormatVersion" type="xs:string" use="required" fixed="51520"/>
+		<xs:attribute name="tjenestehandling" type="xs:string" use="required" fixed="aarsregnskap_begr"/>
+		<xs:attribute name="tjeneste" type="xs:string" use="required" fixed="regnskap"/>
+		<xs:anyAttribute/>
+	</xs:complexType>
+	<xs:complexType name="Innsender">
+		<xs:sequence>
+			<xs:element name="enhet" type="Enhet"/>
+			<xs:element name="kontaktperson" type="Kontaktperson" minOccurs="0" maxOccurs="10"/>
+			<xs:element name="opplysningerInnsending" type="OpplysningerInnsending"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Enhet">
+		<xs:sequence>
+			<xs:element name="organisasjonsnummer" type="EnhetOrganisasjonsnummer"/>
+			<xs:element name="organisasjonsform" type="EnhetOrganisasjonsform"/>
+			<xs:element name="navn" type="EnhetNavn"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EnhetOrganisasjonsnummer">
+		<xs:simpleContent>
+			<xs:extension base="HeltallNi">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EnhetOrganisasjonsform">
+		<xs:simpleContent>
+			<xs:extension base="TekstTrettiFemTegn">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="756"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EnhetNavn">
+		<xs:simpleContent>
+			<xs:extension base="TekstHundreOgSyttiFemTegn">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="1"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Kontaktperson">
+		<xs:sequence>
+			<xs:element name="e-post" type="KontaktpersonEPost" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KontaktpersonEPost">
+		<xs:simpleContent>
+			<xs:extension base="TekstSyttiTegn">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="19022"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OpplysningerInnsending">
+		<xs:sequence>
+			<xs:element name="systemNavn" type="SystemNavn"/>
+			<xs:element name="avviklingsregnskap" type="Avviklingsregnskap" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SystemNavn">
+		<xs:simpleContent>
+			<xs:extension base="TekstFemtiTegn">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="39007"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Avviklingsregnskap">
+		<xs:simpleContent>
+			<xs:extension base="Boolean">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="40314"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Skjemainnhold">
+		<xs:sequence>
+			<xs:element name="fastsettelse" type="Fastsettelse"/>
+			<xs:element name="konsern" type="Konsern"/>
+			<xs:element name="regnskapsperiode" type="Regnskapsperiode"/>
+			<xs:element name="tilleggsopplysninger" type="Tilleggsopplysninger"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Fastsettelse">
+		<xs:sequence>
+			<xs:element name="fastsettelsesdato" type="RegnskapFastsettelseDato"/>
+			<xs:element name="bekreftendeSelskapsrepresentant" type="StyremedlemNavnSpesifisertStyremedlem"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RegnskapFastsettelseDato">
+		<xs:simpleContent>
+			<xs:extension base="Dato">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="17105"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="StyremedlemNavnSpesifisertStyremedlem">
+		<xs:simpleContent>
+			<xs:extension base="TekstSyttiTegn">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="19023"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Konsern">
+		<xs:sequence>
+			<xs:element name="konsernregnskap" type="KonsernregnskapVedlegg"/>
+			<xs:element name="morselskap" type="Morselskap"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KonsernregnskapVedlegg">
+		<xs:simpleContent>
+			<xs:extension base="SvarJaNei">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="25943"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Morselskap">
+		<xs:simpleContent>
+			<xs:extension base="SvarJaNei">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="4168"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Regnskapsperiode">
+		<xs:sequence>
+			<xs:element name="regnskapsaar" type="RegnskapAr"/>
+			<xs:element name="regnskapsstart" type="RegnskapStartdato"/>
+			<xs:element name="regnskapsslutt" type="RegnskapAvslutningsdato"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RegnskapAr">
+		<xs:simpleContent>
+			<xs:extension base="Tekst">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="17102"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RegnskapStartdato">
+		<xs:simpleContent>
+			<xs:extension base="Dato">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="17103"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RegnskapAvslutningsdato">
+		<xs:simpleContent>
+			<xs:extension base="Dato">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="17104"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Tilleggsopplysninger">
+		<xs:sequence>
+			<xs:element name="smaaForetak" type="RegnskapsreglerSmaForetak"/>
+			<xs:element name="antallAarsverk-37467" type="AntallAarsverk"/>
+			<xs:element name="usikkerhetDrift-37443" type="UsikkerhetDrift" minOccurs="0"/>
+			<xs:element name="usikkerhetDriftFritekst-37444" type="UsikkerhetDriftFritekst" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RegnskapsreglerSmaForetak">
+		<xs:simpleContent>
+			<xs:extension base="SvarJaNei">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8079"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AntallAarsverk">
+		<xs:simpleContent>
+			<xs:extension base="DesimaltallNiTo">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="37467"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UsikkerhetDrift">
+		<xs:simpleContent>
+			<xs:extension base="SvarJaNei">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="37443"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UsikkerhetDriftFritekst">
+		<xs:simpleContent>
+			<xs:extension base="TekstSyttiTegn">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="37444"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="HeltallNi">
+		<xs:restriction base="xs:string">
+			<xs:length value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TekstTrettiFemTegn">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TekstHundreOgSyttiFemTegn">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="175"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TekstFemtiTegn">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="Dato">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="SvarJaNei">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ja"/>
+			<xs:enumeration value="nei"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DesimaltallNiTo">
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="9"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Boolean">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="true"/>
+			<xs:enumeration value="false"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TekstSyttiTegn">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="70"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
