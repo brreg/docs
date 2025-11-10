@@ -4,8 +4,11 @@ description: Beskrivelser av Virksomheter API innen domene Reelle rettighetshave
 weight: 100
 ---
 
-## APIer vi tilbyr ## 
+{{< warning >}}
+Pr. dags dato tilbyr registeret bare maskin-til-maskin APIer uten grafisk brukergrensesnitt.
+{{< /warning >}}
 
+## APIer vi tilbyr ##
 * APIet "Virksomheter" er et API for uthenting av opplysninger fra registeret:
 
   * Mer informasjon om APIet finner du på siden [Virksomheter](./apier-vi-tilbyr/virksomheter)

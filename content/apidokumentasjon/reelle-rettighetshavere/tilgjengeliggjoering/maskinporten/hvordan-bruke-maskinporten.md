@@ -1,7 +1,7 @@
 ---
 title: Hvordan bruke Maskinporten
 description: Veiledning for integrasjon mot Maskinporten for direkte tilgang
-weight: 1
+weight: 100
 ---
 
 ## Innledning
