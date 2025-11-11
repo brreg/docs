@@ -73,6 +73,7 @@ Tar i mot et fødselsnummer eller d-nummer som del av URL, med obligatorisk path
 #### Response
 
 Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-format, i form av et JSON-objekt som inneholder opplysninger om intet til utlegg og utleggstrekk.
+
 Eksempelet inneholder også utleggstrekk på nytt format. Da kan attributene "trekkbelop", "trekkvaluta", "periodeStart" og "periodeSlutt" være tomme.
 
 <details><summary>**Vis eksempelrespons**</summary><p>
