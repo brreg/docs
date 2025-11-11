@@ -73,6 +73,7 @@ Tar i mot et fødselsnummer eller d-nummer som del av URL, med obligatorisk path
 #### Response
 
 Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-format, i form av et JSON-objekt som inneholder opplysninger om intet til utlegg og utleggstrekk.
+Eksempelet inneholder også utleggstrekk på nytt format. Da kan attributene "trekkbelop", "trekkvaluta", "periodeStart" og "periodeSlutt" være tomme.
 
 <details><summary>**Vis eksempelrespons**</summary><p>
 
@@ -82,7 +83,7 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 {
     "utleggResponseDistributor": {
         "antallITU": 1,
-        "antallUTT": 2,
+        "antallUTT": 3,
         "utlegg": [
             {
                 "utleggstype": "ITU",
@@ -105,6 +106,11 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
                 "trekkprosent": 17.0,
                 "periodeStart": "2018-07-13",
                 "periodeSlutt": "2020-07-13"
+            },
+            {
+                "utleggstype": "UTT",
+                "avholdtForretning": "2025-09-30",
+                "innfortILosoreregisteret": "2025-10-08"
             }
         ],
         "meldinger": [],
@@ -149,21 +155,12 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 {
   "utleggResponseDistributor": {
     "antallITU": 1,
-    "antallUTT": 1,
+    "antallUTT": 0,
     "utlegg": [
       {
         "utleggstype": "ITU",
         "avholdtForretning": "2020-01-10",
         "innfortILosoreregisteret": "2020-01-16"
-      },
-      {
-        "utleggstype": "UTT",
-        "avholdtForretning": "2021-08-25",
-        "innfortILosoreregisteret": "2021-08-31",
-        "trekkbelop": 43022.00,
-        "trekkvaluta": "NOK",
-        "periodeStart": "2021-08-25",
-        "periodeSlutt": "2023-08-25"
       }
     ],
     "meldinger": [],
