@@ -1,7 +1,7 @@
 ---
 title: Maskinporten
 description: Veiledning for integrasjon mot Maskinporten
-weight: 3
+weight: 100
 ---
 
 ## Innledning

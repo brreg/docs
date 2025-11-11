@@ -1,7 +1,7 @@
 ---
 title: Systemleverandører
 description: Veiledning for integrasjon mot Maskinporten som systemleverandør
-weight: 3
+weight: 100
 ---
 
 Veiledning for systemleverandører.
