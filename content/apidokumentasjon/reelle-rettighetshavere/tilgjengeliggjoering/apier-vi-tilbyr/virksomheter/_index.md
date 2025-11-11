@@ -94,6 +94,12 @@ Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Ret
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
 
+### 1.5.1 - 2025-11-11
+
+#### Endret
+
+- Tar i bruk landkode "XUK" (Uoppgitt) når bostedsland for person er ukjent. Tidligere returnerte APIet tekstverdien "UKJENT".
+
 ### 1.5.0 - 2025-06-30
 
 ### Lagt til
