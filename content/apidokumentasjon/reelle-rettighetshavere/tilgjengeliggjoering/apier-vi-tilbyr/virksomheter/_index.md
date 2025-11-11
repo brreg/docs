@@ -98,7 +98,7 @@ og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.
 
 #### Endret
 
-- Tar i bruk landkode "XUK" (Uoppgitt) når bostedsland for person er ukjent. Tidligere returnerte APIet tekstverdien "UKJENT".
+- Tar i bruk landkode "XUK" (Uoppgitt) når bostedsland for person er ukjent. Tidligere returnerte APIet verdien "UKJENT".
 
 ### 1.5.0 - 2025-06-30
 
