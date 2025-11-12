@@ -77,6 +77,8 @@ Tar i mot et fødselsnummer eller d-nummer som del av URL.
 Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-format, i form av et JSON-objekt som inneholder opplysninger om intet til utlegg og utleggstrekk.
 Der aktør er person vil responsen inneholde navn på vedkommende.
 
+Eksempelet inneholder også utleggstrekk på nytt format. Da kan attributene "trekkbelop", "trekkvaluta", "periodeStart" og "periodeSlutt" være tomme.
+
 <details><summary>**Vis eksempelrespons**</summary><p>
 
 ##### Eksempelrespons for oppslag på fødselsnummer eller d-nummer
@@ -85,7 +87,7 @@ Der aktør er person vil responsen inneholde navn på vedkommende.
 {
   "utleggResponseKredittforetak": {
     "antallITU": 1,
-    "antallUTT": 1,
+    "antallUTT": 2,
     "utlegg": [
       {
         "ubnr": 20202000000006,
@@ -148,6 +150,21 @@ Der aktør er person vil responsen inneholde navn på vedkommende.
             "referansenummer": "1"
           }
         ]
+      },
+      {
+        "ubnr": 20255500000013,
+        "ubmeldnr": 1,
+        "utleggstype": "UTT",
+        "avholdtForretning": "2025-09-28",
+        "innfortILosoreregisteret": "2025-10-01",
+        "aktorer": [
+          {
+            "rolletype": "Saksøkt",
+            "personidentifikator": "07827199324",
+            "fornavn": "KVADRATISK",
+            "etternavn": "ALM"
+          }
+        ]
       }
     ],
     "meldinger": [],
@@ -189,6 +206,8 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 
 Siste timestamp returneres som en del av responsen, slik at dette kan benyttes for å kontrollere om man har fått alt, samt som input i neste forespørsel.
 
+Eksempelet inneholder også utleggstrekk på nytt format. Da kan attributene "trekkbelop", "trekkvaluta", "periodeStart" og "periodeSlutt" være tomme.
+
 <details><summary>**Vis eksempelrespons**</summary><p>
 
 ##### Eksempelrespons for Endringslogg: Oppslag på endringer for alle fødselsnummer/d-nummer og organisasjonsnummer
@@ -197,7 +216,7 @@ Siste timestamp returneres som en del av responsen, slik at dette kan benyttes f
 {
   "endringsloggResponseKredittforetak": {
     "antallITU": 3,
-    "antallUTT": 3,
+    "antallUTT": 4,
     "datoSistEndret": "2022-04-08T15:10:16.277149",
     "endringslogg": [
       {
@@ -373,6 +392,21 @@ Siste timestamp returneres som en del av responsen, slik at dette kan benyttes f
             "referansenummer": "2"
           }
         ]
+      },
+      {
+        "ubnr": 20255500000013,
+        "ubmeldnr": 1,
+        "utleggstype": "UTT",
+        "avholdtForretning": "2025-09-28",
+        "innfortILosoreregisteret": "2025-10-01",
+        "aktorer": [
+          {
+            "rolletype": "Saksøkt",
+            "personidentifikator": "07827199324",
+            "fornavn": "KVADRATISK",
+            "etternavn": "ALM"
+          }
+        ]
       }
     ],
     "meldinger": [],
@@ -414,6 +448,8 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
 
 Siste timestamp er en del av responsen.
 
+Eksempelet inneholder også utleggstrekk på nytt format. Da kan attributene "trekkbelop", "trekkvaluta", "periodeStart" og "periodeSlutt" være tomme.
+
 <details><summary>**Vis eksempelrespons**</summary><p>
 
 ##### Eksempelrespons for Totalbestand: Oppslag på alle aktive utlegg for fødselsnummer/d-nummer og organisasjonsnummer
@@ -422,7 +458,7 @@ Siste timestamp er en del av responsen.
 {
   "totalbestandResponseKredittforetak": {
     "antallITU": 1,
-    "antallUTT": 1,
+    "antallUTT": 2,
     "datoSistEndret": "2022-04-08T15:10:16.277149",
     "totalbestand": [
       {
@@ -480,6 +516,21 @@ Siste timestamp er en del av responsen.
             "rolletype": "Prosessfullmektig",
             "organisasjonsnummer": "810843942",
             "referansenummer": "2"
+          }
+        ]
+      },
+      {
+        "ubnr": 20255500000013,
+        "ubmeldnr": 1,
+        "utleggstype": "UTT",
+        "avholdtForretning": "2025-09-28",
+        "innfortILosoreregisteret": "2025-10-01",
+        "aktorer": [
+          {
+            "rolletype": "Saksøkt",
+            "personidentifikator": "07827199324",
+            "fornavn": "KVADRATISK",
+            "etternavn": "ALM"
           }
         ]
       }
