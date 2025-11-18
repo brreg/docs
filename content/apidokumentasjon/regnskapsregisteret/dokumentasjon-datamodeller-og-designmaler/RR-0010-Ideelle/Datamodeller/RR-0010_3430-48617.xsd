@@ -80,6 +80,7 @@
 		<xs:sequence>
 			<xs:element name="landTilLand" type="ArsregnskapLandTilLand" minOccurs="0"/>
 			<xs:element name="avviklingsregnskap" type="Avviklingsregnskap" minOccurs="0"/>
+			<xs:element name="utenlandskRegnskapNUF" type="UtenlandskRegnskapNUF" minOccurs="0"/>
 			<xs:element name="systemNavn" type="SystemNavn"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -94,6 +95,13 @@
 		<xs:simpleContent>
 			<xs:extension base="Boolean">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="40314"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtenlandskRegnskapNUF">
+		<xs:simpleContent>
+			<xs:extension base="Boolean">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="39006"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
