@@ -25,9 +25,10 @@ Husk `Bearer` før tokenet.
 
 [Swagger](https://mottak.brreg.no/inbound/swagger-ui/index.html)
 
-| HTTP-metode | URL                                                   | Beskrivelse                                  | Sikret med jwt |
-|:------------|:------------------------------------------------------|:---------------------------------------------|:---------------|
-| POST        | https://mottak.brreg.no/inbound/upload                | Sender inn melding med 0 eller flere vedlegg | JA             |
+| HTTP-metode | URL                                               | Beskrivelse                                                                         | Sikret med jwt |
+|:------------|:--------------------------------------------------|:------------------------------------------------------------------------------------|:---------------|
+| POST        | https://mottak.brreg.no/inbound/upload            | Sender inn melding med 0 eller flere vedlegg                                        | JA             |
+| POST        | https://mottak.brreg.no/inbound/genererSignertPdf | Sender inn melding, får tilbake en signert PDF med forretningsmeldingen som vedlegg | JA             |
 
 ### /upload
 
@@ -123,6 +124,18 @@ HttpEntity<MultiValueMap<String, Object>> requestEntity = HttpEntity<>(body, hea
 ```java
 ResponseEntity<String> objectResponseEntity = restTemplate.exchange("https://mottak.brreg.no/inbound/upload", HttpMethod.POST, requestEntity, String.class);
 ```
+
+### /genererSignertPdf
+
+Denne forespørselen laster opp en melding, og får tilbake en signert PDF med forretningsmeldingen som vedlegg.
+
+Endepunktet tar i mot **POST** med melding som body:
+
+| Felt          | Type   | Innhold                                                                                   | Påkrevd |
+|---------------|--------|-------------------------------------------------------------------------------------------|---------|
+| Authorization | Header | JWT access token                                                                          | Ja      |
+| melding       | body   | XML i henhold til Melding ([Link til XSD](http://schema.brreg.no/postmottak/melding.xsd)) | Ja      |
+
 
 ## Testmiljø
 
