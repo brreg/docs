@@ -4147,14 +4147,14 @@
 	</xs:complexType>
 	<xs:complexType name="NoteBeholdningEgneAksjerAksjensPaalydende">
 		<xs:simpleContent>
-			<xs:extension base="DesimaltallTolvTo">
+			<xs:extension base="NoteDesimalverdiFemtenTegn">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="39940"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="NoteBeholdningEgneAksjerAndelAvAksjekapital">
 		<xs:simpleContent>
-			<xs:extension base="DesimaltallNiTo">
+			<xs:extension base="NoteDesimalverdiTolvTegn">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="39941"/>
 			</xs:extension>
 		</xs:simpleContent>
@@ -4201,14 +4201,14 @@
 	</xs:complexType>
 	<xs:complexType name="NoteErvervAndelAvAksjekapEndringBeholdningEgneAksjer">
 		<xs:simpleContent>
-			<xs:extension base="DesimaltallNiTo">
+			<xs:extension base="NoteDesimalverdiTolvTegn">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="39946"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="NoteErvervAndelAvAksjekapEndringBeholdningAksjerMorselskap">
 		<xs:simpleContent>
-			<xs:extension base="DesimaltallNiTo">
+			<xs:extension base="NoteDesimalverdiTolvTegn">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="39947"/>
 			</xs:extension>
 		</xs:simpleContent>
@@ -4267,14 +4267,14 @@
 	</xs:complexType>
 	<xs:complexType name="NoteAvhendelseAndelAvAksjekapEndrBeholdnEgneAksjer">
 		<xs:simpleContent>
-			<xs:extension base="DesimaltallNiTo">
+			<xs:extension base="NoteDesimalverdiTolvTegn">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="39953"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="NoteAvhendelseAndelAvAksjekapEndrBeholdnAksjerMorselskap">
 		<xs:simpleContent>
-			<xs:extension base="DesimaltallNiTo">
+			<xs:extension base="NoteDesimalverdiTolvTegn">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="39954"/>
 			</xs:extension>
 		</xs:simpleContent>
@@ -4329,7 +4329,7 @@
 	</xs:complexType>
 	<xs:complexType name="AntallAarsverk">
 		<xs:simpleContent>
-			<xs:extension base="DesimaltallNiTo">
+			<xs:extension base="NoteDesimalverdiTolvTegn">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="37467"/>
 			</xs:extension>
 		</xs:simpleContent>
@@ -4391,14 +4391,14 @@
 	</xs:complexType>
 	<xs:complexType name="NoteRentesatsMedlemmerStyret">
 		<xs:simpleContent>
-			<xs:extension base="DesimaltallNiTo">
+			<xs:extension base="NoteDesimalverdiTolvTegn">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="39893"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="NoteRentesatsAndreMedlemmer">
 		<xs:simpleContent>
-			<xs:extension base="DesimaltallNiTo">
+			<xs:extension base="NoteDesimalverdiTolvTegn">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="39894"/>
 			</xs:extension>
 		</xs:simpleContent>
@@ -5375,16 +5375,16 @@
 			<xs:enumeration value="false"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="DesimaltallTolvTo">
-		<xs:restriction base="xs:decimal">
-			<xs:totalDigits value="12"/>
-			<xs:fractionDigits value="2"/>
+	<xs:simpleType name="NoteDesimalverdiFemtenTegn">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
+			<xs:minLength value="1"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="DesimaltallNiTo">
-		<xs:restriction base="xs:decimal">
-			<xs:totalDigits value="9"/>
-			<xs:fractionDigits value="2"/>
+	<xs:simpleType name="NoteDesimalverdiTolvTegn">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="12"/>
+			<xs:minLength value="1"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="NoteEttHundreTegn">
