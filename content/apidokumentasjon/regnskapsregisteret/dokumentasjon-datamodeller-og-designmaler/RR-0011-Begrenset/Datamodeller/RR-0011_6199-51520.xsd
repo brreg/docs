@@ -178,7 +178,7 @@
 	</xs:complexType>
 	<xs:complexType name="AntallAarsverk">
 		<xs:simpleContent>
-			<xs:extension base="DesimaltallNiTo">
+			<xs:extension base="NoteDesimalverdiTolvTegn">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="37467"/>
 			</xs:extension>
 		</xs:simpleContent>
@@ -231,10 +231,10 @@
 			<xs:enumeration value="nei"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="DesimaltallNiTo">
-		<xs:restriction base="xs:decimal">
-			<xs:totalDigits value="9"/>
-			<xs:fractionDigits value="2"/>
+	<xs:simpleType name="NoteDesimalverdiTolvTegn">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="12"/>
+			<xs:minLength value="1"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="Boolean">
