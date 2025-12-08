@@ -90,7 +90,7 @@ instansiere skjema og laste opp all skjemadata og vedlegg i ett API-kall. Dette 
 multipart/form-data innsending som kombinerer kall for hovedskjema, underskjemaer og
 vedlegg. Man vil fortsatt trenge å deretter sende egne kall for å låse skjemaet og for å
 signere. Les om hvordan å bygge multipart innsending her:
-https://docs.altinn.studio/api/apps/instances/#create-instance
+https://docs.altinn.studio/nb/api/apps/instances/#create-instance
 
 ## Liste over alle skjemanavn
 - aarsregnskap-vanlig-202406 
