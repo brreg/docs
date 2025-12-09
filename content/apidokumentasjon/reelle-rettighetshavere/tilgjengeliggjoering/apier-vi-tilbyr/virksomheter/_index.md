@@ -135,16 +135,17 @@ Rettet feil i OpenAPI-spesifikasjon for endepunkt for enkeltsopplag på organisa
     - `mellomliggendeVirksomheter` (Posisjon-objektet)
     - `statsborgerskap` (Person-objektet)
 
-- Enkelte felter på personrelaterte objekter som var feilaktig markert som required er nå optional. Dette gjelder følgende
+- Enkelte felter på personrelaterte objekter som var feilaktig markert som required er nå optional. Dette gjelder
+  følgende
   felt:
     - `foedselsEllerDNummer` (Person-objektet)
         - Se tabell over for å se hvilke Maskinporten-scopes som har tilgang til feltet.
     - `navn` (Person-objektet)
     - `foedselsdato` (UtenlandskPerson-objektet)
     - `fulltNavn` (UtenlandskPerson-objektet)
+    - **Merk:** Bakgrunnen for endringen er at noen Maskinporten-scopes ikke har tilgang til disse feltene når personen
+      i responsen er unntatt fra innsyn.
 - **Merk:**  API-atferden er uendret — kun dokumentasjonen er korrigert.
-- **Merk:** Bakgrunnen for endringen er at noen Maskinporten-scopes ikke har tilgang til disse feltene når personen i
-  responsen er unntatt fra innsyn.
 
 ### 1.5.1 - 2025-11-11
 
