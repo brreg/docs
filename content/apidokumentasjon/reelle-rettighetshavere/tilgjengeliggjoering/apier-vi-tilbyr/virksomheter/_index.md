@@ -115,6 +115,21 @@ Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Ret
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
 
+### 1.5.3 - 2025-12-15
+
+#### Endret
+
+Rettet feil i OpenAPI-spesifikasjon for endepunkt for å hente endringslogg: `/v1/endringslogg`:
+
+- Enkelte felter på EndringsloggResponse-objektet som var feilaktig markert som optional er nå required. Dette gjelder følgende felt:
+  - `specversion`
+  - `id`
+  - `source`
+  - `type`
+  - `time`
+- **Merk:** API-atferden er uendret — kun dokumentasjonen er korrigert.
+
+
 ### 1.5.2 - 2025-12-09
 
 #### Endret
