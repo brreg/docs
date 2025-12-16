@@ -64,9 +64,9 @@
 	</xs:complexType>
 	<xs:complexType name="ResultatregnskapDriftsresultat">
 		<xs:sequence>
-			<xs:element name="driftsresultat" type="Driftsresultat"/>
-			<xs:element name="inntekt" type="Driftsinntekt"/>
-			<xs:element name="kostnad" type="Driftskostnad"/>
+			<xs:element name="driftsresultat" type="Driftsresultat" minOccurs="0"/>
+			<xs:element name="inntekt" type="Driftsinntekt" minOccurs="0"/>
+			<xs:element name="kostnad" type="Driftskostnad" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Driftsresultat">
@@ -4057,7 +4057,7 @@
 		<xs:sequence>
 			<xs:element name="noteRegnskapsPrinsipp" type="NoteRegnskapsPrinsipp" minOccurs="0"/>
 			<xs:element name="noteAksjeOpplysninger" type="NoteAksjeOpplysninger" minOccurs="0"/>
-			<xs:element name="noteAarsverkTjenestePensjon" type="NoteAarsverkTjenestePensjon"/>
+			<xs:element name="noteAarsverkTjenestePensjon" type="NoteAarsverkTjenestePensjon" minOccurs="0"/>
 			<xs:element name="noteLaanLedendePerson" type="NoteLaanLedendePerson" minOccurs="0"/>
 			<xs:element name="noteTilknyttetSelskap" type="NoteTilknyttetSelskap" minOccurs="0"/>
 			<xs:element name="noteSpesifiseringResultatregnskap" type="NoteSpesifiseringResultatregnskap" minOccurs="0"/>
@@ -4317,7 +4317,7 @@
 	<xs:complexType name="NoteAarsverkTjenestePensjon">
 		<xs:sequence>
 			<xs:element name="noteNummerAarsverk" type="NoteNummerAarsverk" minOccurs="0"/>
-			<xs:element name="antallAarsverk" type="AntallAarsverk"/>
+			<xs:element name="antallAarsverk" type="AntallAarsverk" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="NoteNummerAarsverk">
