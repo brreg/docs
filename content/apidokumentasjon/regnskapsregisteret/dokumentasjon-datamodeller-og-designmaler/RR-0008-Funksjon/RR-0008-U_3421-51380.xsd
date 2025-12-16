@@ -1,0 +1,3358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://schema.brreg.no/regnsys/aarsregnskap_funk/underskjema" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schema.brreg.no/regnsys/aarsregnskap_funk/underskjema" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+			<xs:attribute name="domenenavn" fixed="Regnskapsregisteret"/>
+			<xs:attribute name="modellnavn" fixed="RR0008U_M"/>
+		</xs:documentation>
+	</xs:annotation>
+	<xs:element name="melding" type="RR0008U_M"/>
+	<xs:complexType name="RR0008U_M">
+		<xs:sequence>
+			<xs:element name="Rapport-RR0008U" type="Rapport-RR0008U"/>
+			<xs:element name="Skjemainnhold-RR0008U" type="Skjemainnhold-RR0008U"/>
+		</xs:sequence>
+		<xs:attribute name="dataFormatId" type="xs:string" use="required" fixed="3421"/>
+		<xs:attribute name="dataFormatVersion" type="xs:string" use="required" fixed="51380"/>
+		<xs:attribute name="tjenestehandling" type="xs:string" use="required" fixed="aarsregnskap_funk_underskjema"/>
+		<xs:attribute name="tjeneste" type="xs:string" use="required" fixed="regnskap"/>
+		<xs:anyAttribute/>
+	</xs:complexType>
+	<xs:complexType name="Rapport-RR0008U">
+		<xs:sequence>
+			<xs:element name="aarsregnskap" type="AArsregnskap"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AArsregnskap">
+		<xs:sequence>
+			<xs:element name="regnskapstype" type="Arsregnskapstype"/>
+			<xs:element name="valuta" type="Valutakode"/>
+			<xs:element name="valoer" type="Valoer"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Arsregnskapstype">
+		<xs:simpleContent>
+			<xs:extension base="Arsregnskap">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="25942"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Valutakode">
+		<xs:simpleContent>
+			<xs:extension base="ArsregnskapValutakode">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="34984"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Valoer">
+		<xs:simpleContent>
+			<xs:extension base="ArsregnskapValoer">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="28974"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Skjemainnhold-RR0008U">
+		<xs:sequence>
+			<xs:element name="resultatregnskapDriftsresultat" type="ResultatregnskapDriftsresultat" minOccurs="0"/>
+			<xs:element name="resultatregnskapFinansinntekt" type="ResultatregnskapFinans" minOccurs="0"/>
+			<xs:element name="resultatregnskapResultat" type="ResultatregnskapResultat"/>
+			<xs:element name="balanseAnleggsmidlerOmloepsmidler" type="AnleggsmidlerOmloepsmidler"/>
+			<xs:element name="balanseEgenkapitalGjeld" type="BalanseEgenkapitalGjeld"/>
+			<xs:element name="posterUtenomBalansen" type="PosterUtenomBalanse" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResultatregnskapDriftsresultat">
+		<xs:sequence>
+			<xs:element name="bruttoResultat" type="BruttoResultat" minOccurs="0"/>
+			<xs:element name="kostnader" type="Kostnader" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BruttoResultat">
+		<xs:sequence>
+			<xs:element name="salgsinntekter" type="Salgsinntekt" minOccurs="0"/>
+			<xs:element name="kostnadSolgteVarer" type="KostnadSolgteVarer" minOccurs="0"/>
+			<xs:element name="bruttoResultat" type="ResultatBrutto" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Salgsinntekt">
+		<xs:sequence>
+			<xs:element name="note" type="NoteSalgsinntekter" minOccurs="0"/>
+			<xs:element name="aarets" type="Salgsinntekter" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="SalgsinntekterFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteSalgsinntekter">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18537"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Salgsinntekter">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="1340"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SalgsinntekterFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7965"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KostnadSolgteVarer">
+		<xs:sequence>
+			<xs:element name="note" type="NoteKostnaderVarerSolgte" minOccurs="0"/>
+			<xs:element name="aarets" type="KostnaderVarerSolgte" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="KostnaderVarerSolgteFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteKostnaderVarerSolgte">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27917"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KostnaderVarerSolgte">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27919"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KostnaderVarerSolgteFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27921"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatBrutto">
+		<xs:sequence>
+			<xs:element name="note" type="NoteResultatBrutto" minOccurs="0"/>
+			<xs:element name="aarets" type="ResultatBruttoAret" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="ResultatBruttoFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteResultatBrutto">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27918"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatBruttoAret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27920"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatBruttoFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27922"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Kostnader">
+		<xs:sequence>
+			<xs:element name="distribusjonskostnader" type="Distribusjonskostnader" minOccurs="0"/>
+			<xs:element name="administrativeKostnader" type="AdministrativeKostnader" minOccurs="0"/>
+			<xs:element name="driftsresultat" type="Driftsresultat" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Distribusjonskostnader">
+		<xs:sequence>
+			<xs:element name="note" type="NoteKostnaderDistribusjon" minOccurs="0"/>
+			<xs:element name="aarets" type="KostnaderDistribusjon" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="KostnaderDistribusjonFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteKostnaderDistribusjon">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27923"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KostnaderDistribusjon">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27925"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KostnaderDistribusjonFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27927"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AdministrativeKostnader">
+		<xs:sequence>
+			<xs:element name="note" type="NoteKostnaderAdministrative" minOccurs="0"/>
+			<xs:element name="aarets" type="KostnaderAdministrative" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="KostnaderAdministrativeFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteKostnaderAdministrative">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27924"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KostnaderAdministrative">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27926"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KostnaderAdministrativeFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27928"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Driftsresultat">
+		<xs:sequence>
+			<xs:element name="note" type="NoteDriftsresultat" minOccurs="0"/>
+			<xs:element name="aarets" type="DriftsresultatAret" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="DriftsresultatFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteDriftsresultat">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18543"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DriftsresultatAret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="146"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DriftsresultatFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7026"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatregnskapFinans">
+		<xs:sequence>
+			<xs:element name="nettoFinans" type="Nettofinans" minOccurs="0"/>
+			<xs:element name="finansinntekt" type="Finansinntekt" minOccurs="0"/>
+			<xs:element name="finanskostnad" type="Finanskostnad" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Nettofinans">
+		<xs:sequence>
+			<xs:element name="note" type="NoteResultatFinans" minOccurs="0"/>
+			<xs:element name="aarets" type="ResultatFinans" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="ResultatFinansFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteResultatFinans">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18552"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatFinans">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="158"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatFinansFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7999"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Finansinntekt">
+		<xs:sequence>
+			<xs:element name="investeringDatterselskapTilknyttetSelskap" type="InvesteringDatterselskapTilknyttetSelskap" minOccurs="0"/>
+			<xs:element name="investeringerAndre" type="InvesteringAndre" minOccurs="0"/>
+			<xs:element name="renteinntektSammeKonsern" type="RenteinntektSammeKonsern" minOccurs="0"/>
+			<xs:element name="annenFinansinntekt" type="AnnenFinansinntekt" minOccurs="0"/>
+			<xs:element name="verdiendringerFinansielleInstrument" type="VerdiendringFinansielleInstrument" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InvesteringDatterselskapTilknyttetSelskap">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFinansinntekterDatterselskapTilknyttetSelskap" minOccurs="0"/>
+			<xs:element name="aarets" type="FinansinntekterDatterselskapTilknyttetSelskap" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FinansinntekterDatterselskapTilknyttetSelskapFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFinansinntekterDatterselskapTilknyttetSelskap">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27929"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinansinntekterDatterselskapTilknyttetSelskap">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27934"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinansinntekterDatterselskapTilknyttetSelskapFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27935"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringAndre">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFinansinntekterAndreInvesteringer" minOccurs="0"/>
+			<xs:element name="aarets" type="FinansinntekterAndreInvesteringer" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FinansinntekterAndreInvesteringerFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFinansinntekterAndreInvesteringer">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27930"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinansinntekterAndreInvesteringer">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27936"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinansinntekterAndreInvesteringerFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27937"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RenteinntektSammeKonsern">
+		<xs:sequence>
+			<xs:element name="note" type="NoteRenteinntekterKonsern" minOccurs="0"/>
+			<xs:element name="aarets" type="RenteinntekterKonsern" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="RenteinntekterKonsernFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteRenteinntekterKonsern">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18545"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RenteinntekterKonsern">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="149"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RenteinntekterKonsernFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7029"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnnenFinansinntekt">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFinansinntekterAndre" minOccurs="0"/>
+			<xs:element name="aarets" type="FinansinntekterAndre" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FinansinntekterAndreFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFinansinntekterAndre">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18302"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinansinntekterAndre">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="152"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinansinntekterAndreFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7032"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="VerdiendringFinansielleInstrument">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFinansinntekterFinansielleInstrumenterVerdiendring" minOccurs="0"/>
+			<xs:element name="aarets" type="FinansinntekterFinansielleInstrumenterVerdiendring" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FinansinntekterFinansielleInstrumenterVerdiendringFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFinansinntekterFinansielleInstrumenterVerdiendring">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27931"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinansinntekterFinansielleInstrumenterVerdiendring">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27932"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinansinntekterFinansielleInstrumenterVerdiendringFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27933"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Finanskostnad">
+		<xs:sequence>
+			<xs:element name="rentekostnad" type="Rentekostnad" minOccurs="0"/>
+			<xs:element name="annenFinanskostnad" type="AnnenFinanskostnad" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Rentekostnad">
+		<xs:sequence>
+			<xs:element name="note" type="NoteRentekostnaderKonsern" minOccurs="0"/>
+			<xs:element name="aarets" type="RentekostnaderKonsern" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="RentekostnaderKonsernFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteRentekostnaderKonsern">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18549"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RentekostnaderKonsern">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7037"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RentekostnaderKonsernFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7038"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnnenFinanskostnad">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFinanskostnaderAndre" minOccurs="0"/>
+			<xs:element name="aarets" type="FinanskostnaderAndre" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FinanskostnaderAndreFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFinanskostnaderAndre">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18337"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinanskostnaderAndre">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="156"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinanskostnaderAndreFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7041"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatregnskapResultat">
+		<xs:sequence>
+			<xs:element name="resultat" type="Resultat"/>
+			<xs:element name="overfoering" type="Overfoering" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Resultat">
+		<xs:sequence>
+			<xs:element name="ordinaertResultatFoerSkattekostnad" type="OrdinaertResultatFoerSkattekostnad" minOccurs="0"/>
+			<xs:element name="skattekostnadOrdinaertResultat" type="SkattekostnadOrdinaertResultat" minOccurs="0"/>
+			<xs:element name="ordinaertResultatEtterSkattekostnad" type="OrdinaertResultatEtterSkattekostnad" minOccurs="0"/>
+			<xs:element name="ekstraordinaerePoster" type="EkstraordinaerePoster" minOccurs="0"/>
+			<xs:element name="skattekostnadEkstraordinaertResultat" type="SkattekostnadEkstraordinaertResultat" minOccurs="0"/>
+			<xs:element name="aarsresultat" type="AArsresultat"/>
+			<xs:element name="minoritetsinteresserResultat" type="MinoritetsinteresserResultat" minOccurs="0"/>
+			<xs:element name="aarsresultatEtterMinoritetsinteresser" type="AArsresultatEtterMinoritetsinteresser" minOccurs="0"/>
+			<xs:element name="andreResultatkomponenterIFRS" type="AndreResultatkomponenterIFRS" minOccurs="0"/>
+			<xs:element name="totalresultatIFRS" type="TotalresultatIFRS" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrdinaertResultatFoerSkattekostnad">
+		<xs:sequence>
+			<xs:element name="note" type="NoteResultatForSkattekostnad" minOccurs="0"/>
+			<xs:element name="aarets" type="ResultatForSkattekostnad" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="ResultatForSkattekostnadFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteResultatForSkattekostnad">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18355"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatForSkattekostnad">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="167"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatForSkattekostnadFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7042"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkattekostnadOrdinaertResultat">
+		<xs:sequence>
+			<xs:element name="note" type="NoteSkattekostnadOrdinartResultat" minOccurs="0"/>
+			<xs:element name="aarets" type="SkattekostnadOrdinartResultat" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="SkattekostnadOrdinartResultatFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteSkattekostnadOrdinartResultat">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18259"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkattekostnadOrdinartResultat">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="11835"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkattekostnadOrdinartResultatFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="11836"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OrdinaertResultatEtterSkattekostnad">
+		<xs:sequence>
+			<xs:element name="note" type="NoteResultatOrdinart" minOccurs="0"/>
+			<xs:element name="aarets" type="ResultatOrdinart" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="ResultatOrdinartFjordaret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteResultatOrdinart">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18258"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatOrdinart">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7048"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatOrdinartFjordaret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7049"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EkstraordinaerePoster">
+		<xs:sequence>
+			<xs:element name="note" type="NoteResultatEkstraordinarePoster" minOccurs="0"/>
+			<xs:element name="aarets" type="ResultatEkstraordinarePoster" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="ResultatEkstraordinarePosterFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteResultatEkstraordinarePoster">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="22165"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatEkstraordinarePoster">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="166"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatEkstraordinarePosterFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="22162"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkattekostnadEkstraordinaertResultat">
+		<xs:sequence>
+			<xs:element name="note" type="NoteSkattekostnadEkstraordinartResultat" minOccurs="0"/>
+			<xs:element name="aarets" type="SkattekostnadEkstraordinartResultat" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="SkattekostnadEkstraordinartResultatFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteSkattekostnadEkstraordinartResultat">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18263"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkattekostnadEkstraordinartResultat">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="2821"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkattekostnadEkstraordinartResultatFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8002"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AArsresultat">
+		<xs:sequence>
+			<xs:element name="note" type="NoteArsresultat" minOccurs="0"/>
+			<xs:element name="aarets" type="Arsresultat"/>
+			<xs:element name="fjoraarets" type="ArsresultatFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteArsresultat">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18265"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Arsresultat">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="172"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ArsresultatFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7054"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MinoritetsinteresserResultat">
+		<xs:sequence>
+			<xs:element name="note" type="NoteMinoritetsinteresserResultat" minOccurs="0"/>
+			<xs:element name="aarets" type="MinoritetsinteresserResultatAret" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="MinoritetsinteresserResultatFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteMinoritetsinteresserResultat">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18264"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MinoritetsinteresserResultatAret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7717"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MinoritetsinteresserResultatFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8004"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AArsresultatEtterMinoritetsinteresser">
+		<xs:sequence>
+			<xs:element name="note" type="NoteArsresultatEtterMinoritetsinteresser" minOccurs="0"/>
+			<xs:element name="aarets" type="ArsresultatEtterMinoritetsinteresser" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="ArsresultatEtterMinoritetsinteresserFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteArsresultatEtterMinoritetsinteresser">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="33417"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ArsresultatEtterMinoritetsinteresser">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="33415"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ArsresultatEtterMinoritetsinteresserFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="33416"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AndreResultatkomponenterIFRS">
+		<xs:sequence>
+			<xs:element name="noteResultatkomponenterAndreIFRS" type="NoteResultatkomponenterAndreIFRS" minOccurs="0"/>
+			<xs:element name="resultatkomponenterAndreIFRS" type="ResultatkomponenterAndreIFRS" minOccurs="0"/>
+			<xs:element name="resultatkomponenterAndreIFRSFjoraret" type="ResultatkomponenterAndreIFRSFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteResultatkomponenterAndreIFRS">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="35536"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatkomponenterAndreIFRS">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="32929"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ResultatkomponenterAndreIFRSFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="32930"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TotalresultatIFRS">
+		<xs:sequence>
+			<xs:element name="note" type="NoteTotalresultatIFRS" minOccurs="0"/>
+			<xs:element name="aarets" type="TotalresultatIFRSAret" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="TotalresultatIFRSFjoraaret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteTotalresultatIFRS">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="36635"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TotalresultatIFRSAret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="36633"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TotalresultatIFRSFjoraaret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="36634"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Overfoering">
+		<xs:sequence>
+			<xs:element name="overfoeringTilFraFond" type="OverfoeringTilFraFond" minOccurs="0"/>
+			<xs:element name="utbytteOverfoering" type="UtbytteOverfoering" minOccurs="0"/>
+			<xs:element name="konsernbidrag" type="Konsernbidrag" minOccurs="0"/>
+			<xs:element name="avgittKonsernbidrag" type="AvgittKonsernbidrag" minOccurs="0"/>
+			<xs:element name="fonsemisjon" type="Fondsemisjon" minOccurs="0"/>
+			<xs:element name="udekketTap" type="UdekketTap" minOccurs="0"/>
+			<xs:element name="overfoeringTilFraAnnenEgenkapital" type="OverfoeringTilFraAnnenEgenkapital" minOccurs="0"/>
+			<xs:element name="sumOverfoeringerDisponering" type="SumOverfoeringerDisponeringer" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OverfoeringTilFraFond">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFondOverforinger" minOccurs="0"/>
+			<xs:element name="aarets" type="FondOverforingTilFra" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FondOverforingTilFraFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFondOverforinger">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18553"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FondOverforingTilFra">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7055"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FondOverforingTilFraFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7056"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtbytteOverfoering">
+		<xs:sequence>
+			<xs:element name="note" type="NoteUtbytteOverfortTil" minOccurs="0"/>
+			<xs:element name="aarets" type="UtbytteOverfortTil" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="UtbytteOverfortTilFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteUtbytteOverfortTil">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18272"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtbytteOverfortTil">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="6112"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtbytteOverfortTilFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="9952"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Konsernbidrag">
+		<xs:sequence>
+			<xs:element name="note" type="NoteKonsernbidragOverfortTil" minOccurs="0"/>
+			<xs:element name="aarets" type="KonsernbidragOverfortTil" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="KonsernbidragOverfortTilFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteKonsernbidragOverfortTil">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18554"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KonsernbidragOverfortTil">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="6113"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KonsernbidragOverfortTilFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="10288"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AvgittKonsernbidrag">
+		<xs:sequence>
+			<xs:element name="note" type="NoteKonsernbidragAvgitt" minOccurs="0"/>
+			<xs:element name="aarets" type="KonsernbidragAvgitt" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="KonsernbidragAvgittFjoraaret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteKonsernbidragAvgitt">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="36638"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KonsernbidragAvgitt">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="36636"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KonsernbidragAvgittFjoraaret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="36637"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Fondsemisjon">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFondsemisjon" minOccurs="0"/>
+			<xs:element name="aarets" type="FondsemisjonAret" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FondsemisjonFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFondsemisjon">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18556"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FondsemisjonAret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="183"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FondsemisjonFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7064"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UdekketTap">
+		<xs:sequence>
+			<xs:element name="note" type="NoteTapUdekket" minOccurs="0"/>
+			<xs:element name="aarets" type="TapUdekket" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="TapUdekketFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteTapUdekket">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18557"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TapUdekket">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="185"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TapUdekketFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7070"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OverfoeringTilFraAnnenEgenkapital">
+		<xs:sequence>
+			<xs:element name="note" type="NoteEgenkapitalAnnenOverforinger" minOccurs="0"/>
+			<xs:element name="aarets" type="EgenkapitalAnnenOverforinger" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="EgenkapitalAnnenOverforingerFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteEgenkapitalAnnenOverforinger">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18558"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EgenkapitalAnnenOverforinger">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7065"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EgenkapitalAnnenOverforingerFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7066"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SumOverfoeringerDisponeringer">
+		<xs:sequence>
+			<xs:element name="note" type="NoteOverforingerDisponeringer" minOccurs="0"/>
+			<xs:element name="aarets" type="OverforingerDisponeringer" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="OverforingerDisponeringerFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteOverforingerDisponeringer">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18279"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OverforingerDisponeringer">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7071"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OverforingerDisponeringerFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7072"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnleggsmidlerOmloepsmidler">
+		<xs:sequence>
+			<xs:element name="sumEiendeler" type="SumEiendeler"/>
+			<xs:element name="balanseAnleggsmidler" type="Anleggsmidler" minOccurs="0"/>
+			<xs:element name="balanseOmloepsmidler" type="Omloepsmidler" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SumEiendeler">
+		<xs:sequence>
+			<xs:element name="note" type="NoteEiendeler" minOccurs="0"/>
+			<xs:element name="aarets" type="Eiendeler"/>
+			<xs:element name="fjoraarets" type="EiendelerFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteEiendeler">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18167"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Eiendeler">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="219"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EiendelerFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7127"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Anleggsmidler">
+		<xs:sequence>
+			<xs:element name="sumAnleggsmidler" type="SumAnleggsmidler" minOccurs="0"/>
+			<xs:element name="balanseFinansielleAnleggsmidler" type="FinansielleAnleggsmidler" minOccurs="0"/>
+			<xs:element name="immaterielleEiendelerVarigeDriftsmidler" type="ImmaterielleEiendelerOgVarigeDriftsmidler" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SumAnleggsmidler">
+		<xs:sequence>
+			<xs:element name="note" type="NoteAnleggsmidler" minOccurs="0"/>
+			<xs:element name="aarets" type="AnleggsmidlerAret" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="AnleggsmidlerFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteAnleggsmidler">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18570"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnleggsmidlerAret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="217"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnleggsmidlerFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7108"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinansielleAnleggsmidler">
+		<xs:sequence>
+			<xs:element name="investeringerDatterselskap" type="InvesteringDatterselskap" minOccurs="0"/>
+			<xs:element name="investeringAnnetForetakSammeKonsern" type="InvesteringAnnetForetakSammeKonsern" minOccurs="0"/>
+			<xs:element name="laanForetakSammeKonsern" type="LaanForetakSammeKonsern" minOccurs="0"/>
+			<xs:element name="investeringTilknyttetSelskap" type="InvesteringTilknyttetSelskap" minOccurs="0"/>
+			<xs:element name="laanTilknyttetSelskapFelleskontrollertVirksomhet" type="LaanTilknyttetSelskapFelleskontrollertVirksomhet" minOccurs="0"/>
+			<xs:element name="investeringAksjerAndeler" type="InvesteringAksjerAndeler" minOccurs="0"/>
+			<xs:element name="obligasjon" type="Obligasjon" minOccurs="0"/>
+			<xs:element name="andreFordringerLangsiktige" type="AndreFordringerLangsiktige" minOccurs="0"/>
+			<xs:element name="sumFinansielleAnleggsmidler" type="SumFinansielleAnleggsmidler" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InvesteringDatterselskap">
+		<xs:sequence>
+			<xs:element name="note" type="NoteInvesteringerDatterselskap" minOccurs="0"/>
+			<xs:element name="aarets" type="InvesteringerDatterselskap" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="InvesteringerDatterselskapFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteInvesteringerDatterselskap">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18563"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringerDatterselskap">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="9686"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringerDatterselskapFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="10289"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringAnnetForetakSammeKonsern">
+		<xs:sequence>
+			<xs:element name="note" type="NoteInvesteringerKonsern" minOccurs="0"/>
+			<xs:element name="aarets" type="InvesteringerKonsern" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="InvesteringerKonsernFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteInvesteringerKonsern">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18564"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringerKonsern">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7727"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringerKonsernFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8012"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LaanForetakSammeKonsern">
+		<xs:sequence>
+			<xs:element name="note" type="NoteUtlanKonsern" minOccurs="0"/>
+			<xs:element name="aarets" type="UtlanKonsern" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="UtlanKonsernFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteUtlanKonsern">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18565"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtlanKonsern">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="6500"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtlanKonsernFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7093"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringTilknyttetSelskap">
+		<xs:sequence>
+			<xs:element name="note" type="NoteInvesteringerTilknyttetSelskap" minOccurs="0"/>
+			<xs:element name="aarets" type="InvesteringerTilknyttetSelskap" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="InvesteringerTilknyttetSelskapFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteInvesteringerTilknyttetSelskap">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18566"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringerTilknyttetSelskap">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7726"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringerTilknyttetSelskapFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8013"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LaanTilknyttetSelskapFelleskontrollertVirksomhet">
+		<xs:sequence>
+			<xs:element name="note" type="NoteUtlanTilknyttetSelskapFelleskontrollertVirksomhet" minOccurs="0"/>
+			<xs:element name="aarets" type="UtlanTilknyttetSelskapFelleskontrollertVirksomhet" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="UtlanTilknyttetSelskapFelleskontrollertVirksomhetFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteUtlanTilknyttetSelskapFelleskontrollertVirksomhet">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18567"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtlanTilknyttetSelskapFelleskontrollertVirksomhet">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7098"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtlanTilknyttetSelskapFelleskontrollertVirksomhetFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7099"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringAksjerAndeler">
+		<xs:sequence>
+			<xs:element name="note" type="NoteInvesteringerAksjerAndeler" minOccurs="0"/>
+			<xs:element name="aarets" type="InvesteringerAksjerAndeler" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="InvesteringerAksjerAndelerFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteInvesteringerAksjerAndeler">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18568"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringerAksjerAndeler">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7100"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringerAksjerAndelerFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7101"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Obligasjon">
+		<xs:sequence>
+			<xs:element name="note" type="NoteObligasjonerLangsiktige" minOccurs="0"/>
+			<xs:element name="aarets" type="ObligasjonerLangsiktige" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="ObligasjonerLangsiktigeFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteObligasjonerLangsiktige">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27582"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ObligasjonerLangsiktige">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27583"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ObligasjonerLangsiktigeFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27584"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AndreFordringerLangsiktige">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFordringerAndreLangsiktige" minOccurs="0"/>
+			<xs:element name="aarets" type="FordringerAndreLangsiktige" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FordringerAndreLangsiktigeFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFordringerAndreLangsiktige">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27578"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FordringerAndreLangsiktige">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="203"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FordringerAndreLangsiktigeFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27585"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SumFinansielleAnleggsmidler">
+		<xs:sequence>
+			<xs:element name="note" type="NoteAnleggsmidlerFinansielle" minOccurs="0"/>
+			<xs:element name="aarets" type="AnleggsmidlerFinansielle" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="AnleggsmidlerFinansielleFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteAnleggsmidlerFinansielle">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18372"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnleggsmidlerFinansielle">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="5267"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnleggsmidlerFinansielleFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8014"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ImmaterielleEiendelerOgVarigeDriftsmidler">
+		<xs:sequence>
+			<xs:element name="immaterielleEiendeler" type="ImmaterielleEiendeler" minOccurs="0"/>
+			<xs:element name="varigeDriftsmidler" type="varigeDriftsmidler" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ImmaterielleEiendeler">
+		<xs:sequence>
+			<xs:element name="forskningUtvikling" type="ForskningUtvikling" minOccurs="0"/>
+			<xs:element name="konsesjonerPatenterLisenserVaremerkerRettigheter" type="KonsesjonerPatenterLisenserVaremerkerRettigheter" minOccurs="0"/>
+			<xs:element name="utsattSkattefordel" type="UtsattSkattefordel" minOccurs="0"/>
+			<xs:element name="goodwill" type="Goodwill" minOccurs="0"/>
+			<xs:element name="sumImmaterielleEiendeler" type="SumImmaterielleEiendeler" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForskningUtvikling">
+		<xs:sequence>
+			<xs:element name="note" type="NoteForskningUtvikling" minOccurs="0"/>
+			<xs:element name="aarets" type="FoU" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FoUFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteForskningUtvikling">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18559"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FoU">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7073"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FoUFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7074"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KonsesjonerPatenterLisenserVaremerkerRettigheter">
+		<xs:sequence>
+			<xs:element name="note" type="NotePatenterRettigheter" minOccurs="0"/>
+			<xs:element name="aarets" type="PatenterRettigheter" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="PatenterRettigheterFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotePatenterRettigheter">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18560"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PatenterRettigheter">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="205"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PatenterRettigheterFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7075"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtsattSkattefordel">
+		<xs:sequence>
+			<xs:element name="note" type="NoteSkattefordelUtsatt" minOccurs="0"/>
+			<xs:element name="aarets" type="SkattefordelUtsatt" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="SkattefordelUtsattFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteSkattefordelUtsatt">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18182"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkattefordelUtsatt">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="202"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkattefordelUtsattFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7076"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Goodwill">
+		<xs:sequence>
+			<xs:element name="note" type="NoteForretningsverdiGoodwill" minOccurs="0"/>
+			<xs:element name="aarets" type="ForretningsverdiGoodwill" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="ForretningsverdiGoodwillFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteForretningsverdiGoodwill">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18183"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ForretningsverdiGoodwill">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="206"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ForretningsverdiGoodwillFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7077"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SumImmaterielleEiendeler">
+		<xs:sequence>
+			<xs:element name="note" type="NoteEiendelerImmaterielle" minOccurs="0"/>
+			<xs:element name="aarets" type="EiendelerImmaterielle" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="EiendelerImmaterielleFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteEiendelerImmaterielle">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18180"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EiendelerImmaterielle">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="2400"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EiendelerImmaterielleFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8006"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="varigeDriftsmidler">
+		<xs:sequence>
+			<xs:element name="tomterBygningerAnnenFastEiendom" type="TomterBygningerAnnenFastEiendom" minOccurs="0"/>
+			<xs:element name="maskinAnlegg" type="MaskinAnlegg" minOccurs="0"/>
+			<xs:element name="skipRiggFly" type="SkipRiggFly" minOccurs="0"/>
+			<xs:element name="driftsloesoereInventarVerktoeyKontormaskin" type="DriftsloesoereInventarVerktoeyKontormaskin" minOccurs="0"/>
+			<xs:element name="sumVarigeDriftsmidler" type="SumVarigeDriftsmidler" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TomterBygningerAnnenFastEiendom">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFastEiendom" minOccurs="0"/>
+			<xs:element name="aarets" type="FastEiendom" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FastEiendomFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFastEiendom">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18178"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FastEiendom">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="1976"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FastEiendomFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8007"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MaskinAnlegg">
+		<xs:sequence>
+			<xs:element name="note" type="NoteMaskinerMv" minOccurs="0"/>
+			<xs:element name="aarets" type="MaskinerMv" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="MaskinerMvFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteMaskinerMv">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18179"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MaskinerMv">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="1975"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MaskinerMvFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8008"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkipRiggFly">
+		<xs:sequence>
+			<xs:element name="note" type="NoteSkipFartoyerRiggerMv" minOccurs="0"/>
+			<xs:element name="aarets" type="SkipFatroyerRiggerMv" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="SkipfartoyerRiggerMvFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteSkipFartoyerRiggerMv">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18561"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkipFatroyerRiggerMv">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="1348"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkipfartoyerRiggerMvFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7084"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DriftsloesoereInventarVerktoeyKontormaskin">
+		<xs:sequence>
+			<xs:element name="note" type="NoteKjoretoyInventarVerktoyMv" minOccurs="0"/>
+			<xs:element name="aarets" type="KjoretoyInventarVerktoyMv" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="KjoretoyInventarVerktoyMvFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteKjoretoyInventarVerktoyMv">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18562"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KjoretoyInventarVerktoyMv">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7725"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KjoretoyInventarVerktoyMvFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8009"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SumVarigeDriftsmidler">
+		<xs:sequence>
+			<xs:element name="note" type="NoteDriftsmidlerVarige" minOccurs="0"/>
+			<xs:element name="aarets" type="DriftsmidlerVarige" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="DriftsmidlerVarigeFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteDriftsmidlerVarige">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18176"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DriftsmidlerVarige">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="47"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DriftsmidlerVarigeFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8010"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Omloepsmidler">
+		<xs:sequence>
+			<xs:element name="sumOmloepsmidler" type="SumOmloepsmidler" minOccurs="0"/>
+			<xs:element name="balanseOmloepsmidlerInvesteringerBankinnskuddKontanter" type="BalanseOmloepsmidlerInvesteringerBankinnskuddKontanter" minOccurs="0"/>
+			<xs:element name="balanseOmloepsmidlerVarerFordringer" type="BalanseOmloepsmidlerVarerFordringer" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SumOmloepsmidler">
+		<xs:sequence>
+			<xs:element name="note" type="NoteOmlopsmidler" minOccurs="0"/>
+			<xs:element name="aarets" type="Omlopsmidler" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="OmlopsmidlerFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteOmlopsmidler">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18580"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Omlopsmidler">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="194"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OmlopsmidlerFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7126"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="BalanseOmloepsmidlerInvesteringerBankinnskuddKontanter">
+		<xs:sequence>
+			<xs:element name="aksjerAndeleerForetakSammeKonsern" type="AksjerAndelerForetakSammeKonsern" minOccurs="0"/>
+			<xs:element name="markedsbaserteAksjer" type="MarkedsbaserteAksjer" minOccurs="0"/>
+			<xs:element name="markedsbaserteObligasjoner" type="MarkedsbaserteObligasjoner" minOccurs="0"/>
+			<xs:element name="andreMarkedsbaserteFinansielleInstrument" type="AndreMarkedsbaserteFinansielleInstrumenter" minOccurs="0"/>
+			<xs:element name="andreFinansielleInstrument" type="AndreFinansielleInstrumenter" minOccurs="0"/>
+			<xs:element name="sumInvesteringer" type="SumInvesteringer" minOccurs="0"/>
+			<xs:element name="bankinnskuddKontanter" type="BankinnskuddKontanter" minOccurs="0"/>
+			<xs:element name="sumBankinnskuddKontanter" type="SumBankinnskuddKontanter" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AksjerAndelerForetakSammeKonsern">
+		<xs:sequence>
+			<xs:element name="note" type="NoteInvesteringerAksjerAndelerKonsern" minOccurs="0"/>
+			<xs:element name="aarets" type="InvesteringerAksjerAndelerKonsern" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="InvesteringerAksjerAndelerKonsernFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteInvesteringerAksjerAndelerKonsern">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18574"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringerAksjerAndelerKonsern">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7728"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringerAksjerAndelerKonsernFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8016"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MarkedsbaserteAksjer">
+		<xs:sequence>
+			<xs:element name="note" type="NoteAksjerMvMarkedsbaserte" minOccurs="0"/>
+			<xs:element name="aarets" type="AksjerMvMarkedsbaserte" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="AksjerMvMarkedsbaserteFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteAksjerMvMarkedsbaserte">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18575"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AksjerMvMarkedsbaserte">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7117"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AksjerMvMarkedsbaserteFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7118"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MarkedsbaserteObligasjoner">
+		<xs:sequence>
+			<xs:element name="note" type="NoteObligasjonerMarkedsbaserte" minOccurs="0"/>
+			<xs:element name="aarets" type="ObligasjonerMarkedsbaserte" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="ObligasjonerMarkedsbaserteFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteObligasjonerMarkedsbaserte">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18576"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ObligasjonerMarkedsbaserte">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="9687"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ObligasjonerMarkedsbaserteFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="10291"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AndreMarkedsbaserteFinansielleInstrumenter">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFinansielleInstrumenterMarkedsbaserteAndre" minOccurs="0"/>
+			<xs:element name="aarets" type="FinansielleInstrumenterMarkedsbaserteAndre" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FinansielleInstrumenterMarkedsbaserteAndreFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFinansielleInstrumenterMarkedsbaserteAndre">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18577"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinansielleInstrumenterMarkedsbaserteAndre">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7731"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinansielleInstrumenterMarkedsbaserteAndreFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8017"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AndreFinansielleInstrumenter">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFinansielleInstrumenterAndre" minOccurs="0"/>
+			<xs:element name="aarets" type="FinansielleInstrumenterAndre" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FinansielleInstrumenterAndreFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFinansielleInstrumenterAndre">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18578"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinansielleInstrumenterAndre">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="6429"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FinansielleInstrumenterAndreFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7123"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SumInvesteringer">
+		<xs:sequence>
+			<xs:element name="note" type="NoteInvesteringer" minOccurs="0"/>
+			<xs:element name="aarets" type="Investeringer" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="InvesteringerFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteInvesteringer">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18579"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Investeringer">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="6601"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvesteringerFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8018"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="BankinnskuddKontanter">
+		<xs:sequence>
+			<xs:element name="note" type="NoteKontanterBankinnskudd" minOccurs="0"/>
+			<xs:element name="aarets" type="KontanterBankinnskudd" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="KontanterBankinnskuddFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteKontanterBankinnskudd">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18390"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KontanterBankinnskudd">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="786"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KontanterBankinnskuddFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8019"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SumBankinnskuddKontanter">
+		<xs:sequence>
+			<xs:element name="note" type="NoteKontanterBankinnskuddSum" minOccurs="0"/>
+			<xs:element name="aarets" type="KontanterBankinnskuddSum" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="KontanterBankinnskuddSumFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteKontanterBankinnskuddSum">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="29041"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KontanterBankinnskuddSum">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="29042"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KontanterBankinnskuddSumFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="29043"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="BalanseOmloepsmidlerVarerFordringer">
+		<xs:sequence>
+			<xs:element name="lagerbeholdning" type="Lagerbeholdning" minOccurs="0"/>
+			<xs:element name="sumVarer" type="SumVarer" minOccurs="0"/>
+			<xs:element name="kundefordringer" type="Kundefordringer" minOccurs="0"/>
+			<xs:element name="andreFordringerKortsiktig" type="AndreFordringerKortsiktig" minOccurs="0"/>
+			<xs:element name="konsernfordringer" type="Konsernfordringer" minOccurs="0"/>
+			<xs:element name="kravInnbetalingSelskapskapital" type="KravInnbetalingSelskapskapital" minOccurs="0"/>
+			<xs:element name="sumFordringer" type="SumFordringer" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Lagerbeholdning">
+		<xs:sequence>
+			<xs:element name="note" type="NoteLagerbeholdning" minOccurs="0"/>
+			<xs:element name="aarets" type="LagerbeholdningAret" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="LagerbeholdningFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteLagerbeholdning">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18571"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LagerbeholdningAret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="326"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LagerbeholdningFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="797"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SumVarer">
+		<xs:sequence>
+			<xs:element name="note" type="NoteVarer" minOccurs="0"/>
+			<xs:element name="aarets" type="Varer" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="VarerFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteVarer">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="25011"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Varer">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="25012"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="VarerFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="25013"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Kundefordringer">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFordringerKunder" minOccurs="0"/>
+			<xs:element name="aarets" type="FordringerKunder" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FordringerKunderFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFordringerKunder">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18384"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FordringerKunder">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="116"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FordringerKunderFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="6921"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AndreFordringerKortsiktig">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFordringerAndreKortsiktig" minOccurs="0"/>
+			<xs:element name="aarets" type="FordringerAndreKortsiktig" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FordringerAndreKortsiktigFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFordringerAndreKortsiktig">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18572"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FordringerAndreKortsiktig">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="282"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FordringerAndreKortsiktigFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7112"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Konsernfordringer">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFordringerKonsern" minOccurs="0"/>
+			<xs:element name="aarets" type="FordringerKonsernMv" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FordringerKonsernMvFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFordringerKonsern">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="19382"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FordringerKonsernMv">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7128"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FordringerKonsernMvFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="6946"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KravInnbetalingSelskapskapital">
+		<xs:sequence>
+			<xs:element name="note" type="NoteSelskapskapitalInnbetalingKrav" minOccurs="0"/>
+			<xs:element name="aarets" type="SelskapskapitalInnbetalingKrav" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="SelskapskapitalInnbetalingKravFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteSelskapskapitalInnbetalingKrav">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18573"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SelskapskapitalInnbetalingKrav">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7113"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SelskapskapitalInnbetalingKravFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7114"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SumFordringer">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFordringer" minOccurs="0"/>
+			<xs:element name="aarets" type="Fordringer" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FordringerFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFordringer">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18389"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Fordringer">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="80"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FordringerFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8015"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="BalanseEgenkapitalGjeld">
+		<xs:sequence>
+			<xs:element name="sumEgenkapitalGjeld" type="SumEgenkapitalGjeld"/>
+			<xs:element name="balanseEgenkapital" type="BalanseEgenkapital" minOccurs="0"/>
+			<xs:element name="balanseGjeld" type="BalanseGjeld" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SumEgenkapitalGjeld">
+		<xs:sequence>
+			<xs:element name="note" type="NoteGjeldEgenkapital" minOccurs="0"/>
+			<xs:element name="aarets" type="GjeldEgenkapital"/>
+			<xs:element name="fjoraarets" type="GjeldEgenkapitalFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteGjeldEgenkapital">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18122"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldEgenkapital">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="251"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldEgenkapitalFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7185"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="BalanseEgenkapital">
+		<xs:sequence>
+			<xs:element name="innskuttEgenkapital" type="InnskuttEgenkapital" minOccurs="0"/>
+			<xs:element name="opptjentEgenkapital" type="OpptjentEgenkapital" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InnskuttEgenkapital">
+		<xs:sequence>
+			<xs:element name="selskapskapital" type="Selskapskapital" minOccurs="0"/>
+			<xs:element name="beholdningEgneAksjer" type="BeholdningEgneAksjer" minOccurs="0"/>
+			<xs:element name="overkursfond" type="Overkursfond" minOccurs="0"/>
+			<xs:element name="annenInnskuttEgenkapital" type="AnnenInnskuttEgenkapital" minOccurs="0"/>
+			<xs:element name="sumInnskuttEgenkapital" type="SumInnskuttEgenkapital" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Selskapskapital">
+		<xs:sequence>
+			<xs:element name="note" type="NoteAksjekapital" minOccurs="0"/>
+			<xs:element name="aarets" type="Aksjekapital" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="AksjekapitalFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteAksjekapital">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18581"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Aksjekapital">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="20488"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AksjekapitalFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="20489"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="BeholdningEgneAksjer">
+		<xs:sequence>
+			<xs:element name="note" type="NoteAksjerEgne" minOccurs="0"/>
+			<xs:element name="aarets" type="AksjerEgne" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="AksjerEgneFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteAksjerEgne">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18134"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AksjerEgne">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7131"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AksjerEgneFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7132"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Overkursfond">
+		<xs:sequence>
+			<xs:element name="note" type="NoteOverkursfond" minOccurs="0"/>
+			<xs:element name="aarets" type="OverkursfondAret" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="OverkursfondFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteOverkursfond">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18132"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OverkursfondAret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="2585"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OverkursfondFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7135"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnnenInnskuttEgenkapital">
+		<xs:sequence>
+			<xs:element name="note" type="NoteInnskuttKapitalAnnen" minOccurs="0"/>
+			<xs:element name="aarets" type="InnskuttKapitalAnnen" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="InnskuttKapitalAnnenFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteInnskuttKapitalAnnen">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18131"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InnskuttKapitalAnnen">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="17110"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InnskuttKapitalAnnenFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="17111"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SumInnskuttEgenkapital">
+		<xs:sequence>
+			<xs:element name="note" type="NoteInnskuttKapital" minOccurs="0"/>
+			<xs:element name="aarets" type="InnskuttKapital" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="InnskuttKapitalFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteInnskuttKapital">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18130"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InnskuttKapital">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="3730"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InnskuttKapitalFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="9984"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OpptjentEgenkapital">
+		<xs:sequence>
+			<xs:element name="fond" type="Fond" minOccurs="0"/>
+			<xs:element name="avsattUtbytte" type="AvsattUtbytte" minOccurs="0"/>
+			<xs:element name="annenEgenkapital" type="AnnenEgenkapital" minOccurs="0"/>
+			<xs:element name="udekketTap" type="UdekketTapEgenkapital" minOccurs="0"/>
+			<xs:element name="minoritetsinteresserOpptjentEgenkapital" type="MinoritetsinteresserOpptjentEgenkapital" minOccurs="0"/>
+			<xs:element name="sumOpptjentEgenkapital" type="SumOpptjentEgenkapital" minOccurs="0"/>
+			<xs:element name="minoritetsinteresserEgenkapital" type="MinoritetsinteresserEgenkapital" minOccurs="0"/>
+			<xs:element name="sumEgenkapital" type="SumEgenkapital" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Fond">
+		<xs:sequence>
+			<xs:element name="note" type="NoteFond" minOccurs="0"/>
+			<xs:element name="aarets" type="FondAret" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="FondFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteFond">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27581"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FondAret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27579"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="FondFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="27580"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AvsattUtbytte">
+		<xs:sequence>
+			<xs:element name="note" type="NoteUtbytteOpptjentEgenkapitalAvsattBelop" minOccurs="0"/>
+			<xs:element name="aarets" type="UtbytteOpptjentEgenkapitalAvsattBelop" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="UtbytteOpptjentEgenkapitalAvsattBelopFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteUtbytteOpptjentEgenkapitalAvsattBelop">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="25017"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtbytteOpptjentEgenkapitalAvsattBelop">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="23857"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtbytteOpptjentEgenkapitalAvsattBelopFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="23858"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnnenEgenkapital">
+		<xs:sequence>
+			<xs:element name="note" type="NoteEgenkapitalAnnen" minOccurs="0"/>
+			<xs:element name="aarets" type="EgenkapitalAnnen" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="EgenkapitalAnnenFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteEgenkapitalAnnen">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18125"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EgenkapitalAnnen">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="3274"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EgenkapitalAnnenFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7140"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UdekketTapEgenkapital">
+		<xs:sequence>
+			<xs:element name="note" type="NoteUdekketTapEgenkapital" minOccurs="0"/>
+			<xs:element name="aarets" type="UdekketTapEgenkapitalAret" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="UdekketTapEgenkapitalFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteUdekketTapEgenkapital">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="22294"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UdekketTapEgenkapitalAret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="249"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UdekketTapEgenkapitalFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7141"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MinoritetsinteresserOpptjentEgenkapital">
+		<xs:sequence>
+			<xs:element name="note" type="NoteMinoritetsinteresserOpptjentEgenkapital" minOccurs="0"/>
+			<xs:element name="aarets" type="MinoritetsinteresserOpptjentEgenkapitalAret" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="MinoritetsinteresserOpptjentEgenkapitalFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteMinoritetsinteresserOpptjentEgenkapital">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18137"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MinoritetsinteresserOpptjentEgenkapitalAret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7734"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MinoritetsinteresserOpptjentEgenkapitalFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="8023"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SumOpptjentEgenkapital">
+		<xs:sequence>
+			<xs:element name="note" type="NoteEgenkapitalOpptjent" minOccurs="0"/>
+			<xs:element name="aarets" type="EgenkapitalOpptjent" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="EgenkapitalOpptjentFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteEgenkapitalOpptjent">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18124"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EgenkapitalOpptjent">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="9702"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EgenkapitalOpptjentFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="9985"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MinoritetsinteresserEgenkapital">
+		<xs:sequence>
+			<xs:element name="note" type="NoteMinoritetsinteresser" minOccurs="0"/>
+			<xs:element name="aarets" type="Minoritetsinteresser" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="MinoritetsinteresserFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteMinoritetsinteresser">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="29044"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Minoritetsinteresser">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="29045"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MinoritetsinteresserFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="29046"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SumEgenkapital">
+		<xs:sequence>
+			<xs:element name="note" type="NoteEgenkapital" minOccurs="0"/>
+			<xs:element name="aarets" type="Egenkapital" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="EgenkapitalFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteEgenkapital">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18123"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Egenkapital">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="250"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EgenkapitalFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7142"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="BalanseGjeld">
+		<xs:sequence>
+			<xs:element name="sumGjeld" type="SumGjeld" minOccurs="0"/>
+			<xs:element name="balanseGjeldAvsetningerForpliktelserAnnenLangsiktigGjeld" type="BalanseGjeldAvsetningerForpliktelserAnnenLangsiktigGjeld" minOccurs="0"/>
+			<xs:element name="balanseKortsiktigGjeld" type="BalanseKortsiktigGjeld" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SumGjeld">
+		<xs:sequence>
+			<xs:element name="note" type="NoteGjeld" minOccurs="0"/>
+			<xs:element name="aarets" type="Gjeld" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="GjeldFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteGjeld">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18138"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Gjeld">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="1119"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7184"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="BalanseGjeldAvsetningerForpliktelserAnnenLangsiktigGjeld">
+		<xs:sequence>
+			<xs:element name="sumLangsiktigGjeld" type="SumLangsiktigGjeld" minOccurs="0"/>
+			<xs:element name="annenLangsiktigGjeld" type="AnnenLangsiktigGjeld" minOccurs="0"/>
+			<xs:element name="avsetningForpliktelser" type="AvsetningForpliktelser" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SumLangsiktigGjeld">
+		<xs:sequence>
+			<xs:element name="note" type="NoteGjeldLangsiktig" minOccurs="0"/>
+			<xs:element name="aarets" type="GjeldLangsiktig" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="GjeldLangsiktigFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteGjeldLangsiktig">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18585"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldLangsiktig">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="86"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldLangsiktigFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7156"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnnenLangsiktigGjeld">
+		<xs:sequence>
+			<xs:element name="konvertibleLaanLangsiktig" type="KonvertibleLaanLangsiktig" minOccurs="0"/>
+			<xs:element name="obligasjonslaan" type="Obligasjonslaan" minOccurs="0"/>
+			<xs:element name="gjeldKredittinstitusjonerLangsiktig" type="GjeldKredittinstitusjonerLangsiktig" minOccurs="0"/>
+			<xs:element name="langsiktigKonserngjeld" type="LangsiktigKonserngjeld" minOccurs="0"/>
+			<xs:element name="ansvarligLaanekapital" type="AnsvarligLaanekapital" minOccurs="0"/>
+			<xs:element name="oevrigLangsiktigGjeld" type="OEvrigLangsiktigGjeld" minOccurs="0"/>
+			<xs:element name="sumAnnenLangsiktigGjeld" type="SumAnnenLangsiktigGjeld" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KonvertibleLaanLangsiktig">
+		<xs:sequence>
+			<xs:element name="note" type="NoteLanKonvertibelLangsiktig" minOccurs="0"/>
+			<xs:element name="aarets" type="LanKonvertibelLangsiktig" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="LanKonvertibelLangsiktigFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteLanKonvertibelLangsiktig">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18583"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LanKonvertibelLangsiktig">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7147"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LanKonvertibelLangsiktigFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7148"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Obligasjonslaan">
+		<xs:sequence>
+			<xs:element name="note" type="NoteObligasjonslan" minOccurs="0"/>
+			<xs:element name="aarets" type="Obligasjonslan" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="ObligasjonslanFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteObligasjonslan">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18158"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Obligasjonslan">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="6091"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ObligasjonslanFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7149"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldKredittinstitusjonerLangsiktig">
+		<xs:sequence>
+			<xs:element name="note" type="NoteGjeldKredittinstitusjoner" minOccurs="0"/>
+			<xs:element name="aarets" type="GjeldKredittinstitusjoner" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="GjeldKredittinstitusjonerFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteGjeldKredittinstitusjoner">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18164"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldKredittinstitusjoner">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7150"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldKredittinstitusjonerFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7151"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LangsiktigKonserngjeld">
+		<xs:sequence>
+			<xs:element name="note" type="NoteGjeldKonsernLagnsiktig" minOccurs="0"/>
+			<xs:element name="aarets" type="GjeldKonsernLagnsiktig" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="GjeldKonsernLagnsiktigFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteGjeldKonsernLagnsiktig">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="19383"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldKonsernLagnsiktig">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="2256"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldKonsernLagnsiktigFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7152"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnsvarligLaanekapital">
+		<xs:sequence>
+			<xs:element name="note" type="NoteAnsvarligLanekapital" minOccurs="0"/>
+			<xs:element name="aarets" type="AnsvarligLanekapital" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="AnsvarligLanekapitalFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteAnsvarligLanekapital">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18139"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnsvarligLanekapital">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="243"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnsvarligLanekapitalFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="9989"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OEvrigLangsiktigGjeld">
+		<xs:sequence>
+			<xs:element name="note" type="NoteGjeldAnnenLangsiktig" minOccurs="0"/>
+			<xs:element name="aarets" type="GjeldAnnenLangsiktig" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="GjeldAnnenLangsiktigFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteGjeldAnnenLangsiktig">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18584"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldAnnenLangsiktig">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="242"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldAnnenLangsiktigFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7155"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SumAnnenLangsiktigGjeld">
+		<xs:sequence>
+			<xs:element name="note" type="NoteGjeldAnnenLangsiktigSum" minOccurs="0"/>
+			<xs:element name="aarets" type="GjeldAnnenLangsiktigSum" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="GjeldAnnenLangsiktigSumFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteGjeldAnnenLangsiktigSum">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="25018"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldAnnenLangsiktigSum">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="25019"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldAnnenLangsiktigSumFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="25020"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AvsetningForpliktelser">
+		<xs:sequence>
+			<xs:element name="pensjonsforpliktelser" type="Pensjonsforpliktelse" minOccurs="0"/>
+			<xs:element name="utsattSkatt" type="UtsattSkatt" minOccurs="0"/>
+			<xs:element name="andreAvsetningerForpliktelser" type="AndreAvsetningerForpliktelser" minOccurs="0"/>
+			<xs:element name="sumAvsetningerForpliktelser" type="SumAvsetningerForpliktelser" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Pensjonsforpliktelse">
+		<xs:sequence>
+			<xs:element name="note" type="NotePensjonsforpliktelser" minOccurs="0"/>
+			<xs:element name="aarets" type="Pensjonsforpliktelser" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="PensjonsforpliktelserFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotePensjonsforpliktelser">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18149"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Pensjonsforpliktelser">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="238"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PensjonsforpliktelserFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="6685"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtsattSkatt">
+		<xs:sequence>
+			<xs:element name="note" type="NoteSkattUtsatt" minOccurs="0"/>
+			<xs:element name="aarets" type="SkattUtsatt" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="SkattUtsattFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteSkattUtsatt">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18148"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkattUtsatt">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="237"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkattUtsattFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7143"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AndreAvsetningerForpliktelser">
+		<xs:sequence>
+			<xs:element name="note" type="NoteAvsetningerForpliktelserLangsiktig" minOccurs="0"/>
+			<xs:element name="aarets" type="AvsetningerForpliktelserLangsiktig" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="AvsetningerForpliktelserLangsiktigFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteAvsetningerForpliktelserLangsiktig">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18582"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AvsetningerForpliktelserLangsiktig">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7157"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AvsetningerForpliktelserLangsiktigFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7146"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SumAvsetningerForpliktelser">
+		<xs:sequence>
+			<xs:element name="note" type="NoteAvsetningerForpliktelser" minOccurs="0"/>
+			<xs:element name="aarets" type="AvsetningerForpliktelser" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="AvsetningerForpliktelserFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteAvsetningerForpliktelser">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18144"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AvsetningerForpliktelser">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7231"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AvsetningerForpliktelserFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7230"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="BalanseKortsiktigGjeld">
+		<xs:sequence>
+			<xs:element name="konvertibleLaan" type="KonvertibleLaanKortsiktig" minOccurs="0"/>
+			<xs:element name="sertifikatlaan" type="Sertifikatlaan" minOccurs="0"/>
+			<xs:element name="gjeldKredittinstitusjonerKortsiktig" type="GjeldKredittinstitusjonerKortsiktig" minOccurs="0"/>
+			<xs:element name="leverandoergjeld" type="Leverandoergjeld" minOccurs="0"/>
+			<xs:element name="betalbarSkatt" type="BetalbarSkatt" minOccurs="0"/>
+			<xs:element name="skyldigeOffentligeAvgifter" type="SkyldigeOffentligeAvgifter" minOccurs="0"/>
+			<xs:element name="utbytteKortsiktigGjeld" type="UtbytteKortsiktigGjeld" minOccurs="0"/>
+			<xs:element name="kortsiktigKonserngjeld" type="KortsiktigKonserngjeld" minOccurs="0"/>
+			<xs:element name="annenKortsiktigGjeld" type="AnnenKortsiktigGjeld" minOccurs="0"/>
+			<xs:element name="sumKortsiktigGjeld" type="SumKortsiktigGjeld" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KonvertibleLaanKortsiktig">
+		<xs:sequence>
+			<xs:element name="note" type="NoteLanKonvertibelKortsiktig" minOccurs="0"/>
+			<xs:element name="aarets" type="LanKonvertibelKortsiktig" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="LanKonvertibelKortsiktigFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteLanKonvertibelKortsiktig">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18586"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LanKonvertibelKortsiktig">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7158"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LanKonvertibelKortsiktigFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7159"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Sertifikatlaan">
+		<xs:sequence>
+			<xs:element name="note" type="NoteSertifikatlan" minOccurs="0"/>
+			<xs:element name="aarets" type="Sertifikatlan" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="SertifikatlanFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteSertifikatlan">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18160"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Sertifikatlan">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="9"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SertifikatlanFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7160"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldKredittinstitusjonerKortsiktig">
+		<xs:sequence>
+			<xs:element name="note" type="NoteGjeldKredittinstitusjonerKortsiktig" minOccurs="0"/>
+			<xs:element name="aarets" type="GjeldKredittinstitusjonerKortsiktigAret" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="GjeldKredittinstitusjonerKortsiktigFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteGjeldKredittinstitusjonerKortsiktig">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18587"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldKredittinstitusjonerKortsiktigAret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="10926"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldKredittinstitusjonerKortsiktigFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="13203"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Leverandoergjeld">
+		<xs:sequence>
+			<xs:element name="note" type="NoteLeverandorgjeld" minOccurs="0"/>
+			<xs:element name="aarets" type="Leverandorgjeld" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="LeverandorgjeldFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteLeverandorgjeld">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18588"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Leverandorgjeld">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="220"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LeverandorgjeldFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7162"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="BetalbarSkatt">
+		<xs:sequence>
+			<xs:element name="note" type="NoteSkattBetalbar" minOccurs="0"/>
+			<xs:element name="aarets" type="SkattBetalbar" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="SkattBetalbarFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteSkattBetalbar">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18589"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkattBetalbar">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="2483"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkattBetalbarFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="10293"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SkyldigeOffentligeAvgifter">
+		<xs:sequence>
+			<xs:element name="note" type="NoteAvgifterOffentligeSkyldig" minOccurs="0"/>
+			<xs:element name="aarets" type="AvgifterOffentligeSkyldig" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="AvgifterOffentligeSkyldigFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteAvgifterOffentligeSkyldig">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18590"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AvgifterOffentligeSkyldig">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="225"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AvgifterOffentligeSkyldigFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7170"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtbytteKortsiktigGjeld">
+		<xs:sequence>
+			<xs:element name="note" type="NoteUtbytteAvsatt" minOccurs="0"/>
+			<xs:element name="aarets" type="UtbytteAvsatt" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="UtbytteAvsattFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteUtbytteAvsatt">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18591"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtbytteAvsatt">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="235"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UtbytteAvsattFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7171"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KortsiktigKonserngjeld">
+		<xs:sequence>
+			<xs:element name="note" type="NoteGjeldKonsernKortsiktig" minOccurs="0"/>
+			<xs:element name="aarets" type="GjeldKonsernKortsiktig" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="GjeldKonsernKortsiktigFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteGjeldKonsernKortsiktig">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="19384"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldKonsernKortsiktig">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="2255"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldKonsernKortsiktigFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7175"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnnenKortsiktigGjeld">
+		<xs:sequence>
+			<xs:element name="note" type="NoteGjeldAnnenKortsiktig" minOccurs="0"/>
+			<xs:element name="aarets" type="GjeldAnnenKortsiktig" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="GjeldAnnenKortsiktigFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteGjeldAnnenKortsiktig">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18592"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldAnnenKortsiktig">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="236"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldAnnenKortsiktigFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7182"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SumKortsiktigGjeld">
+		<xs:sequence>
+			<xs:element name="note" type="NoteGjeldKortsiktig" minOccurs="0"/>
+			<xs:element name="aarets" type="GjeldKortsiktig" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="GjeldKortsiktigFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteGjeldKortsiktig">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18593"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldKortsiktig">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="85"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GjeldKortsiktigFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="7183"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PosterUtenomBalanse">
+		<xs:sequence>
+			<xs:element name="Garantistillelser" type="Garantistillelser" minOccurs="0"/>
+			<xs:element name="pantstillelser" type="Pantstillelser" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Garantistillelser">
+		<xs:sequence>
+			<xs:element name="note" type="NoteGarantistillelse" minOccurs="0"/>
+			<xs:element name="aarets" type="GarantistillelserAret" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="GarantistillelseFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoteGarantistillelse">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18594"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GarantistillelserAret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="16920"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GarantistillelseFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="16921"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Pantstillelser">
+		<xs:sequence>
+			<xs:element name="note" type="NotePantstillelser" minOccurs="0"/>
+			<xs:element name="aarets" type="PantstillelserAret" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="PantstillelserFjoraret" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotePantstillelser">
+		<xs:simpleContent>
+			<xs:extension base="NoteNummerRestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="18595"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PantstillelserAret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="16922"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PantstillelserFjoraret">
+		<xs:simpleContent>
+			<xs:extension base="Tallrestriksjon">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="16923"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="Arsregnskap">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="S"/>
+			<xs:enumeration value="K"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ArsregnskapValutakode">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="ArsregnskapValoer">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="H"/>
+			<xs:enumeration value="T"/>
+			<xs:enumeration value="M"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NoteNummerRestriksjon">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="35"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tallrestriksjon">
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="999999999999999"/>
+			<xs:minInclusive value="-999999999999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
