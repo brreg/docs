@@ -1,6 +1,6 @@
 ---
-title: Endringslogg ITU UTT
-description: Løsningsmodell for endringslogg ITU UTT for Løsøreregisteret
+title: Endringslogg ITU/UTT
+description: Løsningsmodell for endringslogg som inneholder endringer for ITU og UTT
 weight: 10
 ---
 

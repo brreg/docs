@@ -1,6 +1,6 @@
 ---
-title: Oppslag ITU UTT Kredittopplysningsforetak
-description: Løsningsmodell for oppslag ITU UTT for Løsøreregisteret
+title: Oppslag ITU/UTT for kredittopplysningsforetak
+description: Løsningsmodell for oppslag fra kredittopplysningsforetak og offentlig myndighet med taushetsplikt
 weight: 10
 ---
 

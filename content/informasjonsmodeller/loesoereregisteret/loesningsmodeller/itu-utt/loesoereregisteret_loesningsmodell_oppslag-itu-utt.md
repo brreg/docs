@@ -1,6 +1,6 @@
 ---
-title: Oppslag ITU UTT
-description: Løsningsmodell for Oppslag ITU UTT for Løsøreregisteret
+title: Oppslag ITU/UTT
+description: Løsningsmodell for oppslag fra øvrige som har anledning til å motta informasjon om ITU/UTT
 weight: 10
 ---
 
