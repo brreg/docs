@@ -1,6 +1,6 @@
 ---
-title: Endringslogg ITU UTT Orgnr
-description: Løsningsmodell for endringslogg ITU UTT for Løsøreregisteret Orgnr
+title: Endringslogg ITU kun organisasjonsnummer
+description: Løsningsmodell for endringslogg som kun inneholder endringer om ITU på virksomheter
 weight: 10
 ---
 
