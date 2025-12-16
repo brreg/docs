@@ -6,5 +6,6 @@ weight: 10
 
 {{% children description="true" /%}}
 
+Løsningsmodell for endringslogg som inneholder endringer for ITU og UTT.
 
 ![TilgjengeliggjoeringLoesoereregisterertEndringsloggITUUTT](https://github.com/brreg/informasjonsmodeller/blob/main/loesoereregisteret/loesningsmodeller/LM-itu-utt-endringslogg.jpg?raw=true)

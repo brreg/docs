@@ -6,5 +6,6 @@ weight: 10
 
 {{% children description="true" /%}}
 
+Løsningsmodell for oppslag fra kredittopplysningsforetak og offentlig myndighet med taushetsplikt.
 
 ![TilgjengeliggjoeringLoesoereregisterertEndringsloggITUUTT](https://github.com/brreg/informasjonsmodeller/blob/main/loesoereregisteret/loesningsmodeller/LM-itu-utt-oppslag-kredittopplforetak.jpg?raw=true)
