@@ -289,7 +289,7 @@
 	</xs:complexType>
 	<xs:complexType name="ForsikringsrelatertDriftskostnad">
 		<xs:sequence>
-			<xs:element name="salgskostnad" type="Salgskostnad"/>
+			<xs:element name="salgskostnad" type="Salgskostnad" minOccurs="0"/>
 			<xs:element name="endringForskuddsbetaltDirekteSalgskostnad" type="EndringForskuddsbetaltDirekteSalgskostnad" minOccurs="0"/>
 			<xs:element name="forsikringsrelatertAdministrasjonskostnad" type="ForsikringsrelatertAdministrasjonskostnad" minOccurs="0"/>
 			<xs:element name="mottattProvisjonAvgittGjenforsikringGevinstandel" type="MottattProvisjonAvgittGjenforsikringGevinstandel" minOccurs="0"/>
@@ -736,8 +736,8 @@
 	</xs:complexType>
 	<xs:complexType name="ResultatregnskapAnnenInntektKostnad">
 		<xs:sequence>
-			<xs:element name="annenInntekt" type="AnnenInntekt"/>
-			<xs:element name="annenKostnad" type="AnnenKostnad"/>
+			<xs:element name="annenInntekt" type="AnnenInntekt" minOccurs="0"/>
+			<xs:element name="annenKostnad" type="AnnenKostnad" minOccurs="0"/>
 			<xs:element name="resultatIkkeTekniskRegnskap" type="ResultatIkkeTekniskRegnskap" minOccurs="0"/>
 			<xs:element name="resultatFoerSkattekostnad" type="ResultatFoerSkattekostnad" minOccurs="0"/>
 			<xs:element name="skattekostnad" type="Skattekostnad" minOccurs="0"/>
@@ -1237,7 +1237,7 @@
 	</xs:complexType>
 	<xs:complexType name="BalanseImmaterielleEiendeler">
 		<xs:sequence>
-			<xs:element name="goodwill" type="Goodwill"/>
+			<xs:element name="goodwill" type="Goodwill" minOccurs="0"/>
 			<xs:element name="andreImmaterielleEiendeler" type="AndreImmaterielleEiendeler" minOccurs="0"/>
 			<xs:element name="sumImmaterielleEiendeler" type="SumImmaterielleEiendeler" minOccurs="0"/>
 		</xs:sequence>
