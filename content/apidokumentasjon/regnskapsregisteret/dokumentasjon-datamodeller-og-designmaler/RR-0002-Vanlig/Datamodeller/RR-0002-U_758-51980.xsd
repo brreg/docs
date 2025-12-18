@@ -59,7 +59,7 @@
 			<xs:element name="balanseAnleggsmidlerOmloepsmidler" type="AnleggsmidlerOmloepsmidler"/>
 			<xs:element name="balanseEgenkapitalGjeld" type="BalanseEgenkapitalGjeld"/>
 			<xs:element name="posterUtenomBalansen" type="PosterUtenomBalansen" minOccurs="0"/>
-			<xs:element name="noter" type="Noter"/>
+			<xs:element name="noter" type="Noter" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ResultatregnskapDriftsresultat">
@@ -951,7 +951,7 @@
 	<xs:complexType name="ResultatRegnskapResultat">
 		<xs:sequence>
 			<xs:element name="resultat" type="Resultat"/>
-			<xs:element name="overfoeringer" type="OverfoeringerDisponeringer"/>
+			<xs:element name="overfoeringer" type="OverfoeringerDisponeringer" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Resultat">
