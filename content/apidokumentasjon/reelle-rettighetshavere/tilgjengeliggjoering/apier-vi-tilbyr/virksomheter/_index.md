@@ -115,6 +115,18 @@ Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Ret
 Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
 og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
 
+### 1.5.4 - 2026-01-07
+
+#### Endret
+ 
+Korrigert eksempler til følgende endepunkt i OpenAPI-spesifikasjonen:
+
+- Finn registreringspliktige virksomheter (`/v1/virksomheter`)
+- Hent neste sekvensnummer (`/v1/sekvensnummer`)
+- Hent registreringspliktig virksomhet (`/v1/virksomheter/{organisasjonsnummer}`)
+- Totalbestand (`/v1/virksomheter/totalbestand`)
+
+
 ### 1.5.3 - 2025-12-15
 
 #### Endret
