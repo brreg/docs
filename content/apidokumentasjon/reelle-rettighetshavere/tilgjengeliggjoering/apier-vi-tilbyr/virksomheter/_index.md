@@ -119,7 +119,7 @@ og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.
 
 #### Endret
  
-Korrigert følgende eksempler i OpenAPI-spesifikasjonen:
+Korrigert eksempler til følgende endepunkt i OpenAPI-spesifikasjonen:
 
 - Finn registreringspliktige virksomheter (`/v1/virksomheter`)
 - Hent neste sekvensnummer (`/v1/sekvensnummer`)
