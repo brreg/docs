@@ -7,5 +7,5 @@ weight: 20
 {{% children description="true" /%}}
 
 
-![TilgjengeliggjoeringLoesoereregisteretOppslag](https://github.com/brreg/informasjonsmodeller/blob/main/loesoereregisteret/loesningsmodeller/TilgjengeliggjoeringLoesoereregisteretOppslag_lm.jpg?raw=true)
+![TilgjengeliggjoeringLoesoereregisteretOppslag](https://github.com/brreg/informasjonsmodeller/blob/main/loesoereregisteret/loesningsmodeller/LM-LR-oppslag-260122.jpg?raw=true)
 

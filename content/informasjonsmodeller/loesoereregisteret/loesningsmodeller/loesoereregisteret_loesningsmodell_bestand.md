@@ -7,5 +7,5 @@ weight: 10
 {{% children description="true" /%}}
 
 
-![TilgjengeliggjoeringLoesoereregisterertEndringsloggOgTotalbestand](https://github.com/brreg/informasjonsmodeller/blob/main/loesoereregisteret/loesningsmodeller/TilgjengeliggjoeringLoesoereregisterertEndringsloggOgTotalbestand.jpg?raw=true)
+![TilgjengeliggjoeringLoesoereregisterertEndringsloggOgTotalbestand](https://github.com/brreg/informasjonsmodeller/blob/main/loesoereregisteret/loesningsmodeller/LM-LR-endringslogg-totalbestand-260122.jpg?raw=true)
 
