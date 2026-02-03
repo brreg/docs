@@ -137,18 +137,22 @@ Dersom kallet lykkes får man HTTP-status 200 og data fra tjenesten på JSON-for
           "historiskRegistreringsnummerMotorvogn": []
         },
         {
-          "identifiseringsmate": "identifiseringsmate.entydig",
-          "type": "formuesgodetype.mv.e",
-          "typeBeskrivelse": "Registrert motorvogn",
+          "identifiseringsmate": "identifiseringsmate.sarskilt",
+          "type": "formuesgodetype.pe.s",
+          "typeBeskrivelse": "Penger",
           "eierandel": {
             "teller": 1,
             "nevner": 1
           },
-          "registreringsnummerMotorvogn": "AB12345",
-          "historiskRegistreringsnummerMotorvogn": []
+          "identifikator": "INGEN_BESKRIVELSE",
+          "identifiseringstype": "identifiseringstype.ingenBeskrivelse",
+          "identifiseringstypeBeskrivelse": "Ingen beskrivelse av formuesgode"
         }
       ],
-      "prioritetsvikelse": []
+      "prioritetsvikelse": [],
+      "gjeldsomfang": "gjeldsomfang.eksisterende",
+      "gjeldsomfangBeskrivelse": "Eksisterende gjeld",
+      "tidsbegrensningHeftelse": "2026-03-27"
     }
   ]
 }
