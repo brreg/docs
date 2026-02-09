@@ -14,7 +14,6 @@
 		</xs:sequence>
 		<xs:attribute name="dataFormatId" type="xs:string" use="required" fixed="1266"/>
 		<xs:attribute name="dataFormatVersion" type="xs:string" use="required" fixed="51821"/>
-		<xs:attribute name="versjon" type="xs:string" use="required" fixed="1.1"/>
 		<xs:attribute name="tjenestehandling" type="xs:string" use="required" fixed="aarsregnskap_vanlig"/>
 		<xs:attribute name="tjeneste" type="xs:string" use="required" fixed="regnskap"/>
 		<xs:anyAttribute/>
