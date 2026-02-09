@@ -13,7 +13,8 @@
 			<xs:element name="Skjemainnhold" type="Skjemainnhold"/>
 		</xs:sequence>
 		<xs:attribute name="dataFormatId" type="xs:string" use="required" fixed="1266"/>
-		<xs:attribute name="dataFormatVersion" type="xs:string" use="required" fixed="51820"/>
+		<xs:attribute name="dataFormatVersion" type="xs:string" use="required" fixed="51821"/>
+		<xs:attribute name="versjon" type="xs:string" use="required" fixed="1.1"/>
 		<xs:attribute name="tjenestehandling" type="xs:string" use="required" fixed="aarsregnskap_vanlig"/>
 		<xs:attribute name="tjeneste" type="xs:string" use="required" fixed="regnskap"/>
 		<xs:anyAttribute/>
@@ -27,28 +28,28 @@
 	</xs:complexType>
 	<xs:complexType name="Enhet">
 		<xs:sequence>
-			<xs:element name="organisasjonsnummer" type="EnhetOrganisasjonsnummer"/>
-			<xs:element name="organisasjonsform" type="EnhetOrganisasjonsform"/>
-			<xs:element name="navn" type="EnhetNavn"/>
+			<xs:element name="organisasjonsnummer" type="Organisasjonsnummer"/>
+			<xs:element name="organisasjonsform" type="Organisasjonsform"/>
+			<xs:element name="navn" type="Navn"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="EnhetOrganisasjonsnummer">
+	<xs:complexType name="Organisasjonsnummer">
 		<xs:simpleContent>
 			<xs:extension base="HeltallNi">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="18"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="EnhetOrganisasjonsform">
+	<xs:complexType name="Organisasjonsform">
 		<xs:simpleContent>
-			<xs:extension base="TekstTrettiFemTegn">
+			<xs:extension base="TekstTrettifemTegn">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="756"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="EnhetNavn">
+	<xs:complexType name="Navn">
 		<xs:simpleContent>
-			<xs:extension base="TekstHundreOgSyttiFemTegn">
+			<xs:extension base="TekstHundreOgSyttifemTegn">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="1"/>
 			</xs:extension>
 		</xs:simpleContent>
@@ -65,27 +66,16 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="Taksonomi">
-		<xs:sequence>
-			<xs:element name="berekraftstaksonomi" type="Berekraftstaksonomi" minOccurs="0"/>
-			<xs:element name="berekraftsversjon" type="Berekraftsversjon" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="Standard">
-		<xs:sequence>
-			<xs:element name="berekraftsrapporteringsstandard" type="Berekraftsrapporteringsstandard" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="OpplysningerInnsending">
 		<xs:sequence>
-			<xs:element name="landTilLand" type="ArsregnskapLandTilLand" minOccurs="0"/>
+			<xs:element name="landTilLand" type="LandTilLand" minOccurs="0"/>
 			<xs:element name="avviklingsregnskap" type="Avviklingsregnskap" minOccurs="0"/>
-			<xs:element name="noteMaskinellBehandling" type="TilMaskinellBehandling"/>
-			<xs:element name="utenlandskRegnskapNUF" type="UtenlandskRegnskapNUF" minOccurs="0"/>
+			<xs:element name="tilMaskinellBehandling" type="TilMaskinellBehandling"/>
+			<xs:element name="utenlandskRegnskapNuf" type="UtenlandskRegnskapNuf" minOccurs="0"/>
 			<xs:element name="systemNavn" type="SystemNavn"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ArsregnskapLandTilLand">
+	<xs:complexType name="LandTilLand">
 		<xs:simpleContent>
 			<xs:extension base="Boolean">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="35172"/>
@@ -106,7 +96,7 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="UtenlandskRegnskapNUF">
+	<xs:complexType name="UtenlandskRegnskapNuf">
 		<xs:simpleContent>
 			<xs:extension base="Boolean">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="39006"/>
@@ -132,26 +122,26 @@
 	</xs:complexType>
 	<xs:complexType name="Regnskapsperiode">
 		<xs:sequence>
-			<xs:element name="regnskapsaar" type="RegnskapAr"/>
-			<xs:element name="regnskapsstart" type="RegnskapStartdato"/>
-			<xs:element name="regnskapsslutt" type="RegnskapAvslutningsdato"/>
+			<xs:element name="regnskapsaar" type="Regnskapsaar"/>
+			<xs:element name="regnskapsstartdato" type="Regnskapsstartdato"/>
+			<xs:element name="regnskapssluttdato" type="Regnskapssluttdato"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="RegnskapAr">
+	<xs:complexType name="Regnskapsaar">
 		<xs:simpleContent>
 			<xs:extension base="Tekst">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="17102"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="RegnskapStartdato">
+	<xs:complexType name="Regnskapsstartdato">
 		<xs:simpleContent>
 			<xs:extension base="Dato">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="17103"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="RegnskapAvslutningsdato">
+	<xs:complexType name="Regnskapssluttdato">
 		<xs:simpleContent>
 			<xs:extension base="Dato">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="17104"/>
@@ -161,7 +151,7 @@
 	<xs:complexType name="Konsern">
 		<xs:sequence>
 			<xs:element name="morselskap" type="Morselskap"/>
-			<xs:element name="konsernregnskap" type="KonsernregnskapVedlegg" minOccurs="0"/>
+			<xs:element name="konsernregnskapVedlegg" type="KonsernregnskapVedlegg" minOccurs="0"/>
 			<xs:element name="utenlandskKonsern" type="UtenlandskKonsern" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -188,85 +178,137 @@
 	</xs:complexType>
 	<xs:complexType name="Regnskapsprinsipper">
 		<xs:sequence>
-			<xs:element name="smaaForetak" type="RegnskapsreglerSmaForetak"/>
-			<xs:element name="regnskapsreglerSelskap" type="RegnskapsoppsettIFRS"/>
-			<xs:element name="forenkletIFRS" type="ForenkletIFRS" minOccurs="0"/>
-			<xs:element name="regnskapsreglerKonsern" type="RegnskapsoppsettKonsernIFRS" minOccurs="0"/>
-			<xs:element name="forenkletIFRSKonsern" type="ForenkletIFRSKonsern" minOccurs="0"/>
+			<xs:element name="regnskapsreglerSmaaForetak" type="RegnskapsreglerSmaaForetak"/>
+			<xs:element name="regnskapsreglerSelskap" type="RegnskapssreglerSelskap"/>
+			<xs:element name="forenkletIfrs" type="ForenkletIfrs" minOccurs="0"/>
+			<xs:element name="regnskapsreglerKonsern" type="RegnskapsreglerKonsern" minOccurs="0"/>
+			<xs:element name="forenkletIfrsKonsern" type="ForenkletIfrsKonsern" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="RegnskapsreglerSmaForetak">
+	<xs:complexType name="RegnskapsreglerSmaaForetak">
 		<xs:simpleContent>
 			<xs:extension base="SvarJaNei">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="8079"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="RegnskapsoppsettIFRS">
+	<xs:complexType name="RegnskapssreglerSelskap">
 		<xs:simpleContent>
-			<xs:extension base="SvarNeiJa">
+			<xs:extension base="SvarJaNei">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="25021"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="ForenkletIFRS">
+	<xs:complexType name="ForenkletIfrs">
 		<xs:simpleContent>
 			<xs:extension base="SvarJaNei">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="36639"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="RegnskapsoppsettKonsernIFRS">
+	<xs:complexType name="RegnskapsreglerKonsern">
 		<xs:simpleContent>
-			<xs:extension base="SvarNeiJa">
+			<xs:extension base="SvarJaNei">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="25944"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="ForenkletIFRSKonsern">
+	<xs:complexType name="ForenkletIfrsKonsern">
 		<xs:simpleContent>
 			<xs:extension base="SvarJaNei">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="36641"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
+	<xs:complexType name="Fastsettelse">
+		<xs:sequence>
+			<xs:element name="fastsettelsedato" type="FastsettelseDato"/>
+			<xs:element name="bekreftendeRepresentant" type="BekreftendeRepresentant"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FastsettelseDato">
+		<xs:simpleContent>
+			<xs:extension base="Dato">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="17105"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="BekreftendeRepresentant">
+		<xs:simpleContent>
+			<xs:extension base="TekstSyttiTegn">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="19023"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:complexType name="RevisjonRegnskapsfoerer">
 		<xs:sequence>
-			<xs:element name="aarsregnskapIkkeRevideres" type="ArsregnskapIkkeRevisjonBesluttet" minOccurs="0"/>
-			<xs:element name="aarsregnskapUtarbeidetAutorisertRegnskapsfoerer" type="ArsregnskapUtarbeidelseAvAutorisertRegnskapsforer" minOccurs="0"/>
-			<xs:element name="tjenestebistandEksternAutorisertRegnskapsfoerer" type="TjenestebistandEksternAutorisertRegnskapsforer" minOccurs="0"/>
+			<xs:element name="aarsregnskapIkkeRevisjonBesluttet" type="AarsregnskapIkkeRevisjonBesluttet" minOccurs="0"/>
+			<xs:element name="aarsregnskapUtarbeidetAvAutorisertRegnskapsfoerer" type="AarsregnskapUtarbeidetAvAutorisertRegnskapsfoerer" minOccurs="0"/>
+			<xs:element name="tjenestebistandEksternAutorisertRegnskapsfoerer" type="TjenestebistandEksternAutorisertRegnskapsfoerer" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="Aarsberetning">
-		<xs:sequence>
-			<xs:element name="inkludererBerekraftrapportering" type="InkludererBerekraftrapportering" minOccurs="0"/>
-			<xs:element name="standard" type="Standard" minOccurs="0" maxOccurs="2"/>
-			<xs:element name="taksonomi" type="Taksonomi" minOccurs="0" maxOccurs="2"/>
-			<xs:element name="leiNummer" type="LeiNummer" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ArsregnskapIkkeRevisjonBesluttet">
+	<xs:complexType name="AarsregnskapIkkeRevisjonBesluttet">
 		<xs:simpleContent>
 			<xs:extension base="SvarJaNei">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="34669"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="ArsregnskapUtarbeidelseAvAutorisertRegnskapsforer">
+	<xs:complexType name="AarsregnskapUtarbeidetAvAutorisertRegnskapsfoerer">
 		<xs:simpleContent>
 			<xs:extension base="SvarJaNei">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="34670"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="TjenestebistandEksternAutorisertRegnskapsforer">
+	<xs:complexType name="TjenestebistandEksternAutorisertRegnskapsfoerer">
 		<xs:simpleContent>
 			<xs:extension base="SvarJaNei">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="34671"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="Berekraftsversjon">
+	<xs:complexType name="Aarsberetning">
+		<xs:sequence>
+			<xs:element name="inkludererBaerekraftrapportering" type="InkludererBaerekraftrapportering" minOccurs="0"/>
+			<xs:element name="standard" type="Standard" minOccurs="0" maxOccurs="2"/>
+			<xs:element name="taksonomi" type="Taksonomi" minOccurs="0" maxOccurs="2"/>
+			<xs:element name="leiNummer" type="LeiNummer" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InkludererBaerekraftrapportering">
+		<xs:simpleContent>
+			<xs:extension base="SvarJaNei">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="40309"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Standard">
+		<xs:sequence>
+			<xs:element name="baerekraftsrapporteringsstandard" type="Baerekraftsrapporteringsstandard" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Baerekraftsrapporteringsstandard">
+		<xs:simpleContent>
+			<xs:extension base="TekstTjueTegn">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="40310"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Taksonomi">
+		<xs:sequence>
+			<xs:element name="baerekraftstaksonomi" type="Baerekraftstaksonomi" minOccurs="0"/>
+			<xs:element name="baerekraftsversjon" type="Baerekraftsversjon" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Baerekraftstaksonomi">
+		<xs:simpleContent>
+			<xs:extension base="TekstTjueTegn">
+				<xs:attribute name="orid" type="xs:string" use="required" fixed="40311"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Baerekraftsversjon">
 		<xs:simpleContent>
 			<xs:extension base="TekstTjueTegn">
 				<xs:attribute name="orid" type="xs:string" use="required" fixed="40312"/>
@@ -280,59 +322,18 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="InkludererBerekraftrapportering">
-		<xs:simpleContent>
-			<xs:extension base="SvarJaNei">
-				<xs:attribute name="orid" type="xs:string" use="required" fixed="40309"/>
-			</xs:extension>
-		</xs:simpleContent>
-	</xs:complexType>
-	<xs:complexType name="Berekraftsrapporteringsstandard">
-		<xs:simpleContent>
-			<xs:extension base="TekstTjueTegn">
-				<xs:attribute name="orid" type="xs:string" use="required" fixed="40310"/>
-			</xs:extension>
-		</xs:simpleContent>
-	</xs:complexType>
-	<xs:complexType name="Berekraftstaksonomi">
-		<xs:simpleContent>
-			<xs:extension base="TekstTjueTegn">
-				<xs:attribute name="orid" type="xs:string" use="required" fixed="40311"/>
-			</xs:extension>
-		</xs:simpleContent>
-	</xs:complexType>
-	<xs:complexType name="Fastsettelse">
-		<xs:sequence>
-			<xs:element name="fastsettelsedato" type="RegnskapFastsettelseDato"/>
-			<xs:element name="bekreftendeSelskapsrepresentant" type="StyremedlemNavnSpesifisertStyremedlem"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="RegnskapFastsettelseDato">
-		<xs:simpleContent>
-			<xs:extension base="Dato">
-				<xs:attribute name="orid" type="xs:string" use="required" fixed="17105"/>
-			</xs:extension>
-		</xs:simpleContent>
-	</xs:complexType>
-	<xs:complexType name="StyremedlemNavnSpesifisertStyremedlem">
-		<xs:simpleContent>
-			<xs:extension base="TekstSyttiTegn">
-				<xs:attribute name="orid" type="xs:string" use="required" fixed="19023"/>
-			</xs:extension>
-		</xs:simpleContent>
-	</xs:complexType>
 	<xs:simpleType name="HeltallNi">
 		<xs:restriction base="xs:string">
 			<xs:length value="9"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="TekstTrettiFemTegn">
+	<xs:simpleType name="TekstTrettifemTegn">
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1"/>
 			<xs:maxLength value="35"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="TekstHundreOgSyttiFemTegn">
+	<xs:simpleType name="TekstHundreOgSyttifemTegn">
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1"/>
 			<xs:maxLength value="175"/>
@@ -351,12 +352,6 @@
 	</xs:simpleType>
 	<xs:simpleType name="Tekst">
 		<xs:restriction base="xs:string"/>
-	</xs:simpleType>
-	<xs:simpleType name="SvarNeiJa">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="nei"/>
-			<xs:enumeration value="ja"/>
-		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="SvarJaNei">
 		<xs:restriction base="xs:string">
