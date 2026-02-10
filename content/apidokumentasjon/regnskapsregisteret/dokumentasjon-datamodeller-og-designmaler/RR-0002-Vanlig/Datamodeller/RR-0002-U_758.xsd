@@ -13,7 +13,7 @@
       <xs:element name="Skjemainnhold-RR0002U" type="Skjemainnhold-RR0002U" />
     </xs:sequence>
     <xs:attribute fixed="758" name="dataFormatId" type="xs:string" use="required" />
-    <xs:attribute fixed="51981" name="dataFormatVersion" type="xs:string" use="required" />
+    <xs:attribute fixed="51980" name="dataFormatVersion" type="xs:string" use="required" />
     <xs:attribute fixed="aarsregnskap_vanlig_underskjema" name="tjenestehandling" type="xs:string" use="required" />
     <xs:attribute fixed="regnskap" name="tjeneste" type="xs:string" use="required" />
     <xs:anyAttribute namespace="##any" />
