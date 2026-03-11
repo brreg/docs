@@ -28,7 +28,7 @@ Husk `Bearer` før tokenet.
 | HTTP-metode | URL                                               | Beskrivelse                                                                         | Sikret med jwt |
 |:------------|:--------------------------------------------------|:------------------------------------------------------------------------------------|:---------------|
 | POST        | https://mottak.brreg.no/inbound/upload            | Sender inn melding med 0 eller flere vedlegg                                        | JA             |
-| POST        | https://mottak.brreg.no/inbound/genererSignertPdf | Sender inn melding, får tilbake en signert PDF med forretningsmeldingen som vedlegg | JA             |
+| POST        | https://mottak.brreg.no/inbound/genererSignertPdf | Sender inn melding, får tilbake en PAdES-signert PDF med forretningsmeldingen som vedlegg | JA             |
 
 ### /upload
 
@@ -127,7 +127,7 @@ ResponseEntity<String> objectResponseEntity = restTemplate.exchange("https://mot
 
 ### /genererSignertPdf
 
-Denne forespørselen laster opp en melding, og får tilbake en signert PDF med forretningsmeldingen som vedlegg.
+Denne forespørselen laster opp en melding, og får tilbake en PAdES-signert PDF med forretningsmeldingen som vedlegg.
 
 Endepunktet tar i mot **POST** med melding som body:
 
