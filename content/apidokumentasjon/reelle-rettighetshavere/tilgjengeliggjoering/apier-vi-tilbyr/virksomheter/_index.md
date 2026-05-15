@@ -52,7 +52,7 @@ maskinporten-scope har tilgang til.
 | Offentlig myndighet i § 3-11 (1)                                                                     | **brreg:reelle/offentlig**                                                                                        | X          | X                                            | X                                       | X                          | X            |
 | Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav a, b, c, e, g, h til k, n og o | **brreg:reelle/rapporteringspliktig**                                                                             | X          | X                                            |                                         |                            | X            |
 | Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav d, f, l og m                   | **brreg:reelle/rapporteringspliktig.begrenset**                                                                   | X          | X                                            |                                         |                            | X            |
-| Medier, sivilsamfunnsorganisasjoner og høyere utdanningsinstitusjoner i § 3-11 (2), (3) og (4) ledd. | **brreg:reelle/media**, **brreg:reelle/sivilsamfunnsorganisasjon**, **brreg:reelle/hoeyereutdanningsinstitusjon** | X          | X                                            |                                         |                            | X            |                          
+| Medier, sivilsamfunnsorganisasjoner og høyere utdanningsinstitusjoner i § 3-11 (2), (3) og (4) ledd. | **brreg:reelle/media**, **brreg:reelle/sivilsamfunnsorganisasjon**, **brreg:reelle/hoeyereutdanningsinstitusjon** | X          | X                                            |                                         |                            | X            |
 | Alle andre                                                                                           | **Krever ikke maskinporten-scope**                                                                                | X          |                                              |                                         |                            |              |
 
 ## Tilgang til informasjon som er begrenset
@@ -62,11 +62,11 @@ oversikt over alle tilgjengelige
 felter og særregler kan ses i løsningsmodell
 for [virksomhet](../../../../../informasjonsmodeller/reelle-rettighetshavere/loesningsmodeller/rrh_loesningsmodell_virksomhet.md).
 
-| Aktør                                                                                                | Maskinporten-scope                                                                                                | Fødselsnummer og D-nummer |  
+| Aktør                                                                                                | Maskinporten-scope                                                                                                | Fødselsnummer og D-nummer |
 |------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|---------------------------|
 | Offentlig myndighet i § 3-11 (1)                                                                     | **brreg:reelle/offentlig**                                                                                        | X                         |
 | Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav a, b, c, e, g, h til k, n og o | **brreg:reelle/rapporteringspliktig**                                                                             | X                         |
-| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav d, f, l og m                   | **brreg:reelle/rapporteringspliktig.begrenset**                                                                   | X                         
+| Rapporteringspliktige etter hvitvaskingsloven § 4 første ledd bokstav d, f, l og m                   | **brreg:reelle/rapporteringspliktig.begrenset**                                                                   | X
 | Medier, sivilsamfunnsorganisasjoner og høyere utdanningsinstitusjoner i § 3-11 (2), (3) og (4) ledd. | **brreg:reelle/media**, **brreg:reelle/sivilsamfunnsorganisasjon**, **brreg:reelle/hoeyereutdanningsinstitusjon** |                           |
 
 Se tabellen under for hvilke data ditt maskinporten-scope har tilgang til å se om uoverensstemmelser.
@@ -111,153 +111,4 @@ deg alle endringer, anbefaler vi å bruke `/sekvensnummer` med et tidspunkt noen
 
 ## Endringer i APIet
 
-Her dokumenteres alle endringer som er gjort på Virksomhet APIet for Reelle Rettighetshavere.  
-Formatet er basert på [keep a changelog](https://keepachangelog.com/en/1.1.0/)
-og dette prosjektet følger [semantisk versjonering](https://semver.org/spec/v2.0.0.html).
-
-### 1.5.4 - 2026-01-07
-
-#### Endret
- 
-Korrigert eksempler til følgende endepunkt i OpenAPI-spesifikasjonen:
-
-- Finn registreringspliktige virksomheter (`/v1/virksomheter`)
-- Hent neste sekvensnummer (`/v1/sekvensnummer`)
-- Hent registreringspliktig virksomhet (`/v1/virksomheter/{organisasjonsnummer}`)
-- Totalbestand (`/v1/virksomheter/totalbestand`)
-
-
-### 1.5.3 - 2025-12-15
-
-#### Endret
-
-Rettet feil i OpenAPI-spesifikasjon for endepunkt for å hente endringslogg: `/v1/endringslogg`:
-
-- Enkelte felter på EndringsloggResponse-objektet som var feilaktig markert som optional er nå required. Dette gjelder følgende felt:
-  - `specversion`
-  - `id`
-  - `source`
-  - `type`
-  - `time`
-- **Merk:** API-atferden er uendret — kun dokumentasjonen er korrigert.
-
-
-### 1.5.2 - 2025-12-09
-
-#### Endret
-
-Rettet feil i OpenAPI-spesifikasjon for endepunkt for å hente sekvensnummer etter dato: `/v1/sekvensnummer`:
-
-- Felt `sekvensnummer` i SekvensnummerResponse-objektet er nå markert som required.
-- **Merk:**  API-atferden er uendret — kun dokumentasjonen er korrigert.
-
-Rettet feil i OpenAPI-spesifikasjon for endepunkt for enkeltsopplag på organisasjonsnummer:
-`/v1/virksomheter/{organisasjonsnummer}`.
-
-- Enkelte felter som var feilaktig markert som optional er nå required. Dette gjelder følgende felt:
-    - `internettadresse` (RegulertMarked-objektet)
-    - `adresse` (UtenlandskVirksomhet-objektet)
-- Enkelte listefelter som var feilaktig markert som optional er nå required. Hvis listen ikke har noen elementer får man
-  en tom liste. Dette gjelder feltene:
-    - `mellomliggendeVirksomheter` (Posisjon-objektet)
-    - `statsborgerskap` (Person-objektet)
-
-- Enkelte felter på personrelaterte objekter som var feilaktig markert som required er nå optional. Dette gjelder
-  følgende
-  felt:
-    - `foedselsEllerDNummer` (Person-objektet)
-        - Se tabell over for å se hvilke Maskinporten-scopes som har tilgang til feltet.
-    - `navn` (Person-objektet)
-    - `foedselsdato` (UtenlandskPerson-objektet)
-    - `fulltNavn` (UtenlandskPerson-objektet)
-    - **Merk:** Bakgrunnen for endringen er at noen Maskinporten-scopes ikke har tilgang til disse feltene når personen
-      i responsen er unntatt fra innsyn.
-- **Merk:**  API-atferden er uendret — kun dokumentasjonen er korrigert.
-
-### 1.5.1 - 2025-11-11
-
-#### Endret
-
-- Tar i bruk landkode "XUK" (Uoppgitt) når bostedsland for person er ukjent. Tidligere returnerte APIet verdien "
-  UKJENT".
-
-### 1.5.0 - 2025-06-30
-
-### Lagt til
-
-* Endringer på klassen Uoverensstemmelse
-  i [løsningsmodellen](../../../../../informasjonsmodeller/reelle-rettighetshavere/loesningsmodeller/rrh_loesningsmodell_virksomhet/)
-    * Nytt felt innsender på uoverensstemmelse. En innsender kan være:
-        * En utenlandsk person
-        * En folkeregistrert person
-        * Eller en norsk virksomhet
-
-### 1.4.0 - 2025-03-28
-
-### Lagt til
-
-* Gitt tilgang til endepunkt for å hente endringslogg til følgende Maskinporten-scope:
-    * brreg:reelle/offentlig (Hadde tilgang fra før)
-    * brreg:reelle/rapporteringspliktig
-    * brreg:reelle/rapporteringspliktig.begrenset
-    * brreg:reelle/media
-    * brreg:reelle/sivilsamfunnsorganisasjon
-    * brreg:reelle/hoeyereutdanningsinstitusjon
-
-### 1.3.0 - 2025-03-21
-
-#### Lagt til
-
-* Vi tilgjengeliggjør nå en registrering med registreringsstatus `registreringsstatus.rettighetsinformasjonErIkkeMeldt`
-  for alle registreringspliktige virksomheter i Register over reelle rettighetsavere.
-    * Denne typen registrering er opprettet av Brønnøysundregistrene, og indikerer at virksomheten er
-      registeringspliktig i registeret.
-    * **Merk:** Hvis oppslag på opplysninger om reelle rettighetshavere returnerer `404 - NOT FOUND` indikerer det at
-      virksomheten ikke er registreringspliktig og kan dermed ikke registrere seg i registeret.
-* Ny type `no.brreg.rrh.rettighetsinformasjon.klargjortForRegistrering` i responsen til endringsloggen for
-  registreringer med registreringsstatus `registreringsstatus.rettighetsinformasjonErIkkeMeldt`
-
-### 1.2.1 - 2025-03-21
-
-#### Lagt til
-
-* Tabell over tilgang til data om `uoverensstemmelse`
-
-### 1.2.0 - 2025-03-06
-
-#### Lagt til
-
-* Registreringer kan nå inneholde opplysninger om `uoverensstemmelse`
-    * Se løsningsmodellen for mer informasjon.
-
-### 1.1.0 - 2024-10-24
-
-#### Lagt til
-
-* Språkstøtte for kodelisteverdier
-    * Det er introdusert et nytt parameter som muliggjør uthenting av responser med kodelisteverdier også på nynorsk og
-      engelsk.
-    * Funksjonaliteten er implementert på følgende endepunkter: `hentRegistreringspliktigVirksomhet`,
-      `finnRegistreringspliktigeVirksomheter`, `hentRelevanteKodelister`
-    * Funksjonaliteten er implementert i form av en frivillig HTTP-header: `Accept-Language`. Mulige verdier for
-      headeren: `nob` (bokmål), `nno` (nynorsk) og `eng` (engelsk)
-    * Hvis `Accept-Language`-headeren ikke er spesifisert eller er spesifisert med en ugyldig verdi, vil responsen
-      returnere verdier på Bokmål som standard.
-
-### 1.0.0 - 2024-09-28
-
-API-ene er ikke lenger i beta-fasen og kan nå anses som stabile.
-
-### 1.0.0-beta2 - 2024-02-28
-
-#### Lagt til
-
-- Nytt endepunkt for å hente en liste med alle tilgjenglige kodelister. Dette endepunktet kan feks. brukes til
-  visning i eventuelle brukergrensesnitt, dynamisk oppdatering av kodelister, validering og lignende.
-
-#### Endret
-
-- Funksjonalitet for oppslag på virksomhet er endret til å inkludere opplysninger om både nåværende og tidligere
-  registrerte reelle rettighetshavere.
-- Søk på fødselsnummer er oppdatert til å gi en liste over virksomheter hvor personen, identifisert ved det angitte
-  fødsels- eller D-nummeret, er eller har vært registrert som reell rettighetshaver.
+Endringsloggen for Virksomhet APIet finner du i [swagger-dokumentasjonen til applikasjonen](https://rrh.brreg.no/api/oppslag/v1/docs/CHANGELOG.html).
