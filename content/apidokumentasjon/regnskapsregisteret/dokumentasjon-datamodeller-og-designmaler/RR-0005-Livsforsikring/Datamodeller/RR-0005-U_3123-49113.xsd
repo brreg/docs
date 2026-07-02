@@ -60,7 +60,7 @@
 	</xs:complexType>
 	<xs:complexType name="Resultatregnskap">
 		<xs:sequence>
-			<xs:element name="premieinntekt" type="Premieinntekt"/>
+			<xs:element name="premieinntekt" type="Premieinntekt" minOccurs="0"/>
 			<xs:element name="nettoInntekterKollektivportefoeljen" type="NettoInntekterKollektivportefoeljen" minOccurs="0"/>
 			<xs:element name="nettoInntekterInvesteringsportefoeljen" type="NettoInntekterInvesteringsportefoeljen" minOccurs="0"/>
 			<xs:element name="oversiktErstatninger" type="OversiktErstatninger" minOccurs="0"/>
@@ -589,9 +589,9 @@
 	</xs:complexType>
 	<xs:complexType name="BruttoUtbetalteErstatninger">
 		<xs:sequence>
-			<xs:element name="note" type="NoteErstatningerBrutto"/>
-			<xs:element name="aarets" type="ErstatningerBrutto"/>
-			<xs:element name="fjoraarets" type="ErstatningerBruttoFjordaret"/>
+			<xs:element name="note" type="NoteErstatningerBrutto" minOccurs="0"/>
+			<xs:element name="aarets" type="ErstatningerBrutto" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="ErstatningerBruttoFjordaret" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="NoteErstatningerBrutto">
@@ -2327,9 +2327,9 @@
 			<xs:element name="investeringer" type="Investeringer" minOccurs="0"/>
 			<xs:element name="fordringer" type="Fordringer" minOccurs="0"/>
 			<xs:element name="andreEiendeler" type="AndreEiendeler" minOccurs="0"/>
-			<xs:element name="forskuddsbetalteKostnaderOpptjenteInntekter" type="ForskuddsbetalteKostnaderOpptjenteIkkemottatteInntekter"/>
+			<xs:element name="forskuddsbetalteKostnaderOpptjenteInntekter" type="ForskuddsbetalteKostnaderOpptjenteIkkemottatteInntekter" minOccurs="0"/>
 			<xs:element name="investeringerKollektivportefoeljen" type="InvesteringerKollektivportefoeljen" minOccurs="0"/>
-			<xs:element name="investeringerInvesteringsportefoeljen" type="InvesteringerInvesteringsportefoeljen" minOccurs="0"/>
+			<xs:element name="investeringerInvesteringsportefoeljen" type="InvesteringerInvesteringsportefoeljen"/>
 			<xs:element name="innskuttEgenkapital" type="InnskuttEgenkapital" minOccurs="0"/>
 			<xs:element name="opptjentEgenkapital" type="OpptjentEgenkapital" minOccurs="0"/>
 			<xs:element name="ansvarligLaanekapital" type="AnsvarligLaanekapital" minOccurs="0"/>
@@ -2342,7 +2342,7 @@
 	</xs:complexType>
 	<xs:complexType name="ImmaterielleEiendeler">
 		<xs:sequence>
-			<xs:element name="goodwill" type="Goodwill"/>
+			<xs:element name="goodwill" type="Goodwill" minOccurs="0"/>
 			<xs:element name="andreImmaterielleEiendeler" type="AndreImmaterielleEiendeler" minOccurs="0"/>
 			<xs:element name="sumImmaterielleEiendeler" type="SumImmaterielleEiendeler" minOccurs="0"/>
 		</xs:sequence>
@@ -2442,7 +2442,7 @@
 			<xs:element name="investeringerForfall" type="InvesteringerForfall" minOccurs="0"/>
 			<xs:element name="utlaanFordringerAmortisert" type="UtlaanFordringerAmortisert" minOccurs="0"/>
 			<xs:element name="finansielleEiendelerAmortisert" type="FinansielleEiendelerAmortisert" minOccurs="0"/>
-			<xs:element name="aksjerAndeler" type="AksjerAndeler"/>
+			<xs:element name="aksjerAndeler" type="AksjerAndeler" minOccurs="0"/>
 			<xs:element name="obligasjonerVerdipapirer" type="ObligasjonerVerdipapirer" minOccurs="0"/>
 			<xs:element name="utlaanFordringerVirkeligVerdi" type="UtlaanFordringerVirkeligVerdi" minOccurs="0"/>
 			<xs:element name="finansielleDerivater" type="FinansielleDerivater" minOccurs="0"/>
@@ -3208,9 +3208,9 @@
 	</xs:complexType>
 	<xs:complexType name="OpptjenteIkkeMottatteInntekterRenter">
 		<xs:sequence>
-			<xs:element name="note" type="NoteLeieinntekterMvOpptjentIkkeMottatt"/>
-			<xs:element name="aarets" type="LeieinntekterMvOpptjentIkkeMottatt"/>
-			<xs:element name="fjoraarets" type="LeieinntekterMvOpptjentIkkeMottattFjoraret"/>
+			<xs:element name="note" type="NoteLeieinntekterMvOpptjentIkkeMottatt" minOccurs="0"/>
+			<xs:element name="aarets" type="LeieinntekterMvOpptjentIkkeMottatt" minOccurs="0"/>
+			<xs:element name="fjoraarets" type="LeieinntekterMvOpptjentIkkeMottattFjoraret" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="NoteLeieinntekterMvOpptjentIkkeMottatt">
