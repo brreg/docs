@@ -3028,7 +3028,49 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ArsregnskapValutakode">
-		<xs:restriction base="xs:string"/>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NOK"/>
+			<xs:enumeration value="EUR"/>
+			<xs:enumeration value="GBP"/>
+			<xs:enumeration value="USD"/>
+			<xs:enumeration value="SEK"/>
+			<xs:enumeration value="DKK"/>
+			<xs:enumeration value="AUD"/>
+			<xs:enumeration value="BGN"/>
+			<xs:enumeration value="BRL"/>
+			<xs:enumeration value="CAD"/>
+			<xs:enumeration value="CHF"/>
+			<xs:enumeration value="CNY"/>
+			<xs:enumeration value="CZK"/>
+			<xs:enumeration value="ESB"/>
+			<xs:enumeration value="GIP"/>
+			<xs:enumeration value="HKD"/>
+			<xs:enumeration value="HRK"/>
+			<xs:enumeration value="HUF"/>
+			<xs:enumeration value="IDR"/>
+			<xs:enumeration value="ILS"/>
+			<xs:enumeration value="INR"/>
+			<xs:enumeration value="ISK"/>
+			<xs:enumeration value="JPY"/>
+			<xs:enumeration value="KRW"/>
+			<xs:enumeration value="LTL"/>
+			<xs:enumeration value="LUF"/>
+			<xs:enumeration value="LVL"/>
+			<xs:enumeration value="MXN"/>
+			<xs:enumeration value="MYR"/>
+			<xs:enumeration value="NZD"/>
+			<xs:enumeration value="PHP"/>
+			<xs:enumeration value="PKR"/>
+			<xs:enumeration value="PLN"/>
+			<xs:enumeration value="ROL"/>
+			<xs:enumeration value="RUB"/>
+			<xs:enumeration value="SGD"/>
+			<xs:enumeration value="THB"/>
+			<xs:enumeration value="TRL"/>
+			<xs:enumeration value="TWD"/>
+			<xs:enumeration value="USN"/>
+			<xs:enumeration value="ZAR"/>
+		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ArsregnskapValoer">
 		<xs:restriction base="xs:string">
