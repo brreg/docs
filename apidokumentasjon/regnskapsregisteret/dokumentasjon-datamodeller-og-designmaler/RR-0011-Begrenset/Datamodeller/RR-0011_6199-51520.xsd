@@ -232,9 +232,9 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="NoteDesimalverdiTolvTegn">
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="12"/>
-			<xs:minLength value="1"/>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="9"/>
+			<xs:fractionDigits value="2"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="Boolean">
